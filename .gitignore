@@ -1,3 +1,4 @@
 /node_modules
 /npm-debug.log
 /React-Redux-WP-Boilerplate
+.DS_Store
