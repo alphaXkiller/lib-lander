@@ -1,2 +1,2 @@
 # lib-lander
-LIb Lander 2017
+LIB Lander 2017
