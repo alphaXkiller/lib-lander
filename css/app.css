@@ -1,0 +1,137 @@
+body {
+	margin: 0;
+	background-color: #040508;
+	font-family: sans-serif;
+}
+
+.mc {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background-color: #040508;
+	overflow: hidden;
+}
+
+.pc {
+	width: calc(100% - 80px);
+    float: left;
+    height: 100%;
+    position: relative;
+}
+.pc .cols {
+	position: relative;
+	width: 14%;
+	float: right;
+    border-right: 1px solid rgba(255,255,255,.4);
+    mix-blend-mode: overlay;
+	height: 100%;
+}
+
+.sidebar {
+    width: 80px;
+    float: right;
+    height: 100%;
+}
+
+.copy_form {
+	position: absolute;
+	z-index: 3;
+	right: 3px;
+    width: 42%;
+}
+	.copy_form h1 {color: #fff; letter-spacing: 5px;}
+	.copy_form .copy {color: #fff; padding-right: 28%;}
+
+/* LOGO */
+.logo {
+	position: absolute;
+    right: calc(49% + -6px);
+    height: inherit;
+    z-index: 3;
+    width: 42%;
+}
+svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: 1;
+}
+.arch {
+	fill:#9DDAE6;
+	stroke:#38BFEF;
+	stroke-width:1.5;
+	filter:url(#blue-glow);
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:10;
+}
+.lib-fill {
+	fill:url(#SVGID_1_);
+	stroke:#F9AA1A;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:10;
+}
+.lib-fill-2 {
+	fill:url(#SVGID_2_);
+	stroke:#F9AA1A;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:10;
+}
+
+.lib {filter: url(#lib-glow);}
+
+.top-word-arch {
+	fill:url(#SVGID_3_);
+	fill-rule:evenodd;
+	clip-rule:evenodd;
+	stroke:#F9AA1A;
+	stroke-width:0.5;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:10;
+}
+
+.bottom-word-arch{
+	fill:url(#SVGID_4_);
+	fill-rule:evenodd;
+	clip-rule:evenodd;
+	stroke:#F9AA1A;
+	stroke-width:0.5;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:10;
+}
+
+.green-radial {
+	position: absolute;
+	top: -20vh;
+	left: -10%;
+	width: 75%;
+	height: 120vh;
+	background-image:
+		radial-gradient(
+			rgba(13, 39, 50, 100),
+			rgba(13, 39, 50, 0) 75%,
+			rgba(13, 39, 50, 0)
+		);
+    z-index: -1;
+}
+
+.blue-radial {
+	position: absolute;
+	top: -10vh;
+	left: 40%;
+	width: 80%;
+	height: 140vh;
+	background-image:
+		radial-gradient(
+			rgba(25, 49, 90, 100),
+			rgba(25, 49, 90, 0) 70%,
+			rgba(25, 49, 90, 0)
+		);
+    z-index: -1;
+}
