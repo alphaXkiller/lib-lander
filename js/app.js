@@ -1,6 +1,7 @@
-function isMobile() {
-	try{ document.createEvent("TouchEvent"); return true; }
-	catch(e){ return false; }
+
+function isMobile(){
+	var md = new MobileDetect(window.navigator.userAgent);
+	return md.is('mobile');
 }
 
 $(document).bind('mousemove', function(e){
@@ -54,6 +55,7 @@ $(function(){
 	
 	
 	if(isMobile()){
+		console.log('mobile!');
 		$('#arcs').data('depth', 		'-0.05');
 		$('#halo_top').data('depth', 	'-0.25');
 		$('#halo_bottom').data('depth', '-0.25');
