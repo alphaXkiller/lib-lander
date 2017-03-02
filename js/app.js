@@ -51,11 +51,11 @@ $(function(){
 	
 	
 	if( md.mobile() ){
-		$('#arcs').data('depth', 		'-0.05');
-		$('#halo_top').data('depth', 	'-0.25');
-		$('#halo_bottom').data('depth', '-0.25');
-		$('#life_is').data('depth', 	'0.1');
-		$('#beautiful').data('depth', 	'0.3');
+		$('#arcs').data('depth', 		'-3');
+		$('#halo_top').data('depth', 	'-1.5');
+		$('#halo_bottom').data('depth', '-1.5');
+		$('#life_is').data('depth', 	'2');
+		$('#beautiful').data('depth', 	'3');
 		parallax.updateLayers();
 	}
 });
