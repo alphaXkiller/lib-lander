@@ -56,6 +56,7 @@ $(function(){
 		$('#halo_bottom').data('depth', '-0.25');
 		$('#life_is').data('depth', 	'0.1');
 		$('#beautiful').data('depth', 	'0.3');
+		parallax.updateLayers();
 	}
 });
 
