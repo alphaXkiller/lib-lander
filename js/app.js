@@ -55,7 +55,7 @@ $(function(){
 	
 	
 	if(isMobile()){
-		console.log('mobile!');
+		alert('mobile!');
 		$('#arcs').data('depth', 		'-0.05');
 		$('#halo_top').data('depth', 	'-0.25');
 		$('#halo_bottom').data('depth', '-0.25');
