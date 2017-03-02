@@ -1,8 +1,4 @@
-
-function isMobile(){
-	var md = new MobileDetect(window.navigator.userAgent);
-	return md.is('mobile');
-}
+var md = new MobileDetect(window.navigator.userAgent);
 
 $(document).bind('mousemove', function(e){
     var w = $('#logobox').width();
@@ -54,8 +50,7 @@ $(function(){
 	});
 	
 	
-	if(isMobile()){
-		alert('mobile!');
+	if( md.mobile() ){
 		$('#arcs').data('depth', 		'-0.05');
 		$('#halo_top').data('depth', 	'-0.25');
 		$('#halo_bottom').data('depth', '-0.25');
