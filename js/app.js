@@ -1,3 +1,8 @@
+function isMobile() {
+	try{ document.createEvent("TouchEvent"); return true; }
+	catch(e){ return false; }
+}
+
 $(document).bind('mousemove', function(e){
     var w = $('#logobox').width();
     var h = $('#logobox').height();
@@ -46,4 +51,16 @@ $(function(){
 		$(this).children('.icon_out').fadeIn(300);
 		$(this).children('.icon_over').fadeOut(300);
 	});
+	
+	
+	if(isMobile()){
+		$('#arcs').data('depth', 		'-0.05');
+		$('#halo_top').data('depth', 	'-0.25');
+		$('#halo_bottom').data('depth', '-0.25');
+		$('#life_is').data('depth', 	'0.1');
+		$('#beautiful').data('depth', 	'0.3');
+	}
 });
+
+
+

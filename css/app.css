@@ -198,6 +198,7 @@ svg {
     z-index: -1;
 }
 @media only screen and (max-device-width: 30rem) {
+	.mc {overflow: auto;}
 	.pc {width: 100%;}
 	.logo {
 		width: 90%;
