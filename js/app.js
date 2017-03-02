@@ -33,7 +33,10 @@ $(document).bind('mousemove', function(e){
     });
 });
 var scene = document.getElementById('paralogo');
-var parallax = new Parallax(scene);
+var parallax = new Parallax(scene, {
+	calibrateX: true,
+	calibrateY: true,
+});
 
 $(function(){
 	$('.social_icon').on('mouseenter', function(){
