@@ -1,7 +1,27 @@
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=db083cc8-b36c-4567-a4c5-7d22eb12cff8");
+@font-face{
+    font-family:"AN-Reg";
+    src:url("Fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
+    src:url("Fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"),
+    url("Fonts/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"),
+    url("Fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"),
+    url("Fonts/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype"),
+    url("Fonts/52a192b1-bea5-4b48-879f-107f009b666f.svg#52a192b1-bea5-4b48-879f-107f009b666f") format("svg");
+}
+@font-face{
+    font-family:"AN-Bold";
+    src:url("Fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix");
+    src:url("Fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("eot"),
+    url("Fonts/14c73713-e4df-4dba-933b-057feeac8dd1.woff2") format("woff2"),
+    url("Fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff"),
+    url("Fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf") format("truetype"),
+    url("Fonts/ed104d8c-7f39-4e8b-90a9-4076be06b857.svg#ed104d8c-7f39-4e8b-90a9-4076be06b857") format("svg");
+}
+
 body {
 	margin: 0;
 	background-color: #040508;
-	font-family: sans-serif;
+	font-family: 'AN-Reg', sans-serif;
 }
 
 .mc {
@@ -22,7 +42,7 @@ body {
 	position: relative;
 	width: 14%;
 	float: right;
-    border-right: 1px solid rgba(255,255,255,.4);
+    border-right: 1px solid rgba(50,135,223,0.15);
     mix-blend-mode: overlay;
 	height: 100%;
 }
@@ -31,25 +51,66 @@ body {
     width: 80px;
     float: right;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+	.sidebar .social_icon {display: inline-block; position: relative; width: 36px; height: 36px; margin: 4px 0; cursor: pointer;}
+	.sidebar .social_icon a {display: inline-block; position: absolute; width: 100%; height: 100%; z-index: 7;}
+	.sidebar .social_icon .icon_out {background-image: url('../img/social-sprite-blue.png'); width: 36px; height: 36px; background-size: cover; position: absolute; z-index: 6;}
+	.sidebar .social_icon .icon_over {background-image: url('../img/social-sprite-pink.png'); width: 36px; height: 36px; background-size: cover; position: absolute; z-index: 5; display: none;}
+	
+	.sidebar .social_icon .snapchat 	{background-position-x: calc(-36px * 0);}
+	.sidebar .social_icon .twitter 		{background-position-x: calc(-36px * 1);}
+	.sidebar .social_icon .facebook 	{background-position-x: calc(-36px * 2);}
+	.sidebar .social_icon .instagram 	{background-position-x: calc(-36px * 3);}
+	.sidebar .social_icon .youtube 		{background-position-x: calc(-36px * 4);}
+
 
 .copy_form {
 	position: absolute;
 	z-index: 3;
+	top: 50%;
+	transform: translateY(-50%);
 	right: 3px;
     width: 42%;
 }
-	.copy_form h1 {color: #fff; letter-spacing: 5px;}
-	.copy_form .copy {color: #fff; padding-right: 28%;}
+	.copy_form h1 {color: #fff; letter-spacing: 5px; font-family: 'AN-Bold', sans-serif; font-size: 1.25rem}
+	.copy_form .copy {color: #fff; line-height: 1.5rem; padding-right: 17%}
+
+.emlform {
+	
+}	
+	.emlform .email_address {
+	    -webkit-appearance: none;
+	    border: none;
+	    padding: 15px;
+	    width: 56%;
+	    background-color: rgba(0,0,0,0.35);
+	    color: #fff;
+	    font-size: 1rem;
+	    margin-right: 2%;
+	}
+	.emlform .submit_btn {
+		border: 1px solid #fff;
+	    padding: 15px;
+	    background: none;
+	    color: #fff;
+	    font-size: 1rem;
+	    cursor: pointer
+	}
 
 /* LOGO */
 .logo {
 	position: absolute;
+	top: 50%;
     right: calc(49% + -6px);
-    height: inherit;
+	transform: translateY(-50%);
     z-index: 3;
     width: 42%;
 }
+.logo .logobox {height: 608px;}
 svg {
 	position: absolute;
 	top: 0;
@@ -57,6 +118,7 @@ svg {
 	width: 100%;
 	height: auto;
 	z-index: 1;
+	overflow: visible;
 }
 .arch {
 	fill:#9DDAE6;
