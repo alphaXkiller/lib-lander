@@ -125,7 +125,7 @@ $(function(){
 	setTimeout(function(){
 		var n = 0;
 		$('.social_icon').each(function(){
-			$(this).children('.icon_over').delay(125*n).fadeIn(200).animate({'opacity':'0'}, 400);
+			$(this).children('.icon_over').delay(125*n).fadeIn(200).delay(200).fadeOut(400);
 			$(this).children('.soc_off').delay(225*n).animate({'opacity':'1'}, 400);
 			n++;
 		})
