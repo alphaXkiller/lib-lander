@@ -119,8 +119,8 @@ $(function(){
 	}, 4900);
 	// BG GLOW
 	setTimeout(function(){
-		$('.blue-radial').animate({'opacity':'1'}, 500);
-	}, 5000);
+		$('.blue-radial').animate({'opacity':'1'}, 650);
+	}, 5200);
 	// SOCIAL ICONS
 	setTimeout(function(){
 		var n = 0;
