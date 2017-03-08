@@ -1,6 +1,5 @@
 var md = new MobileDetect(window.navigator.userAgent);
 
-
 $(document).bind('mousemove', function(e){
 	/* Set dimensions of transform */
 	var w = $('#logobox').width();
@@ -73,54 +72,55 @@ $(function(){
 			$theseClasses = $(this).data('onclasses');
 			$(this).addClass('powerOn '+$theseClasses).removeClass('fill-off');
 		});
-	}, 3000);
+	}, 2000);
 	// ARCS
 	setTimeout(function(){
 		$('.arch-activated').each(function(){		
 			$theseClasses = $(this).data('onclasses');
 			$(this).addClass('powerOn '+$theseClasses).removeClass('fill-off');
 		});
-	}, 3500);
+	}, 2500);
 	// WORDS
 	setTimeout(function(){
 		$('.words-activated').each(function(){		
 			$theseClasses = $(this).data('onclasses');
 			$(this).addClass('powerOn '+$theseClasses).removeClass('fill-off');
 		});
-	}, 3750);
+	}, 2750);
 	// BG GLOW
 	setTimeout(function(){
 		$('.green-radial').animate({'opacity':'1'}, 650);
-	}, 3750);
+	}, 2750);
 	// NY,NE
 	setTimeout(function(){
 		$('.nyne-activated').each(function(){		
 			$theseClasses = $(this).data('onclasses');
 			$(this).addClass('powerOn '+$theseClasses).removeClass('off');
 		});
-	}, 4550);
+	}, 3550);
 	// COPY
 	setTimeout(function(){
 		$('.bc-activated').each(function(){		
 			$(this).addClass('powerOn').removeClass('off');
 		});
-	}, 4750);
+	}, 3750);
 	// CTA1
 	setTimeout(function(){
 		$('.cta1-activated').each(function(){		
 			$(this).addClass('powerOn').removeClass('off');
 		});
-	}, 4800);
+	}, 3800);
 	// CTA2
 	setTimeout(function(){
 		$('.cta2-activated').each(function(){		
 			$(this).addClass('powerOn').removeClass('cta_off');
 		});
-	}, 4900);
+	}, 3900);
 	// BG GLOW
 	setTimeout(function(){
 		$('.blue-radial').animate({'opacity':'1'}, 650);
-	}, 5200);
+		$('.col_off').animate({'opacity':'1'}, 400);
+	}, 4200);
 	// SOCIAL ICONS
 	setTimeout(function(){
 		var n = 0;
@@ -129,7 +129,8 @@ $(function(){
 			$(this).children('.soc_off').delay(225*n).animate({'opacity':'1'}, 400);
 			n++;
 		})
-	}, 6500);
+		$('.libfoot-off').animate({'opacity':'1'}, 1500);
+	}, 5500);
 });
 
 
