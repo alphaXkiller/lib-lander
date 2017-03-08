@@ -1,7 +1,18 @@
-body {
-	padding: 0;
-	margin: 0;
+/*
+ * NEON.CSS
+ * Styling, transforms and animations for the LIB logo neon effect
+ * Credit: Spencer Fink, Tom Madrid, R&R Partners 2017
+ *
+ */
+
+/* TRANSFORMS  */
+/* =========== */
+.btful-warp, .life_is-warp, .arch-warp, .word-warp {
+	transform-style: preserve-3d;
+    transform-origin: 50% 50%;
 }
+/* =========== */
+/* TRANSFORMS  */
 
 .arch {
 	fill:#6fd5e2;
@@ -13,11 +24,21 @@ body {
 	stroke-miterlimit:10;
 }
 
+.fill-off {
+    fill: rgba(70,70,70,0.1);
+    stroke: rgba(50,50,50,0.05);
+	stroke-width:1.5;
+	filter:url(#off-svg);
+}
+
+/* FILLS */
+/* ============= */
 .lfe-fill {
 	opacity: .8;
 	fill:url(#SVGID_1_);
 	stroke:#F9AA1A;
 	stroke-miterlimit:10;
+	filter: url(#lib-glow);
 }
 
 .i-fill {
@@ -25,6 +46,7 @@ body {
 	fill:url(#SVGID_2_);
 	stroke:#F9AA1A;
 	stroke-miterlimit:10;
+	filter: url(#lib-glow);
 }
 
 .is-fill {
@@ -32,36 +54,73 @@ body {
 	fill:url(#SVGID_3_);
 	stroke:#F9AA1A;
 	stroke-miterlimit:10;
+	filter: url(#lib-glow);
 }
+.beautiful-fill {
+	fill:url(#SVGID_4_);
+	stroke:#F9AA1A;
+	stroke-miterlimit:10;
+	filter: url(#lib-glow);
+}
+/* ============= */
+/* FILLS */
 
+/* POWER ON */
+.powerOn {
+	/*-webkit-animation: 	stutter 3s infinite alternate;
+	-moz-animation: 	stutter 3s infinite alternate;
+	-o-animation: 		stutter 3s infinite alternate;*/
+ 	animation: 			powerOn 2s forwards;
+}
+@keyframes powerOn {
+	0%	{opacity: 0.2}
+	2%	{opacity: 0.3}
+	4%	{opacity: 0.2}
+	6%	{opacity: 0.3}
+	8%	{opacity: 0.2}
+	10%	{opacity: 0.3}
+	12%	{opacity: 0.2}
+	14%	{opacity: 0.3}
+	16%	{opacity: 0.2}
+	18%	{opacity: 0.3}
+	20%	{opacity: 0.2}
+	21% {opacity: 0.1}
+	
+	49% {opacity: 0.1}
+	50% {opacity: 0.8}
+	52% {opacity: 0.1}
+	53% {opacity: 0.8}
+	55% {opacity: 0.1}
+	56% {opacity: 0.8}
+}
+/* ======== */
+
+/* Flicker animation */
+/* ================= */
 .flicker {
   -webkit-animation: flicker 0.02s infinite alternate;
   -moz-animation: flicker 0.02s infinite alternate;
   -o-animation: flicker 0.02s infinite alternate;
   animation: flicker 0.02s infinite alternate;
 }
-
 @-moz-keyframes flicker {
-  70% {
-    opacity: 0.5;
-  }
+	70% {opacity: 0.5}
 }
 @-webkit-keyframes flicker {
-  45% {
-    opacity: 0.4;
-  }
+	45% {opacity: 0.4}
 }
 @-o-keyframes flicker {
-  70% {
-    opacity: 0.5;
-  }
+	70% {opacity: 0.5}
 }
 @keyframes flicker {
-  70% {
-    opacity: 0.5;
-  }
+	70% {opacity: 0.5}
 }
+/* ================= */
+/* Flicker animation */
 
+
+/* Stutter animation */
+/* ================= */
 .stutter {
 	opacity: 0.8;
 	-webkit-animation: stutter 3s infinite alternate;
@@ -69,7 +128,40 @@ body {
 	-o-animation: stutter 3s infinite alternate;
  	animation: stutter 3s infinite alternate;
 }
+@-moz-keyframes stutter {
+  40% {opacity: 0.8}
+  42% {opacity: 0.1}
+  43% {opacity: 0.8}
+  45% {opacity: 0.1}
+  46% {opacity: 0.8}
+}
+@-webkit-keyframes stutter {
+  40% {opacity: 0.8}
+  42% {opacity: 0.1}
+  43% {opacity: 0.8}
+  45% {opacity: 0.1}
+  46% {opacity: 0.8}
+}
+@-o-keyframes stutter {
+  40% {opacity: 0.8}
+  42% {opacity: 0.1}
+  43% {opacity: 0.8}
+  45% {opacity: 0.1}
+  46% {opacity: 0.8}
+}
+@keyframes stutter {
+  40% {opacity: 0.8}
+  42% {opacity: 0.1}
+  43% {opacity: 0.8}
+  45% {opacity: 0.1}
+  46% {opacity: 0.8}
+}
+/* ================= */
+/* Stutter animation */
 
+
+/* Stutter-2 animation */
+/* =================== */
 .stutter-2 {
 	opacity: 0.8;
 	-webkit-animation: stutter-2 5s infinite alternate;
@@ -77,103 +169,43 @@ body {
 	-o-animation: stutter-2 5s infinite alternate;
  	animation: stutter-2 5s infinite alternate;
 }
-
-@-moz-keyframes stutter {
-  40% {
-    opacity: 0.8;
-  }
-  42% {
-    opacity: 0.1;
-  }
-  43% {
-    opacity: 0.8;
-  }
-  45% {
-    opacity: 0.1;
-  }
-  46% {
-    opacity: 0.8;
-  }
+@-moz-keyframes stutter-2 {
+  40% {opacity: 0.8}
+  41% {opacity: 0.4}
+  42% {opacity: 0.8}
+  43% {opacity: 0.4}
+  44% {opacity: 0.8}
 }
-@-webkit-keyframes stutter {
-  40% {
-    opacity: 0.8;
-  }
-  42% {
-    opacity: 0.1;
-  }
-  43% {
-    opacity: 0.8;
-  }
-  45% {
-    opacity: 0.1;
-  }
-  46% {
-    opacity: 0.8;
-  }
+@-webkit-keyframes stutter-2 {
+  40% {opacity: 0.8}
+  41% {opacity: 0.4}
+  42% {opacity: 0.8}
+  43% {opacity: 0.4}
+  44% {opacity: 0.8}
 }
-@-o-keyframes stutter {
-  40% {
-    opacity: 0.8;
-  }
-  42% {
-    opacity: 0.1;
-  }
-  43% {
-    opacity: 0.8;
-  }
-  45% {
-    opacity: 0.1;
-  }
-  46% {
-    opacity: 0.8;
-  }
+@-o-keyframes stutter-2 {
+  40% {opacity: 0.8}
+  41% {opacity: 0.4}
+  42% {opacity: 0.8}
+  43% {opacity: 0.4}
+  44% {opacity: 0.8}
 }
-@keyframes stutter {
-  40% {
-    opacity: 0.8;
-  }
-  42% {
-    opacity: 0.1;
-  }
-  43% {
-    opacity: 0.8;
-  }
-  45% {
-    opacity: 0.1;
-  }
-  46% {
-    opacity: 0.8;
-  }
-}
-
 @keyframes stutter-2 {
-  40% {
-    opacity: 0.8;
-  }
-  41% {
-    opacity: 0.4;
-  }
-  42% {
-    opacity: 0.8;
-  }
-  43% {
-    opacity: 0.4;
-  }
-  44% {
-    opacity: 0.8;
-  }
+  40% {opacity: 0.8}
+  41% {opacity: 0.4}
+  42% {opacity: 0.8}
+  43% {opacity: 0.4}
+  44% {opacity: 0.8}
 }
+/* =================== */
+/* Stutter-2 animation */
 
-.beautiful-fill {
-	fill:url(#SVGID_4_);
-	stroke:#F9AA1A;
-	stroke-miterlimit:10;
-}
 
+/*
 .lib {
 	filter: url(#lib-glow);
 }
+*/
 
 .top-word-arch {
 	opacity: .9;
@@ -207,6 +239,7 @@ body {
 	overflow: hidden;
 }
 
+/*
 .green-radial {
 	position: absolute;
 	top: -20vh;
@@ -234,3 +267,4 @@ body {
 			rgba(25, 49, 90, 0)
 		);
 }
+*/
