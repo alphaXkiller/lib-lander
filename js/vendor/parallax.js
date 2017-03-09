@@ -68,6 +68,8 @@
 
   function Parallax(element, options) {
 
+	console.log(element);
+
     // DOM Context
     this.element = element;
     this.layers = element.getElementsByClassName('layer');
