@@ -223,9 +223,9 @@ svg {
 	height: 120vh;
 	background-image:
 		radial-gradient(
-			rgba(13, 39, 50, 100),
-			rgba(13, 39, 50, 0) 75%,
-			rgba(13, 39, 50, 0)
+			rgba(24, 65, 82, 100),
+			rgba(24, 65, 82, 0) 75%,
+			rgba(24, 65, 82, 0)
 		);
     z-index: -1;
 }
@@ -238,26 +238,73 @@ svg {
 	height: 140vh;
 	background-image:
 		radial-gradient(
-			rgba(25, 49, 90, 100),
-			rgba(25, 49, 90, 0) 70%,
-			rgba(25, 49, 90, 0)
+			rgba(20, 55, 70, 100),
+			rgba(20, 55, 70, 0) 70%,
+			rgba(20, 55, 70, 0)
 		);
     z-index: -1;
 }
 
 .blue-radial.off, .green-radial.off {opacity: 0}
+.libfooter.desktop {display: block;}
+.libfooter.mobile {display: none;}
 
 /* LAPTOP and UP */
 @media only screen and (min-width: 90.063rem) {
 	.copy_form h1 {font-size: 3.85rem;}
 	.copy_form .copy {width: 66.66%;}
+	.libfooter.desktop {display: block;}
+	.libfooter.mobile {display: none;}
 }
-/* TABLET DOWN */
+/* LANDSCAPE TABLET DOWN */
 @media only screen and (max-width: 64.000rem) {
 	.copy_form h1 {font-size: 2.25rem;}
 	.emlform .email_address {width: 72.33%}
 	.copy_form .copy .text {text-align: justify;}
 	.libfooter ul {width: 30%;}
+	.libfooter.desktop {display: block;}
+	.libfooter.mobile {display: none;}
+}
+/* PORTRAIT TABLET DOWN */
+@media only screen and (max-width: 48.000rem) {
+	.logo {
+		top: 40px;
+	    transform: translateX(-50%);
+	    left: calc(50% + 50px);
+	    right: 0;
+	    width: 60%;
+	}
+	.copy_form {
+		width: 84.33%;
+	    transform: none;
+	    top: 45%;
+	}
+	.copy_form .copy {
+		width: 100%;
+	}
+	.copy_form .copy .text {
+		text-align: left;
+	}
+	.sidebar {
+		height: 100%;
+	}
+	.green-radial {
+		height: 50vh;
+	    left: 60px;
+	    top: -30px;
+	}
+	.blue-radial {
+		width: 100%;
+	    left: 0;
+	    height: 80vh;
+	    top: 30%;
+	}
+	.libfooter ul {
+		margin-right: 10px;
+		width: 35%;
+		padding: 0;
+	}
+	.libfooter.desktop {display: block;}
 }
 /* MOBILE DOWN */
 @media only screen and (max-width: 30rem) {
@@ -265,21 +312,65 @@ svg {
 	.pc {width: 100%;}
 	.logo {
 		width: 90%;
-	    position: relative;
+	    position: absolute;
 	    margin: 20px auto;
 	    top: 0;
-	    right: 0;
+	    left: 0;
 	    transform: inherit;
-	    padding-bottom: 90%;
 	}
 	.logo .logobox {height: 100%;}
 	.copy_form {
 		width: 90%;
 	    margin: auto;
-	    position: relative;
-	    top: 0;
-	    right: 0;
+	    position: absolute;
+	    top: 380px;
+	    left: 0;
 	    transform: initial;
 	}
-	.copy_form .copy {padding: 0;}
+	.copy_form .copy {
+		padding: 0;
+	}
+	.emlform .email_address {
+	    width: 90%;
+	    margin: auto;
+	    border: 1px solid #777;
+	    border-radius: 10px;	
+	}
+	.sidebar {
+		width: 100%;
+	    height: initial;
+	    flex-direction: row;
+	    float: none;
+	    margin-top: 410px;
+	    display: inline-flex;
+	}
+	.libfooter.mobile {
+		bottom: initial;
+		margin: 20px 0 10px;
+	}
+	.libfooter.mobile ul {
+		width: 100%;
+	    display: block;
+	    margin: auto;
+	}
+	.libfooter.mobile ul li {
+		
+	}
+	.libfooter.mobile .copyright {
+		
+	}
+	.libfooter.mobile {display: block;}
+	.libfooter.desktop {display: none;}
+}
+
+@media only screen and (max-width: 20rem) {
+	.copy_form {
+	    top: 310px;
+	}
+	.copy_form h1 {
+	    font-size: 1.5rem;
+	}
+	.sidebar {
+		margin-top: 340px;
+	}
 }
