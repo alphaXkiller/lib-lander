@@ -72,7 +72,12 @@
 
     // DOM Context
     this.element = element;
-    this.layers = element.getElementsByClassName('layer');
+    
+    if(!document.getElementsByClassName){
+	    this.layers = document.querySelectorAll('.layer');
+    } else {
+		this.layers = element.getElementsByClassName('layer');    
+    }
 
     // Data Extraction
     var data = {
