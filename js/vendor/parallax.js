@@ -291,7 +291,14 @@
   Parallax.prototype.updateLayers = function() {
 
     // Cache Layer Elements
-    this.layers = this.element.getElementsByClassName('layer');
+    try{
+	    this.layers = element.getElementsByClassName('layer');
+	}
+	catch(err){
+		console.log('Trying alternate method for IE 2: '+err);	
+	    this.layers = document.querySelectorAll('.layer');
+    }
+    //this.layers = this.element.getElementsByClassName('layer');
     this.depthsX = [];
     this.depthsY = [];
 
