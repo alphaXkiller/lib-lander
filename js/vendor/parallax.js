@@ -73,10 +73,12 @@
     // DOM Context
     this.element = element;
     
-    if(!document.getElementsByClassName){
+    try{
+	    this.layers = element.getElementsByClassName('layer');
+	}
+	catch(err){
+		console.log('Trying alternate method for IE: '+err);	
 	    this.layers = document.querySelectorAll('.layer');
-    } else {
-		this.layers = element.getElementsByClassName('layer');    
     }
 
     // Data Extraction
