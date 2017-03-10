@@ -67,9 +67,6 @@
   };
 
   function Parallax(element, options) {
-
-	console.log(element);
-
     // DOM Context
     this.element = element;
     
@@ -292,7 +289,7 @@
 
     // Cache Layer Elements
     try{
-	    this.layers = element.getElementsByClassName('layer');
+	    this.layers = this.element.getElementsByClassName('layer');
 	}
 	catch(err){
 		console.log('Trying alternate method for IE 2: '+err);	
