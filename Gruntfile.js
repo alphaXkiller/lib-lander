@@ -16,6 +16,7 @@ module.exports = function(grunt) {
                 		'build/js/vendor/parallax.js',
                 		'build/js/vendor/what-input.js',
                 		'build/js/vendor/mobile-detect.min.js',
+                		'build/js/form_handler.js',
                 		'build/js/app.js'
                 	]
                 }
