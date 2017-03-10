@@ -64,7 +64,7 @@ $(function(){
 			'tags'	: 'testing-tag'
 		}
 		
-		console.log(url, dataObj);
+		//console.log(url, dataObj);
 		
 		$.post(url, dataObj, function(data){
 			console.log(data);
