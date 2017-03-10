@@ -54,28 +54,6 @@ $(function(){
 		$(this).children('.icon_over').fadeOut(300);
 	});
 	
-	/* FORM POSTING */
-	$('#emlform').on('submit', function(e){
-		e.preventDefault();
-		var url = "https://lifeisbeautiful.api-us1.com/admin/api.php?api_action=contact_add&api_key=a20ddca6aae1693bf226ea9a149e329a7af02ea11e8f72e9834882412ae37394288c8b1f&api_output=json";
-		var dataObj = {
-			'email' : $('#email_address').val(),
-			'p[15]' : 15,
-			'tags'	: 'testing-tag'
-		}
-		
-		//console.log(url, dataObj);
-		
-		$.post(url, dataObj, function(data){
-			console.log(data);
-		}).done(function(data){
-			console.log(data);
-		}).fail(function(data){
-			console.log(data);
-		});
-		
-	});
-	
 	/* Mobile detection depth refactorization */
 	/* Needs more dev */
 	if( md.mobile() ){
@@ -154,6 +132,3 @@ $(function(){
 		$('.libfoot-off').animate({'opacity':'1'}, 1500);
 	}, 5500);
 });
-
-
-

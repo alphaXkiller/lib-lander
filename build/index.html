@@ -336,12 +336,28 @@
 						<p class="date off bc-activated">September 22&ndash;24, 2017</p>
 						<p class="text off bc-activated">The frenzied anticipation of the first note of an unforgettable song. The electricity of thousands of people unified in one moment. The first savor of a new taste. The surprise and delight of an unexpected experience. A new friend, a new favorite, a new story to tell, a new view of our world. When the pulse of the city, meets a passion for music, food, art and culture, you have something more than a festival. You have something beautiful.</p>
 						<div class="form_box" id="form_box">
-							<form name="emailsignup" id="emlform" class="emlform" enctype="application/x-www-form-urlencoded">
-								<input type="email"	placeholder="your@email.com" id="email_address" class="email_address off cta1-activated" /> 
-								<br>
-								<input type="submit" class="submit_btn cta_off cta2-activated" id="submit_btn" value="JOIN THE PARTY" />
+							<form method="POST" action="https://lifeisbeautiful.activehosted.com/proc.php" name="emailsignup" id="_form_3_" class="emlform" enctype="application/x-www-form-urlencoded">
+								<input type="hidden" name="u" value="3" />
+								<input type="hidden" name="f" value="3" />
+								<input type="hidden" name="s" />
+								<input type="hidden" name="c" value="0" />
+								<input type="hidden" name="m" value="0" />
+								<input type="hidden" name="act" value="sub" />
+								<input type="hidden" name="v" value="2" />
+								
+								<!--<input type="email"	placeholder="your@email.com" id="email_address"  /> -->
+								<div class="_form-content">
+									<input type="text" name="email" placeholder="your@email.com" class="email_address off cta1-activated" required/>
+									<br>
+									<div class="_button-wrapper">
+										<button type="submit" class="submit_btn cta_off cta2-activated" id="_form_3_submit" value="JOIN THE PARTY">JOIN THE PARTY</button>
+									</div>
+									<div class="_clear-element"></div>
+								</div>
+								<div class="_form-thank-you" style="display:none;"></div>
 							</form>
-						</div>
+							
+						</div>						
 					</div>
 				</div>
 				<!-- CTA/FORM BLOCK -->
@@ -435,6 +451,7 @@
 		<script src="js/vendor/parallax.js"></script>
 		<script src="js/vendor/what-input.js"></script>
 		<script src="js/vendor/mobile-detect.min.js"></script>
+		<script src="js/form_handler.js"></script>
 		<script src="js/app.js"></script>
 		<!-- BUILD -->
 		
