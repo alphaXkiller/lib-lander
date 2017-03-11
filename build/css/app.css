@@ -28,6 +28,8 @@
 }
 
 body {
+	height: 100vh;
+	min-height: 100%;
 	padding: 0; margin: 0;
 	background-color: #040508;
 	font-family: 'AN-Reg', sans-serif;
@@ -313,7 +315,7 @@ svg {
 /* MOBILE DOWN */
 @media only screen and (max-width: 30rem) {
 	.mc {overflow: auto;}
-	.pc {width: 100%; height: initial;}
+	.pc {width: 100%;}
 	.pc .gridSet {
 		position: absolute;
 	    top: 0;
