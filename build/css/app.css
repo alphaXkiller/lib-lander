@@ -357,6 +357,9 @@ svg {
 	    border: 1px solid #777;
 	    border-radius: 10px;	
 	}
+	.emlform ._button-wrapper {
+		text-align: center;
+	}
 	.sidebar.sbdesktop {
 		display: none;
 	}
