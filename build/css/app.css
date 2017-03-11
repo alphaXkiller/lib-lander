@@ -47,7 +47,10 @@ body {
     height: 100%;
     position: relative;
 }
-.pc .cols {
+.pc .gridSet {
+    height: 100%;
+}
+.pc .gridSet .cols {
 	position: relative;
 	width: 14%;
 	float: right;
@@ -78,6 +81,8 @@ body {
 	.sidebar .social_icon .facebook 	{background-position-x: calc(-50px * 2);}
 	.sidebar .social_icon .instagram 	{background-position-x: calc(-50px * 3);}
 	.sidebar .social_icon .youtube 		{background-position-x: calc(-50px * 4);}
+
+	.sidebar.sbmobile {display: none;}
 
 .libfooter {
 	position: absolute; 
@@ -253,8 +258,6 @@ svg {
 @media only screen and (min-width: 90.063rem) {
 	.copy_form h1 {font-size: 3.85rem;}
 	.copy_form .copy {width: 66.66%;}
-	.libfooter.desktop {display: block;}
-	.libfooter.mobile {display: none;}
 }
 /* LANDSCAPE TABLET DOWN */
 @media only screen and (max-width: 64.000rem) {
@@ -262,8 +265,6 @@ svg {
 	.emlform .email_address {width: 72.33%}
 	.copy_form .copy .text {text-align: justify;}
 	.libfooter ul {width: 30%;}
-	.libfooter.desktop {display: block;}
-	.libfooter.mobile {display: none;}
 }
 /* PORTRAIT TABLET DOWN */
 @media only screen and (max-width: 48.000rem) {
@@ -309,21 +310,36 @@ svg {
 /* MOBILE DOWN */
 @media only screen and (max-width: 30rem) {
 	.mc {overflow: auto;}
-	.pc {width: 100%;}
+	.pc {width: 100%; height: initial;}
+	.pc .gridSet {
+		position: absolute;
+	    top: 0;
+	    width: 100%;
+	}
+	.pc .gridSet .cols {
+		position: relative;
+	    width: 14%;
+	    float: right;
+	    border-right: 1px solid rgba(50,135,223,0.15);
+	    mix-blend-mode: overlay;
+	    height: 100%;
+	    top: 0px;
+	}
+	
 	.logo {
 		width: 90%;
-	    position: absolute;
+	    position: relative;
 	    margin: 20px auto;
-	    top: 0;
-	    left: 0;
-	    transform: inherit;
+	    top: initial;
+	    left: initial;
+	    transform: initial;
 	}
 	.logo .logobox {height: 100%;}
 	.copy_form {
 		width: 90%;
 	    margin: auto;
-	    position: absolute;
-	    top: 380px;
+	    position: relative;
+	    top: initial;
 	    left: 0;
 	    transform: initial;
 	}
@@ -336,17 +352,21 @@ svg {
 	    border: 1px solid #777;
 	    border-radius: 10px;	
 	}
-	.sidebar {
+	.sidebar.sbdesktop {
+		display: none;
+	}
+	.sidebar.sbmobile {
 		width: 100%;
 	    height: initial;
 	    flex-direction: row;
 	    float: none;
-	    margin-top: 410px;
 	    display: inline-flex;
 	}
+	
 	.libfooter.mobile {
+		display: inline-block;
+		position: relative;
 		bottom: initial;
-		margin: 20px 0 10px;
 	}
 	.libfooter.mobile ul {
 		width: 100%;
@@ -359,18 +379,13 @@ svg {
 	.libfooter.mobile .copyright {
 		
 	}
-	.libfooter.mobile {display: block;}
 	.libfooter.desktop {display: none;}
 }
 
 @media only screen and (max-width: 20rem) {
-	.copy_form {
-	    top: 310px;
-	}
 	.copy_form h1 {
-	    font-size: 1.5rem;
+	    font-size: 1.65rem;
 	}
-	.sidebar {
-		margin-top: 340px;
-	}
+	.copy_form .copy .date {margin: 0.5rem 0;}
+	.copy_form .copy .text {margin: 0 0 0.5rem;}
 }
