@@ -314,7 +314,8 @@ svg {
 }
 /* MOBILE DOWN */
 @media only screen and (max-width: 30rem) {
-	.mc {overflow: auto;}
+	body {height: initial; min-height: initial;}
+	.mc {position: relative;}
 	.pc {width: 100%;}
 	.pc .gridSet {
 		position: absolute;
