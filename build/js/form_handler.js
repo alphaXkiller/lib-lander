@@ -1,16 +1,30 @@
-/* FORM HANDLER */
+/*
+ *	FORM HANDLER JS from ActiveCampaign
+ *	
+ *	Added: fbq() function for tracking
+ */
 window.cfields = [];
+
+/* SUCCESS HANDLER */
 window._show_thank_you = function(id, message, trackcmp_url) {
   var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
   form.querySelector('._form-content').style.display = 'none';
   thank_you.innerHTML = message;
   thank_you.style.display = 'block';
+  
+  fbq('track', 'Pre-SaleEmail', {
+		value: 10.00,
+		currency: 'USD'
+	});
+  
   if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
     // Site tracking URL to use after inline form submission.
     _load_script(trackcmp_url);
   }
   if (typeof window._form_callback !== 'undefined') window._form_callback(id);
 };
+/* SUCCESS HANDLER */
+
 window._show_error = function(id, message, html) {
   var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
   if (old_error) old_error.parentNode.removeChild(old_error);
