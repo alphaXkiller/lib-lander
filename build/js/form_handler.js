@@ -16,6 +16,8 @@ window._show_thank_you = function(id, message, trackcmp_url) {
 		value: 10.00,
 		currency: 'USD'
 	});
+
+  ga('send', 'event', 'email', 'SignUp', 'Pre-SaleEmail');
   
   if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
     // Site tracking URL to use after inline form submission.
