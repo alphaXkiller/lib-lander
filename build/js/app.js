@@ -82,9 +82,14 @@ $(function(){
 	}, 2750);
 	// NY,NE
 	setTimeout(function(){
-		$('.nyne-activated').each(function(){		
-			$theseClasses = $(this).data('onclasses');
-			$(this).addClass('powerOn '+$theseClasses).removeClass('off');
+		$('.nyne-activated').each(function(){
+			var isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+			if (isSafari) {
+				$(this).addClass('powerOn pink_on_safari').removeClass('off');
+			} else {
+				$theseClasses = $(this).data('onclasses');
+				$(this).addClass('powerOn '+$theseClasses).removeClass('off');
+			}
 		});
 	}, 3550);
 	// COPY
@@ -119,31 +124,6 @@ $(function(){
 			n++;
 		})
 		$('.libfoot-off').animate({'opacity':'1'}, 1500);
-	}, 5500);
-	
-	
-	/* Mobile detection depth refactorization and CSS adjustments *
-	setTimeout(function(){
-		if( md.mobile() ){
-			$('#arcs').data('depth', '-3');
-			$('#halo_top').data('depth', '-1.5');
-			$('#halo_bottom').data('depth', '-1.5');
-			$('#life_is').data('depth', '2');
-			$('#beautiful').data('depth', '3');
-			parallax.updateLayers();
-		}
-		if(md.userAgent() == 'Safari'){
-			console.log( md.userAgent() );
-			$('.pink_on').css('textShadow', '#ec5db1 0px 0px 10px');
-		}
-	}, 2000);
-	
-	<script>
-		fbq('track', 'Lead', {
-		value: 10.00,
-		currency: 'USD'
-		});
-		</script>
+	}, 5500);	
 
-	*/
 });
