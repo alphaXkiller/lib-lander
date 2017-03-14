@@ -12,7 +12,7 @@ window._show_thank_you = function(id, message, trackcmp_url) {
   thank_you.innerHTML = message;
   thank_you.style.display = 'block';
   
-  fbq('track', 'Pre-SaleEmail', {
+  fbq('trackCustom', 'Pre-SaleEmail', {
 		value: 10.00,
 		currency: 'USD'
 	});
