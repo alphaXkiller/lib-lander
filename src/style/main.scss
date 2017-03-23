@@ -1,5 +1,5 @@
-// @import "~font-awesome/scss/font-awesome";
-// @import '~bootstrap/scss/bootstrap.scss';
+@import "~font-awesome/scss/font-awesome";
+@import 'foundation.min.css';
 
 @import 'overwrite';
 @import 'variable';
@@ -66,22 +66,22 @@ body {
   float: left;
   height: 100%;
   position: relative;
-  .gridSet {
-  	position: absolute;
-  	width: 100%;
-    height: 100%;
-    z-index: 2;
-    .cols {
-    	position: relative;
-    	width: 14%;
-    	float: right;
-      border-right: 1px solid rgba(50,135,223,0.15);
-      mix-blend-mode: overlay;
-    	height: 100%;
-    }
-  }
   .cols.col_off {
   	opacity: 0;
+  }
+}
+.gridSet {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  .cols {
+    position: relative;
+    width: 14%;
+    float: right;
+    border-right: 1px solid rgba(50,135,223,0.15);
+    mix-blend-mode: overlay;
+    height: 100%;
   }
 }
 
