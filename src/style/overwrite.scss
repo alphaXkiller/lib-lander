@@ -1,0 +1,11 @@
+a {
+  &:hover {
+    text-decoration: none
+  }
+}
+
+input:not([readonly]) {
+  &[type=text]:focus {
+    box-shadow: none
+  }
+}
