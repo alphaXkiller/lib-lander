@@ -1,2 +1,4 @@
-# lib-lander
-LIb Lander 2017
+# react-boilerplate
+
+### To start
+run `yarn` then `yarn start`
