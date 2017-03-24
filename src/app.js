@@ -20,12 +20,28 @@ class App extends Component {
   }
 
 
-  onClickOpenDrawer = e => {
-    this.setState({open_drawer: true})
+  submit = e => {
+
   }
 
 
-  onClickCloseDrawer = e => {
+  onClickToggleDrawer = e => {
+    this.setState({open_drawer: !this.state.open_drawer}, () => {
+      if (this.state.open_drawer)
+        document.getElementById('drawer')
+          .getElementsByTagName('div')[2]
+          .style
+          .transform = 'translate(0, 0)'
+      else
+        document.getElementById('drawer')
+          .getElementsByTagName('div')[2]
+          .style
+          .transform = 'translate(-100%, 0)'
+    })
+  }
+
+
+  onClickCloseDrawer = (open, reason) => {
     this.setState({open_drawer: false})
   }
 
@@ -36,9 +52,10 @@ class App extends Component {
         <div>
           {
             Header({
-              open_drawer: this.state.open_drawer,
-              onClickOpenDrawer: this.onClickOpenDrawer,
-              onClickCloseDrawer: this.onClickCloseDrawer
+              open_drawer         : this.state.open_drawer,
+              submit              : this.submit,
+              onClickToggleDrawer : this.onClickToggleDrawer,
+              onClickCloseDrawer  : this.onClickCloseDrawer
             })
           }
           {
