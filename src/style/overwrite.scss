@@ -1,11 +1,3 @@
-a {
-  &:hover {
-    text-decoration: none
-  }
-}
-
-input:not([readonly]) {
-  &[type=text]:focus {
-    box-shadow: none
-  }
+.row.row-wrapper {
+  max-width: calc(100% - 160px);
 }

@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import { connect }          from 'react-redux'
 import { BrowserRouter}     from 'react-router-dom'
 
-import { 
-  RouteFunctor, 
-  RouteActor 
+import {
+  RouteFunctor,
+  RouteActor
 } from './routes.js'
 import Header from './components/header.js'
 
@@ -58,11 +58,69 @@ class App extends Component {
               onClickCloseDrawer  : this.onClickCloseDrawer
             })
           }
-          {
-            RouteFunctor.map( (route, key) => (
-              <RouteActor key={key} {...route} />
-            ))
-          }
+
+          {/* <!-- SOCIAL SIDEBAR --> */}
+    			<div className="sidebar sbdesktop">
+    				{/* <!-- SNAPS! --> */}
+    				<div className="social_icon">
+    					<a href="http://www.snapchat.com/add/LIBeautifulFest/"></a>
+    					<div className="snapchat icon_out"></div>
+    					<div className="snapchat icon_over"></div>
+    				</div>
+
+    				{/* <!-- TWEETS! --> */}
+    				<div className="social_icon">
+    					<a href="https://twitter.com/lifeisbeautiful/"></a>
+    					<div className="twitter icon_out"></div>
+    					<div className="twitter icon_over"></div>
+    				</div>
+
+    				{/* <!-- FB --> */}
+    				<div className="social_icon">
+    					<a href="https://www.facebook.com/LifeIsBeautifulFest/"></a>
+    					<div className="facebook icon_out"></div>
+    					<div className="facebook icon_over"></div>
+    				</div>
+
+    				{/* <!-- INSTA! --> */}
+    				<div className="social_icon">
+    					<a href="https://www.instagram.com/lifeisbeautiful/"></a>
+    					<div className="instagram icon_out"></div>
+    					<div className="instagram icon_over"></div>
+    				</div>
+
+    				{/* <!-- YOUTUBE --> */}
+    				<div className="social_icon">
+    					<a href="https://www.youtube.com/user/LifeIsBeauitful"></a>
+    					<div className="youtube icon_out"></div>
+    					<div className="youtube icon_over"></div>
+    				</div>
+    			</div>
+    			{/* <!-- SOCIAL SIDEBAR --> */}
+
+          <div className='row row-wrapper'>
+
+            {/* <!-- GRID LINES --> */}
+            <div className="large-up-7 gridSet">
+              <div className="columns"><div className='hrv' /></div>
+              <div className="columns"><div className='hrv' /></div>
+              <div className="columns"><div className='hrv' /></div>
+              <div className="columns"><div className='hrv' /></div>
+              <div className="columns"><div className='hrv' /></div>
+              <div className="columns"><div className='hrv' /></div>
+              <div className="columns"><div className='hrv' /></div>
+            </div>
+            {/* <!-- GRID LINES --> */}
+
+            {
+              RouteFunctor.map( (route, key) => (
+                <RouteActor key={key} {...route} />
+              ))
+            }
+            
+            <div className="green-radial" />
+      			<div className="blue-radial" />
+          </div>
         </div>
       </BrowserRouter>
     )
