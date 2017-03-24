@@ -7,7 +7,9 @@ import Drawer from 'material-ui/Drawer'
 const Header = props => {
   return (
     <div>
-      <AppBar 
+      <AppBar
+        title={ 'Life is Beautiful' }
+
         onTouchTap={props.onClickOpenDrawer}
       />
       <Drawer
