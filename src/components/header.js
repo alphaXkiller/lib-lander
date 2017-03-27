@@ -128,7 +128,6 @@ const _renderJoinParty = props => (
 )
 
 const Header = props => {
-  console.log(props)
   return (
     <div>
       <AppBar 
