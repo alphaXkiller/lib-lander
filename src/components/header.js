@@ -156,9 +156,7 @@ const Header = props => {
               </p>
             </div>
             <div className='medium-4 columns hide-for-small-only'>
-              <div>
-                <img src={MAP_IMAGE} />
-              </div>
+              <img src={MAP_IMAGE} />
             </div>
           </div>
         </Drawer>
