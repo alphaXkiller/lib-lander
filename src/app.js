@@ -11,6 +11,26 @@ import Header from './components/header.js'
 
 import './style/main.scss'
 
+
+const _openDrawer = () => document.getElementById('drawer')
+  .getElementsByTagName('div')[2]
+  .style
+  .transform = 'translate(0, 0)'
+
+
+const _closeDrawer = () => document.getElementById('drawer')
+  .getElementsByTagName('div')[2]
+  .style
+  .transform = 'translate(-100%, 0)'
+
+
+const _toggleDrawer = R.ifElse(
+  R.equals(true),
+  () => _openDrawer(),
+  () => _closeDrawer()
+)
+
+
 class App extends Component {
   constructor() {
     super()
@@ -26,24 +46,15 @@ class App extends Component {
 
 
   onClickToggleDrawer = e => {
-    this.setState({open_drawer: !this.state.open_drawer}, () => {
-      if (this.state.open_drawer)
-        document.getElementById('drawer')
-          .getElementsByTagName('div')[2]
-          .style
-          .transform = 'translate(0, 0)'
-      else
-        document.getElementById('drawer')
-          .getElementsByTagName('div')[2]
-          .style
-          .transform = 'translate(-100%, 0)'
-    })
+    this.setState({open_drawer: !this.state.open_drawer}, () => 
+      _toggleDrawer(this.state.open_drawer)
+    )
   }
 
 
-  onClickCloseDrawer = (open, reason) => {
-    this.setState({open_drawer: false})
-  }
+  onClickCloseDrawer = (open, reason) => this.setState({
+    open_drawer: false}, () => _closeDrawer()
+  )
 
 
   render() {

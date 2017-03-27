@@ -3,9 +3,11 @@ import React               from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
 import Home from './containers/public/home.js'
+import Lineup from './containers/public/lineup.js'
 
 const RouteFunctor = [
   { path: '/', component: Home, exact: true},
+  { path: '/lineup', component: Lineup }
 ]
 
 

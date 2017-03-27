@@ -7,13 +7,25 @@ import Drawer   from 'material-ui/Drawer'
 import Menu     from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
 
+import ConstantMenu from '../constants/menu.js'
+
 const MAP_IMAGE = 'https://snazzy-maps-cdn.azureedge.net/assets/38-shades-of-grey.png?v=20170324050112'
+
 
 const DRAWER_CONTAINER_STYLE = {
   width: '100%', 
   top: '64px', 
   transform: 'translate(-100%, 0px)', 
-  paddingBottom: '64px' 
+  paddingBottom: '64px',
+  backgroundColor: 'transparent'
+}
+
+
+const SUB_MENU_STYLE = {
+  fontSize: '12px',
+  lineHeight: '24px',
+  minHeight: '0',
+  color: 'white'
 }
 
 const _buyTicketIcon = () => (
@@ -21,15 +33,27 @@ const _buyTicketIcon = () => (
 )
 
 
-const _renderMenuSection = () => (
+const _renderMenuSection = onClickCloseDrawer => (
   <section className='row align-middle'>
     <div className='small-6  medium-7 columns'>
-      <Link to='/'><MenuItem primaryText='HOME' /></Link>
-      <Link to=''><MenuItem primaryText='LINEUP' /></Link>
-      <Link to=''><MenuItem primaryText='VIBE' /></Link>
-      <Link to=''><MenuItem primaryText='NEWS' /></Link>
-      <Link to=''><MenuItem primaryText='PLANNING' /></Link>
-      <Link to=''><MenuItem primaryText='MERCH' /></Link>
+      {
+        R.map( item => (
+          <Link 
+            key={item.text} 
+            to={item.path}
+            onTouchTap={onClickCloseDrawer}
+          >
+            <MenuItem 
+              style={{
+                fontSize   : '30px',
+                fontWeight : 'bold',
+                color      : 'white'
+              }}
+              primaryText={item.text} 
+            />
+          </Link>
+        ))(ConstantMenu.main)
+      }
     </div>
     <div className='small-1 columns hide-for-medium'>
       <i className='fa fa-snapchat-ghost' />
@@ -53,44 +77,64 @@ const _renderMapSection = () => (
 const _renderGeneralInfo = props => (
   <section className='row'>
     <div className='small-3 columns'>
-      <Link to=''><MenuItem primaryText='ABOUT' /></Link>
-      <Link to=''><MenuItem primaryText='HISTORY' /></Link>
-      <Link to=''><MenuItem primaryText='CONTACT' /></Link>
-      <Link to=''><MenuItem primaryText='MEDIA' /></Link>
-      <Link to=''><MenuItem primaryText='IMPACT' /></Link>
-      <Link to=''><MenuItem primaryText='FAQ' /></Link>
+      {
+        R.map( item => (
+          <Link 
+            key={item.text}
+            to={item.path}
+          >
+            <MenuItem 
+              style={SUB_MENU_STYLE}
+              primaryText={item.text} 
+            />
+          </Link>
+        ))(ConstantMenu.sub.left)
+      }
     </div>
     <div className='small-4 columns'>
-      <Link to=''><MenuItem primaryText='PARTNERS' /></Link>
-      <Link to=''><MenuItem primaryText='VOLUNTEERS' /></Link>
-      <Link to=''><MenuItem primaryText='JOBS' /></Link>
-      <Link to=''><MenuItem primaryText='INTERNSHIPS' /></Link>
-      <Link to=''><MenuItem primaryText='CHARITY' /></Link>
-      <Link to=''><MenuItem primaryText='LEGAL' /></Link>
+      {
+        R.map( item => (
+          <Link 
+            key={item.text}
+            to={item.path}
+          >
+            <MenuItem 
+              style={SUB_MENU_STYLE}
+              primaryText={item.text} 
+            />
+          </Link>
+        ))(ConstantMenu.sub.right)
+      }
     </div>
   </section>
 )
 
 
 const _renderJoinParty = props => (
-  <form className='row' onSubmit={props.submit}>
-    <div className='input-group'>
+  <form onSubmit={props.submit}>
+    <div className='row'>
       <input 
         type='text' 
         placeholder='YOUREMAIL@ADDRESS.COM' 
-        className='input-group-field'
+        className='small-4 columns'
       />
-      <input type='submit' className='input-group-button' value='JOIN THE PARTY' />
+      <input 
+        type='submit' 
+        className='small-3 columns button' 
+        value='JOIN THE PARTY' 
+      />
     </div>
   </form>
 )
 
 const Header = props => {
+  console.log(props)
   return (
     <div>
       <AppBar 
-        onTouchTap={props.onClickToggleDrawer}
+        onLeftIconButtonTouchTap={props.onClickToggleDrawer}
         title='LIFE IS BEAUTIFUL'
+        style={{background: 'transparent'}}
         iconElementRight={_buyTicketIcon()}
       />
       <div id='drawer'>
@@ -101,18 +145,18 @@ const Header = props => {
           containerStyle={DRAWER_CONTAINER_STYLE}
           onRequestChange={props.onClickCloseDrawer}
         >
-          <div className='row'>
-            <div className='small-12 medium-3'>
-              { _renderMenuSection() }
+          <div className='row row-wrapper'>
+            <div className='medium-3 columns'>
+              { _renderMenuSection(props.onClickCloseDrawer) }
               { _renderMapSection() }
               { _renderGeneralInfo() }
               { _renderJoinParty(props.submit) }
-              <p>
+              <p style={{color: 'white'}}>
                 <i className='fa fa-copyright' />
                 LIFE IS BEAUTIFUL. ALL RIGHTS RESERVED.
               </p>
             </div>
-            <div className='medium-4 hide-for-small-only'>
+            <div className='medium-4 columns hide-for-small-only'>
               <div>
                 <img src={MAP_IMAGE} />
               </div>
