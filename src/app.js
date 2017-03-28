@@ -10,7 +10,8 @@ import {
 import Header from './components/header.js'
 
 import './style/main.scss'
-
+require('smoothscroll-polyfill').polyfill()
+8
 
 const _openDrawer = () => document.getElementById('drawer')
   .getElementsByTagName('div')[2]
@@ -35,10 +36,34 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      open_drawer: false
+      open_drawer: false,
+      marginT: ''
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = (e) =>{
+    let scrollY = window.scrollY;
+    let innerHeight = window.innerHeight;
+    let docHeight = document.body.clientHeight;
+
+    let scrolling = (scrollY) / (docHeight - (innerHeight) )
+    let scrollingPerc = Math.round(scrolling*100)
+
+    this.setState({
+      marginT: scrollingPerc
+    })
+
+    // console.log(scrolling)
+
+  }
 
   submit = e => {
 
@@ -69,6 +94,18 @@ class App extends Component {
               onClickCloseDrawer  : this.onClickCloseDrawer
             })
           }
+
+          {/* SCROLLBAR */}
+          <div className='scrollbar'>
+            <div 
+              id='bar'
+              className='bar' 
+              style={{transform: 'translateY(' + this.state.marginT + '%)'}}
+              >
+              <div className='scroller'id='scroller'> Scroll Down </div>
+            </div>
+          </div>
+          {/* SCROLLBAR */}
 
           {/* <!-- SOCIAL SIDEBAR --> */}
     			<div className="sidebar sbdesktop">
