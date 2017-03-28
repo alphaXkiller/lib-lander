@@ -6,6 +6,7 @@ import AppBar   from 'material-ui/AppBar'
 import Drawer   from 'material-ui/Drawer'
 import Menu     from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+import FlatButton from 'material-ui/FlatButton'
 
 import ConstantMenu from '../constants/menu.js'
 
@@ -13,9 +14,9 @@ const MAP_IMAGE = 'https://snazzy-maps-cdn.azureedge.net/assets/38-shades-of-gre
 
 
 const DRAWER_CONTAINER_STYLE = {
-  width: '100%', 
-  top: '64px', 
-  transform: 'translate(-100%, 0px)', 
+  width: '100%',
+  top: '64px',
+  transform: 'translate(-100%, 0px)',
   paddingBottom: '64px',
   backgroundColor: 'transparent'
 }
@@ -29,7 +30,9 @@ const SUB_MENU_STYLE = {
 }
 
 const _buyTicketIcon = () => (
-  <div>Buy Ticket</div>
+  <div className="_button-wrapper">
+    <a href="#" className="btn cta2-activated">Buy Tickets</a>
+  </div>
 )
 
 
@@ -38,18 +41,18 @@ const _renderMenuSection = onClickCloseDrawer => (
     <div className='small-6  medium-7 columns'>
       {
         R.map( item => (
-          <Link 
-            key={item.text} 
+          <Link
+            key={item.text}
             to={item.path}
             onTouchTap={onClickCloseDrawer}
           >
-            <MenuItem 
+            <MenuItem
               style={{
                 fontSize   : '30px',
                 fontWeight : 'bold',
                 color      : 'white'
               }}
-              primaryText={item.text} 
+              primaryText={item.text}
             />
           </Link>
         ))(ConstantMenu.main)
@@ -67,7 +70,7 @@ const _renderMenuSection = onClickCloseDrawer => (
 
 
 const _renderMapSection = () => (
-  <img 
+  <img
     className='hide-for-medium'
     src={MAP_IMAGE}
   />
@@ -79,13 +82,13 @@ const _renderGeneralInfo = props => (
     <div className='small-3 columns'>
       {
         R.map( item => (
-          <Link 
+          <Link
             key={item.text}
             to={item.path}
           >
-            <MenuItem 
+            <MenuItem
               style={SUB_MENU_STYLE}
-              primaryText={item.text} 
+              primaryText={item.text}
             />
           </Link>
         ))(ConstantMenu.sub.left)
@@ -94,13 +97,13 @@ const _renderGeneralInfo = props => (
     <div className='small-4 columns'>
       {
         R.map( item => (
-          <Link 
+          <Link
             key={item.text}
             to={item.path}
           >
-            <MenuItem 
+            <MenuItem
               style={SUB_MENU_STYLE}
-              primaryText={item.text} 
+              primaryText={item.text}
             />
           </Link>
         ))(ConstantMenu.sub.right)
@@ -113,15 +116,15 @@ const _renderGeneralInfo = props => (
 const _renderJoinParty = props => (
   <form onSubmit={props.submit}>
     <div className='row'>
-      <input 
-        type='text' 
-        placeholder='YOUREMAIL@ADDRESS.COM' 
+      <input
+        type='text'
+        placeholder='YOUREMAIL@ADDRESS.COM'
         className='small-4 columns'
       />
-      <input 
-        type='submit' 
-        className='small-3 columns button' 
-        value='JOIN THE PARTY' 
+      <input
+        type='submit'
+        className='small-3 columns button'
+        value='JOIN THE PARTY'
       />
     </div>
   </form>
@@ -130,7 +133,7 @@ const _renderJoinParty = props => (
 const Header = props => {
   return (
     <div>
-      <AppBar 
+      <AppBar
         onLeftIconButtonTouchTap={props.onClickToggleDrawer}
         title='LIFE IS BEAUTIFUL'
         style={{background: 'transparent'}}
