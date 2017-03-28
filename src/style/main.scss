@@ -1,11 +1,12 @@
 // @import "~font-awesome/scss/font-awesome";
-@import 'foundation.min.css';
+@import 'foundation.css';
 
 @import 'overwrite';
 @import 'variable';
 
 @import './components/button';
 @import 'neon';
+@import 'responsive';
 
 @import url("https://fast.fonts.net/t/1.css?apiType=css&projectid=db083cc8-b36c-4567-a4c5-7d22eb12cff8");
 
@@ -45,34 +46,16 @@
     url("../fonts/74731d73-f46b-4e5d-8c95-a9f87a1ebb58.svg#74731d73-f46b-4e5d-8c95-a9f87a1ebb58") format("svg");
 }
 
+@include scrollbars(0, slategray);
+
 body {
-// 	height: 100vh;
-// 	min-height: 100%;
-// 	padding: 0; margin: 0;
 	background-color: #040508;
-  overflow: hidden;
-// 	font-family: 'AN-Reg', sans-serif;
+  overflow-x: hidden;
+	font-family: 'AN-Reg', sans-serif;
 }
-//
-// .mc {
-// 	position: absolute;
-// 	width: 100%;
-// 	height: 100%;
-// 	background-color: #040508;
-// 	overflow: hidden;
-// }
-//
-// .pc {
-// 	width: calc(100% - 80px);
-//   float: left;
-//   height: 100%;
-//   position: relative;
-//   .cols.col_off {
-//   	opacity: 0;
-//   }
-// }
+
 .gridSet {
-  position: absolute;
+  position: fixed;
   width: calc(100% - 160px);
   height: 100%;
   z-index: 2;
@@ -86,9 +69,37 @@ body {
   }
 }
 
+.scrollbar {
+  position: fixed;
+  height: calc(100vh - 64px);
+  z-index: 6;
+  width:80px;
+  // overflow: hidden;
+  .bar {
+    height: calc(100% - 250px);
+    overflow: hidden;
+    position: relative;
+    .scroller{
+      color: white;
+      transform: rotate(-90deg);
+      border-bottom: 1px solid white;
+      padding-bottom: 15px;
+      text-transform: uppercase;
+      margin-top: 100px;
+      width: 250px;
+      margin-left: -65px;
+    }
+  }
+}
+
 
 .app-bar {
 
+}
+
+.content {
+  position: relative;
+  z-index: 4;
 }
 
 .sidebar {
@@ -112,6 +123,11 @@ body {
 	.social_icon .youtube 		{background-position-x: calc(-50px * 4);}
 
   &.sbmobile {display: none;}
+  &.sbdesktop {
+    position: fixed;
+    right: 0;
+    z-index: 5;
+  }
 }
 
 
@@ -200,10 +216,7 @@ p.off {
 	.copy_form .copy .text {margin: 1.25rem 0; font-size: 0.9rem;}
 
 
-.emlform {
-
-}
-	.emlform .email_address {
+  .email_address {
 	    -webkit-appearance: none;
 	    border: none;
 	    padding: 15px;
@@ -213,46 +226,53 @@ p.off {
 	    font-size: 1rem;
 	    margin-right: 2%;
 	}
-	.emlform .submit_btn {
+  .btn,
+  .submit_btn {
 		opacity: 0.75;
-	    border: 3px solid #19BFD5;
-	    border-radius: 12px;
-	    padding: 16px 24px;
-	    background: none;
-	    color: #FDDC00;
-	    font-size: 1.25rem;
-	    cursor: pointer;
-	    font-family: "AN-Round";
-	    margin: 1.25rem 0;
-	    box-shadow: 0px 0px 10px #19BFD5;
-	    text-shadow: 0px 0px 5px #FDDC00;
-	}
-	.emlform .submit_btn:hover {
-		opacity: 1;
-		box-shadow: 0px 0px 20px #19BFD5;
-	    text-shadow: 0px 0px 10px #FDDC00;
-	}
+    border: 3px solid #19BFD5;
+    border-radius: 12px;
+    padding: 16px 24px;
+    background: none;
+    color: #FDDC00;
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-family: "AN-Round";
+    margin: 1.25rem 0;
+    box-shadow: 0px 0px 10px #19BFD5;
+    text-shadow: 0px 0px 5px #FDDC00;
+    &:hover {
+  		opacity: 1;
+  		box-shadow: 0px 0px 20px #19BFD5;
+  	  text-shadow: 0px 0px 10px #FDDC00;
+  	}
+  }
 
-	.emlform .email_address.off {opacity: 0.1}
+  .btn {
+    line-height: 50px;
+    padding: 5px 20px;
+    text-shadow: none;
+  }
+
+  .email_address.off {opacity: 0.1}
 
 
 /* LOGO */
 .logo {
-	position: relative;
-	// top: 50%;
+  // top: 50%;
   // right: calc(49% + -6px);
-	// transform: translateY(-50%);
-  z-index: 3;
+  // transform: translateY(-50%);
   // width: 42%;
+	position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
-}
-.logo .logobox {
-  flex: 1;
-  display: flex;
-  align-self: center;
-  flex-direction: row;
-  justify-content: center;
+  & .logobox {
+    flex: 1;
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 svg#paralogo {
