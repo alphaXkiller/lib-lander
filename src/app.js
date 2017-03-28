@@ -61,7 +61,6 @@ class App extends Component {
       marginT: scrollingPerc
     })
 
-    // console.log(scrolling)
 
   }
 
