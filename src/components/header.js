@@ -8,6 +8,7 @@ import Menu     from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
 
 import ConstantMenu from '../constants/menu.js'
+import Grid from './shared-components/grid.js'
 
 const MAP_IMAGE = 'https://snazzy-maps-cdn.azureedge.net/assets/38-shades-of-grey.png?v=20170324050112'
 
@@ -34,7 +35,7 @@ const _buyTicketIcon = () => (
 
 
 const _renderMenuSection = onClickCloseDrawer => (
-  <section className='row align-middle'>
+  <section className='row'>
     <div className='small-6  medium-7 columns'>
       {
         R.map( item => (
@@ -130,12 +131,17 @@ const _renderJoinParty = props => (
 const Header = props => {
   return (
     <div>
+      <div className='row row-wrapper'>
+        { Grid() }
+      </div>
       <AppBar 
         onLeftIconButtonTouchTap={props.onClickToggleDrawer}
         title='LIFE IS BEAUTIFUL'
         style={{background: 'transparent'}}
         iconElementRight={_buyTicketIcon()}
       />
+      <div className="green-radial" />
+      <div className="blue-radial" />
       <div id='drawer'>
         <Drawer
           docked={false}
