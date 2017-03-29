@@ -9,6 +9,8 @@ import MenuItem from 'material-ui/MenuItem'
 import FlatButton from 'material-ui/FlatButton'
 
 import ConstantMenu from '../constants/menu.js'
+import Grid from './shared-components/grid.js'
+import './header.scss'
 
 const MAP_IMAGE = 'https://snazzy-maps-cdn.azureedge.net/assets/38-shades-of-grey.png?v=20170324050112'
 
@@ -26,7 +28,15 @@ const SUB_MENU_STYLE = {
   fontSize: '12px',
   lineHeight: '24px',
   minHeight: '0',
-  color: 'white'
+  color: 'white',
+  padding: 0
+}
+
+
+const APP_BAR_STYLE = {
+  position: 'fixed',
+  top: '0',
+  backgroundColor: '#040508'
 }
 
 const _buyTicketIcon = () => (
@@ -37,33 +47,30 @@ const _buyTicketIcon = () => (
 
 
 const _renderMenuSection = onClickCloseDrawer => (
-  <section className='row align-middle'>
-    <div className='small-6  medium-7 columns'>
-      {
-        R.map( item => (
-          <Link
-            key={item.text}
-            to={item.path}
-            onTouchTap={onClickCloseDrawer}
-          >
-            <MenuItem
-              style={{
-                fontSize   : '30px',
-                fontWeight : 'bold',
-                color      : 'white'
-              }}
-              primaryText={item.text}
-            />
-          </Link>
-        ))(ConstantMenu.main)
-      }
-    </div>
-    <div className='small-1 columns hide-for-medium'>
-      <i className='fa fa-snapchat-ghost' />
-      <i className='fa fa-twitter' />
-      <i className='fa fa-book' />
-      <i className='fa fa-instagram' />
-      <i className='fa fa-youtube-play' />
+  <section className='row row-wrapper'>
+    <div style={{zIndex: '10', paddingTop: '50px'}}>
+      <div className='small-14  medium-12 columns'>
+        {
+          R.map( item => (
+            <Link
+              key={item.text}
+              to={item.path}
+              onTouchTap={onClickCloseDrawer}
+            >
+              <MenuItem
+                innerDivStyle={{padding: '0'}}
+                style={{
+                  fontSize   : '30px',
+                  fontWeight : 'bold',
+                  color      : 'white',
+                  minHeight  : '60px'
+                }}
+                primaryText={item.text}
+              />
+            </Link>
+          ))(ConstantMenu.main)
+        }
+      </div>
     </div>
   </section>
 )
@@ -79,7 +86,7 @@ const _renderMapSection = () => (
 
 const _renderGeneralInfo = props => (
   <section className='row'>
-    <div className='small-3 columns'>
+    <div className='small-5 columns'>
       {
         R.map( item => (
           <Link
@@ -87,6 +94,7 @@ const _renderGeneralInfo = props => (
             to={item.path}
           >
             <MenuItem
+              innerDivStyle={{padding: '0'}}
               style={SUB_MENU_STYLE}
               primaryText={item.text}
             />
@@ -94,7 +102,7 @@ const _renderGeneralInfo = props => (
         ))(ConstantMenu.sub.left)
       }
     </div>
-    <div className='small-4 columns'>
+    <div className='small-9 columns'>
       {
         R.map( item => (
           <Link
@@ -114,16 +122,16 @@ const _renderGeneralInfo = props => (
 
 
 const _renderJoinParty = props => (
-  <form onSubmit={props.submit}>
+  <form onSubmit={props.submit} className='drawer-form'>
     <div className='row'>
       <input
         type='text'
         placeholder='YOUREMAIL@ADDRESS.COM'
-        className='small-4 columns'
+        className='medium-8 columns'
       />
       <input
         type='submit'
-        className='small-3 columns button'
+        className='medium-6 columns btn'
         value='JOIN THE PARTY'
       />
     </div>
@@ -133,33 +141,38 @@ const _renderJoinParty = props => (
 const Header = props => {
   return (
     <div>
-      <AppBar
+      <div className='row row-wrapper'>
+        { Grid({zIndex: 1101}) }
+      </div>
+      <AppBar 
         onLeftIconButtonTouchTap={props.onClickToggleDrawer}
         title='LIFE IS BEAUTIFUL'
-        style={{background: 'transparent'}}
+        style={APP_BAR_STYLE}
         iconElementRight={_buyTicketIcon()}
       />
       <div id='drawer'>
         <Drawer
           docked={false}
           open={props.open_drawer}
-          overlayStyle={{ top: '64px' }}
+          overlayStyle={{ top: '64px', backgroundColor: '#040508' }}
           containerStyle={DRAWER_CONTAINER_STYLE}
           onRequestChange={props.onClickCloseDrawer}
         >
           <div className='row row-wrapper'>
-            <div className='medium-3 columns'>
+            { Grid({zIndex: 0}) }
+            <div className='green-radial'/>
+            <div className='medium-6 columns'>
               { _renderMenuSection(props.onClickCloseDrawer) }
               { _renderMapSection() }
               { _renderGeneralInfo() }
               { _renderJoinParty(props.submit) }
-              <p style={{color: 'white'}}>
+              <p style={{color: 'white', fontSize: '0.5em'}}>
                 <i className='fa fa-copyright' />
-                LIFE IS BEAUTIFUL. ALL RIGHTS RESERVED.
+                2017 LIFE IS BEAUTIFUL. ALL RIGHTS RESERVED.
               </p>
             </div>
-            <div className='medium-4 columns hide-for-small-only'>
-              <img src={MAP_IMAGE} />
+            <div className='medium-8 columns show-for-medium map-container'>
+              <div className='map-bg'/>
             </div>
           </div>
         </Drawer>

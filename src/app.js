@@ -8,6 +8,7 @@ import {
   RouteActor
 } from './routes.js'
 import Header from './components/header.js'
+import Grid from './components/shared-components/grid.js'
 
 import './style/main.scss'
 require('smoothscroll-polyfill').polyfill()
@@ -148,15 +149,7 @@ class App extends Component {
           <div className='row row-wrapper'>
 
             {/* <!-- GRID LINES --> */}
-            <div className="large-up-7 gridSet">
-              <div className="columns"><div className='hrv' /></div>
-              <div className="columns"><div className='hrv' /></div>
-              <div className="columns"><div className='hrv' /></div>
-              <div className="columns"><div className='hrv' /></div>
-              <div className="columns"><div className='hrv' /></div>
-              <div className="columns"><div className='hrv' /></div>
-              <div className="columns"><div className='hrv' /></div>
-            </div>
+            { Grid() }
             {/* <!-- GRID LINES --> */}
 
             {

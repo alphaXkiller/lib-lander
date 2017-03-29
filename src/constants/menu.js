@@ -1,7 +1,7 @@
 const main = [
   { text: 'HOME', path: '/' },
   { text: 'LINEUP', path: '/lineup' },
-  { text: 'VIBE', path: '/' },
+  { text: 'VIBE', path: '/vibe' },
   { text: 'NEWS', path: '/' },
   { text: 'PLANNING', path: '/' },
   { text: 'MERCH', path: '/' }

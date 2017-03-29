@@ -1,5 +1,8 @@
 /* LAPTOP and UP */
 @media only screen and (min-width: 90.063rem) {
+  input[type='text'], [type='submit'] {
+    font-size: medium !important;
+  }
 }
 /* LANDSCAPE TABLET DOWN */
 @media only screen and (max-width: 64.000rem) {
@@ -10,9 +13,19 @@
   .section-content {
     display: block;
   }
+  .map-container .map-bg {
+    width: calc(100% + 25px)
+  }
+
+  input[type='text'], [type='submit'] {
+    font-size: medium !important;
+  }
 }
 /* PORTRAIT TABLET DOWN */
 @media only screen and (max-width: 48.000rem) {
+  input[type='text'], [type='submit'] {
+    font-size: x-small !important;
+  }
 }
 /* MOBILE DOWN */
 @media only screen and (max-width: 30rem) {
