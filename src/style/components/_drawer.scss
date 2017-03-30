@@ -1,0 +1,14 @@
+#drawer {
+  .map-container {
+    height: calc(100vh - 64px);
+    position: relative;
+    z-index: 2;
+
+    .map-bg {
+      width: calc(100% + 80px);
+      height: 100%;
+      background: url('https://snazzy-maps-cdn.azureedge.net/assets/38-shades-of-grey.png?v=20170324050112') no-repeat center center;
+      background-size: cover;
+    }
+  }
+}

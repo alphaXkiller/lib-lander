@@ -1,0 +1,28 @@
+.btn,
+.submit_btn {
+  opacity: 0.75;
+  border: 3px solid #19BFD5;
+  border-radius: 12px;
+  padding: 16px 24px;
+  background: none;
+  color: #FDDC00;
+  font-size: 1.25rem;
+  cursor: pointer;
+  font-family: "AN-Round";
+  margin: 1.25rem 0;
+  box-shadow: 0px 0px 10px #19BFD5;
+  text-shadow: 0px 0px 5px #FDDC00;
+  &:hover {
+    opacity: 1;
+    box-shadow: 0px 0px 20px #19BFD5;
+    text-shadow: 0px 0px 10px #FDDC00;
+  }
+}
+
+.btn {
+  line-height: 50px;
+  padding: 5px 20px;
+  text-shadow: none;
+}
+
+
