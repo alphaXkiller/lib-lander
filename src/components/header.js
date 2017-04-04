@@ -10,7 +10,6 @@ import FlatButton from 'material-ui/FlatButton'
 
 import ConstantMenu from '../constants/menu.js'
 import Grid from './shared-components/grid.js'
-import './header.scss'
 
 const MAP_IMAGE = 'https://snazzy-maps-cdn.azureedge.net/assets/38-shades-of-grey.png?v=20170324050112'
 

@@ -1,0 +1,43 @@
+input[type='text'] {
+  background-color : transparent;
+  margin           : 20px 0 0 0;
+  border-radius    : 10px;
+  color            : white;
+  text-align       : center;
+
+  &:hover, &:focus {
+    background-color: transparent;
+  }
+}
+
+input[type='submit'] {
+  &.btn {
+    line-height : 14px;
+    padding     : 10px;
+  }
+}
+
+/* LAPTOP and UP */
+@media only screen and (min-width: 90.063rem) {
+  input[type='text'], [type='submit'] {
+    font-size: medium !important;
+  }
+}
+/* LANDSCAPE TABLET DOWN */
+@media only screen and (max-width: 64.000rem) {
+  input[type='text'], [type='submit'] {
+    font-size: medium !important;
+  }
+}
+/* PORTRAIT TABLET DOWN */
+@media only screen and (max-width: 48.000rem) {
+  input[type='text'], [type='submit'] {
+    font-size: x-small !important;
+  }
+}
+/* MOBILE DOWN */
+@media only screen and (max-width: 30rem) {
+}
+//
+@media only screen and (max-width: 20rem) {
+}
