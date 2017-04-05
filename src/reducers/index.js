@@ -1,3 +1,7 @@
 import { combineReducers } from 'redux'
 
-export default combineReducers({})
+import vibe from './vibe'
+
+export default combineReducers({
+  vibe
+})

@@ -7,14 +7,14 @@ import Path_map from './restful-map.js'
 
 const PARAMS_REGEX      = /:[a-zA-Z]*/
 const INDEX_AFTER_COLON = 1
-// const baseURL        = 'http://127.0.0.1:3031'
+const baseURL        = 'http://stage.libnet.io/wp-json'
 
 
 const _key_list = R.match(PARAMS_REGEX)
 
 
 const _requireKeys = R.compose(R.not, R.isEmpty, _key_list)
-  
+
 
 const parseKeys = R.curry( (url, keys) => {
   const swapKeyWithValue = (acc, val) => R.compose(
@@ -22,7 +22,7 @@ const parseKeys = R.curry( (url, keys) => {
     R.prop(R.__, keys),
     (val) => val.substr(INDEX_AFTER_COLON)
   )(val)
-    
+
   return R.reduce(swapKeyWithValue, url, _key_list(url))
 })
 
@@ -58,7 +58,7 @@ const solution = (instance, url, body) => ({
 const apiRequest = ({method, path, keys, query, body}) => {
 
   let _url = Path_map[path]
-  
+
   if (R.isNil(_url)) throw new Error('WRONG PATH')
 
   if (keys) _url = parseKeys(_url)(keys)
@@ -67,7 +67,7 @@ const apiRequest = ({method, path, keys, query, body}) => {
   // TODO: SUPPOSE TO USE ASYNC/AWAIT, BUT BROWSER SUPPORT IS SO POOR
   if (R.test(/^\/api\//)(_url)) {
     return getToken()
-      
+
       .then( token => {
         const Authorization = R.concat('Bearer ')(token)
         const request = Axios.create({ headers: { Authorization }, baseURL })

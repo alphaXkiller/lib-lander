@@ -12,7 +12,7 @@ import Grid from './components/shared-components/grid.js'
 
 import './style/main.scss'
 require('smoothscroll-polyfill').polyfill()
-8
+
 
 const _openDrawer = () => document.getElementById('drawer')
   .getElementsByTagName('div')[2]
@@ -71,7 +71,7 @@ class App extends Component {
 
 
   onClickToggleDrawer = e => {
-    this.setState({open_drawer: !this.state.open_drawer}, () => 
+    this.setState({open_drawer: !this.state.open_drawer}, () =>
       _toggleDrawer(this.state.open_drawer)
     )
   }
@@ -97,9 +97,9 @@ class App extends Component {
 
           {/* SCROLLBAR */}
           <div className='scrollbar'>
-            <div 
+            <div
               id='bar'
-              className='bar' 
+              className='bar'
               style={{transform: 'translateY(' + this.state.marginT + '%)'}}
               >
               <div className='scroller'id='scroller'> Scroll Down </div>
@@ -157,7 +157,7 @@ class App extends Component {
                 <RouteActor key={key} {...route} />
               ))
             }
-            
+
             <div className="green-radial" />
       			<div className="blue-radial" />
           </div>
