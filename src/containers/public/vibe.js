@@ -36,7 +36,7 @@ class Lineup extends React.Component {
         <div className='large-1 columns column-height'></div>
         {data ?
           <div className='large-12 columns'>
-            <div className='vibe-row row'>
+            <div className='twelve-row row'>
               <Packery
                 className={'vibe-list'} // default ''
                 elementType={'div'} // default 'div'
