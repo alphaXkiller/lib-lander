@@ -1,5 +1,6 @@
 export default {
 
-  'vibe'         : '/lib/vibe'
+  'vibe'         : '/lib/vibe',
+  'landing'         : '/lib/landing'
 
 }

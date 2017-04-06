@@ -1,3 +1,5 @@
+@import '~foundation-sites/scss/foundation.scss';
+
 $color-primary: #f4f7f6;
 $fa-font-path: "~font-awesome/fonts";
 
@@ -19,5 +21,61 @@ $fa-font-path: "~font-awesome/fonts";
   body {
     scrollbar-face-color: $foreground-color;
     scrollbar-track-color: $background-color;
+  }
+}
+
+.ten-row {
+  @include grid-row(10, 0) {
+    .large-4 {
+      @include grid-column(4, 0);
+    }
+    .large-8 {
+      @include grid-column(8, 0);
+    }
+  }
+}
+
+.twelve-row {
+  @include grid-row(24, 0) {
+    .xl {
+      @include grid-column(14, 0);
+      .column-xl {
+        @include grid-row(14, 0) {
+          .image {
+            @include grid-column(13, 0)
+          }
+        }
+      }
+    }
+    .lg {
+      @include grid-column(10, 0);
+      .column-lg {
+        @include grid-row(10, 0) {
+          .image {
+            @include grid-column(9, 0)
+          }
+        }
+      }
+    }
+    .md {
+      @include grid-column(8, 0);
+      .column-md {
+        @include grid-row(8, 0) {
+          .image {
+            @include grid-column(7, 0)
+          }
+        }
+      }
+    }
+    .sm {
+      @include grid-column(6, 0);
+      .column-sm {
+        @include grid-row(6, 0) {
+          .image {
+            @include grid-column(5, 0)
+          }
+        }
+      }
+    }
   }
 }

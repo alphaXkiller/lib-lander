@@ -11,6 +11,7 @@
 @import './components/_form';
 @import './components/_input';
 @import './components/_drawer';
+@import './layout/home';
 @import './layout/vibe';
 
 
@@ -107,6 +108,7 @@ body {
 .content {
   position: relative;
   z-index: 4;
+  margin-top: 64px;
 }
 
 .sidebar {
