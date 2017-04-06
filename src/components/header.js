@@ -141,9 +141,9 @@ const Header = props => {
   return (
     <div>
       <div className='row row-wrapper'>
-        { Grid({zIndex: 1101}) }
+        { Grid({zIndex: 1101, height: 66, overflow: 'hidden'}) }
       </div>
-      <AppBar 
+      <AppBar
         onLeftIconButtonTouchTap={props.onClickToggleDrawer}
         title='LIFE IS BEAUTIFUL'
         style={APP_BAR_STYLE}
