@@ -7,7 +7,9 @@ import HomeContainer from '../../components/landing'
 
 class Home extends React.Component {
   componentDidMount(){
-    this.props.onMount()
+    if (R.isEmpty(this.props.landing)) {
+      this.props.onMount()
+    }
   }
 
   render() {
@@ -16,7 +18,6 @@ class Home extends React.Component {
 				{/* <!-- CONTENT --> */}
         <HomeContainer data={this.props.landing} />
         {/* <!-- CONTENT --> */}
-
 
         {/* <!-- FOOTER --> */}
         {/*<div className="libfooter desktop">
