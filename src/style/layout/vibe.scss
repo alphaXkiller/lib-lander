@@ -4,7 +4,7 @@
   height: 1px;
 }
 
-.vibe-row {
+.twelve-row {
   margin-top: 100px;
   .vibe-list > div {
     margin-bottom: 20px;
@@ -18,55 +18,12 @@
       position: absolute;
       color: #fff;
       text-transform: uppercase;
-      font-size: 40px;
+      font-size: 30px;
       text-shadow: 1px 1px #000;
       font-weight: bold;
     }
     .gutter-right { padding-right: 20px; }
     .gutter-left { padding-left: 20px; }
     .gutter-both { padding: 20px; }
-  }
-
-  @include grid-row(24, 0) {
-    .xl {
-      @include grid-column(14, 0);
-      .column-xl {
-        @include grid-row(14, 0) {
-          .image {
-            @include grid-column(13, 0)
-          }
-        }
-      }
-    }
-    .lg {
-      @include grid-column(10, 0);
-      .column-lg {
-        @include grid-row(10, 0) {
-          .image {
-            @include grid-column(9, 0)
-          }
-        }
-      }
-    }
-    .md {
-      @include grid-column(8, 0);
-      .column-md {
-        @include grid-row(8, 0) {
-          .image {
-            @include grid-column(7, 0)
-          }
-        }
-      }
-    }
-    .sm {
-      @include grid-column(6, 0);
-      .column-sm {
-        @include grid-row(6, 0) {
-          .image {
-            @include grid-column(5, 0)
-          }
-        }
-      }
-    }
   }
 }

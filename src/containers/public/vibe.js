@@ -88,7 +88,7 @@ class Lineup extends React.Component {
         <div className='large-1 columns column-height'></div>
         {data ?
           <div className='large-12 columns'>
-            <div className='vibe-row row'>
+            <div className='twelve-row row'>
               {
                 _renderFilter({
                   categories: this.props.vibe_cats,
@@ -103,7 +103,7 @@ class Lineup extends React.Component {
                 disableImagesLoaded={false} // default false
                 >
                 {_mapData(this.state.selected_cat)(data)}
-            </Packery>
+              </Packery>
             </div>
           </div>
         :null}
