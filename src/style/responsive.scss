@@ -19,6 +19,13 @@
 }
 /* MOBILE DOWN */
 @media only screen and (max-width: 30rem) {
+  svg#paralogo {
+    height: 50vh !important;
+  }
+  .right-col,
+  .left-col {
+    display: block;
+  }
 }
 //
 @media only screen and (max-width: 20rem) {

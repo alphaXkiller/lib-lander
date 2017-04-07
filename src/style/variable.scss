@@ -35,6 +35,17 @@ $fa-font-path: "~font-awesome/fonts";
   }
 }
 
+.six-row {
+  @include grid-row(6, 0) {
+    .large-4 {
+      @include grid-column(4, 0);
+    }
+    .large-5 {
+      @include grid-column(5, 0);
+    }
+  }
+}
+
 .twelve-row {
   @include grid-row(24, 0) {
     .xl {
