@@ -1,0 +1,18 @@
+/* LOGO */
+.logo {
+	position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  & .logobox {
+    flex: 1;
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+svg#paralogo {
+  height: 75vh;
+}

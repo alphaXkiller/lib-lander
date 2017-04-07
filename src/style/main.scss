@@ -5,25 +5,18 @@
 @import 'variable';
 
 @import 'neon';
-@import 'responsive';
 
 @import './components/_button';
 @import './components/_form';
 @import './components/_input';
 @import './components/_drawer';
+@import './components/_logo';
 @import './layout/home';
 @import './layout/vibe';
 
+@import 'responsive';
 
 @import url("https://fast.fonts.net/t/1.css?apiType=css&projectid=db083cc8-b36c-4567-a4c5-7d22eb12cff8");
-
-// body {
-//   background-color: $color-primary
-// }
-//
-// .overflow-hidden {
-//   overflow: hidden !important;
-// }
 
 @font-face{
     font-family:"AN-Reg";
@@ -237,37 +230,6 @@ p.off {
 	}
   .email_address.off {opacity: 0.1}
 
-
-/* LOGO */
-.logo {
-  // top: 50%;
-  // right: calc(49% + -6px);
-  // transform: translateY(-50%);
-  // width: 42%;
-	position: relative;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  & .logobox {
-    flex: 1;
-    display: flex;
-    align-self: center;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-svg#paralogo {
-  height: 75vh;
-	// position: absolute;
-	// top: 0;
-	// left: 0;
-	// width: 100%;
-	// height: auto;
-	// z-index: 1;
-	// overflow: visible;
-}
-
 .green-radial {
 	position: absolute;
 	top: -20vh;
@@ -301,144 +263,3 @@ svg#paralogo {
 .blue-radial.off, .green-radial.off {opacity: 0}
 .libfooter.desktop {display: block;}
 .libfooter.mobile {display: none;}
-
-/* LAPTOP and UP */
-// @media only screen and (min-width: 90.063rem) {
-// 	.copy_form h1 {font-size: 3.85rem;}
-// 	.copy_form .copy {width: 66.66%;}
-// }
-/* LANDSCAPE TABLET DOWN */
-// @media only screen and (max-width: 64.000rem) {
-// 	.copy_form h1 {font-size: 2.25rem;}
-// 	.emlform .email_address {width: 72.33%}
-// 	.copy_form .copy .text {text-align: justify;}
-// 	.libfooter ul {width: 30%;}
-// }
-/* PORTRAIT TABLET DOWN */
-// @media only screen and (max-width: 48.000rem) {
-// 	.logo {
-// 		top: 40px;
-// 	    transform: translateX(-50%);
-// 	    left: calc(50% + 50px);
-// 	    right: 0;
-// 	    width: 60%;
-// 	}
-// 	.copy_form {
-// 		width: 84.33%;
-// 	    transform: none;
-// 	    top: 45%;
-// 	}
-// 	.copy_form .copy {
-// 		width: 100%;
-// 	}
-// 	.copy_form .copy .text {
-// 		text-align: left;
-// 	}
-// 	.sidebar {
-// 		height: 100%;
-// 	}
-// 	.green-radial {
-// 		height: 50vh;
-// 	    left: 60px;
-// 	    top: -30px;
-// 	}
-// 	.blue-radial {
-// 		width: 100%;
-// 	    left: 0;
-// 	    height: 80vh;
-// 	    top: 30%;
-// 	}
-// 	.libfooter ul {
-// 		margin-right: 10px;
-// 		width: 35%;
-// 		padding: 0;
-// 	}
-// 	.libfooter.desktop {display: block;}
-// }
-/* MOBILE DOWN */
-// @media only screen and (max-width: 30rem) {
-// 	body {height: initial; min-height: initial;}
-// 	.mc {position: relative;}
-// 	.pc {width: 100%;}
-// 	.pc .gridSet {
-// 		position: absolute;
-// 	    top: 0;
-// 	    width: 100%;
-// 	}
-// 	.pc .gridSet .cols {
-// 		position: relative;
-// 	    width: 14%;
-// 	    float: right;
-// 	    border-right: 1px solid rgba(50,135,223,0.15);
-// 	    mix-blend-mode: overlay;
-// 	    height: 100%;
-// 	    top: 0px;
-// 	}
-//
-// 	.logo {
-// 		width: 90%;
-// 	    position: relative;
-// 	    margin: 20px auto;
-// 	    top: initial;
-// 	    left: initial;
-// 	    transform: initial;
-// 	}
-// 	.logo .logobox {height: 100%;}
-// 	.copy_form {
-// 		width: 90%;
-// 	    margin: auto;
-// 	    position: relative;
-// 	    top: initial;
-// 	    left: 0;
-// 	    transform: initial;
-// 	}
-// 	.copy_form .copy {
-// 		padding: 0;
-// 	}
-// 	.emlform .email_address {
-// 	    width: 90%;
-// 	    margin: auto;
-// 	    border: 1px solid #777;
-// 	    border-radius: 10px;
-// 	}
-// 	.emlform ._button-wrapper {
-// 		text-align: center;
-// 	}
-// 	.sidebar.sbdesktop {
-// 		display: none;
-// 	}
-// 	.sidebar.sbmobile {
-// 		width: 100%;
-// 	    height: initial;
-// 	    flex-direction: row;
-// 	    float: none;
-// 	    display: inline-flex;
-// 	}
-//
-// 	.libfooter.mobile {
-// 		position: relative;
-// 		display: inline-block;
-// 		bottom: initial;
-// 		margin-bottom: 20px;
-// 	}
-// 	.libfooter.mobile ul {
-// 		width: 100%;
-// 	    display: block;
-// 	    margin: auto;
-// 	}
-// 	.libfooter.mobile ul li {
-//
-// 	}
-// 	.libfooter.mobile .copyright {
-//
-// 	}
-// 	.libfooter.desktop {display: none;}
-// }
-//
-// @media only screen and (max-width: 20rem) {
-// 	.copy_form h1 {
-// 	    font-size: 1.65rem;
-// 	}
-// 	.copy_form .copy .date {margin: 0.5rem 0;}
-// 	.copy_form .copy .text {margin: 0 0 0.5rem;}
-// }

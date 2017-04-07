@@ -25,3 +25,55 @@
     position: absolute;
   }
 }
+
+.right-col,
+.left-col {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.left-col {
+  justify-content: center;
+  align-items: center;
+  .title-left-col {
+    margin-top: -75px;
+    z-index: 1;
+    h1 {
+      font-size: 86px;
+      font-weight: bold;
+      line-height: 85px;
+      text-shadow: 1px 1px black;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.title-right-col {
+  align-self: flex-end;
+  margin-top: -50px;
+  z-index: 1;
+  h1 {
+    font-size: 75px;
+    font-weight: bold;
+    line-height: 85px;
+    text-shadow: 1px 1px black;
+    text-transform: uppercase;
+  }
+}
+
+.last-row {
+  .image {
+    align-self: flex-start;
+    width: 85%;
+  }
+}
+
+.brush-icon,
+.music-note {
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  margin-left: -25px;
+  // position: fixed;
+  z-index: -1;
+}
