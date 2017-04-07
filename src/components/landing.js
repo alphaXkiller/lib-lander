@@ -94,10 +94,8 @@ const _renderRightPost = item => {
   )
 }
 
-const _renderTwoColumns = (list) => {
-  const lastRow = list[2]
-
-  if (!lastRow) {
+const _renderTwoColumns = is_last_row => list => {
+  if (!is_last_row) {
     return(
       <div className='section-content'>
         <div className='row'>
@@ -109,7 +107,7 @@ const _renderTwoColumns = (list) => {
   } else {
     return(
       <div className='section-content'>
-        <div className={'row ' + lastRow}>
+        <div className='row last-row'>
           {_renderLeftPost(list[0])}
           {_renderRightPost(list[1])}
         </div>
@@ -127,8 +125,8 @@ const HomeContainer = (props) => {
       <div style={{color: 'white'}}>
         {_renderFirstRow(props.data[0])}
         {_renderSecondRow(props.data[1])}
-        {_renderTwoColumns([props.data[2], props.data[3]])}
-        {_renderTwoColumns([props.data[4], props.data[5], 'last-row'])}
+        {_renderTwoColumns()([props.data[2], props.data[3]])}
+        {_renderTwoColumns(true)([props.data[4], props.data[5]])}
         <div style={{height: 500}}></div>
       </div>
     )
