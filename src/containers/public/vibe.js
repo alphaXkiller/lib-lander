@@ -22,12 +22,12 @@ const _renderFilter = ({categories, onSelect, selected_cat}) => {
       onChange={onSelect}
     >
       {
-        R.map( 
-          cat => <MenuItem 
-            key={cat} value={cat} primaryText={cat.toUpperCase()} 
+        R.map(
+          cat => <MenuItem
+            key={cat} value={cat} primaryText={cat.toUpperCase()}
           />
         )(categories)
-      }      
+      }
     </SelectField>
   )
 }
@@ -48,9 +48,9 @@ const _mapData = selected_cat => mapIndexed( (item, index) => {
     hide_class = ' hide'
 
   return (
-  <div key={index} className={'column ' + item.box_size + hide_class}>
+  <div key={index} className={'small-full column ' + item.box_size + hide_class}>
     <div className={'column-' + item.box_size}>
-      <div className='column image'>
+      <div className='small-full column image'>
         <span className='name'>{item.name}</span>
         <img className={'gutter-' + item.box_gutter} src={item.profile_image} />
       </div>

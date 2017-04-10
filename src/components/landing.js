@@ -40,18 +40,18 @@ const _renderFirstRow = item => (
   </div>
 )
 const _renderSecondRow = item => (
-  <div key={item.ID} className='row'>
+  <div key={item.ID} className='row featured'>
     <section className='section-content large-14 column'>
-      <div className='large-14 column'>
-        <div className='large-2 column column-height' />
-        <div className='large-10 column'>
+      <div className='small-14 large-14 column'>
+        <div className='hide-for-small-only large-2 column column-height' />
+        <div className='small-14 large-10 column'>
           <div className='row ten-row'>
-            <div className='large-4 column title-col'>
+            <div className='small-full large-4 column title-col'>
               <div className='vertical-centered-title'>
                 <h1 className='section-title'> {item.title} </h1>
               </div>
             </div>
-            <div className='large-8 column'>
+            <div className='small-full large-8 column'>
               <div>
                 <img src={item.image} />
               </div>
@@ -68,7 +68,7 @@ const _renderSecondRow = item => (
 const _renderLeftPost = item => {
   return(
     <div key={item.ID} className='large-6 column large-push-1 left-col six-row'>
-      <div className='large-4 column title-left-col'>
+      <div className='small-full large-4 column title-left-col'>
         <h1>{item.title}</h1>
         <p>{item.description}</p>
       </div>
@@ -82,11 +82,11 @@ const _renderRightPost = item => {
   return(
     <div key={item.ID} className='large-6 column six-row'>
       <div className='right-col'>
-        <div className='large-4 column title-right-col'>
+        <div className='small-full large-4 column title-right-col'>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
         </div>
-        <div className='large-4 column image-right-col'>
+        <div className='small-full large-4 column image-right-col'>
           <img src={item.image} />
         </div>
       </div>
@@ -97,22 +97,25 @@ const _renderRightPost = item => {
 const _renderTwoColumns = is_last_row => list => {
   if (!is_last_row) {
     return(
-      <div className='section-content'>
-        <div className='row'>
-          {_renderLeftPost(list[0])}
-          {_renderRightPost(list[1])}
+      <div className='row'>
+        <div className='section-content'>
+          <div className='row'>
+            {_renderLeftPost(list[0])}
+            {_renderRightPost(list[1])}
+          </div>
         </div>
       </div>
     )
   } else {
     return(
-      <div className='section-content'>
-        <div className='row last-row'>
-          {_renderLeftPost(list[0])}
-          {_renderRightPost(list[1])}
+      <div className='row'>
+        <div className='section-content'>
+          <div className='row last-row'>
+            {_renderLeftPost(list[0])}
+            {_renderRightPost(list[1])}
+          </div>
         </div>
       </div>
-
     )
 
   }

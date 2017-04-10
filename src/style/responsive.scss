@@ -9,6 +9,8 @@
   .scrollbar, .gridSet {display: none;}
   .section-content {
     display: block;
+    height: 100%;
+    padding-top: 50px;
   }
   .map-container .map-bg {
     width: calc(100% + 25px)
@@ -16,16 +18,64 @@
 }
 /* PORTRAIT TABLET DOWN */
 @media only screen and (max-width: 48.000rem) {
-}
+// }
 /* MOBILE DOWN */
-@media only screen and (max-width: 30rem) {
+// @media only screen and (max-width: 30rem) {
+  h1 {
+    font-family:"AN-Bold";
+  }
   svg#paralogo {
-    height: 50vh !important;
+    width: 75%;
+    height: auto !important;
   }
-  .right-col,
-  .left-col {
-    display: block;
+  .logo
+    .logobox {
+      display: block;
+      text-align: center;
+    }
+  .sbdesktop {
+    display: none !important;
   }
+
+  .small-full { width: 100% !important; }
+
+  .title-right-col h1,
+  .left-col
+    .title-left-col
+      h1 {
+        font-size: 15vw;
+        text-align: center;
+        line-height: 15vw;
+      }
+
+  .ten-row
+    .vertical-centered-title {
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      margin-top: 43px;
+      .section-title {
+        font-size: 12vw;
+      }
+    }
+
+  .last-row
+    .image {
+      width: 100%;
+    }
+
+
+  .left-col .title-left-col{
+    margin-bottom: 100px;
+  }
+  .featured,
+  .right-col .title-right-col {
+    margin-bottom: 50px;
+  }
+  // .right-col,
+  // .left-col {
+  //   padding-bottom: 50px;
+  // }
 }
 //
 @media only screen and (max-width: 20rem) {
