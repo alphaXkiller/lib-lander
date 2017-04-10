@@ -2,7 +2,6 @@
   align-items: center;
   display: flex;
   height: 75vh;
-  padding-top: 100px;
   position: relative;
 }
 
@@ -68,12 +67,21 @@
   }
 }
 
-.brush-icon,
-.music-note {
-  width: 30px;
-  height: 30px;
-  border: 1px solid;
-  margin-left: -25px;
-  // position: fixed;
+.art-icon,
+.ideas-icon,
+.music-icon {
+  width: 80px;
+  height: 80px;
   z-index: -1;
+  margin-left: -40px;
+}
+
+.music-icon {
+  background: url('../img/music-icon.png')
+}
+.art-icon {
+  background: url('../img/art-icon.png');
+}
+.ideas-icon {
+  background: url('../img/ideas-icon.png');
 }

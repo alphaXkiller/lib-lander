@@ -20,16 +20,16 @@ class Home extends React.Component {
         {/* <!-- CONTENT --> */}
 
         {/* <!-- FOOTER --> */}
-        {/*<div className="libfooter desktop">
+        <div className="libfooter desktop">
     			<ul>
-    				<li><a href="mailto:LIBPress@rrpartners.com?subject=Life%20Is%20Beautiful%20Press%20Inquiry">Press</a></li>
+    				<li><a >Press</a></li>
     				<li>|</li>
-    				<li><a href="mailto:sponsorships@lifeisbeautiful.com?subject=Life%20Is%20Beautiful%202017%20Sponsorship%20Inquiry">Sponsors</a></li>
+    				<li><a >Sponsors</a></li>
     				<li>|</li>
-    				<li><a href="legal.html">Legal</a></li>
+    				<li><a >Legal</a></li>
     			</ul>
     			<span className="copyright">&copy; 2017 Life Is Beautiful. All Rights Reserved.</span>
-    		</div> */}
+    		</div>
         {/* <!-- FOOTER --> */}
 	    </div>
 
