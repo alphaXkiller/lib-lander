@@ -19,10 +19,14 @@
   }
 }
 
+._button-wrapper {
+  .btn {
+    text-transform: uppercase;
+  }
+}
+
 .btn {
   line-height: 50px;
   padding: 5px 20px;
   text-shadow: none;
 }
-
-
