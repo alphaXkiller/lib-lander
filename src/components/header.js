@@ -35,7 +35,7 @@ const SUB_MENU_STYLE = {
 const APP_BAR_STYLE = {
   position: 'fixed',
   top: '0',
-  backgroundColor: '#040508'
+  backgroundColor: 'rgba(4,5,8,0.5)'
 }
 
 const _buyTicketIcon = () => (
@@ -47,7 +47,7 @@ const _buyTicketIcon = () => (
 
 const _renderMenuSection = onClickCloseDrawer => (
   <section className='row row-wrapper'>
-    <div style={{zIndex: '10', paddingTop: '50px'}}>
+    <div style={{dex: '10', paddingTop: '50px'}}>
       <div className='small-14  medium-12 columns'>
         {
           R.map( item => (
@@ -140,9 +140,6 @@ const _renderJoinParty = props => (
 const Header = props => {
   return (
     <div>
-      <div className='row row-wrapper'>
-        { Grid({zIndex: 1101, height: 66, overflow: 'hidden'}) }
-      </div>
       <AppBar
         onLeftIconButtonTouchTap={props.onClickToggleDrawer}
         title='LIFE IS BEAUTIFUL'

@@ -36,62 +36,71 @@ const _renderFirstRow = item => (
         </div>
       </div>
     </section>
-    <div className='music-note large-push-8' />
+    <div className='row parallax'>
+      <div className='music-icon large-push-8' />
+    </div>
   </div>
 )
-const _renderSecondRow = item => (
-  <div key={item.ID} className='row featured'>
-    <section className='section-content large-14 column'>
-      <div className='small-14 large-14 column'>
-        <div className='hide-for-small-only large-2 column column-height' />
-        <div className='small-14 large-10 column'>
-          <div className='row ten-row'>
-            <div className='small-full large-4 column title-col'>
-              <div className='vertical-centered-title'>
-                <h1 className='section-title'> {item.title} </h1>
+const _renderSecondRow = item => {
+  if (item) {
+    return(
+      <div key={item.ID} className='row featured'>
+        <section className='section-content large-14 column'>
+          <div className='small-14 large-14 column'>
+            <div className='hide-for-small-only large-2 column column-height' />
+            <div className='small-14 large-10 column'>
+              <div className='row ten-row'>
+                <div className='small-full large-4 column title-col'>
+                  <div className='vertical-centered-title'>
+                    <h1 className='section-title'> {item.title} </h1>
+                  </div>
+                </div>
+                <div className='small-full large-8 column'>
+                  <div>
+                    <img src={item.image} />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className='small-full large-8 column'>
-              <div>
-                <img src={item.image} />
-              </div>
-            </div>
+            <div className='large-2 column column-height' />
           </div>
-        </div>
-        <div className='large-2 column column-height' />
+        </section>
       </div>
-    </section>
-    {/* <div className='brush-icon large-push-8' /> */}
-  </div>
-)
+    )
+  } else { return null }
+}
 
 const _renderLeftPost = item => {
-  return(
-    <div key={item.ID} className='large-6 column large-push-1 left-col six-row'>
-      <div className='small-full large-4 column title-left-col'>
-        <h1>{item.title}</h1>
-        <p>{item.description}</p>
-      </div>
-      <div className='image'>
-        <img src={item.image} />
-      </div>
-    </div>
-  )
-}
-const _renderRightPost = item => {
-  return(
-    <div key={item.ID} className='large-6 column six-row'>
-      <div className='right-col'>
-        <div className='small-full large-4 column title-right-col'>
+  if (item) {
+    return(
+      <div key={item.ID} className='large-6 column large-push-1 left-col six-row'>
+        <div className='small-full large-4 column title-left-col'>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
         </div>
-        <div className='small-full large-4 column image-right-col'>
+        <div className='image'>
           <img src={item.image} />
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+}
+const _renderRightPost = item => {
+  if (item) {
+    return(
+      <div key={item.ID} className='large-6 column six-row'>
+        <div className='right-col'>
+          <div className='small-full large-4 column title-right-col'>
+            <h1>{item.title}</h1>
+            <p>{item.description}</p>
+          </div>
+          <div className='small-full large-4 column image-right-col'>
+            <img src={item.image} />
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 const _renderTwoColumns = is_last_row => list => {
@@ -100,6 +109,9 @@ const _renderTwoColumns = is_last_row => list => {
       <div className='row'>
         <div className='section-content'>
           <div className='row'>
+            <div className='row parallax'>
+              <div className='art-icon large-push-12 column' />
+            </div>
             {_renderLeftPost(list[0])}
             {_renderRightPost(list[1])}
           </div>
@@ -111,6 +123,9 @@ const _renderTwoColumns = is_last_row => list => {
       <div className='row'>
         <div className='section-content'>
           <div className='row last-row'>
+            <div className='row parallax'>
+              <div className='ideas-icon large-push-7 column' />
+            </div>
             {_renderLeftPost(list[0])}
             {_renderRightPost(list[1])}
           </div>
@@ -121,20 +136,39 @@ const _renderTwoColumns = is_last_row => list => {
   }
 }
 
-const HomeContainer = (props) => {
+class HomeContainer extends Component {
+  componentDidMount() {
+    window.addEventListener('scroll', this.parallaxFn)
+  }
 
-  return notEmpty(props.data) ?
-   (
+  parallaxFn = () => {
+    let parallax = document.querySelectorAll(".parallax"),
+        speed = 0.15;
+
+    [].slice.call(parallax).map( (el,i) => {
+      let windowYOffset = window.pageYOffset,
+        elBackgrounPos = (windowYOffset * speed) + "px";
+      el.style.marginTop = '-' + elBackgrounPos;
+      el.style.marginBottom = elBackgrounPos;
+
+    })
+  }
+
+  render(){
+    const data = this.props.data
+    return notEmpty(data) ?
+    (
       <div style={{color: 'white'}}>
-        {_renderFirstRow(props.data[0])}
-        {_renderSecondRow(props.data[1])}
-        {_renderTwoColumns()([props.data[2], props.data[3]])}
-        {_renderTwoColumns(true)([props.data[4], props.data[5]])}
+        {_renderFirstRow(data[0])}
+        {_renderSecondRow(data[1])}
+        {_renderTwoColumns()([data[2], data[3]])}
+        {_renderTwoColumns(true)([data[4], data[5]])}
         <div style={{height: 500}}></div>
       </div>
     )
 
     : null
+  }
 }
 
 

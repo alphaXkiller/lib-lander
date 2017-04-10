@@ -56,12 +56,11 @@ class App extends Component {
     let docHeight = document.body.clientHeight;
 
     let scrolling = (scrollY) / (docHeight - (innerHeight) )
-    let scrollingPerc = Math.round(scrolling*100)
+    let scrollingPerc = scrolling*100
 
     this.setState({
       marginT: scrollingPerc
     })
-
 
   }
 
@@ -100,7 +99,7 @@ class App extends Component {
             <div
               id='bar'
               className='bar'
-              style={{transform: 'translateY(' + this.state.marginT + '%)'}}
+              style={{transform: 'translate3d(0,' + this.state.marginT + '%, 0)'}}
               >
               <div className='scroller'id='scroller'> Scroll Down </div>
             </div>
