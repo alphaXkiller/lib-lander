@@ -39,59 +39,67 @@ const _renderFirstRow = item => (
     <div className='music-note large-push-8' />
   </div>
 )
-const _renderSecondRow = item => (
-  <div key={item.ID} className='row featured'>
-    <section className='section-content large-14 column'>
-      <div className='small-14 large-14 column'>
-        <div className='hide-for-small-only large-2 column column-height' />
-        <div className='small-14 large-10 column'>
-          <div className='row ten-row'>
-            <div className='small-full large-4 column title-col'>
-              <div className='vertical-centered-title'>
-                <h1 className='section-title'> {item.title} </h1>
+const _renderSecondRow = item => {
+  if (item) {
+    return(
+      <div key={item.ID} className='row featured'>
+        <section className='section-content large-14 column'>
+          <div className='small-14 large-14 column'>
+            <div className='hide-for-small-only large-2 column column-height' />
+            <div className='small-14 large-10 column'>
+              <div className='row ten-row'>
+                <div className='small-full large-4 column title-col'>
+                  <div className='vertical-centered-title'>
+                    <h1 className='section-title'> {item.title} </h1>
+                  </div>
+                </div>
+                <div className='small-full large-8 column'>
+                  <div>
+                    <img src={item.image} />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className='small-full large-8 column'>
-              <div>
-                <img src={item.image} />
-              </div>
-            </div>
+            <div className='large-2 column column-height' />
           </div>
-        </div>
-        <div className='large-2 column column-height' />
+        </section>
+        {/* <div className='brush-icon large-push-8' /> */}
       </div>
-    </section>
-    {/* <div className='brush-icon large-push-8' /> */}
-  </div>
-)
+    )
+  } else { return null }
+}
 
 const _renderLeftPost = item => {
-  return(
-    <div key={item.ID} className='large-6 column large-push-1 left-col six-row'>
-      <div className='small-full large-4 column title-left-col'>
-        <h1>{item.title}</h1>
-        <p>{item.description}</p>
-      </div>
-      <div className='image'>
-        <img src={item.image} />
-      </div>
-    </div>
-  )
-}
-const _renderRightPost = item => {
-  return(
-    <div key={item.ID} className='large-6 column six-row'>
-      <div className='right-col'>
-        <div className='small-full large-4 column title-right-col'>
+  if (item) {
+    return(
+      <div key={item.ID} className='large-6 column large-push-1 left-col six-row'>
+        <div className='small-full large-4 column title-left-col'>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
         </div>
-        <div className='small-full large-4 column image-right-col'>
+        <div className='image'>
           <img src={item.image} />
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+}
+const _renderRightPost = item => {
+  if (item) {
+    return(
+      <div key={item.ID} className='large-6 column six-row'>
+        <div className='right-col'>
+          <div className='small-full large-4 column title-right-col'>
+            <h1>{item.title}</h1>
+            <p>{item.description}</p>
+          </div>
+          <div className='small-full large-4 column image-right-col'>
+            <img src={item.image} />
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 const _renderTwoColumns = is_last_row => list => {
