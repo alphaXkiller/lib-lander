@@ -1,8 +1,9 @@
-// @import "~font-awesome/scss/font-awesome";
 @import 'foundation.css';
+@import 'animate.min.css';
 
 @import 'overwrite';
 @import 'variable';
+@import "~font-awesome/scss/font-awesome";
 
 @import 'neon';
 
@@ -13,6 +14,9 @@
 @import './components/_logo';
 @import './layout/home';
 @import './layout/vibe';
+@import './helpers/_position';
+@import './helpers/_overflow.scss';
+@import './effect/_blur';
 
 @import 'responsive';
 

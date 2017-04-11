@@ -149,7 +149,7 @@ class App extends Component {
           <div className='row row-wrapper'>
 
             {/* <!-- GRID LINES --> */}
-            { Grid() }
+            { Grid(null, 'content-wrapper') }
             {/* <!-- GRID LINES --> */}
 
             {
