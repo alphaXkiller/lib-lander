@@ -86,7 +86,7 @@ const _renderPopover = props => vibe => (
   <div
     key={vibe.ID}
     className={R.join(' ', [
-      'twelve-row large-12 row fixed vibe-popover animated',
+      'twelve-row large-12 row fixed overflow-scroll vibe-popover animated',
       props.selected_vibe_id === vibe.ID ? 'show fadeIn' : ''
     ])}
   >
