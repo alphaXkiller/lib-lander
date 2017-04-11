@@ -2,6 +2,7 @@
 
 $color-primary: #f4f7f6;
 $fa-font-path: "~font-awesome/fonts";
+$content-height-full: calc(100vh - 64px);
 
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
   ::-webkit-scrollbar {

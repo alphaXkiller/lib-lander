@@ -4,26 +4,49 @@
   height: 1px;
 }
 
-.twelve-row {
-  margin-top: 100px;
-  .vibe-list > div {
-    margin-bottom: 20px;
-  }
-  .image {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    .name {
-      position: absolute;
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 30px;
-      text-shadow: 1px 1px #000;
-      font-weight: bold;
+#vibe_page{
+  .twelve-row {
+    margin-top: 100px;
+    transition: filter 1s ease-in-out;
+
+    .vibe-list > div {
+      margin-bottom: 20px;
     }
-    .gutter-right { padding-right: 20px; }
-    .gutter-left { padding-left: 20px; }
-    .gutter-both { padding: 20px; }
+    .image {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .name {
+        position: absolute;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 30px;
+        text-shadow: 1px 1px #000;
+        font-weight: bold;
+      }
+      .gutter-right { padding-right: 20px; }
+      .gutter-left { padding-left: 20px; }
+      .gutter-both { padding: 20px; }
+    }
+  }
+
+  .vibe-popover {
+    height: calc(#{$content-height-full});
+    opacity: 0;
+
+    &.show {
+      z-index: 1;
+    }
+
+    p, span, button {
+      color: white;
+    }
+
+    button {
+      cursor: pointer;
+    }
   }
 }
+
+
