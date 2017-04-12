@@ -8,6 +8,7 @@ import Vibe     from './containers/public/vibe.js'
 import NotFound from './containers/public/404.js'
 import Planning from './containers/public/planning.js'
 import News     from './containers/public/news.js'
+import Ticket   from './containers/public/ticket.js'
 
 const RouteFunctor = [
   { path: '/', component: Home, exact: true},
@@ -15,6 +16,7 @@ const RouteFunctor = [
   { path: '/vibe', component: Vibe },
   { path: '/planning', component: Planning },
   { path: '/news', component: News },
+  { path: '/ticket', component: Ticket },
   { component: NotFound }
 ]
 

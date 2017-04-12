@@ -11,6 +11,7 @@ import FlatButton from 'material-ui/FlatButton'
 import ConstantMenu from '../constants/menu.js'
 import Grid         from './shared-components/grid.js'
 import MapImg       from '../img/lib-map.jpg'
+import TitleImg     from '../img/lib_menu.png'
 
 
 const DRAWER_CONTAINER_STYLE = {
@@ -37,9 +38,9 @@ const APP_BAR_STYLE = {
   backgroundColor: 'rgba(4,5,8,0.5)'
 }
 
-const _buyTicketIcon = () => (
-  <div className="_button-wrapper">
-    <a href="#" className="btn cta2-activated">Buy Tickets</a>
+const _buyTicketIcon = onClickFn => (
+  <div className="_button-wrapper" onClick={onClickFn}>
+    <Link to='/ticket' className='btn cta2-activated'>BUY TICKETS</Link>
   </div>
 )
 
@@ -125,15 +126,22 @@ const _renderJoinParty = props => (
       <input
         type='text'
         placeholder='YOUREMAIL@ADDRESS.COM'
-        className='medium-8 columns'
+        className='medium-7 columns'
       />
+      <div className='medium-1 columns column-height'/>
       <input
         type='submit'
-        className='medium-6 columns btn'
+        className='medium-5 columns btn'
         value='JOIN THE PARTY'
       />
+      <div className='medium-1 columns column-height'/>
     </div>
   </form>
+)
+
+
+const _renderTitle = (onClickFn, img) => (
+  <Link to='/' onClick={onClickFn}><img src={img}/></Link>
 )
 
 const Header = props => {
@@ -141,9 +149,9 @@ const Header = props => {
     <div>
       <AppBar
         onLeftIconButtonTouchTap={props.onClickToggleDrawer}
-        title={<img src='../img/lib_menu.png' />}
+        title={_renderTitle(props.onClickCloseDrawer, TitleImg)}
         style={APP_BAR_STYLE}
-        iconElementRight={_buyTicketIcon()}
+        iconElementRight={_buyTicketIcon(props.onClickCloseDrawer)}
       />
       <div id='drawer'>
         <Drawer

@@ -12,7 +12,11 @@ class PlanPage extends React.Component {
   render() {
     return (
       <div className='content'>
-        <h1 className='columns'>PLANNING</h1>
+        <div className='row page-title'> 
+          <div className='large-2 columns column-height' />
+          <h1 className='large-12 columns'>PLANNING</h1>
+          <div className='large-2 columns column-height' />
+        </div>
         <p>{R.map( plan => plan.description )(this.props.plans)}</p>
       </div>
     )
