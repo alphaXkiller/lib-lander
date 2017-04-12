@@ -37,6 +37,10 @@
     display: none !important;
   }
 
+  .copy-hero .copy {
+    width: 100% !important;
+  }
+
   .small-full { width: 100% !important; }
 
   .title-right-col h1,
@@ -72,10 +76,23 @@
   .right-col .title-right-col {
     margin-bottom: 50px;
   }
-  // .right-col,
-  // .left-col {
-  //   padding-bottom: 50px;
-  // }
+
+
+  #vibe-page {
+    .vibe-popover{
+      &.show {
+        margin-top: 0px;
+        padding: 50px 0;
+      }
+      .vibe-content {
+        display: block;
+        .navigation-btns {
+          flex-direction: column-reverse;
+        }
+      }
+
+    }
+  }
 }
 //
 @media only screen and (max-width: 20rem) {

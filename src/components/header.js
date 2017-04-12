@@ -47,7 +47,7 @@ const _buyTicketIcon = () => (
 
 const _renderMenuSection = onClickCloseDrawer => (
   <section className='row row-wrapper'>
-    <div style={{dex: '10', paddingTop: '50px'}}>
+    <div style={{zIndex: '10', paddingTop: '50px'}}>
       <div className='small-14  medium-12 columns'>
         {
           R.map( item => (
@@ -142,7 +142,7 @@ const Header = props => {
     <div>
       <AppBar
         onLeftIconButtonTouchTap={props.onClickToggleDrawer}
-        title='LIFE IS BEAUTIFUL'
+        title={<img src='../img/lib_menu.png' />}
         style={APP_BAR_STYLE}
         iconElementRight={_buyTicketIcon()}
       />

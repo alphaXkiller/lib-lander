@@ -19,14 +19,14 @@ const _getVibeIdByDirection = (vibe, current_id, direction) => R.compose(
     R.isNil,
     () => R.ifElse(
       R.equals(-1),
-      R.always(R.compose(R.prop('ID'), R.last)(vibe)), 
+      R.always(R.compose(R.prop('ID'), R.last)(vibe)),
       R.always(vibe[0].ID)
     )(index),
     R.prop('ID')
   )(vibe[index]),
   index => R.ifElse(
-    R.equals('next'), 
-    () => R.inc(index), 
+    R.equals('next'),
+    () => R.inc(index),
     () => R.dec(index)
   )(direction),
   R.findIndex(R.propEq('ID', current_id))
@@ -69,7 +69,7 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
   return (
   <div key={index} className={'small-full column ' + item.box_size + hide_class}>
     <div className={'column-' + item.box_size}>
-      <div 
+      <div
         className='small-full column image'
         onClick={onClick(item.ID)}
       >
@@ -81,34 +81,44 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
   )
 })
 
+const _createMarkup = (content) => {
+  return {__html: content}
+}
+
 
 const _renderPopover = props => vibe => (
   <div
     key={vibe.ID}
     className={R.join(' ', [
-      'twelve-row large-12 row fixed overflow-scroll vibe-popover animated',
+      'twelve-row row fixed overflow-scroll vibe-popover animated',
       props.selected_vibe_id === vibe.ID ? 'show fadeIn' : ''
     ])}
   >
-    <div className='large-6 column'>
-      <img src={vibe.profile_image} />
-      <span>{vibe.name}</span>
-      <p>{vibe.description}</p>
-    </div>
-    <div className='large-6 column'>
-      <div className='row align-left'>
-        <button className='column small-3' onClick={props.onClickCancel}>
-          <i className='fa fa-times fa-lg' /> BACK
-        </button>
-        <button className='column small-3' onClick={props.onClickPrev}>
-          <i className='fa fa-arrow-left fa-lg' /> PREV
-        </button>
-        <button className='column small-3' onClick={props.onClickNext}>
-          NEXT <i className='fa fa-arrow-right fa-lg' />
-        </button>
-        <div className='column small-3'/>
+    <div className='small-13 large-10 large-push-1 column vibe-content'>
+      <div className='small-14 large-6 column'>
+        <div className='title-container'>
+          <img src={vibe.profile_image} />
+          <h1>{vibe.name}</h1>
+        </div>
+        <p dangerouslySetInnerHTML={_createMarkup(vibe.description_left)} />
       </div>
-      <p>{vibe.more_description}</p>
+      <div className='small-14 large-6 column navigation-btns'>
+        <div className='row large-up-3 small-up-3 align-left'>
+          <button className='column' onClick={props.onClickCancel}>
+            <i className='fa fa-times fa-lg' /> BACK
+          </button>
+          <button className='column' onClick={props.onClickPrev}>
+            <i className='fa fa-arrow-left fa-lg' /> PREV
+          </button>
+          <button className='column' onClick={props.onClickNext}>
+            NEXT <i className='fa fa-arrow-right fa-lg' />
+          </button>
+          {/* <div className='column small-3'/> */}
+        </div>
+        <div className='row'>
+          <p dangerouslySetInnerHTML={_createMarkup(vibe.description_right)} />
+        </div>
+      </div>
     </div>
   </div>
 )
@@ -125,7 +135,7 @@ class Lineup extends React.Component {
     }
   }
 
-  
+
   componentDidUpdate(prevProps, prevState) {
     if (R.isEmpty(prevState.current_vibe_list) && notEmpty(this.props.vibe))
       this.setState({current_vibe_list: this.props.vibe})
@@ -159,7 +169,7 @@ class Lineup extends React.Component {
         .querySelector('#content-wrapper')
         .classList.remove('gridSet')
     })
-  } 
+  }
 
 
   next = e => this.setState({
@@ -193,11 +203,11 @@ class Lineup extends React.Component {
     const data = this.props.vibe
 
     return (
-      <div id='vibe_page' className='content'>
+      <div id='vibe-page' className='content'>
         <div className='large-1 columns column-height relative'></div>
         {data ?
           <div className='large-12 columns'>
-            { 
+            {
               R.map(
                 _renderPopover({
                   onClickNext      : this.next,
@@ -209,7 +219,7 @@ class Lineup extends React.Component {
             }
             <div
               className={R.join(' ', [
-                'twelve-row row', 
+                'twelve-row row',
                 this.state.selected_vibe_id ? 'blur-10' : ''
               ])}
             >
