@@ -47,20 +47,26 @@
   }
 }
 
-.title-right-col {
-  align-self: flex-end;
-  margin-top: -50px;
-  z-index: 1;
-  h1 {
-    font-size: 75px;
-    font-weight: bold;
-    line-height: 85px;
-    text-shadow: 1px 1px black;
-    text-transform: uppercase;
+.right-col {
+  margin-top: 50px;
+  .title-right-col {
+    align-self: flex-end;
+    margin-top: -50px;
+    z-index: 1;
+    h1 {
+      font-size: 75px;
+      font-weight: bold;
+      line-height: 85px;
+      text-shadow: 1px 1px black;
+      text-transform: uppercase;
+    }
   }
 }
 
 .last-row {
+  .right-col {
+    margin-top: 25px;
+  }
   .image {
     align-self: flex-start;
     width: 85%;

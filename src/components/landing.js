@@ -23,7 +23,7 @@ const _renderFirstRow = item => (
 
       {/* <!-- CTA/FORM BLOCK --> */}
       <div className="columns large-6 medium-14 small-14">
-        <div className="copy_form">
+        <div className="copy-hero">
           <div className='row'>
             <div className='large-9 column'>
               <h1 className="pink_on yne-activated">{item.title}</h1>
@@ -36,7 +36,7 @@ const _renderFirstRow = item => (
         </div>
       </div>
     </section>
-    <div className='row parallax'>
+    <div className='row parallax show-for-large'>
       <div className='music-icon large-push-8' />
     </div>
   </div>
@@ -109,7 +109,7 @@ const _renderTwoColumns = is_last_row => list => {
       <div className='row'>
         <div className='section-content'>
           <div className='row'>
-            <div className='row parallax'>
+            <div className='row parallax show-for-large'>
               <div className='art-icon large-push-12 column' />
             </div>
             {_renderLeftPost(list[0])}
@@ -123,8 +123,8 @@ const _renderTwoColumns = is_last_row => list => {
       <div className='row'>
         <div className='section-content'>
           <div className='row last-row'>
-            <div className='row parallax'>
-              <div className='ideas-icon large-push-7 column' />
+            <div className='row parallax show-for-large'>
+              <div className='ideas-icon large-push-8 column' />
             </div>
             {_renderLeftPost(list[0])}
             {_renderRightPost(list[1])}

@@ -4,7 +4,7 @@
   height: 1px;
 }
 
-#vibe_page{
+#vibe-page{
   .twelve-row {
     margin-top: 100px;
     transition: filter 1s ease-in-out;
@@ -46,7 +46,24 @@
     button {
       cursor: pointer;
     }
+
+    .vibe-content {
+      display: flex;
+      justify-content: space-between;
+      .title-container {
+        h1 {
+          color: #fff;
+          font-family: 'AN-Bold', sans-serif;
+          margin-top: -40px;
+          text-transform: uppercase;
+          text-shadow: 1px 1px #000;
+        }
+      }
+      .navigation-btns {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
   }
 }
-
-
