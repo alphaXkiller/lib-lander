@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
-import vibe from './vibe'
-import landing from './home'
+import vibe     from './vibe'
+import landing  from './home'
+import planning from './planning.js'
 
 export default combineReducers({
   vibe,
-  landing
+  landing,
+  planning
 })

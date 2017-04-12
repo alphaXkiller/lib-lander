@@ -1,7 +1,7 @@
-import R                    from 'ramda'
-import React, { Component } from 'react'
-import { connect }          from 'react-redux'
-import { BrowserRouter}     from 'react-router-dom'
+import R                        from 'ramda'
+import React, { Component }     from 'react'
+import { connect }              from 'react-redux'
+import { BrowserRouter, Switch} from 'react-router-dom'
 
 import {
   RouteFunctor,
@@ -151,11 +151,13 @@ class App extends Component {
             { Grid(null, 'content-wrapper') }
             {/* <!-- GRID LINES --> */}
 
-            {
-              RouteFunctor.map( (route, key) => (
-                <RouteActor key={key} {...route} />
-              ))
-            }
+            <Switch>
+              {
+                RouteFunctor.map( (route, key) => (
+                  <RouteActor key={key} {...route} />
+                ))
+              }
+            </Switch>
 
             <div className="green-radial" />
       			<div className="blue-radial" />

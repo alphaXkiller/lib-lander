@@ -9,9 +9,8 @@ import MenuItem from 'material-ui/MenuItem'
 import FlatButton from 'material-ui/FlatButton'
 
 import ConstantMenu from '../constants/menu.js'
-import Grid from './shared-components/grid.js'
-
-const MAP_IMAGE = 'https://snazzy-maps-cdn.azureedge.net/assets/38-shades-of-grey.png?v=20170324050112'
+import Grid         from './shared-components/grid.js'
+import MapImg       from '../img/lib-map.jpg'
 
 
 const DRAWER_CONTAINER_STYLE = {
@@ -78,7 +77,7 @@ const _renderMenuSection = onClickCloseDrawer => (
 const _renderMapSection = () => (
   <img
     className='hide-for-medium'
-    src={MAP_IMAGE}
+    src={'/assets/' + MapImg}
   />
 )
 
