@@ -7,12 +7,14 @@ import Lineup   from './containers/public/lineup.js'
 import Vibe     from './containers/public/vibe.js'
 import NotFound from './containers/public/404.js'
 import Planning from './containers/public/planning.js'
+import News     from './containers/public/news.js'
 
 const RouteFunctor = [
   { path: '/', component: Home, exact: true},
   { path: '/lineup', component: Lineup },
   { path: '/vibe', component: Vibe },
   { path: '/planning', component: Planning },
+  { path: '/news', component: News },
   { component: NotFound }
 ]
 
