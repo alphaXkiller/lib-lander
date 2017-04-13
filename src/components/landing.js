@@ -136,39 +136,20 @@ const _renderTwoColumns = is_last_row => list => {
   }
 }
 
-class HomeContainer extends Component {
-  componentDidMount() {
-    window.addEventListener('scroll', this.parallaxFn)
-  }
+const HomeContainer = (props) => {
+  const data = props.data
+  return notEmpty(data) ?
+  (
+    <div style={{color: 'white'}}>
+      {_renderFirstRow(data[0])}
+      {_renderSecondRow(data[1])}
+      {_renderTwoColumns()([data[2], data[3]])}
+      {_renderTwoColumns(true)([data[4], data[5]])}
+      {/* <div style={{height: 500}}></div> */}
+    </div>
+  )
 
-  parallaxFn = () => {
-    let parallax = document.querySelectorAll(".parallax"),
-        speed = 0.15;
-
-    [].slice.call(parallax).map( (el,i) => {
-      let windowYOffset = window.pageYOffset,
-        elBackgrounPos = (windowYOffset * speed) + "px";
-      el.style.marginTop = '-' + elBackgrounPos;
-      el.style.marginBottom = elBackgrounPos;
-
-    })
-  }
-
-  render(){
-    const data = this.props.data
-    return notEmpty(data) ?
-    (
-      <div style={{color: 'white'}}>
-        {_renderFirstRow(data[0])}
-        {_renderSecondRow(data[1])}
-        {_renderTwoColumns()([data[2], data[3]])}
-        {_renderTwoColumns(true)([data[4], data[5]])}
-        <div style={{height: 500}}></div>
-      </div>
-    )
-
-    : null
-  }
+  : null
 }
 
 

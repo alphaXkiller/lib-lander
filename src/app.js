@@ -162,6 +162,21 @@ class App extends Component {
             <div className="green-radial" />
       			<div className="blue-radial" />
           </div>
+          {/* <!-- FOOTER --> */}
+          <footer className='crowd'>
+            <div className="dj">
+            {/* <div className="libfooter dj desktop"> */}
+              {/* <ul>
+                <li><a >Press</a></li>
+                <li>|</li>
+                <li><a >Sponsors</a></li>
+                <li>|</li>
+                <li><a >Legal</a></li>
+              </ul>
+              <span className="copyright">&copy; 2017 Life Is Beautiful. All Rights Reserved.</span> */}
+            </div>
+          </footer>
+          {/* <!-- FOOTER --> */}
         </div>
       </BrowserRouter>
     )

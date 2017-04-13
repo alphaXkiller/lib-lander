@@ -10,6 +10,31 @@ class Home extends React.Component {
     if (R.isEmpty(this.props.landing)) {
       this.props.onMount()
     }
+    window.addEventListener('scroll', this.parallaxFn)
+  }
+
+  parallaxFn = () => {
+    let parallax = document.querySelectorAll(".parallax"),
+        footer = document.querySelector('.dj'),
+        speed = 0.15,
+        scrollY = window.scrollY,
+        innerHeight = window.innerHeight,
+        docHeight = document.body.clientHeight,
+        scrolling = (scrollY) / ( docHeight - (innerHeight) );
+
+    [].slice.call(parallax).map( (el,i) => {
+      let windowYOffset = window.pageYOffset,
+        elBackgrounPos = (windowYOffset * speed) + "px";
+      el.style.marginTop = '-' + elBackgrounPos;
+      el.style.marginBottom = elBackgrounPos;
+    })
+
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      footer.style.marginBottom = '0'
+    } else {
+      footer.style.marginBottom = '-200px'
+    }
+
   }
 
   render() {
@@ -18,19 +43,6 @@ class Home extends React.Component {
 				{/* <!-- CONTENT --> */}
         <HomeContainer data={this.props.landing} />
         {/* <!-- CONTENT --> */}
-
-        {/* <!-- FOOTER --> */}
-        <div className="libfooter desktop">
-    			<ul>
-    				<li><a >Press</a></li>
-    				<li>|</li>
-    				<li><a >Sponsors</a></li>
-    				<li>|</li>
-    				<li><a >Legal</a></li>
-    			</ul>
-    			<span className="copyright">&copy; 2017 Life Is Beautiful. All Rights Reserved.</span>
-    		</div>
-        {/* <!-- FOOTER --> */}
 	    </div>
 
     )
