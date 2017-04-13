@@ -114,19 +114,19 @@ const _renderPopover = props => vibe => (
       </div>
       <div className='small-14 large-7 column navigation-btns'>
         <div className='row large-up-3 small-up-3 align-left'>
-          <button className='column' onClick={props.onClickCancel}>
+          <button className='column btn-underline' onClick={props.onClickCancel}>
             <div>
               <i className='fa fa-times fa-lg' /> BACK
               <hr className='pink'/>
             </div>
           </button>
-          <button className='column' onClick={props.onClickPrev}>
+          <button className='column btn-underline' onClick={props.onClickPrev}>
             <div>
               <i className='fa fa-arrow-left fa-lg' /> PREV
               <hr/>
             </div>
           </button>
-          <button className='column' onClick={props.onClickNext}>
+          <button className='column btn-underline' onClick={props.onClickNext}>
             <div>
               NEXT <i className='fa fa-arrow-right fa-lg' />
               <hr/>
