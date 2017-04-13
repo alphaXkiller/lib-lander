@@ -1,5 +1,10 @@
 /* LAPTOP and UP */
 @media only screen and (min-width: 90.063rem) {
+  ._button-wrapper {
+    .btn {
+      font-size: 1vw;
+    }
+  }
 }
 /* LANDSCAPE TABLET DOWN */
 @media only screen and (max-width: 64.000rem) {
@@ -14,6 +19,12 @@
   }
   .map-container .map-bg {
     width: calc(100% + 25px)
+  }
+
+  ._button-wrapper {
+    .btn {
+      font-size: 1vw;
+    }
   }
 }
 /* PORTRAIT TABLET DOWN */
@@ -75,6 +86,12 @@
   .featured,
   .right-col .title-right-col {
     margin-bottom: 50px;
+  }
+
+  ._button-wrapper {
+    .btn {
+      font-size: 3vw;
+    }
   }
 
 
