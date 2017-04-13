@@ -35,19 +35,29 @@ const _getVibeIdByDirection = (vibe, current_id, direction) => R.compose(
 
 const _renderFilter = ({categories, onSelect, selected_cat}) => {
   return (
-    <SelectField
-      floatingLabelText='Category'
-      value={selected_cat}
-      onChange={onSelect}
-    >
-      {
-        R.map(
-          cat => <MenuItem
-            key={cat} value={cat} primaryText={cat.toUpperCase()}
-          />
-        )(categories)
-      }
-    </SelectField>
+    <div className='fixed bt row filter-wrapper'>
+      <div className='small-13'>
+        <SelectField
+          className='columns'
+          floatingLabelText='Category'
+          value={selected_cat}
+          onChange={onSelect}
+          underlineStyle={{display: 'none'}}
+          style={{
+            backgroundColor: 'rgb(41,41,46)'
+          }}
+          fullWidth
+        >
+          {
+            R.map(
+              cat => <MenuItem
+                key={cat} value={cat} primaryText={cat.toUpperCase()}
+              />
+            )(categories)
+          }
+        </SelectField>
+      </div>
+    </div>
   )
 }
 
@@ -94,24 +104,33 @@ const _renderPopover = props => vibe => (
       props.selected_vibe_id === vibe.ID ? 'show fadeIn' : ''
     ])}
   >
-    <div className='small-13 large-10 large-push-1 column vibe-content'>
-      <div className='small-14 large-6 column'>
+    <div className='large-10 large-push-2 column vibe-content'>
+      <div className='small-14 large-7 column pl-2 pr-2'>
         <div className='title-container'>
           <img src={vibe.profile_image} />
           <h1>{vibe.name}</h1>
         </div>
         <p dangerouslySetInnerHTML={_createMarkup(vibe.description_left)} />
       </div>
-      <div className='small-14 large-6 column navigation-btns'>
+      <div className='small-14 large-7 column navigation-btns pl-2 pr-2'>
         <div className='row large-up-3 small-up-3 align-left'>
-          <button className='column' onClick={props.onClickCancel}>
-            <i className='fa fa-times fa-lg' /> BACK
+          <button className='column btn-underline' onClick={props.onClickCancel}>
+            <div>
+              <i className='fa fa-times fa-lg' /> BACK
+              <hr className='pink'/>
+            </div>
           </button>
-          <button className='column' onClick={props.onClickPrev}>
-            <i className='fa fa-arrow-left fa-lg' /> PREV
+          <button className='column btn-underline' onClick={props.onClickPrev}>
+            <div>
+              <i className='fa fa-arrow-left fa-lg' /> PREV
+              <hr/>
+            </div>
           </button>
-          <button className='column' onClick={props.onClickNext}>
-            NEXT <i className='fa fa-arrow-right fa-lg' />
+          <button className='column btn-underline' onClick={props.onClickNext}>
+            <div>
+              NEXT <i className='fa fa-arrow-right fa-lg' />
+              <hr/>
+            </div>
           </button>
           {/* <div className='column small-3'/> */}
         </div>

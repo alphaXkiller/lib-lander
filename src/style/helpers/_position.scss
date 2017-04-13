@@ -8,4 +8,9 @@
 
 .fixed {
   position: fixed;
+
+  &.bt {
+    bottom: 0;
+  }
 }
+

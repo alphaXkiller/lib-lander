@@ -6,7 +6,6 @@
 
 #vibe-page{
   .twelve-row {
-    margin-top: 100px;
     transition: filter 1s ease-in-out;
 
     .vibe-list > div {
@@ -21,9 +20,13 @@
         position: absolute;
         color: #fff;
         text-transform: uppercase;
-        font-size: 30px;
+        font-size: 2vw;
+        @media screen and (max-width: 48rem) {
+          font-size: 10vw;
+        }
         text-shadow: 1px 1px #000;
         font-weight: bold;
+        text-align: center;
       }
       .gutter-right { padding-right: 20px; }
       .gutter-left { padding-left: 20px; }
@@ -34,9 +37,11 @@
   .vibe-popover {
     height: calc(#{$content-height-full});
     opacity: 0;
+    left: 0;
+    padding: 0 25px 200px 25px;
 
     &.show {
-      z-index: 1;
+      z-index: 2;
     }
 
     p, span, button {
@@ -51,18 +56,30 @@
       display: flex;
       justify-content: space-between;
       .title-container {
+        display: flex;
+        flex-direction: column;
+
+        img {
+          align-self: flex-end;
+          max-width: 80%;
+        }
+
         h1 {
           color: #fff;
           font-family: 'AN-Bold', sans-serif;
-          margin-top: -40px;
+          margin-top: -51px;
           text-transform: uppercase;
           text-shadow: 1px 1px #000;
         }
       }
       .navigation-btns {
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        padding-top: 90px;
+
+        >.row {
+          padding-bottom: 20px;
+        }
       }
     }
   }

@@ -13,11 +13,13 @@
 @import './components/_drawer';
 @import './components/_logo';
 @import './components/_title';
+@import './components/_filter.scss';
 @import './layout/home';
 @import './layout/vibe';
 @import './layout/ticket';
 @import './helpers/_position';
 @import './helpers/_overflow.scss';
+@import './helpers/_padding.scss';
 @import './effect/_blur';
 
 @import 'responsive';
@@ -90,7 +92,7 @@ body {
     .scroller{
       color: white;
       transform: rotate(-90deg);
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid #19BFD5;
       padding-bottom: 15px;
       text-transform: uppercase;
       margin-top: 100px;
