@@ -105,14 +105,14 @@ const _renderPopover = props => vibe => (
     ])}
   >
     <div className='large-10 large-push-2 column vibe-content'>
-      <div className='small-14 large-7 column'>
+      <div className='small-14 large-7 column pl-2 pr-2'>
         <div className='title-container'>
           <img src={vibe.profile_image} />
           <h1>{vibe.name}</h1>
         </div>
         <p dangerouslySetInnerHTML={_createMarkup(vibe.description_left)} />
       </div>
-      <div className='small-14 large-7 column navigation-btns'>
+      <div className='small-14 large-7 column navigation-btns pl-2 pr-2'>
         <div className='row large-up-3 small-up-3 align-left'>
           <button className='column btn-underline' onClick={props.onClickCancel}>
             <div>
