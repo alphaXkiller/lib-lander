@@ -1,5 +1,10 @@
 /* LAPTOP and UP */
 @media only screen and (min-width: 90.063rem) {
+  ._button-wrapper {
+    .btn {
+      font-size: 1vw;
+    }
+  }
 }
 /* LANDSCAPE TABLET DOWN */
 @media only screen and (max-width: 64.000rem) {
