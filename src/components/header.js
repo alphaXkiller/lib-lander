@@ -152,6 +152,7 @@ const Header = props => {
         title={_renderTitle(props.onClickCloseDrawer, TitleImg)}
         style={APP_BAR_STYLE}
         iconElementRight={_buyTicketIcon(props.onClickCloseDrawer)}
+        className='header-wrapper'
       />
       <div id='drawer'>
         <Drawer

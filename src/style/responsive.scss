@@ -15,6 +15,12 @@
   .map-container .map-bg {
     width: calc(100% + 25px)
   }
+
+  ._button-wrapper {
+    .btn {
+      font-size: 1vw;
+    }
+  }
 }
 /* PORTRAIT TABLET DOWN */
 @media only screen and (max-width: 48.000rem) {
@@ -75,6 +81,12 @@
   .featured,
   .right-col .title-right-col {
     margin-bottom: 50px;
+  }
+
+  ._button-wrapper {
+    .btn {
+      font-size: 3vw;
+    }
   }
 
 

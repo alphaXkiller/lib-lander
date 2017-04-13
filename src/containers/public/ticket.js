@@ -16,7 +16,7 @@ const _renderTicketLg = ticket => (
                 <div>
                   <span className='ticket-price'>${ticket.price}</span>
                   <h1 className='ticket-name'>{ticket.name}</h1>
-                  <div className='_button_wrapper'>
+                  <div className='_button-wrapper'>
                     <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
                   </div>
                 </div>
@@ -47,7 +47,7 @@ const _renderTicketSm = ticket => (
       <div>
         <span className='ticket-price'>${ticket.price}</span>
         <h1 className='ticket-name'>{ticket.name}</h1>
-        <div className='_button_wrapper'>
+        <div className='_button-wrapper'>
           <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
         </div>
       </div>
