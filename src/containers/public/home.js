@@ -10,31 +10,6 @@ class Home extends React.Component {
     if (R.isEmpty(this.props.landing)) {
       this.props.onMount()
     }
-    window.addEventListener('scroll', this.parallaxFn)
-  }
-
-  parallaxFn = () => {
-    let parallax = document.querySelectorAll(".parallax"),
-        footer = document.querySelector('.dj'),
-        speed = 0.15,
-        scrollY = window.scrollY,
-        innerHeight = window.innerHeight,
-        docHeight = document.body.clientHeight,
-        scrolling = (scrollY) / ( docHeight - (innerHeight) );
-
-    [].slice.call(parallax).map( (el,i) => {
-      let windowYOffset = window.pageYOffset,
-        elBackgrounPos = (windowYOffset * speed) + "px";
-      el.style.marginTop = '-' + elBackgrounPos;
-      el.style.marginBottom = elBackgrounPos;
-    })
-
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      footer.style.marginBottom = '0'
-    } else {
-      footer.style.marginBottom = '-200px'
-    }
-
   }
 
   render() {

@@ -62,7 +62,8 @@ const _renderMenuSection = onClickCloseDrawer => (
                   fontSize   : '30px',
                   fontWeight : 'bold',
                   color      : 'white',
-                  minHeight  : '60px'
+                  minHeight  : '60px',
+                  lineHeight : '58px'
                 }}
                 primaryText={item.text}
               />
@@ -141,7 +142,7 @@ const _renderJoinParty = props => (
 
 
 const _renderTitle = (onClickFn, img) => (
-  <Link to='/' onClick={onClickFn}><img src={img}/></Link>
+  <Link to='/' onClick={onClickFn}><img src={'/assets/' + img}/></Link>
 )
 
 const Header = props => {

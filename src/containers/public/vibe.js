@@ -223,11 +223,6 @@ class Lineup extends React.Component {
 
     return (
       <div id='vibe-page' className='content'>
-        <div className='row page-title'> 
-          <div className='large-1 columns column-height' />
-          <h1 className='large-12 columns'>Vibe</h1>
-          <div className='large-1 columns column-height' />
-        </div>
         <div className='large-1 columns column-height relative'></div>
         {data ?
           <div className='large-12 columns'>
@@ -247,6 +242,11 @@ class Lineup extends React.Component {
                 this.state.selected_vibe_id ? 'blur-10' : ''
               ])}
             >
+              <div className='row page-title'>
+                <div className='large-7 column'>
+                  <h1>VIBE</h1>
+                </div>
+              </div>
               {
                 _renderFilter({
                   categories: this.props.vibe_cats,
