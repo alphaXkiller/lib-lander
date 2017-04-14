@@ -1,0 +1,20 @@
+.crowd {
+  background: url(../img/crowd.png) center bottom no-repeat;
+  height: 700px;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  left: 0;
+  z-index: 8;
+  overflow: hidden;
+  .dj {
+    background: url(../img/dj.png) left bottom no-repeat;
+    height: 410px;
+    width: 100%;
+    text-align: center;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.1s linear;
+  }
+}

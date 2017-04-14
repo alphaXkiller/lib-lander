@@ -18,19 +18,6 @@ class Home extends React.Component {
 				{/* <!-- CONTENT --> */}
         <HomeContainer data={this.props.landing} />
         {/* <!-- CONTENT --> */}
-
-        {/* <!-- FOOTER --> */}
-        <div className="libfooter desktop">
-    			<ul>
-    				<li><a >Press</a></li>
-    				<li>|</li>
-    				<li><a >Sponsors</a></li>
-    				<li>|</li>
-    				<li><a >Legal</a></li>
-    			</ul>
-    			<span className="copyright">&copy; 2017 Life Is Beautiful. All Rights Reserved.</span>
-    		</div>
-        {/* <!-- FOOTER --> */}
 	    </div>
 
     )

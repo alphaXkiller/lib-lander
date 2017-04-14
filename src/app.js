@@ -13,7 +13,6 @@ import Grid from './components/shared-components/grid.js'
 import './style/main.scss'
 require('smoothscroll-polyfill').polyfill()
 
-
 const _openDrawer = () => document.getElementById('drawer')
   .getElementsByTagName('div')[2]
   .style
@@ -50,13 +49,29 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll = (e) =>{
-    let scrollY = window.scrollY;
-    let innerHeight = window.innerHeight;
-    let docHeight = document.body.clientHeight;
+  handleScroll = () => {
+    let scrollY = window.scrollY,
+      innerHeight = window.innerHeight,
+      docHeight = document.body.clientHeight,
+      parallax = document.querySelectorAll(".parallax"),
+      footer = document.querySelector('.dj'),
+      speed = 0.15,
+      scrolling = (scrollY) / ( docHeight - (innerHeight) ),
+      scrollingPerc = (scrolling * 100);
 
-    let scrolling = (scrollY) / (docHeight - (innerHeight) )
-    let scrollingPerc = scrolling*100
+
+    [].slice.call(parallax).map( (el,i) => {
+      let windowYOffset = window.pageYOffset,
+        elBackgrounPos = (windowYOffset * speed) + "px";
+      el.style.marginTop = '-' + elBackgrounPos;
+      el.style.marginBottom = elBackgrounPos;
+    })
+
+    if (scrollingPerc >= 90) {
+      footer.style.backgroundPosition = 'center ' + (docHeight - (scrollY + innerHeight)) + 'px';
+    } else {
+      footer.style.backgroundPosition = 'center 300px';
+    }
 
     this.setState({
       marginT: scrollingPerc
@@ -162,6 +177,20 @@ class App extends Component {
             <div className="green-radial" />
       			<div className="blue-radial" />
           </div>
+          {/* <!-- FOOTER --> */}
+          <footer className='crowd'>
+            <div className="dj">
+            {/* <div className="libfooter dj desktop"> */}
+              {/* <ul>
+                <li><a >Press</a></li>
+                <li>|</li>
+                <li><a >Sponsors</a></li>
+                <li>|</li>
+                <li><a >Legal</a></li>
+              </ul>
+              <span className="copyright">&copy; 2017 Life Is Beautiful. All Rights Reserved.</span> */}
+            </div>
+          </footer>
         </div>
       </BrowserRouter>
     )
