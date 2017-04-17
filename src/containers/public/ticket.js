@@ -42,20 +42,22 @@ const _renderTicketLg = ticket => (
 
 
 const _renderTicketSm = ticket => (
-  <div className='small-full large-5 column title-col'>
-    <div className='vertical-centered-title'>
-      <div>
-        <span className='ticket-price'>${ticket.price}</span>
-        <h1 className='ticket-name'>{ticket.name}</h1>
-        <div className='_button-wrapper'>
-          <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
+  <div className='small-full large-7 column pl-2 pr-2'>
+    <div className='row ten-row'>
+      <div className='small-full large-14 column title-col'>
+        <div className='vertical-centered-title align-self-bottom'>
+          <div>
+            <span className='ticket-price'>${ticket.price}</span>
+            <h1 className='ticket-name'>{ticket.name}</h1>
+            <div className='_button-wrapper'>
+              <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
+            </div>
+          </div>
         </div>
       </div>
+      <img className='small-full large-8 column' src={ticket.image}/>
     </div>
     <div className='small-full large-8 column'>
-      <div>
-        <img src={ticket.image}/>
-      </div>
     </div>
     <div className='ticket-description'>
       <div 
