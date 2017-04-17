@@ -36,22 +36,28 @@ const _getVibeIdByDirection = (vibe, current_id, direction) => R.compose(
 const _renderFilter = ({categories, onSelect, selected_cat}) => {
   return (
     <div className='fixed bt row filter-wrapper'>
-      <div className='small-13'>
+      <div className='small-7'>
         <SelectField
-          className='columns'
-          floatingLabelText='Category'
+          className='columns select-filter'
+          // floatingLabelText='Category'
           value={selected_cat}
           onChange={onSelect}
           underlineStyle={{display: 'none'}}
+          labelStyle={{
+            color: 'white',
+            paddingLeft: '20px'
+          }}
           style={{
-            backgroundColor: 'rgb(41,41,46)'
+            backgroundColor: 'rgb(26,43,69)'
           }}
           fullWidth
         >
           {
             R.map(
               cat => <MenuItem
-                key={cat} value={cat} primaryText={cat.toUpperCase()}
+                key={cat}
+                value={cat}
+                primaryText={cat.toUpperCase()}
               />
             )(categories)
           }

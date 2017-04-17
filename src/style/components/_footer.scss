@@ -1,12 +1,28 @@
 .crowd {
+  align-items: center;
   background: url(../img/crowd.png) center bottom no-repeat;
-  height: 700px;
-  position: relative;
-  width: 100%;
   background-size: cover;
+  display: flex;
+  height: 520px;
+  justify-content: center;
   left: 0;
-  z-index: 8;
+  position: relative;
   overflow: hidden;
+  width: 100%;
+  z-index: 8;
+  opacity: 0;
+  .footer-content {
+    align-self: baseline;
+    text-transform: uppercase;
+    text-align: center;
+    // margin-top: 50px;
+    // opacity: 0;
+    h1 {
+      font-size: 5rem;
+      line-height: 6rem;
+      letter-spacing: 50px;
+    }
+  }
   .dj {
     background: url(../img/dj.png) left bottom no-repeat;
     height: 410px;
