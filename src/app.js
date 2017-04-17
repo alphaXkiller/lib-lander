@@ -54,7 +54,8 @@ class App extends Component {
       innerHeight = window.innerHeight,
       docHeight = document.body.clientHeight,
       parallax = document.querySelectorAll(".parallax"),
-      footer = document.querySelector('.dj'),
+      crowd = document.querySelector('.crowd'),
+      dj = document.querySelector('.dj'),
       speed = 0.15,
       scrolling = (scrollY) / ( docHeight - (innerHeight) ),
       scrollingPerc = (scrolling * 100);
@@ -67,10 +68,14 @@ class App extends Component {
       el.style.marginBottom = elBackgrounPos;
     })
 
+
     if (scrollingPerc >= 90) {
-      footer.style.backgroundPosition = 'center ' + (docHeight - (scrollY + innerHeight)) + 'px';
+      dj.style.backgroundPosition = 'center ' + (docHeight - (scrollY + innerHeight)) + 'px';
+
+    } else if (scrollingPerc >= 50) {
+      crowd.style.opacity = 1
     } else {
-      footer.style.backgroundPosition = 'center 300px';
+      dj.style.backgroundPosition = 'center 300px';
     }
 
     this.setState({
@@ -179,17 +184,10 @@ class App extends Component {
           </div>
           {/* <!-- FOOTER --> */}
           <footer className='crowd'>
-            <div className="dj">
-            {/* <div className="libfooter dj desktop"> */}
-              {/* <ul>
-                <li><a >Press</a></li>
-                <li>|</li>
-                <li><a >Sponsors</a></li>
-                <li>|</li>
-                <li><a >Legal</a></li>
-              </ul>
-              <span className="copyright">&copy; 2017 Life Is Beautiful. All Rights Reserved.</span> */}
+            <div className="large-7 column footer-content">
+              <h1>Life is beautiful</h1>
             </div>
+            <div className="dj" />
           </footer>
         </div>
       </BrowserRouter>

@@ -14,7 +14,6 @@
 @import './components/_logo';
 @import './components/_title';
 @import './components/_footer';
-@import './components/_filter.scss';
 @import './layout/home';
 @import './layout/vibe';
 @import './layout/ticket';
@@ -62,6 +61,9 @@ body {
 	font-family: 'AN-Reg', sans-serif;
   background: #040508 url('../img/bg.png') center top no-repeat;
   background-size: 100%;
+  h1 {
+    font-family: 'AN-Bold', sans-serif;
+  }
 }
 
 .gridSet {
