@@ -1,5 +1,6 @@
-import R from 'ramda'
-import React from 'react'
+import R           from 'ramda'
+import Qs          from 'qs'
+import React       from 'react'
 import { connect } from 'react-redux'
 var Packery = require('react-packery-component')(React)
 
@@ -7,30 +8,19 @@ import SelectField from 'material-ui/SelectField'
 import MenuItem    from 'material-ui/MenuItem'
 
 import { Vibe } from '../../actions/index'
-import { mapIndexed, notEmpty } from '../../lib/helpers'
+import { 
+  mapIndexed, 
+  notEmpty,
+  getNextVibe,
+  getPrevVibe,
+  getQueryUrl
+} from '../../lib/helpers'
+
+const VIBE_PATH = '/vibe'
 
 const packeryOptions = {
   transitionDuration: '0.8s'
 }
-
-
-const _getVibeIdByDirection = (vibe, current_id, direction) => R.compose(
-  index => R.ifElse(
-    R.isNil,
-    () => R.ifElse(
-      R.equals(-1),
-      R.always(R.compose(R.prop('ID'), R.last)(vibe)),
-      R.always(vibe[0].ID)
-    )(index),
-    R.prop('ID')
-  )(vibe[index]),
-  index => R.ifElse(
-    R.equals('next'),
-    () => R.inc(index),
-    () => R.dec(index)
-  )(direction),
-  R.findIndex(R.propEq('ID', current_id))
-)(vibe)
 
 
 const _renderFilter = ({categories, onSelect, selected_cat}) => {
@@ -81,7 +71,7 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
     <div className={'column-' + item.box_size}>
       <div
         className='small-full column image'
-        onClick={onClick(item.ID)}
+        onClick={onClick(item)}
       >
         <span className='name'>{item.name}</span>
         <img className={'gutter-' + item.box_gutter} src={item.profile_image} />
@@ -90,6 +80,7 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
   </div>
   )
 })
+
 
 const _createMarkup = (content) => {
   return {__html: content}
@@ -101,7 +92,7 @@ const _renderPopover = props => vibe => (
     key={vibe.ID}
     className={R.join(' ', [
       'twelve-row row fixed overflow-scroll vibe-popover animated',
-      props.selected_vibe_id === vibe.ID ? 'show fadeIn' : ''
+      props.selected_vibe.ID === vibe.ID ? 'show fadeIn' : ''
     ])}
   >
     <div className='large-10 large-push-2 column vibe-content'>
@@ -149,7 +140,7 @@ class Lineup extends React.Component {
 
     this.state = {
       selected_cat      : 'all',
-      selected_vibe_id  : null,
+      selected_vibe     : {},
       current_vibe_list : []
     }
   }
@@ -157,7 +148,20 @@ class Lineup extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (R.isEmpty(prevState.current_vibe_list) && notEmpty(this.props.vibe))
-      this.setState({current_vibe_list: this.props.vibe})
+      this.setState({current_vibe_list: this.props.vibe}, () => R.when(
+        R.complement(R.isEmpty),
+        query => {
+          if (query.cat) 
+            this.setState({current_vibe_list: R.filter(
+              _in_selected_cat(query.cat), this.props.vibe)
+            })
+
+          if (query.slug)
+            this.setState({selected_vibe: R.find(
+              R.propEq('slug', query.slug), this.props.vibe)
+            })
+        }
+      )(this.props.query))
   }
 
 
@@ -179,8 +183,10 @@ class Lineup extends React.Component {
   }
 
 
-  showDetails = id => e => {
-    this.setState({selected_vibe_id : id}, () => {
+  showDetails = item => e => {
+    this.setState({selected_vibe : item}, () => {
+      this.props.history.push('/vibe?slug=' + item.slug)
+
       document.querySelector('body')
         .classList.add('overflow-hidden')
 
@@ -192,17 +198,25 @@ class Lineup extends React.Component {
 
 
   next = e => this.setState({
-    selected_vibe_id: _getVibeIdByDirection(
-      this.state.current_vibe_list, this.state.selected_vibe_id, 'next'
+    selected_vibe: getNextVibe(
+      this.state.current_vibe_list, this.state.selected_vibe
     )
-  })
+  }, () => this.props.history.push(
+    getQueryUrl(VIBE_PATH, R.merge(
+      this.props.query, { slug: this.state.selected_vibe.slug }
+    )))
+  )
 
 
   prev = e => this.setState({
-    selected_vibe_id: _getVibeIdByDirection(
-      this.state.current_vibe_list, this.state.selected_vibe_id, 'prev'
+    selected_vibe: getPrevVibe(
+      this.state.current_vibe_list, this.state.selected_vibe
     )
-  })
+  }, () => this.props.history.push(
+    getQueryUrl(VIBE_PATH, R.merge(
+      this.props.query, { slug: this.state.selected_vibe.slug }
+    )))
+  )
 
 
   cancel = e => {
@@ -214,7 +228,7 @@ class Lineup extends React.Component {
       .querySelector('body')
       .classList.remove('overflow-hidden')
 
-    this.setState({selected_vibe_id: null})
+    this.setState({selected_vibe: {}}, () => this.props.history.push('/vibe'))
   }
 
 
@@ -232,14 +246,14 @@ class Lineup extends React.Component {
                   onClickNext      : this.next,
                   onClickPrev      : this.prev,
                   onClickCancel    : this.cancel,
-                  selected_vibe_id : this.state.selected_vibe_id
+                  selected_vibe  : this.state.selected_vibe
                 })
               )(data)
             }
             <div
               className={R.join(' ', [
                 'twelve-row row',
-                this.state.selected_vibe_id ? 'blur-10' : ''
+                this.state.selected_vibe.ID ? 'blur-10' : ''
               ])}
             >
               <div className='row page-title'>
