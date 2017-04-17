@@ -8,8 +8,8 @@ import SelectField from 'material-ui/SelectField'
 import MenuItem    from 'material-ui/MenuItem'
 
 import { Vibe } from '../../actions/index'
-import { 
-  mapIndexed, 
+import {
+  mapIndexed,
   notEmpty,
   getNextVibe,
   getPrevVibe,
@@ -25,33 +25,77 @@ const packeryOptions = {
 
 const _renderFilter = ({categories, onSelect, selected_cat}) => {
   return (
-    <div className='fixed bt row filter-wrapper'>
-      <div className='small-7'>
-        <SelectField
-          className='columns select-filter'
-          // floatingLabelText='Category'
-          value={selected_cat}
-          onChange={onSelect}
-          underlineStyle={{display: 'none'}}
-          labelStyle={{
-            color: 'white',
-            paddingLeft: '20px'
-          }}
-          style={{
-            backgroundColor: 'rgb(26,43,69)'
-          }}
-          fullWidth
-        >
-          {
-            R.map(
-              cat => <MenuItem
-                key={cat}
-                value={cat}
-                primaryText={cat.toUpperCase()}
-              />
-            )(categories)
-          }
-        </SelectField>
+    <div className='row fixed filter-wrapper'>
+      <div className='large-7 large-up-3'>
+        <div className='column'>
+          <SelectField
+            className='select-filter select-filter-cat'
+            value={selected_cat}
+            onChange={onSelect}
+            underlineStyle={{display: 'none'}}
+            labelStyle={{
+              color: 'white',
+              paddingLeft: '20px'
+            }}
+            fullWidth
+          >
+            {
+              R.map(
+                cat => <MenuItem
+                  key={cat}
+                  value={cat}
+                  primaryText={cat.toUpperCase()}
+                />
+              )(categories)
+            }
+          </SelectField>
+        </div>
+        <div className='column'>
+          <SelectField
+            className='select-filter select-filter-tag'
+            value={selected_cat}
+            onChange={onSelect}
+            underlineStyle={{display: 'none'}}
+            labelStyle={{
+              color: 'white',
+              paddingLeft: '20px'
+            }}
+            fullWidth
+          >
+            {
+              R.map(
+                cat => <MenuItem
+                  key={cat}
+                  value={cat}
+                  primaryText={cat.toUpperCase()}
+                />
+              )(categories)
+            }
+          </SelectField>
+        </div>
+        <div className='column'>
+          <SelectField
+            className='select-filter select-filter-order'
+            value={selected_cat}
+            onChange={onSelect}
+            underlineStyle={{display: 'none'}}
+            labelStyle={{
+              color: 'white',
+              paddingLeft: '20px'
+            }}
+            fullWidth
+          >
+            {
+              R.map(
+                cat => <MenuItem
+                  key={cat}
+                  value={cat}
+                  primaryText={cat.toUpperCase()}
+                />
+              )(categories)
+            }
+          </SelectField>
+        </div>
       </div>
     </div>
   )
@@ -157,7 +201,7 @@ class Lineup extends React.Component {
       this.setState({current_vibe_list: this.props.vibe}, () => R.when(
         R.complement(R.isEmpty),
         query => {
-          if (query.cat) 
+          if (query.cat)
             this.setState({current_vibe_list: R.filter(
               _in_selected_cat(query.cat), this.props.vibe)
             })
