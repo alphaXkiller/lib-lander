@@ -29,16 +29,13 @@ const _renderFilter = ({categories, onSelect, selected_cat}) => {
       <div className='large-7 large-up-3'>
         <div className='column'>
           <SelectField
-            className='select-filter-cat'
+            className='select-filter select-filter-cat'
             value={selected_cat}
             onChange={onSelect}
             underlineStyle={{display: 'none'}}
             labelStyle={{
               color: 'white',
               paddingLeft: '20px'
-            }}
-            style={{
-              backgroundColor: 'rgb(26,43,69)'
             }}
             fullWidth
           >
@@ -55,16 +52,13 @@ const _renderFilter = ({categories, onSelect, selected_cat}) => {
         </div>
         <div className='column'>
           <SelectField
-            className='select-filter-tag'
+            className='select-filter select-filter-tag'
             value={selected_cat}
             onChange={onSelect}
             underlineStyle={{display: 'none'}}
             labelStyle={{
               color: 'white',
               paddingLeft: '20px'
-            }}
-            style={{
-              backgroundColor: 'rgb(26,43,69)'
             }}
             fullWidth
           >
@@ -81,16 +75,13 @@ const _renderFilter = ({categories, onSelect, selected_cat}) => {
         </div>
         <div className='column'>
           <SelectField
-            className='select-filter-order'
+            className='select-filter select-filter-order'
             value={selected_cat}
             onChange={onSelect}
             underlineStyle={{display: 'none'}}
             labelStyle={{
               color: 'white',
               paddingLeft: '20px'
-            }}
-            style={{
-              backgroundColor: 'rgb(26,43,69)'
             }}
             fullWidth
           >

@@ -41,6 +41,9 @@
     width: 100%;
     z-index: 1;
     bottom: 20px;
+    .select-filter {
+      background-color: rgb(26,43,69) !important;
+    }
     .select-filter-cat {
       border-bottom: 5px solid rgb(3,171,196);
     }
