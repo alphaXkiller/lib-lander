@@ -29,7 +29,7 @@ const packeryOptions = {
 const _renderFilter = ({categories, onSelect, selected_cat}) => {
   return (
     <div className='row fixed filter-wrapper'>
-      <div className='large-7 large-up-3'>
+      <div className='large-7 small-up-3'>
         <div className='column'>
           <SelectField
             className='select-filter select-filter-cat'
