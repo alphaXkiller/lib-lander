@@ -8,6 +8,7 @@ import SelectField from 'material-ui/SelectField'
 import MenuItem    from 'material-ui/MenuItem'
 
 import { Vibe } from '../../actions/index'
+import FilterOption from '../../constants/filter-option.js'
 import {
   mapIndexed,
   notEmpty,
@@ -15,94 +16,61 @@ import {
   getPrevVibe,
   getQueryUrl,
   getVibeList,
-  inSelectedCat 
+  inSelectedCat,
+  sortVibeByOption
 } from '../../lib/helpers'
 
-const VIBE_PATH = '/vibe'
-const CAT_ALL   = 'all'
+const VIBE_PATH    = '/vibe'
+const CAT_ALL      = 'all'
+const DEFAULT_TAG  = 'all'
+const DEFAULT_SORT = FilterOption.Order[0]
+
+const FILTER_NAME = {
+  cat: 'by category',
+  tag: 'by tag'
+}
 
 const packeryOptions = {
   transitionDuration: '0.8s'
 }
 
 
-const _renderFilter = ({categories, onSelect, selected_cat}) => {
-  return (
-    <div className='row fixed filter-wrapper'>
-      <div className='large-7 small-up-3'>
-        <div className='column'>
-          <SelectField
-            className='select-filter select-filter-cat'
-            value={selected_cat}
-            onChange={onSelect}
-            underlineStyle={{display: 'none'}}
-            labelStyle={{
-              color: 'white',
-              paddingLeft: '20px'
-            }}
-            fullWidth
-          >
-            {
-              R.map(
-                cat => <MenuItem
-                  key={cat}
-                  value={cat}
-                  primaryText={cat.toUpperCase()}
-                />
-              )(categories)
-            }
-          </SelectField>
-        </div>
-        <div className='column'>
-          <SelectField
-            className='select-filter select-filter-tag'
-            value={selected_cat}
-            onChange={onSelect}
-            underlineStyle={{display: 'none'}}
-            labelStyle={{
-              color: 'white',
-              paddingLeft: '20px'
-            }}
-            fullWidth
-          >
-            {
-              R.map(
-                cat => <MenuItem
-                  key={cat}
-                  value={cat}
-                  primaryText={cat.toUpperCase()}
-                />
-              )(categories)
-            }
-          </SelectField>
-        </div>
-        <div className='column'>
-          <SelectField
-            className='select-filter select-filter-order'
-            value={selected_cat}
-            onChange={onSelect}
-            underlineStyle={{display: 'none'}}
-            labelStyle={{
-              color: 'white',
-              paddingLeft: '20px'
-            }}
-            fullWidth
-          >
-            {
-              R.map(
-                cat => <MenuItem
-                  key={cat}
-                  value={cat}
-                  primaryText={cat.toUpperCase()}
-                />
-              )(categories)
-            }
-          </SelectField>
-        </div>
-      </div>
-    </div>
-  )
-}
+const _renderCat = cat => (
+  <MenuItem
+    key={cat}
+    value={cat}
+    primaryText={cat.toUpperCase()}
+  />
+)
+
+
+const _renderOptions = (option, index) => (
+  <MenuItem 
+    key={index} 
+    value={option} 
+    primaryText={option.toUpperCase()} 
+    disabled={index === 0}
+  />
+)
+
+
+const _renderFilter = ({list, onSelect, selected, class_name}) => (
+  <div className='column'>
+    <SelectField
+      className={ R.join(' ', ['select-filter', class_name]) }
+      value={selected}
+      onChange={onSelect}
+      underlineStyle={{display: 'none'}}
+      labelStyle={{
+        color: 'white',
+        paddingLeft: '20px'
+      }}
+      fullWidth
+    >
+      { mapIndexed( _renderOptions )(list) }
+    </SelectField>
+  </div>
+)
 
 
 const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
@@ -185,9 +153,11 @@ class Lineup extends React.Component {
     super(props)
 
     this.state = {
-      selected_cat      : props.query.cat ? props.query.cat : CAT_ALL,
+      selected_cat      : props.query.cat ? props.query.cat : FILTER_NAME.cat,
       selected_vibe     : {},
-      current_vibe_list : []
+      selected_order    : props.query.sort ? props.query.sort : DEFAULT_SORT,
+      selected_tag      : props.query.tag ? props.query.tag : FILTER_NAME.tag,
+      current_vibe_list : props.vibe
     }
   }
 
@@ -212,7 +182,7 @@ class Lineup extends React.Component {
 
   onSelect = (e, index, value) => {
     const selected_cat = value
-    const current_vibe_list = getVibeList({selected_cat}, this.props.vibe)
+    const current_vibe_list = getVibeList({cat: selected_cat}, this.props.vibe)
 
     this.setState({selected_cat, current_vibe_list}, () =>
       R.ifElse(
@@ -224,6 +194,42 @@ class Lineup extends React.Component {
           this.props.query, { cat }
         )))
       )(this.state.selected_cat)
+    )
+  }
+
+
+  onSelectTag = (e, index, value) => {
+    const selected_tag = value
+    const current_vibe_list = getVibeList({tag: selected_tag}, this.props.vibe)
+
+    this.setState({selected_tag, current_vibe_list}, () =>
+      R.ifElse(
+        R.equals(DEFAULT_TAG),
+        () => this.props.history.push(getQueryUrl(VIBE_PATH, R.dissoc(
+          'tag', this.props.query
+        ))),
+        tag => this.props.history.push(getQueryUrl(VIBE_PATH, R.merge(
+          this.props.query, { tag }
+        )))
+      )(this.state.selected_tag)
+    )
+  }
+
+
+  onSelectSort = (e, index, value) => {
+    const default_order = FilterOption.Order[1]
+    const current_vibe_list = sortVibeByOption(this.props.vibe)(value)    
+
+    this.setState({current_vibe_list, selected_order: value}, () =>
+      R.ifElse(
+        R.equals(default_order),
+        () => this.props.history.push(getQueryUrl(VIBE_PATH, R.dissoc(
+          'sort', this.props.query
+        ))),
+        sort => this.props.history.push(getQueryUrl(VIBE_PATH, R.merge(
+          this.props.query, { sort }
+        )))
+      )(value)
     )
   }
 
@@ -275,13 +281,15 @@ class Lineup extends React.Component {
       .querySelector('body')
       .classList.remove('overflow-hidden')
 
-    this.setState({selected_vibe: {}}, () => this.props.history.push('/vibe'))
+    this.setState({selected_vibe: {}}, () => this.props.history.push(
+      getQueryUrl(VIBE_PATH, R.dissoc('artist', this.props.query))
+    ))
   }
 
 
   render() {
-    const data = this.props.vibe
-
+    const data = this.state.current_vibe_list
+  
     return (
       <div id='vibe-page' className='content'>
         <div className='large-1 columns column-height relative'></div>
@@ -308,13 +316,34 @@ class Lineup extends React.Component {
                   <h1>VIBE</h1>
                 </div>
               </div>
-              {
-                _renderFilter({
-                  categories: this.props.vibe_cats,
-                  onSelect: this.onSelect,
-                  selected_cat: this.state.selected_cat
-                })
-              }
+              <div className='row fixed filter-wrapper'>
+                <div className='large-7 small-up-3'>
+                  {
+                    _renderFilter({
+                      list       : this.props.vibe_cats,
+                      onSelect   : this.onSelect,
+                      selected   : this.state.selected_cat,
+                      class_name : 'select-filter-cat'
+                    })
+                  }
+                  {
+                    _renderFilter({
+                      list       : this.props.vibe_tags,
+                      onSelect   : this.onSelectTag,
+                      selected   : this.state.selected_tag,
+                      class_name : 'select-filter-tag'
+                    })
+                  }
+                  {
+                    _renderFilter({
+                      list       : FilterOption.Order,
+                      onSelect   : this.onSelectSort,
+                      selected   : this.state.selected_order,
+                      class_name : 'select-filter-order'
+                    })
+                  }
+                </div>
+              </div>
               <Packery
                 className={'vibe-list'} // default ''
                 elementType={'div'} // default 'div'
@@ -323,8 +352,12 @@ class Lineup extends React.Component {
                 >
                   {
                     _mapData({
-                      selected_cat: this.state.selected_cat,
-                      onClick: this.showDetails
+                      selected_cat : R.ifElse(
+                        R.equals(FILTER_NAME.cat),
+                        R.always(CAT_ALL),
+                        R.identity
+                      )(this.state.selected_cat),
+                      onClick      : this.showDetails
                     })(data)
                   }
               </Packery>
@@ -338,18 +371,30 @@ class Lineup extends React.Component {
 }
 
 
-const _getCats = R.compose(
-  R.prepend(CAT_ALL),
+const _getAllByProp = name => R.compose(
   R.uniq,
   R.flatten,
   R.map(R.pluck('slug')),
-  R.pluck('categories'),
+  R.pluck(name)
+)
+
+
+const _getCats = R.compose(
+  R.concat([FILTER_NAME.cat, CAT_ALL]),
+  _getAllByProp('categories')
+)
+
+
+const _getTags = R.compose(
+  R.concat([FILTER_NAME.tag, DEFAULT_TAG]),
+  _getAllByProp('tags')
 )
 
 
 const mapStateToProps = state => ({
   vibe: R.path(['vibe'])(state),
-  vibe_cats: _getCats(state.vibe)
+  vibe_cats: _getCats(state.vibe),
+  vibe_tags: _getTags(state.vibe)
 })
 
 const dispatchPropsToState = dispatch => ({

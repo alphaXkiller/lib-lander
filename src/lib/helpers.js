@@ -42,19 +42,48 @@ const getPrevVibe = (list, current_vibe) => R.compose(
 const getQueryUrl = (path, query) => path + '?' + Qs.stringify(query)
 
 
-const inSelectedCat = selected_cat => R.compose(
-  R.contains(selected_cat),
-  R.pluck('slug'),
-  R.prop('categories')
+const inSelectedCat = selected_cat => R.ifElse(
+  () => selected_cat === 'all',
+  R.T,
+  R.compose(
+    R.contains(selected_cat),
+    R.pluck('slug'),
+    R.prop('categories')
+  )
+)
+
+
+const inSelectedTag = selected_tag => R.ifElse(
+  () => selected_tag === 'all',
+  R.T,
+  R.compose(
+    R.contains(selected_tag),
+    R.pluck('slug'),
+    R.prop('tags')
+  )
+)
+
+
+const sortVibeByOption = list => R.ifElse(
+  R.complement(R.equals('name')),
+  R.always(list),
+  () => R.sortBy(
+    R.compose(R.toLower, R.prop('name'))
+  )(list)
 )
 
 
 const getVibeList = (query, list) => R.ifElse(
   R.isEmpty,
   R.always(list),
-  _query => R.filter(R.allPass([
-    obj => _query.selected_cat ? inSelectedCat(query.selected_cat)(obj) : R.T,
-  ]))(list)
+  () => R.compose(
+    _list => sortVibeByOption(_list)(query.sort)
+    ,
+    R.filter(R.allPass([
+      obj => query.cat ? inSelectedCat(query.cat)(obj) : R.T,
+      obj => query.tag ? inSelectedTag(query.tag)(obj) : R.T,
+    ]))
+  )(list)
 )(query)
 
 
@@ -70,5 +99,6 @@ export {
   getPrevVibe,
   getQueryUrl,
   getVibeList,
-  inSelectedCat 
+  inSelectedCat,
+  sortVibeByOption 
 }
