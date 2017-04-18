@@ -13,10 +13,13 @@ import {
   notEmpty,
   getNextVibe,
   getPrevVibe,
-  getQueryUrl
+  getQueryUrl,
+  getVibeList,
+  inSelectedCat 
 } from '../../lib/helpers'
 
 const VIBE_PATH = '/vibe'
+const CAT_ALL   = 'all'
 
 const packeryOptions = {
   transitionDuration: '0.8s'
@@ -58,18 +61,11 @@ const _renderFilter = ({categories, onSelect, selected_cat}) => {
 }
 
 
-const _in_selected_cat = selected_cat => R.compose(
-  R.contains(selected_cat),
-  R.pluck('slug'),
-  R.prop('categories')
-)
-
-
 const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
   let hide_class = ''
 
   // if selected is not 'all' or not in selected cat, hide vibe
-  if (selected_cat !== 'all' && !_in_selected_cat(selected_cat)(item))
+  if (selected_cat !== CAT_ALL && !inSelectedCat(selected_cat)(item))
     hide_class = ' hide'
 
   return (
@@ -145,7 +141,7 @@ class Lineup extends React.Component {
     super(props)
 
     this.state = {
-      selected_cat      : 'all',
+      selected_cat      : props.query.cat ? props.query.cat : CAT_ALL,
       selected_vibe     : {},
       current_vibe_list : []
     }
@@ -153,21 +149,13 @@ class Lineup extends React.Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-    if (R.isEmpty(prevState.current_vibe_list) && notEmpty(this.props.vibe))
-      this.setState({current_vibe_list: this.props.vibe}, () => R.when(
-        R.complement(R.isEmpty),
-        query => {
-          if (query.cat) 
-            this.setState({current_vibe_list: R.filter(
-              _in_selected_cat(query.cat), this.props.vibe)
-            })
-
-          if (query.slug)
-            this.setState({selected_vibe: R.find(
-              R.propEq('slug', query.slug), this.props.vibe)
-            })
-        }
-      )(this.props.query))
+    if (prevProps.vibe !== this.props.vibe)
+      this.setState({
+        current_vibe_list: getVibeList(this.props.query, this.props.vibe),
+        selected_vibe: this.props.query.artist ? R.find(
+          R.propEq('slug', this.props.query.artist), this.props.vibe
+        ) : {}
+      })
   }
 
 
@@ -179,19 +167,28 @@ class Lineup extends React.Component {
 
 
   onSelect = (e, index, value) => {
-    const current_vibe_list = R.ifElse(
-      R.equals('all'),
-      R.always(this.props.vibe),
-      cat => R.filter(_in_selected_cat(cat))(this.props.vibe)
-    )(value)
+    const selected_cat = value
+    const current_vibe_list = getVibeList({selected_cat}, this.props.vibe)
 
-    this.setState({selected_cat: value, current_vibe_list})
+    this.setState({selected_cat, current_vibe_list}, () =>
+      R.ifElse(
+        R.equals(CAT_ALL),
+        () => this.props.history.push(getQueryUrl(VIBE_PATH, R.dissoc(
+          'cat', this.props.query
+        ))), 
+        cat => this.props.history.push(getQueryUrl(VIBE_PATH, R.merge(
+          this.props.query, { cat }
+        )))
+      )(this.state.selected_cat)
+    )
   }
 
 
   showDetails = item => e => {
     this.setState({selected_vibe : item}, () => {
-      this.props.history.push('/vibe?slug=' + item.slug)
+      this.props.history.push(getQueryUrl(VIBE_PATH, R.merge(
+        this.props.query, { artist: item.slug }
+      )))
 
       document.querySelector('body')
         .classList.add('overflow-hidden')
@@ -209,7 +206,7 @@ class Lineup extends React.Component {
     )
   }, () => this.props.history.push(
     getQueryUrl(VIBE_PATH, R.merge(
-      this.props.query, { slug: this.state.selected_vibe.slug }
+      this.props.query, { artist: this.state.selected_vibe.slug }
     )))
   )
 
@@ -220,7 +217,7 @@ class Lineup extends React.Component {
     )
   }, () => this.props.history.push(
     getQueryUrl(VIBE_PATH, R.merge(
-      this.props.query, { slug: this.state.selected_vibe.slug }
+      this.props.query, { artist: this.state.selected_vibe.slug }
     )))
   )
 
@@ -298,7 +295,7 @@ class Lineup extends React.Component {
 
 
 const _getCats = R.compose(
-  R.prepend('all'),
+  R.prepend(CAT_ALL),
   R.uniq,
   R.flatten,
   R.map(R.pluck('slug')),
