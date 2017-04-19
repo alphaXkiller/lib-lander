@@ -16,26 +16,23 @@ class Accordion extends React.Component {
   render() {
     return (
       <div className='accordion-lib'>
-        <div>
-          <div className='small-12 column'>
-            <h6>{this.props.title}</h6>
+        <div onClick={this.toggleExpand}>
+          <div className='large-8 column accordion-toggle'>
+            <h2>{this.props.title}</h2>
           </div>
-          <div className='small-2 column'>
-            <button
-              style={{width: '100%'}}
-              onClick={this.toggleExpand}
-            >
-              <i className={R.join(' ', [
-                'fa fa-2x',
-                this.state.expand ? 'fa-angle-down' : 'fa-angle-right '
-              ])} 
+          <div className='large-2 column accordion-toggle arrow'>
+            <i className={R.join(' ', [
+                'fa' ,
+                'fa-2x',
+                'animated',
+                this.state.expand ? 'jello fa-angle-down pink-arrow' : 'bounceIn fa-angle-right blue-arrow'
+              ])}
             />
-            </button>
           </div>
         </div>
-        <div 
+        <div
           className={R.join(' ', [
-            'accordion-lib-content', 
+            'accordion-lib-content',
             this.state.expand ? 'show' : ''
           ])}
         >

@@ -27,6 +27,9 @@ $content-height-full: calc(100vh - 64px);
 
 .ten-row {
   @include grid-row(10, 0) {
+    .large-2 {
+      @include grid-column(2, 0);
+    }
     .large-4 {
       @include grid-column(4, 0);
     }
