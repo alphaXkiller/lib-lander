@@ -4,10 +4,35 @@ import { connect } from 'react-redux'
 
 import Accordion         from '../../components/accordion.js'
 import { Planning, Faq } from '../../actions/index'
-import { createMarkup } from '../../lib/helpers'
+import { createMarkup, mapIndexed } from '../../lib/helpers'
 
 const FAQ = 'frequently asked questions'
 
+
+const _renderPlanRow = plan_list => {
+  const plan_left = plan_list[0]
+  const plan_right = plan_list[1]
+
+  return (
+    <div className='row'>
+      <div key={plan_left.ID} className='large-7 column'>
+        <h2>{plan_left.title}</h2>
+        <div dangerouslySetInnerHTML={createMarkup(plan_left.description)} />
+      </div>
+      {
+        plan_right ?
+          <div key={plan_right.ID} className='large-7 column'>
+            <h2>{plan_right.title}</h2>
+            <div 
+              dangerouslySetInnerHTML={createMarkup(plan_right.description)}
+            />
+          </div>
+        : null
+      }
+
+    </div>
+  )
+}
 
 
 class PlanPage extends React.Component {
@@ -34,16 +59,7 @@ class PlanPage extends React.Component {
                 <h1>PLANNING</h1>
               </div>
             </div>
-            <div className='row'>
-              {
-                R.map( plan =>
-                  <div key={plan.ID} className='large-7 column'>
-                    <h2>{plan.title}</h2>
-                    <div dangerouslySetInnerHTML={createMarkup(plan.description)}></div>
-                  </div>
-                )(this.props.plans)
-              }
-            </div>
+              { R.map( _renderPlanRow )(this.props.plans)}
             <div className='ten-row row'>
               <h3>{FAQ.toUpperCase()}</h3>
               {
@@ -66,7 +82,7 @@ class PlanPage extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-  plans : state.planning,
+  plans : R.splitEvery(2, state.planning),
   faqs  : state.faq
 })
 
