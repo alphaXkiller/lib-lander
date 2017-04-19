@@ -1,0 +1,17 @@
+.accordion-lib {
+  .accordion-lib-content {
+    p {
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    } 
+
+    &.show {
+      p {
+        transform: translateY(0);
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+  }
+}
