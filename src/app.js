@@ -184,7 +184,7 @@ class App extends Component {
           </div>
           {/* <!-- FOOTER --> */}
           <footer className='crowd'>
-            <div className="large-7 column footer-content">
+            <div className="large-7 small-10 column footer-content">
               <h1>Life is beautiful</h1>
             </div>
             <div className="dj" />

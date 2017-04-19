@@ -10,6 +10,7 @@ import NotFound from './containers/public/404.js'
 import Planning from './containers/public/planning.js'
 import News     from './containers/public/news.js'
 import Ticket   from './containers/public/ticket.js'
+import Page   from './containers/public/page.js'
 
 const INDEX_AFTER_QUESTION_MARK = 1
 
@@ -27,15 +28,16 @@ const RouteFunctor = [
   { path: '/planning', component: Planning },
   { path: '/news', component: News },
   { path: '/ticket', component: Ticket },
+  { path: '/:slug', component: Page },
   { component: NotFound }
 ]
 
 
 const RouteActor = route => {
   return (
-    <Route 
-      path={route.path} 
-      exact={route.exact} 
+    <Route
+      path={route.path}
+      exact={route.exact}
       render={ props => {
         const query = _getQueryFromSearch(props.location.search)
         const _props = R.merge({ query }, props)

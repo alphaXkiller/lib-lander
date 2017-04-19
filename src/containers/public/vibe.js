@@ -17,7 +17,8 @@ import {
   getQueryUrl,
   getVibeList,
   inSelectedCat,
-  sortVibeByOption
+  sortVibeByOption,
+  createMarkup
 } from '../../lib/helpers'
 
 const VIBE_PATH    = '/vibe'
@@ -45,10 +46,10 @@ const _renderCat = cat => (
 
 
 const _renderOptions = (option, index) => (
-  <MenuItem 
-    key={index} 
-    value={option} 
-    primaryText={option.toUpperCase()} 
+  <MenuItem
+    key={index}
+    value={option}
+    primaryText={option.toUpperCase()}
     disabled={index === 0}
   />
 )
@@ -96,11 +97,6 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
 })
 
 
-const _createMarkup = (content) => {
-  return {__html: content}
-}
-
-
 const _renderPopover = props => vibe => (
   <div
     key={vibe.ID}
@@ -115,7 +111,7 @@ const _renderPopover = props => vibe => (
           <img src={vibe.profile_image} />
           <h1>{vibe.name}</h1>
         </div>
-        <p dangerouslySetInnerHTML={_createMarkup(vibe.description_left)} />
+        <p dangerouslySetInnerHTML={createMarkup(vibe.description_left)} />
       </div>
       <div className='small-14 large-7 column navigation-btns pl-2 pr-2'>
         <div className='row large-up-3 small-up-3 align-left'>
@@ -140,7 +136,7 @@ const _renderPopover = props => vibe => (
           {/* <div className='column small-3'/> */}
         </div>
         <div className='row'>
-          <p dangerouslySetInnerHTML={_createMarkup(vibe.description_right)} />
+          <p dangerouslySetInnerHTML={createMarkup(vibe.description_right)} />
         </div>
       </div>
     </div>
@@ -189,7 +185,7 @@ class Lineup extends React.Component {
         R.equals(CAT_ALL),
         () => this.props.history.push(getQueryUrl(VIBE_PATH, R.dissoc(
           'cat', this.props.query
-        ))), 
+        ))),
         cat => this.props.history.push(getQueryUrl(VIBE_PATH, R.merge(
           this.props.query, { cat }
         )))
@@ -218,7 +214,7 @@ class Lineup extends React.Component {
 
   onSelectSort = (e, index, value) => {
     const default_order = FilterOption.Order[1]
-    const current_vibe_list = sortVibeByOption(this.props.vibe)(value)    
+    const current_vibe_list = sortVibeByOption(this.props.vibe)(value)
 
     this.setState({current_vibe_list, selected_order: value}, () =>
       R.ifElse(
@@ -289,7 +285,7 @@ class Lineup extends React.Component {
 
   render() {
     const data = this.state.current_vibe_list
-  
+
     return (
       <div id='vibe-page' className='content'>
         <div className='large-1 columns column-height relative'></div>

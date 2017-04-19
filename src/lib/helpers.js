@@ -3,7 +3,6 @@ import Qs from 'qs'
 
 const notEmpty = R.complement(R.isEmpty)
 
-
 const notNil = R.complement(R.isNil)
 
 
@@ -87,6 +86,10 @@ const getVibeList = (query, list) => R.ifElse(
 )(query)
 
 
+const createMarkup = (content) => {
+  return {__html: content}
+}
+
 export {
   notEmpty,
   notNil,
@@ -100,5 +103,7 @@ export {
   getQueryUrl,
   getVibeList,
   inSelectedCat,
-  sortVibeByOption 
+  sortVibeByOption,
+
+  createMarkup
 }

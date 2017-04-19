@@ -9,8 +9,8 @@ const main = [
 
 const sub = {
   left: [
-    { text: 'ABOUT', path: '/' },
-    { text: 'HISTORY', path: '/' },
+    { text: 'ABOUT', path: '/about' },
+    { text: 'HISTORY', path: '/history' },
     { text: 'CONTACT', path: '/' },
     { text: 'MEDIA', path: '/' },
     { text: 'IMPACT', path: '/' },

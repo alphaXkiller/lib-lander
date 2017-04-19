@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { Ticket } from '../../actions/index.js'
+import { createMarkup } from '../../lib/helpers'
 
 
 const _renderTicketLg = ticket => (
@@ -29,9 +30,9 @@ const _renderTicketLg = ticket => (
             </div>
           </div>
           <div className='row ten-row ticket-description'>
-            <div 
+            <div
               style={{color: 'white'}}
-              dangerouslySetInnerHTML={{__html: ticket.description}} />
+              dangerouslySetInnerHTML={createMarkup(ticket.description)} />
           </div>
         </div>
         <div className='large-2 column column-height'/>
@@ -60,9 +61,9 @@ const _renderTicketSm = ticket => (
     <div className='small-full large-8 column'>
     </div>
     <div className='ticket-description'>
-      <div 
+      <div
         style={{color: 'white'}}
-        dangerouslySetInnerHTML={{__html: ticket.description}} />
+        dangerouslySetInnerHTML={createMarkup(ticket.description)} />
     </div>
   }
 
@@ -77,11 +78,11 @@ class TicketPage extends React.Component {
 
 
   render() {
-    const tickets = this.props.tickets 
+    const tickets = this.props.tickets
 
     return (
       <div className='content'>
-        <div className='row page-title'> 
+        <div className='row page-title'>
           <div className='large-2 columns column-height' />
           <h1 className='large-12 columns'>Ticket Packages</h1>
           <div className='large-2 columns column-height' />
