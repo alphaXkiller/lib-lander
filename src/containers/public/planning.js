@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import Accordion         from '../../components/accordion.js'
 import { Planning, Faq } from '../../actions/index'
+import { createMarkup } from '../../lib/helpers'
 
 const FAQ = 'frequently asked questions'
 
@@ -16,9 +17,9 @@ class PlanPage extends React.Component {
 
     }
   }
-  
+
   componentDidMount() {
-    this.props.fetchPlans()  
+    this.props.fetchPlans()
     this.props.fetchFaqs()
   }
 
@@ -33,16 +34,26 @@ class PlanPage extends React.Component {
                 <h1>PLANNING</h1>
               </div>
             </div>
-            <div className='twelve-row'>
+            <div className='row'>
+              {
+                R.map( plan =>
+                  <div key={plan.ID} className='large-7 column'>
+                    <h2>{plan.title}</h2>
+                    <div dangerouslySetInnerHTML={createMarkup(plan.description)}></div>
+                  </div>
+                )(this.props.plans)
+              }
+            </div>
+            <div className='ten-row row'>
               <h3>{FAQ.toUpperCase()}</h3>
-              { 
-                R.map( faq => 
-                  <Accordion 
-                    key={faq.ID} 
-                    title={faq.question} 
+              {
+                R.map( faq =>
+                  <Accordion
+                    key={faq.ID}
+                    title={faq.question}
                     content={faq.answer}
-                  /> 
-                )(this.props.faqs) 
+                  />
+                )(this.props.faqs)
               }
             </div>
           </div>
