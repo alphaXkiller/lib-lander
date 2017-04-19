@@ -2,22 +2,52 @@ import R           from 'ramda'
 import React       from 'react'
 import { connect } from 'react-redux'
 
-import { Planning } from '../../actions/index'
+import Accordion         from '../../components/accordion.js'
+import { Planning, Faq } from '../../actions/index'
+
+const FAQ = 'frequently asked questions'
+
+
 
 class PlanPage extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+
+    }
+  }
+  
   componentDidMount() {
-    this.props.getPlans()  
+    this.props.fetchPlans()  
+    this.props.fetchFaqs()
   }
 
   render() {
     return (
       <div className='content'>
-        <div className='row page-title'> 
-          <div className='large-2 columns column-height' />
-          <h1 className='large-12 columns'>PLANNING</h1>
-          <div className='large-2 columns column-height' />
+        <div className='row align-center'>
+          <div className='large-2 column column-height' />
+          <div className='small-10 column align-center'>
+            <div className='row page-title'>
+              <div className='large-7 column'>
+                <h1>PLANNING</h1>
+              </div>
+            </div>
+            <div className='twelve-row'>
+              <h3>{FAQ.toUpperCase()}</h3>
+              { 
+                R.map( faq => 
+                  <Accordion 
+                    key={faq.ID} 
+                    title={faq.question} 
+                    content={faq.answer}
+                  /> 
+                )(this.props.faqs) 
+              }
+            </div>
+          </div>
+          <div className='large-2 column column-height' />
         </div>
-        <p>{R.map( plan => plan.description )(this.props.plans)}</p>
       </div>
     )
   }
@@ -25,12 +55,14 @@ class PlanPage extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-  plans: state.planning
+  plans : state.planning,
+  faqs  : state.faq
 })
 
 
 const mapDispatchToProps = (dispatch, getState) => ({
-  getPlans: () => dispatch(Planning.fetchPlans())
+  fetchPlans : () => dispatch(Planning.fetchPlans()),
+  fetchFaqs  : () => dispatch(Faq.fetchFaq())
 })
 
 
