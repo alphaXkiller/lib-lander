@@ -30,7 +30,10 @@ class Page extends Component {
               </div>
             </div>
             <div className='row'>
-              <div dangerouslySetInnerHTML={createMarkup(data.description)}></div>
+              <div className='featured-image' style={{background: `url(${data.feature_image}) center no-repeat` }} />
+            </div>
+            <div className='row'>
+              <div className='page-content' dangerouslySetInnerHTML={createMarkup(data.content)}></div>
             </div>
           </div>
           <div className='large-2 column column-height' />

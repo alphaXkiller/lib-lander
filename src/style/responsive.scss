@@ -114,6 +114,9 @@
 
   // VIBE PAGE
   #vibe-page {
+    .image .name {
+      font-size: 10vw;
+    }
     .vibe-popover{
       &.show {
         margin-top: 0px;
@@ -137,7 +140,7 @@
   }
 
   // FOOTER
-  
+
 }
 //
 @media only screen and (max-width: 20rem) {

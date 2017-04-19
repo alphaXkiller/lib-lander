@@ -1,8 +1,13 @@
 .section-content {
   align-items: center;
   display: flex;
-  margin-top: 30px;
+  margin-top: 10rem;
   position: relative;
+}
+
+.section-main,
+.section-header {
+  margin-top: 3rem;
 }
 
 

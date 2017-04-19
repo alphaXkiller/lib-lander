@@ -19,12 +19,10 @@
       .name {
         position: absolute;
         color: #fff;
+        font-size: 1.75vw;
+        text-shadow: 3px 3px 5px rgba(0,0,0,0.35);
         text-transform: uppercase;
-        font-size: 2vw;
-        @media screen and (max-width: 48rem) {
-          font-size: 10vw;
-        }
-        text-shadow: 1px 1px #000;
+        font-family: ‘AN-Bold’;
         font-weight: bold;
         text-align: center;
       }
