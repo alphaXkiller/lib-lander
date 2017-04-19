@@ -7,11 +7,11 @@ import Logo from '../containers/public/logo'
 
 const _renderFirstRow = item => (
   <div key={item.ID} className='row'>
-    <section className='section-content'>
+    <section className='section-content section-header'>
       <div className="columns large-8 medium-14 small-14">
         <div className="logo" id="logo">
           <div
-            className="logobox"
+            className="logobox animated fadeIn"
             id="logobox"
             data-tilt data-tilt-reset="false"
             data-tilt-perspective="2000"
@@ -45,7 +45,7 @@ const _renderSecondRow = item => {
   if (item) {
     return(
       <div key={item.ID} className='row featured'>
-        <section className='section-content large-14 column'>
+        <section className='section-content section-main large-14 column'>
           <div className='small-14 large-14 column'>
             <div className='hide-for-small-only large-2 column column-height' />
             <div className='small-14 large-10 column'>

@@ -85,7 +85,7 @@
 	18%	{opacity: 0.3}
 	20%	{opacity: 0.2}
 	21% {opacity: 0.1}
-	
+
 	49% {opacity: 0.1}
 	50% {opacity: 0.8}
 	52% {opacity: 0.1}
@@ -238,33 +238,3 @@
 	background-color: #040508;
 	overflow: hidden;
 }
-
-/*
-.green-radial {
-	position: absolute;
-	top: -20vh;
-	left: -10%;
-	width: 75%;
-	height: 120vh;
-	background-image:
-		radial-gradient(
-			rgba(13, 39, 50, 100),
-			rgba(13, 39, 50, 0) 75%,
-			rgba(13, 39, 50, 0)
-		);
-}
-
-.blue-radial {
-	position: absolute;
-	top: -10vh;
-	left: 40%;
-	width: 80%;
-	height: 140vh;
-	background-image:
-		radial-gradient(
-			rgba(25, 49, 90, 100),
-			rgba(25, 49, 90, 0) 70%,
-			rgba(25, 49, 90, 0)
-		);
-}
-*/
