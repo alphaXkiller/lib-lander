@@ -22,13 +22,22 @@ const DRAWER_CONTAINER_STYLE = {
   backgroundColor: 'transparent'
 }
 
+const MENU_STYLE = {
+  fontSize   : '30px',
+  fontWeight : 'bold',
+  color      : 'white',
+  minHeight  : '60px',
+  lineHeight : '58px',
+  fontFamily : 'AN-Bold'
+}
 
 const SUB_MENU_STYLE = {
   fontSize: '12px',
   lineHeight: '24px',
   minHeight: '0',
   color: 'white',
-  padding: 0
+  padding: 0,
+  fontFamily : 'AN-Reg'
 }
 
 
@@ -58,13 +67,7 @@ const _renderMenuSection = onClickCloseDrawer => (
             >
               <MenuItem
                 innerDivStyle={{padding: '0'}}
-                style={{
-                  fontSize   : '30px',
-                  fontWeight : 'bold',
-                  color      : 'white',
-                  minHeight  : '60px',
-                  lineHeight : '58px'
-                }}
+                style={MENU_STYLE}
                 primaryText={item.text}
               />
             </Link>
@@ -84,7 +87,7 @@ const _renderMapSection = () => (
 )
 
 
-const _renderGeneralInfo = props => (
+const _renderGeneralInfo = onClickCloseDrawer => (
   <section className='row'>
     <div className='small-5 columns'>
       {
@@ -92,6 +95,7 @@ const _renderGeneralInfo = props => (
           <Link
             key={item.text}
             to={item.path}
+            onTouchTap={onClickCloseDrawer}
           >
             <MenuItem
               innerDivStyle={{padding: '0'}}
@@ -126,6 +130,7 @@ const _renderJoinParty = props => (
     <div className='row'>
       <input
         type='text'
+        style={{fontFamily: 'AN-Reg'}}
         placeholder='YOUREMAIL@ADDRESS.COM'
         className='medium-7 columns'
       />
@@ -169,7 +174,7 @@ const Header = props => {
             <div className='medium-6 columns'>
               { _renderMenuSection(props.onClickCloseDrawer) }
               { _renderMapSection() }
-              { _renderGeneralInfo() }
+              { _renderGeneralInfo(props.onClickCloseDrawer) }
               { _renderJoinParty(props.submit) }
               <p style={{color: 'white', fontSize: '0.5em'}}>
                 <i className='fa fa-copyright' />

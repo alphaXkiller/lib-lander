@@ -4,6 +4,6 @@ export default {
   'landing'  : '/lib/landing',
   'planning' : '/lib/plan',
   'news'     : '/lib/news',
-  'ticket'   : '/lib/ticket'
-
+  'ticket'   : '/lib/ticket',
+  'page'     : '/lib/page/:slug'
 }
