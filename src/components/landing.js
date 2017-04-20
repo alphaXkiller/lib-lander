@@ -1,5 +1,6 @@
-import R from 'ramda'
-import React, { Component } from 'react'
+import R                        from 'ramda'
+import React, { Component }     from 'react'
+import { Link }                 from 'react-router-dom'
 import { mapIndexed, notEmpty } from '../lib/helpers'
 
 import Logo from '../containers/public/logo'
@@ -32,6 +33,12 @@ const _renderFirstRow = item => (
           <div className="copy">
             {/*<p className="date bc-activated">September 22&ndash;24, 2017</p>*/}
             <p className="text bc-activated">{item.description}</p>
+            <div>
+              <button className='btn-underline default'>
+                <Link to='/ticket' >{item.link_text}</Link>
+                <hr/>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -54,6 +61,10 @@ const _renderSecondRow = item => {
                   <div className='vertical-centered-title'>
                     <h1 className='section-title'> {item.title} </h1>
                   </div>
+                  <button className='btn-underline default'>
+                    <Link to='/lineup' >{item.link_text}</Link>
+                    <hr/>
+                  </button>
                 </div>
                 <div className='small-full large-8 column'>
                   <div>
@@ -77,6 +88,10 @@ const _renderLeftPost = item => {
         <div className='small-full large-4 column title-left-col'>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
+          <button className='btn-underline default'>
+            <a href={item.link}>{item.link_text}</a>
+            <hr/>
+          </button>
         </div>
         <div className='image'>
           <img src={item.image} />
@@ -93,6 +108,10 @@ const _renderRightPost = item => {
           <div className='small-full large-4 column title-right-col'>
             <h1>{item.title}</h1>
             <p>{item.description}</p>
+            <button className='btn-underline default'>
+              <a href={item.link}>{item.link_text}</a>
+              <hr className='pink'/>
+            </button>
           </div>
           <div className='small-full large-4 column image-right-col'>
             <img src={item.image} />
