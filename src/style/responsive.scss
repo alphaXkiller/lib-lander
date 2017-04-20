@@ -42,6 +42,7 @@
     }
   }
 
+
 }
 
 /* PORTRAIT TABLET DOWN */
@@ -91,6 +92,8 @@
         font-size: 12vw;
       }
     }
+
+  .ten-row { .title-col{ .btn-underline { position: static; } } }
 
   .last-row
     .image {
