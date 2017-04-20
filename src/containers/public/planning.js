@@ -17,6 +17,7 @@ const _renderPlanRow = plan_list => {
     <div key={plan_left.ID} className='row planning-row'>
       <div className='large-7 column'>
         <h2 className='planning-title'>{plan_left.title}</h2>
+        <div className='planning-img'><img src={plan_left.image} /></div>
         <div
           className='large-12 column end'
           dangerouslySetInnerHTML={createMarkup(plan_left.description)}
@@ -26,6 +27,7 @@ const _renderPlanRow = plan_list => {
         plan_right ?
           <div key={plan_right.ID} className='large-7 column'>
             <h2 className='planning-title'>{plan_right.title}</h2>
+            <div className='planning-img'><img src={plan_right.image} /></div>
             <div
               className='large-12 column end'
               dangerouslySetInnerHTML={createMarkup(plan_right.description)}
@@ -64,18 +66,22 @@ class PlanPage extends React.Component {
               </div>
             </div>
               { R.map( _renderPlanRow )(this.props.plans)}
-            <div className='ten-row row'>
-              <h3>{FAQ.toUpperCase()}</h3>
               {
-                R.map( faq =>
-                  <Accordion
-                    key={faq.ID}
-                    title={faq.question}
-                    content={faq.answer}
-                  />
-                )(this.props.faqs)
+                R.not(R.isEmpty(this.props.faqs)) ?
+                  <div className='ten-row row'>
+                    <h3>{FAQ.toUpperCase()}</h3>
+                    {
+                      R.map( faq =>
+                        <Accordion
+                          key={faq.ID}
+                          title={faq.question}
+                          content={faq.answer}
+                        />
+                      )(this.props.faqs)
+                    }
+                  </div>
+                  : null
               }
-            </div>
           </div>
           <div className='large-2 column column-height' />
         </div>
