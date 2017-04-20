@@ -52,6 +52,12 @@ $content-height-full: calc(100vh - 64px);
 
 .twelve-row {
   @include grid-row(24, 0) {
+    .large-12 {
+      @include grid-column(24, 0);
+    }
+    .large-10 {
+      @include grid-column(20, 0);
+    }
     .xl {
       @include grid-column(14, 0);
       .column-xl {

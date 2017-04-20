@@ -101,20 +101,19 @@ const _renderPopover = props => vibe => (
   <div
     key={vibe.ID}
     className={R.join(' ', [
-      'twelve-row row fixed overflow-scroll vibe-popover animated',
+      'row fixed overflow-scroll vibe-popover animated',
       props.selected_vibe.ID === vibe.ID ? 'show fadeIn' : ''
     ])}
   >
-    <div className='large-10 large-push-2 column vibe-content'>
-      <div className='small-14 large-7 column pl-2 pr-2'>
-        <div className='title-container'>
-          <img src={vibe.profile_image} />
-          <h1>{vibe.name}</h1>
+    <div className='large-10 large-push-2 column'>
+      <div className='row top-row'>
+        <div className='small-14 large-7 column img-container pl-2 pr-2'>
+          <div className='title-container' style={{background: `url(${vibe.profile_image}) center no-repeat`}}>
+            {/* <img src={vibe.profile_image} /> */}
+            <h1>{vibe.name}</h1>
+          </div>
         </div>
-        <p dangerouslySetInnerHTML={createMarkup(vibe.description_left)} />
-      </div>
-      <div className='small-14 large-7 column navigation-btns pl-2 pr-2'>
-        <div className='row large-up-3 small-up-3 align-left'>
+        <div className='small-14 large-7 column large-up-3 small-up-3 align-left navigation-btns'>
           <button className='column btn-underline' onClick={props.onClickCancel}>
             <div>
               <i className='fa fa-times fa-lg' /> BACK
@@ -135,8 +134,10 @@ const _renderPopover = props => vibe => (
           </button>
           {/* <div className='column small-3'/> */}
         </div>
-        <div className='row'>
-          <p dangerouslySetInnerHTML={createMarkup(vibe.description_right)} />
+      </div>
+      <div className='row'>
+        <div className='small-14 large-14 column'>
+          <div className='popover-content' dangerouslySetInnerHTML={createMarkup(vibe.description)} />
         </div>
       </div>
     </div>

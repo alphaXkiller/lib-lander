@@ -118,11 +118,12 @@
   // VIBE PAGE
   #vibe-page {
     .image .name {
-      font-size: 10vw;
+      font-size: 10vw !important;
     }
     .vibe-popover{
       &.show {
         margin-top: 0px;
+        padding-bottom: 50px;
       }
       .vibe-content {
         display: block;
@@ -136,6 +137,16 @@
         .navigation-btns {
           flex-direction: column-reverse;
           padding-top: 0px;
+        }
+      }
+      .popover-content {
+        column-count: 1;
+      }
+
+      .top-row {
+        flex-direction: column-reverse;
+        margin-top: 50px;
+        .img-container {
         }
       }
 

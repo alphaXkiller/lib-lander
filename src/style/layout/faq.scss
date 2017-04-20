@@ -1,3 +1,15 @@
+.planning-row {
+  margin: 6rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.planning-title {
+  font-family: 'AN-Bold';
+  text-transform: uppercase;
+}
+
 .accordion-toggle {
   cursor: pointer;
 }
