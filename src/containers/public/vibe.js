@@ -27,8 +27,8 @@ const DEFAULT_TAG  = 'all'
 const DEFAULT_SORT = FilterOption.Order[0]
 
 const FILTER_NAME = {
-  cat: 'by category',
-  tag: 'by tag'
+  cat: 'category',
+  tag: 'tag'
 }
 
 const packeryOptions = {
@@ -308,8 +308,9 @@ class Lineup extends React.Component {
               ])}
             >
               <div className='row page-title'>
-                <div className='large-7 column'>
+                <div className='small-14 column'>
                   <h1>VIBE</h1>
+                  <p>Learn more about who is making Life Is Beautiful Festival 2017 an experience not to be missed.</p>
                 </div>
               </div>
               <div className='row fixed filter-wrapper'>
