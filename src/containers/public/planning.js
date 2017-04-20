@@ -14,16 +14,20 @@ const _renderPlanRow = plan_list => {
   const plan_right = plan_list[1]
 
   return (
-    <div className='row'>
-      <div key={plan_left.ID} className='large-7 column'>
-        <h2>{plan_left.title}</h2>
-        <div dangerouslySetInnerHTML={createMarkup(plan_left.description)} />
+    <div key={plan_left.ID} className='row planning-row'>
+      <div className='large-7 column'>
+        <h2 className='planning-title'>{plan_left.title}</h2>
+        <div
+          className='large-12 column end'
+          dangerouslySetInnerHTML={createMarkup(plan_left.description)}
+        />
       </div>
       {
         plan_right ?
           <div key={plan_right.ID} className='large-7 column'>
-            <h2>{plan_right.title}</h2>
-            <div 
+            <h2 className='planning-title'>{plan_right.title}</h2>
+            <div
+              className='large-12 column end'
               dangerouslySetInnerHTML={createMarkup(plan_right.description)}
             />
           </div>
@@ -54,7 +58,7 @@ class PlanPage extends React.Component {
         <div className='row align-center'>
           <div className='large-2 column column-height' />
           <div className='small-10 column align-center'>
-            <div className='row page-title'>
+            <div className='row page-title' style={{paddingBottom: 0}}>
               <div className='large-7 column'>
                 <h1>PLANNING</h1>
               </div>
