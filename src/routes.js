@@ -42,6 +42,8 @@ const RouteActor = route => {
         const query = _getQueryFromSearch(props.location.search)
         const _props = R.merge({ query }, props)
 
+        props.history.listen(() => window.scroll(0, 0))
+
         return <route.component {..._props} routes={route.sub_routes}/>
       }}
     />
