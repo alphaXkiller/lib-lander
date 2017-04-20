@@ -3,12 +3,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .planning-title {
+    font-family: 'AN-Bold';
+    text-transform: uppercase;
+  }
+  .planning-img {
+    max-width: 80%;
+    margin: 20px;
+  }
 }
 
-.planning-title {
-  font-family: 'AN-Bold';
-  text-transform: uppercase;
-}
 
 .accordion-toggle {
   cursor: pointer;
