@@ -143,7 +143,13 @@ const _renderPopover = props => vibe => (
       <div className='row'>
         <div className='large-2 column large-up-4 small-up-4' style={{marginTop: 40}}>
           {
-            R.values(R.mapObjIndexed(_socialIcons, props.selected_vibe.social_media))
+            props.selected_vibe.social_media ?
+              R.compose(
+                R.values,
+                R.mapObjIndexed(_socialIcons),
+                R.filter(R.complement(R.isEmpty))
+              )(props.selected_vibe.social_media)
+            : null
           }
         </div>
       </div>
@@ -190,12 +196,30 @@ class Lineup extends React.Component {
       document
         .querySelector('#content-wrapper')
         .classList.remove('gridSet')
+
+      if (this.props.vibe.length > 0)
+        this.setState({
+          selected_vibe: R.find(
+            R.propEq('slug', this.props.query.artist), this.props.vibe
+          )
+        })
     }
 
 
     if (R.isEmpty(this.props.vibe)) {
       this.props.onMount()
     }
+
+  }
+
+
+  componentWillUnmount () {
+    document.querySelector('body')
+      .classList.remove('overflow-hidden')
+
+    document
+      .querySelector('#content-wrapper')
+      .classList.add('gridSet')
   }
 
 
