@@ -129,39 +129,49 @@ class App extends Component {
           {/* <!-- SOCIAL SIDEBAR --> */}
     			<div className="sidebar sbdesktop">
     				{/* <!-- SNAPS! --> */}
-    				<div className="social_icon">
-    					<a href="http://www.snapchat.com/add/LIBeautifulFest/"></a>
-    					<div className="snapchat icon_out"></div>
-    					<div className="snapchat icon_over"></div>
-    				</div>
+            <a 
+              href="http://www.snapchat.com/add/LIBeautifulFest/" 
+              target='_blank'
+              className='social_icon'
+            >
+              <div className="snapchat icon_out"></div>
+            </a>
 
     				{/* <!-- TWEETS! --> */}
-    				<div className="social_icon">
-    					<a href="https://twitter.com/lifeisbeautiful/"></a>
-    					<div className="twitter icon_out"></div>
-    					<div className="twitter icon_over"></div>
-    				</div>
+            <a 
+              href="https://twitter.com/lifeisbeautiful/" 
+              target='_blank'
+              className='social_icon'
+            >
+              <div className="twitter icon_out"></div>
+            </a>
 
     				{/* <!-- FB --> */}
-    				<div className="social_icon">
-    					<a href="https://www.facebook.com/LifeIsBeautifulFest/"></a>
-    					<div className="facebook icon_out"></div>
-    					<div className="facebook icon_over"></div>
-    				</div>
+            <a 
+              href="https://www.facebook.com/LifeIsBeautifulFest/" 
+              target='_blank'
+              className='social_icon'
+            >
+    				  <div className="facebook icon_out"></div>
+            </a>
 
     				{/* <!-- INSTA! --> */}
-    				<div className="social_icon">
-    					<a href="https://www.instagram.com/lifeisbeautiful/"></a>
+            <a 
+              href="https://www.instagram.com/lifeisbeautiful/" 
+              target='_blank'
+              className='social_icon'
+            >
     					<div className="instagram icon_out"></div>
-    					<div className="instagram icon_over"></div>
-    				</div>
+            </a>
 
     				{/* <!-- YOUTUBE --> */}
-    				<div className="social_icon">
-    					<a href="https://www.youtube.com/user/LifeIsBeauitful"></a>
+            <a 
+              href="https://www.youtube.com/user/LifeIsBeauitful" 
+              target='_blank'
+              className='social_icon'
+            >
     					<div className="youtube icon_out"></div>
-    					<div className="youtube icon_over"></div>
-    				</div>
+            </a>
     			</div>
     			{/* <!-- SOCIAL SIDEBAR --> */}
 
