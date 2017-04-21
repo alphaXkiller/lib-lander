@@ -141,9 +141,12 @@ body {
   align-items: center;
 
 	.social_icon {display: inline-block; position: relative; width: 50px; height: 50px; margin: 3px 0; cursor: pointer;}
-	.social_icon a {display: inline-block; position: absolute; width: 100%; height: 100%; z-index: 7;}
-	.social_icon .icon_out {background-image: url('../img/social-sprite-blue_rev1.png'); width: 50px; height: 50px; background-size: cover; position: absolute; z-index: 6;}
-	.social_icon .icon_over {background-image: url('../img/social-sprite-pink_rev1.png'); width: 50px; height: 50px; background-size: cover; position: absolute; z-index: 5; display: none;}
+	.social_icon .icon_out {
+    background-image: url('../img/social-sprite-blue_rev1.png'); width: 50px; height: 50px; background-size: cover; position: absolute; z-index: 6;
+    &:hover {
+      background-image: url('../img/social-sprite-pink_rev1.png');
+    }
+  }
 
 	.social_icon .snapchat 	{background-position-x: calc(-50px * 0);}
 	.social_icon .twitter 		{background-position-x: calc(-50px * 1);}
