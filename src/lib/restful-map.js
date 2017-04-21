@@ -6,5 +6,6 @@ export default {
   'news'     : '/lib/news',
   'ticket'   : '/lib/ticket',
   'page'     : '/lib/page/:slug',
-  'faq'      : '/lib/faq'
+  'faq'      : '/lib/faq',
+  'lineup'   : '/lib/lineup'
 }
