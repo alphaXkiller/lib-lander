@@ -96,6 +96,13 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
   )
 })
 
+const _socialIcons = (value, key, obj) => {
+  return(
+    <a href={value} key={key} className='column vibe-social-icons pink_on' target='_blank'>
+      <i className={`fa fa-${key} fa-2x`} />
+    </a>
+  )
+}
 
 const _renderPopover = props => vibe => (
   <div
@@ -109,7 +116,6 @@ const _renderPopover = props => vibe => (
       <div className='row top-row'>
         <div className='small-14 large-7 column img-container pl-2 pr-2'>
           <div className='title-container' style={{background: `url(${vibe.profile_image}) center no-repeat`}}>
-            {/* <img src={vibe.profile_image} /> */}
             <h1>{vibe.name}</h1>
           </div>
         </div>
@@ -132,7 +138,13 @@ const _renderPopover = props => vibe => (
               <hr/>
             </div>
           </button>
-          {/* <div className='column small-3'/> */}
+        </div>
+      </div>
+      <div className='row'>
+        <div className='large-2 column large-up-4 small-up-4' style={{marginTop: 40}}>
+          {
+            R.values(R.mapObjIndexed(_socialIcons, props.selected_vibe.social_media))
+          }
         </div>
       </div>
       <div className='row'>
@@ -171,6 +183,16 @@ class Lineup extends React.Component {
 
 
   componentDidMount() {
+    if (this.props.query.artist) {
+      document.querySelector('body')
+        .classList.add('overflow-hidden')
+
+      document
+        .querySelector('#content-wrapper')
+        .classList.remove('gridSet')
+    }
+
+
     if (R.isEmpty(this.props.vibe)) {
       this.props.onMount()
     }

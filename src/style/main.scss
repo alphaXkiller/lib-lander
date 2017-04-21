@@ -56,14 +56,26 @@
     url("../fonts/c1fbefa9-1480-4d86-abab-8f357f4a7962.ttf") format("truetype"),
     url("../fonts/74731d73-f46b-4e5d-8c95-a9f87a1ebb58.svg#74731d73-f46b-4e5d-8c95-a9f87a1ebb58") format("svg");
 }
+@font-face {
+    font-family: "AN-Thin";
+    src: url('../fonts/42c793cf-df5a-4e07-bf3e-37de54df02b6.eot?#iefix');
+    src: url('../fonts/42c793cf-df5a-4e07-bf3e-37de54df02b6.eot?#iefix') format("eot"),
+    url('../fonts/64779e28-a3b8-4364-949c-771372a0a327.woff2') format("woff2"),
+    url('../fonts/c6c8e4be-17eb-4475-bbfc-bb485ffde766.woff') format("woff"),
+    url('../fonts/87a872d0-5af3-4231-a77c-37f41ec74662.ttf') format("truetype"),
+    url('../fonts/91464696-717b-4eaa-adbd-0dfc5e5fd782.svg#91464696-717b-4eaa-adbd-0dfc5e5fd782') format("svg")
+}
 
 @include scrollbars(0, slategray);
 
 body {
   overflow-x: hidden;
-	font-family: 'AN-Reg', sans-serif;
+	font-family: 'AN-Thin', sans-serif;
+  font-size: 1rem !important;
   background: #040508 url('../img/bg.png') center top no-repeat;
   background-size: 100%;
+  -webkit-font-smoothing: initial;
+  -moz-osx-font-smoothing: initial;
   h1 {
     font-family: 'AN-Bold', sans-serif;
   }
@@ -222,15 +234,22 @@ p.off {
 	// right: 3px;
   //   width: 42%;
 }
-	.copy-hero h1 {
-	    letter-spacing: 3px;
-	    font-family: 'AN-Round', sans-serif;
-	    font-size: 2.85rem;
-	    margin: 0px;
-	}
-	.copy-hero .copy {color: #fff; line-height: 1.66rem; width: 82%;}
-	.copy-hero .copy .date {text-transform: uppercase; letter-spacing: 5px; margin: 1rem 0;}
-	.copy-hero .copy .text {margin: 1.25rem 0; font-size: 0.9rem;}
+
+.copy-hero h1 {
+  letter-spacing: 2px;
+  font-family: 'AN-Round',sans-serif;
+  font-size: 3.5vw;
+  margin: 0;
+}
+.copy-hero .copy {color: #fff; line-height: 1.66rem; width: 82%;}
+.copy-hero .copy .date {text-transform: uppercase; letter-spacing: 5px; margin: 1rem 0;}
+.copy-hero .copy .text {
+  font-family: 'AN-Thin';
+  margin: 1.25rem 0;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 1px;
+}
 
 
   .email_address {

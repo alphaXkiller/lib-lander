@@ -20,6 +20,7 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       .name {
         position: absolute;
         color: #fff;
@@ -67,6 +68,11 @@
       z-index: 2;
       margin-top: 100px;
       width: 100%;
+    }
+
+    .vibe-social-icons.pink_on {
+      -webkit-text-stroke: black !important;
+      transition: all 0.15s ease-in-out;
     }
 
     p, span, button {
@@ -122,7 +128,6 @@
         display: flex;
         flex-direction: row;
         padding-top: 90px;
-
         >.row {
           padding-bottom: 20px;
         }
