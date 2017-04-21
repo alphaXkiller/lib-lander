@@ -5,6 +5,7 @@
   display: flex;
   height: 520px;
   justify-content: center;
+  flex-direction: column;
   left: 0;
   position: relative;
   overflow: hidden;
@@ -13,7 +14,6 @@
   opacity: 0;
   margin-top: 20rem;
   .footer-content {
-    align-self: baseline;
     text-transform: uppercase;
     text-align: center;
     // margin-top: 50px;
@@ -22,7 +22,7 @@
       font-size: 3rem;
       line-height: 5rem;
       letter-spacing: 55px;
-      margin-top: 40px
+      margin-top: -10vw;
     }
   }
   .dj {
