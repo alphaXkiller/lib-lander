@@ -154,6 +154,16 @@
   }
 
 
+  // PLANNING PAGE
+  .planning-row {
+    display: block;
+    margin: 80px 0;
+    & > div:nth-child(1) {
+      margin-bottom: 80px;
+    }
+  }
+
+
   // LINEUP PAGE
   .lineup-list {
     .artist-name {

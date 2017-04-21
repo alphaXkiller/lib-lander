@@ -11,6 +11,8 @@ import MenuItem    from 'material-ui/MenuItem'
 
 import { Lineup } from '../../actions/index'
 import FilterOption from '../../constants/filter-option'
+import cssColors from '../../constants/cssColors'
+
 import {
   mapIndexed,
   notEmpty,
@@ -18,7 +20,8 @@ import {
   getCompleteList,
   inSelectedCat,
   sortByOption,
-  createMarkup
+  createMarkup,
+  isSafari
 } from '../../lib/helpers'
 
 const LINEUP_PATH    = '/lineup'
@@ -71,6 +74,12 @@ const _renderFilter = ({list, onSelect, selected, class_name}) => (
   </div>
 )
 
+const getRandomIntInclusive = () => {
+  let min = Math.ceil(0);
+  let max = Math.floor(7);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
   let hide_class = ''
 
@@ -80,7 +89,13 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
 
   return (
     <div key={index} className={'artist-name ' + hide_class}>
-      <span rel="tooltip" className='name pink_on'>{item.name}</span>
+      <span className={
+        R.join( ' ', [
+          'name',
+          isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
+
+        )
+      }>{item.name}</span>
       {
         item.link.post_name ?
           <Link className='bio-link animated fadeIn' to={'/vibe?artist=' + item.link.post_name}>
@@ -107,10 +122,17 @@ class LineupPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.lineup !== this.props.lineup)
+    if (prevProps.lineup !== this.props.lineup) {
       this.setState({
         current_lineup_list: getCompleteList(this.props.query, this.props.lineup)
+      }, () => {
+        // const name = document.querySelectorAll('.name')
+        // name.map( item => {
+        //   item.classList.addClass()
+        // })
       })
+    }
+
   }
 
   componentDidMount() {
@@ -186,11 +208,10 @@ class LineupPage extends React.Component {
                   <div className='row page-title' style={{paddingBottom: 0}}>
                     <div className='large-14 column'>
                       <h1>LINEUP</h1>
-                      <p>MORE THAN JUST A LINEUP, IT'S A THREE-DAY, MULTISENSORY EXPERIENCE.</p>
-                      <p>Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life Is Beautiful lineup unforgettable.</p>
+                      <p style={{margin: '3rem 0'}}>MORE THAN JUST A LINEUP, IT'S A THREE-DAY, MULTISENSORY EXPERIENCE. <br /> Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life Is Beautiful lineup unforgettable.</p>
                     </div>
                   </div>
-                  <div className='row fixed filter-wrapper'>
+                  <div className='row filter-wrapper'>
                     <div className='large-7 small-14 small-up-2'>
                       {/* {
                         _renderFilter({

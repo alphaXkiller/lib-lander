@@ -90,6 +90,8 @@ const createMarkup = (content) => {
   return {__html: content}
 }
 
+const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
+
 export {
   notEmpty,
   notNil,
@@ -105,5 +107,6 @@ export {
   inSelectedCat,
   sortByOption,
 
-  createMarkup
+  createMarkup,
+  isSafari
 }
