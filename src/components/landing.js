@@ -23,7 +23,7 @@ const _renderFirstRow = item => (
       </div>
 
       {/* <!-- CTA/FORM BLOCK --> */}
-      <div className="columns large-6 medium-14 small-14">
+      <div className="columns large-5 medium-14 small-14">
         <div className="copy-hero">
           <div className='row'>
             <div className='large-9 column'>
@@ -126,11 +126,11 @@ const _renderTwoColumns = is_last_row => list => {
   if (!is_last_row) {
     return(
       <div className='row'>
-        <div className='section-content'>
+        <div className='section-main'>
+          <div className='row parallax show-for-large'>
+            <div className='art-icon large-push-12 column' />
+          </div>
           <div className='row'>
-            <div className='row parallax show-for-large'>
-              <div className='art-icon large-push-12 column' />
-            </div>
             {_renderLeftPost(list[0])}
             {_renderRightPost(list[1])}
           </div>
@@ -143,7 +143,7 @@ const _renderTwoColumns = is_last_row => list => {
         <div className='section-content'>
           <div className='row last-row'>
             <div className='row parallax show-for-large'>
-              <div className='ideas-icon large-push-8 column' />
+              <div className='ideas-icon large-push-9 column' />
             </div>
             {_renderLeftPost(list[0])}
             {_renderRightPost(list[1])}
@@ -161,10 +161,8 @@ const HomeContainer = (props) => {
   (
     <div style={{color: 'white'}}>
       {_renderFirstRow(data[0])}
-      {_renderSecondRow(data[1])}
       {_renderTwoColumns()([data[2], data[3]])}
       {_renderTwoColumns(true)([data[4], data[5]])}
-      {/* <div style={{height: 500}}></div> */}
     </div>
   )
 
