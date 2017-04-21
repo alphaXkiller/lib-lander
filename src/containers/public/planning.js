@@ -15,7 +15,7 @@ const _renderPlanRow = plan_list => {
 
   return (
     <div key={plan_left.ID} className='row planning-row'>
-      <div className='large-7 column'>
+      <div className='large-7 small-14 column'>
         <h2 className='planning-title'>{plan_left.title}</h2>
         <div className='planning-img'><img src={plan_left.image} /></div>
         <div
@@ -25,7 +25,7 @@ const _renderPlanRow = plan_list => {
       </div>
       {
         plan_right ?
-          <div key={plan_right.ID} className='large-7 column'>
+          <div key={plan_right.ID} className='large-7 small-14 column'>
             <h2 className='planning-title'>{plan_right.title}</h2>
             <div className='planning-img'><img src={plan_right.image} /></div>
             <div
@@ -59,7 +59,7 @@ class PlanPage extends React.Component {
       <div className='content'>
         <div className='row align-center'>
           <div className='large-2 column column-height' />
-          <div className='small-10 column align-center'>
+          <div className='small-14 large-10 column align-center'>
             <div className='row page-title' style={{paddingBottom: 0}}>
               <div className='large-14 column'>
                 <h1>PLANNING</h1>
