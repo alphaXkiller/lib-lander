@@ -4,7 +4,7 @@ const main = [
   { text: 'VIBE', path: '/vibe' },
   { text: 'NEWS', path: '/news' },
   { text: 'PLANNING', path: '/planning' },
-  { text: 'MERCH', path: '/' }
+  { text: 'MERCH', url: 'https://shop.lifeisbeautiful.com/' }
 ]
 
 const sub = {
@@ -12,18 +12,18 @@ const sub = {
     { text: 'ABOUT', path: '/about' },
     { text: 'HISTORY', path: '/history' },
     { text: 'CONTACT', path: '/' },
-    { text: 'MEDIA', path: '/' },
-    { text: 'IMPACT', path: '/' },
-    { text: 'FAQ', path: '/' }
+    { text: 'MEDIA', mail: 'mailto:LIBPress@rrpartners.com?subject=Life%20Is%20Beautiful%20Press%20Inquiry'},
+    // { text: 'FAQ', path: '/' }
   ]
   ,
   right: [
+    { text: 'IMPACT', path: '/impact' },
     { text: 'PARTNERS', path: '/' },
     { text: 'VOLUNTEERS', path: '/' },
-    { text: 'JOBS', path: '/' },
-    { text: 'INTERNSHIP', path: '/' },
-    { text: 'CHARITY', path: '/' },
-    { text: 'LEGAL', path: '/' }
+    // { text: 'JOBS', path: '/' },
+    // { text: 'INTERNSHIP', path: '/' },
+    // { text: 'CHARITY', path: '/' },
+    { text: 'LEGAL', url: 'https://lifeisbeautiful.com/policy.html' }
   ]
 
 }

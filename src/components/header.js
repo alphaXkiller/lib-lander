@@ -59,19 +59,30 @@ const _renderMenuSection = onClickCloseDrawer => (
     <div style={{zIndex: '10', paddingTop: '50px'}}>
       <div className='small-14  medium-12 columns'>
         {
-          R.map( item => (
-            <Link
-              key={item.text}
-              to={item.path}
-              onTouchTap={onClickCloseDrawer}
-            >
-              <MenuItem
-                innerDivStyle={{padding: '0'}}
-                style={MENU_STYLE}
-                primaryText={item.text}
-              />
-            </Link>
-          ))(ConstantMenu.main)
+          R.map( item => item.path ?
+            (
+              <Link
+                key={item.text}
+                to={item.path}
+                onTouchTap={onClickCloseDrawer}
+              >
+                <MenuItem
+                  innerDivStyle={{padding: '0'}}
+                  style={MENU_STYLE}
+                  primaryText={item.text}
+                />
+              </Link>
+            )
+          : (
+              <a key={item.text} href={item.url} target='_blank'>
+                <MenuItem
+                  innerDivStyle={{padding: '0'}}
+                  style={MENU_STYLE}
+                  primaryText={item.text}
+                />
+              </a>
+            )
+          )(ConstantMenu.main)
         }
       </div>
     </div>
@@ -87,38 +98,47 @@ const _renderMapSection = () => (
 )
 
 
+const _renderGeneralInfoMenu = onClickFn => item => item.path ? (
+  <Link
+    key={item.text}
+    to={item.path}
+    onTouchTap={onClickFn}
+  >
+    <MenuItem
+      innerDivStyle={{padding: '0'}}
+      style={SUB_MENU_STYLE}
+      primaryText={item.text}
+    />
+  </Link>
+  )
+: (
+  <a 
+    key={item.text} 
+    href={item.url ? item.url : item.mail} 
+    target={item.url ? '_blank' : null}
+  >
+      <MenuItem
+        innerDivStyle={{padding: '0'}}
+        style={SUB_MENU_STYLE}
+        primaryText={item.text}
+      />
+    </a>
+  )
+
 const _renderGeneralInfo = onClickCloseDrawer => (
   <section className='row'>
     <div className='small-5 columns'>
       {
-        R.map( item => (
-          <Link
-            key={item.text}
-            to={item.path}
-            onTouchTap={onClickCloseDrawer}
-          >
-            <MenuItem
-              innerDivStyle={{padding: '0'}}
-              style={SUB_MENU_STYLE}
-              primaryText={item.text}
-            />
-          </Link>
-        ))(ConstantMenu.sub.left)
+        R.map(
+          _renderGeneralInfoMenu(onClickCloseDrawer) 
+        )(ConstantMenu.sub.left)
       }
     </div>
     <div className='small-9 columns'>
       {
-        R.map( item => (
-          <Link
-            key={item.text}
-            to={item.path}
-          >
-            <MenuItem
-              style={SUB_MENU_STYLE}
-              primaryText={item.text}
-            />
-          </Link>
-        ))(ConstantMenu.sub.right)
+        R.map(
+          _renderGeneralInfoMenu(onClickCloseDrawer) 
+        )(ConstantMenu.sub.right)
       }
     </div>
   </section>

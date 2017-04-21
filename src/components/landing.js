@@ -109,7 +109,12 @@ const _renderRightPost = item => {
             <h1>{item.title}</h1>
             <p>{item.description}</p>
             <button className='btn-underline default'>
-              <a href={item.link}>{item.link_text}</a>
+              <a 
+                href={item.link} 
+                target={item.title === 'MERCH' ? '_blank' : ''}
+              >
+                {item.link_text}
+              </a>
               <hr className='pink'/>
             </button>
           </div>
