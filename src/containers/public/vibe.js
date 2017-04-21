@@ -15,9 +15,9 @@ import {
   getNextVibe,
   getPrevVibe,
   getQueryUrl,
-  getVibeList,
+  getCompleteList,
   inSelectedCat,
-  sortVibeByOption,
+  sortByOption,
   createMarkup
 } from '../../lib/helpers'
 
@@ -122,7 +122,7 @@ const _renderPopover = props => vibe => (
         <div className='small-14 large-7 column large-up-3 small-up-3 align-left navigation-btns'>
           <button className='column btn-underline' onClick={props.onClickCancel}>
             <div>
-              <i className='fa fa-times fa-lg' /> BACK
+              <i className='fa fa-times fa-lg' /> CLOSE
               <hr className='pink'/>
             </div>
           </button>
@@ -174,7 +174,7 @@ class Lineup extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.vibe !== this.props.vibe)
       this.setState({
-        current_vibe_list: getVibeList(this.props.query, this.props.vibe),
+        current_vibe_list: getCompleteList(this.props.query, this.props.vibe),
         selected_vibe: this.props.query.artist ? R.find(
           R.propEq('slug', this.props.query.artist), this.props.vibe
         ) : {}
@@ -201,7 +201,7 @@ class Lineup extends React.Component {
 
   onSelect = (e, index, value) => {
     const selected_cat = value
-    const current_vibe_list = getVibeList({cat: selected_cat}, this.props.vibe)
+    const current_vibe_list = getCompleteList({cat: selected_cat}, this.props.vibe)
 
     this.setState({selected_cat, current_vibe_list}, () =>
       R.ifElse(
@@ -219,7 +219,7 @@ class Lineup extends React.Component {
 
   onSelectTag = (e, index, value) => {
     const selected_tag = value
-    const current_vibe_list = getVibeList({tag: selected_tag}, this.props.vibe)
+    const current_vibe_list = getCompleteList({tag: selected_tag}, this.props.vibe)
 
     this.setState({selected_tag, current_vibe_list}, () =>
       R.ifElse(
@@ -237,7 +237,7 @@ class Lineup extends React.Component {
 
   onSelectSort = (e, index, value) => {
     const default_order = FilterOption.Order[1]
-    const current_vibe_list = sortVibeByOption(this.props.vibe)(value)
+    const current_vibe_list = sortByOption(this.props.vibe)(value)
 
     this.setState({current_vibe_list, selected_order: value}, () =>
       R.ifElse(
