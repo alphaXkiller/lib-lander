@@ -196,12 +196,30 @@ class Lineup extends React.Component {
       document
         .querySelector('#content-wrapper')
         .classList.remove('gridSet')
+
+      if (this.props.vibe.length > 0)
+        this.setState({
+          selected_vibe: R.find(
+            R.propEq('slug', this.props.query.artist), this.props.vibe
+          )
+        })
     }
 
 
     if (R.isEmpty(this.props.vibe)) {
       this.props.onMount()
     }
+
+  }
+
+
+  componentWillUnmount () {
+    document.querySelector('body')
+      .classList.remove('overflow-hidden')
+
+    document
+      .querySelector('#content-wrapper')
+      .classList.add('gridSet')
   }
 
 
