@@ -1,0 +1,38 @@
+.lineup-list {
+  // &:last-child
+  .artist-name {
+    display:flex;
+    align-items: center;
+    &:hover {
+      .bio-link { display: flex; }
+    }
+    .separator {
+      color: white;
+      font-size: 3rem;
+      font-family: 'AN-Round';
+      padding: 0 25px;
+      // color: red;
+    }
+    .name {
+      cursor: default;
+      font-family: 'AN-Round', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 1px;
+      line-height: 1;
+      margin-right: 1px;
+      text-transform: uppercase;
+    }
+  }
+  .bio-link {
+    display: none;
+    position: absolute;
+    background: #000;
+    padding: 15px 50px;
+    right: -85px;
+    z-index: 1;
+    animation-name: 'zoomOut';
+    animation-duration: .15s;
+    transition: all .15s ease-in-out;
+  }
+
+}

@@ -7,6 +7,7 @@ import ticket   from './ticket'
 import page     from './page'
 import faq      from './faq'
 import news     from './news'
+import lineup     from './lineup'
 
 export default combineReducers({
   news,
@@ -15,5 +16,6 @@ export default combineReducers({
   landing,
   planning,
   ticket,
-  page
+  page,
+  lineup
 })

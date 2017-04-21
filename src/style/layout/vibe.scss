@@ -37,27 +37,6 @@
     }
   }
 
-  .filter-wrapper {
-    display: flex;
-    justify-content: center;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    bottom: 20px;
-    .select-filter {
-      background-color: rgb(26,43,69) !important;
-    }
-    .select-filter-cat {
-      border-bottom: 5px solid rgb(3,171,196);
-    }
-    .select-filter-tag {
-      border-bottom: 5px solid rgb(70,78,55);
-    }
-    .select-filter-order {
-      border-bottom: 5px solid rgb(204,29,135);
-    }
-  }
-
   .vibe-popover {
     height: calc(#{$content-height-full});
     opacity: 0;

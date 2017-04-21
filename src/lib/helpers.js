@@ -63,7 +63,7 @@ const inSelectedTag = selected_tag => R.ifElse(
 )
 
 
-const sortVibeByOption = list => R.ifElse(
+const sortByOption = list => R.ifElse(
   R.complement(R.equals('name')),
   R.always(list),
   () => R.sortBy(
@@ -72,11 +72,11 @@ const sortVibeByOption = list => R.ifElse(
 )
 
 
-const getVibeList = (query, list) => R.ifElse(
+const getCompleteList = (query, list) => R.ifElse(
   R.isEmpty,
   R.always(list),
   () => R.compose(
-    _list => sortVibeByOption(_list)(query.sort)
+    _list => sortByOption(_list)(query.sort)
     ,
     R.filter(R.allPass([
       obj => query.cat ? inSelectedCat(query.cat)(obj) : R.T,
@@ -101,9 +101,9 @@ export {
   getNextVibe,
   getPrevVibe,
   getQueryUrl,
-  getVibeList,
+  getCompleteList,
   inSelectedCat,
-  sortVibeByOption,
+  sortByOption,
 
   createMarkup
 }
