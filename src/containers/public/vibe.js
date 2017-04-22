@@ -360,7 +360,7 @@ class Lineup extends React.Component {
                   <p>Learn more about who is making Life Is Beautiful Festival 2017 an experience not to be missed.</p>
                 </div>
               </div>
-              <div className='row fixed filter-wrapper'>
+              <div className='row filter-wrapper'>
                 <div className='large-7 small-up-3'>
                   {
                     _renderFilter({

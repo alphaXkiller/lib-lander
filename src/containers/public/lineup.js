@@ -93,7 +93,6 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
         R.join( ' ', [
           'name',
           isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
-
         )
       }>{item.name}</span>
       {
@@ -125,11 +124,6 @@ class LineupPage extends React.Component {
     if (prevProps.lineup !== this.props.lineup) {
       this.setState({
         current_lineup_list: getCompleteList(this.props.query, this.props.lineup)
-      }, () => {
-        // const name = document.querySelectorAll('.name')
-        // name.map( item => {
-        //   item.classList.addClass()
-        // })
       })
     }
 

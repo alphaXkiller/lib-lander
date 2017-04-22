@@ -2,8 +2,8 @@ import ApiRequest from '../lib/restful'
 
 const LINEUP = 'lineup'
 const TYPE = {
-  request: 'request',
-  receive: 'receive'
+  request: 'REQUEST_LINEUP',
+  receive: 'RECEIVE_LINEUP'
 }
 
 const request = () => ({ type: TYPE.request })
@@ -22,5 +22,5 @@ const fetchLineup = () => (dispatch, getState) => {
 
 export default {
   TYPE,
-  fetchLineup 
+  fetchLineup
 }
