@@ -6,7 +6,6 @@ const colors = [
   'yellow_on',
   'yellow_off',
   'green_on',
-  'green_off',
   'green_off'
 ]
 
