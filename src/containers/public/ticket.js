@@ -1,7 +1,9 @@
-import React from 'react'
+import R           from 'ramda'
+import React       from 'react'
 import { connect } from 'react-redux'
 
-import { Ticket } from '../../actions/index.js'
+import Accordion        from '../../components/accordion.js'
+import { Ticket }       from '../../actions/index.js'
 import { createMarkup } from '../../lib/helpers'
 
 
@@ -33,6 +35,7 @@ const _renderTicketLg = ticket => (
           </div>
           <div className='row ten-row ticket-description'>
             <div
+              className='column-two'
               style={{color: 'white'}}
               dangerouslySetInnerHTML={createMarkup(ticket.description)} />
           </div>
@@ -93,18 +96,55 @@ class TicketPage extends React.Component {
         </div>
         { tickets[0] ? _renderTicketLg(tickets[0]) : null }
         { tickets[1] ? _renderTicketLg(tickets[1]) : null }
-        <div className='row'>
-          <section className='large-14 column ticket-sm'>
-            <div className='small-14 large-14 column'>
-              <div className='hide-for-small-only large-2 column column-height'/>
-              <div className='small-14 large-10 column'>
-                  { tickets[2] ? _renderTicketSm(tickets[2]) : null }
-                  { tickets[3] ? _renderTicketSm(tickets[3]) : null }
+        { tickets[2] ? _renderTicketLg(tickets[2]) : null }
+        { tickets[3] ? _renderTicketLg(tickets[3]) : null }
+
+        <section>
+          <div className='row'>
+            <div className='large-2 columns column-height' />
+            <div className='small-10 column'>
+              <div className='ten-row row'>
+                <Accordion title='TICKETS COMPARISON' content='table' />
               </div>
-              <div className='hide-for-small-only large-2 column column-height'/>
             </div>
-          </section>
-        </div>
+            <div className='large-2 columns column-height' />
+          </div>
+        </section>
+
+        <section>
+          <div className='row'>
+            <div className='large-2 columns column-height' />
+            <h1 className='large-12 columns'>TICKETS + HOTEL PACKAGES</h1>
+            <div className='large-2 columns column-height' />
+          </div>
+          <div className='row'>
+            <div className='large-2 columns column-height' />
+            <div className='large-12 columns'>
+              <div
+                className='column-two'
+                style={{color: 'white'}}
+                dangerouslySetInnerHTML={
+                  createMarkup(R.path(['description'])(this.props.hotel[0]))
+                } 
+              />
+            </div>
+            <div className='large-2 columns column-height' />
+          </div>
+        {
+          // <div className='row'>
+          //   <section className='large-14 column ticket-sm'>
+          //     <div className='small-14 large-14 column'>
+          //       <div className='hide-for-small-only large-2 column column-height'/>
+          //       <div className='small-14 large-10 column'>
+          //           { tickets[2] ? _renderTicketSm(tickets[2]) : null }
+          //           { tickets[3] ? _renderTicketSm(tickets[3]) : null }
+          //       </div>
+          //       <div className='hide-for-small-only large-2 column column-height'/>
+          //     </div>
+          //   </section>
+          // </div>
+        }
+        </section>
       </div>
     )
   }
@@ -112,7 +152,8 @@ class TicketPage extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-  tickets: state.ticket
+  tickets: state.ticket,
+  hotel: R.filter(R.propEq('is_package', true))(state.ticket)
 })
 
 
