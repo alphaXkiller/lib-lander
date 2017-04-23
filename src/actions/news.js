@@ -2,8 +2,8 @@ import ApiRequest from '../lib/restful'
 
 const NEWS = 'news'
 const TYPE = {
-  request: 'request',
-  receive: 'receive'
+  request: 'REQUEST_NEWS',
+  receive: 'RECEIVE_NEWS'
 }
 
 const request = () => ({ type: TYPE.request })

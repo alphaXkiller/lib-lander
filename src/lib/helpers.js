@@ -17,6 +17,11 @@ const nilOrEmpty = R.either(R.isNil, R.isEmpty)
 
 const mapIndexed = R.addIndex(R.map)
 
+const getRandomIntInclusive = () => {
+  let min = Math.ceil(0);
+  let max = Math.floor(7);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 const getNextVibe = (list, current_vibe) => R.compose(
   next_index => R.when(
@@ -90,6 +95,8 @@ const createMarkup = (content) => {
   return {__html: content}
 }
 
+const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
+
 export {
   notEmpty,
   notNil,
@@ -97,6 +104,7 @@ export {
   nilOrEmpty,
   notNilOrEmpty,
   mapIndexed,
+  getRandomIntInclusive,
 
   getNextVibe,
   getPrevVibe,
@@ -105,5 +113,6 @@ export {
   inSelectedCat,
   sortByOption,
 
-  createMarkup
+  createMarkup,
+  isSafari
 }

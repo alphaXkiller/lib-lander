@@ -2,8 +2,8 @@ import ApiRequest from '../lib/restful'
 
 const PLANNING = 'planning'
 const TYPE = {
-  request: 'request',
-  receive: 'receive'
+  request: 'REQUEST_PLANNING',
+  receive: 'RECEIVE_PLANNING'
 }
 
 const request = () => ({ type: TYPE.request })

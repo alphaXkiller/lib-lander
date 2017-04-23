@@ -75,7 +75,7 @@
   .left-col
     .title-left-col
       h1 {
-        font-size: 15vw;
+        font-size: 15vw !important;
         text-align: center;
         line-height: 15vw;
       }
@@ -150,6 +150,16 @@
         }
       }
 
+    }
+  }
+
+
+  // PLANNING PAGE
+  .planning-row {
+    display: block;
+    margin: 80px 0;
+    & > div:nth-child(1) {
+      margin-bottom: 80px;
     }
   }
 
