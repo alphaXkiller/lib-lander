@@ -21,7 +21,8 @@ import {
   inSelectedCat,
   sortByOption,
   createMarkup,
-  isSafari
+  isSafari,
+  getRandomIntInclusive
 } from '../../lib/helpers'
 
 const LINEUP_PATH    = '/lineup'
@@ -73,12 +74,6 @@ const _renderFilter = ({list, onSelect, selected, class_name}) => (
     </SelectField>
   </div>
 )
-
-const getRandomIntInclusive = () => {
-  let min = Math.ceil(0);
-  let max = Math.floor(7);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
   let hide_class = ''
