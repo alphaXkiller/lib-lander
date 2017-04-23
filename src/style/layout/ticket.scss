@@ -28,3 +28,13 @@
     padding: 60px 0
   }
 }
+
+.tix-comparasion-table {
+  display: none;
+}
+
+.accordion-lib-content.show {
+  .tix-comparasion-table {
+    display: block;
+  }
+}

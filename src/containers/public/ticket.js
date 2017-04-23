@@ -78,11 +78,167 @@ const _renderTicketSm = ticket => (
 )
 
 
+
+
 class TicketPage extends React.Component {
   componentDidMount() {
     this.props.getTickets()
   }
 
+  tableComparison = (
+    <div className='tix-comparasion-table animated fadeIn'>
+      <table>
+        <tbody>
+          <tr>
+            <th><strong>ACCESS</strong></th>
+            <th>ALL IN</th>
+            <th>V+VIP</th>
+            <th>VIP</th>
+          </tr>
+          <tr>
+            <td>Three-day Festival Admission</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>Festival Re-entry</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>Lounges at Downtown and Ambassador Stages</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>Elevated Viewing at Downtown Stage</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Side-Stage Viewing Platform at Downtown Stage</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Side-Stage Viewing Platform at Ambassador Stage</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Air-Conditioned Artist Hospitality Lounge</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Saturday and Sunday Brunch</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <th><strong>FEATURES</strong></th>
+            <th>ALL IN</th>
+            <th>V+VIP</th>
+            <th>VIP</th>
+          </tr>
+
+          <tr>
+            <td>Shaded, Luxe Lounge Seating</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>On-site Concierge</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>Air-conditioned Restrooms</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>Mobile Charging Stations</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>Private Bars w/ Specialty VIP only Cocktails</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+          </tr>
+          <tr>
+            <td>Complimentary Drinks</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Daily Mixology Demos</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Daily Culinary Experience</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Restroom Attendants</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Artist Hospitality Lounge Culinary Tasting Hour</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Two Daily Food Vouchers for Any Food Vendor</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Las Vegas Credential Delivery</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Five-year Commemorative Festival Gift Bag</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>First Right to Purchase 2018 ALL-IN Pass</td>
+            <th><i className='fa fa-times fa-lg' /></th>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )
 
   render() {
     const tickets = this.props.tickets
@@ -102,9 +258,9 @@ class TicketPage extends React.Component {
         <section>
           <div className='row'>
             <div className='large-2 columns column-height' />
-            <div className='small-10 column'>
+            <div className='small-14 column'>
               <div className='ten-row row'>
-                <Accordion title='TICKETS COMPARISON' content='table' />
+                <Accordion title='TICKETS COMPARISON' content={this.tableComparison} />
               </div>
             </div>
             <div className='large-2 columns column-height' />
