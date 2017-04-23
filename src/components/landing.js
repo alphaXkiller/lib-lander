@@ -70,9 +70,9 @@ const _renderFirstRow = item => (
             </Packery>
         </div>
       </div>
-      <div className='row parallax show-for-large'>
+      {/* <div className='row parallax show-for-large'>
         <div className='music-icon large-push-8' />
-      </div>
+      </div> */}
 
       {/* <!-- CTA/FORM BLOCK --> */}
       {/* <div className="columns large-5 medium-14 small-14">
