@@ -1,17 +1,24 @@
 .ticket-lg {
+  font-family: 'AN-Round';
+  text-shadow: 1px 1px 1px #040508;
   .ticket-price {
-    font-size: 4vw;
-    font-weight: bold;
+    font-family: 'AN-Round', sans-serif;
+    font-size: 5rem;
+    line-height: 7rem;
+    margin: 0 10px;
+    text-transform: uppercase;
   }
-  
+
   .ticket-name {
     font-size: 7vw;
     font-weight: bold;
     line-height: 1;
+    text-transform: uppercase;
   }
 
   .ticket-description {
     padding: 60px 0;
+    font-family: 'AN-Thin', sans-serif;
   }
 }
 

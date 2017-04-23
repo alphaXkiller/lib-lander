@@ -1,10 +1,19 @@
 .accordion-lib {
+  .accordion-toggle {
+    cursor: pointer;
+    & h2 {
+      font-family: 'AN-Bold', sans-serif;
+    }
+  }
+  .arrow {
+    text-align: center;
+  }
   .accordion-lib-content {
     p {
       transform: translateY(-20px);
       opacity: 0;
       transition: all 0.5s ease-in-out;
-    } 
+    }
 
     &.show {
       p {
