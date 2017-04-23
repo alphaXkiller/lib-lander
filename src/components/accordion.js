@@ -36,8 +36,8 @@ class Accordion extends React.Component {
             this.state.expand ? 'show' : ''
           ])}
         >
-          <div className='small-12 column'>
-            <p>{this.props.content}</p>
+          <div className='small-14 column'>
+            {this.props.content}
           </div>
         </div>
       </div>
