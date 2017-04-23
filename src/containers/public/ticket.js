@@ -14,10 +14,10 @@ const _renderTicketLg = ticket => (
         <div className='hide-for-small-only large-2 column column-height'/>
         <div className='small-14 large-10 column'>
           <div className='row ten-row'>
-            <div className='small-full large-7 column title-col'>
+            <div className='small-full large-14 column title-col'>
               <div className='vertical-centered-title'>
                 <div>
-                  <span className='ticket-price'>${ticket.price}</span>
+                  <h2 className='ticket-price yellow_on'>${ticket.price}</h2>
                   <h1 className='ticket-name'>{ticket.name}</h1>
                   {
                     // <div className='_button-wrapper'>
@@ -125,7 +125,7 @@ class TicketPage extends React.Component {
                 style={{color: 'white'}}
                 dangerouslySetInnerHTML={
                   createMarkup(R.path(['description'])(this.props.hotel[0]))
-                } 
+                }
               />
             </div>
             <div className='large-2 columns column-height' />
