@@ -1,3 +1,9 @@
+.lineup-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
 .lineup-list {
   // &:last-child
   .artist-name {

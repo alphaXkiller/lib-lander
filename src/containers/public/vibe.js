@@ -361,7 +361,7 @@ class Lineup extends React.Component {
                 </div>
               </div>
               <div className='row filter-wrapper'>
-                <div className='large-7 small-up-3'>
+                <div className='small-14 small-up-3'>
                   {
                     _renderFilter({
                       list       : this.props.vibe_cats,

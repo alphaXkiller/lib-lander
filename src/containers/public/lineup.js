@@ -195,13 +195,13 @@ class LineupPage extends React.Component {
               <div className='small-14 large-10 large-push-2 column align-center'>
                 <div className='twelve-row row'>
                   <div className='row page-title' style={{paddingBottom: 0}}>
-                    <div className='large-14 column'>
-                      <h1>LINEUP</h1>
-                      <p style={{margin: '3rem 0'}}>MORE THAN JUST A LINEUP, IT'S A THREE-DAY, MULTISENSORY EXPERIENCE. <br /> Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life Is Beautiful lineup unforgettable.</p>
+                    <div className='large-14 column lineup-title'>
+                      <h1 className='large-3 column'>LINEUP</h1>
+                      <p className='large-11 column end'>MORE THAN JUST A LINEUP, IT'S A THREE-DAY, MULTISENSORY EXPERIENCE. <br /> Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life Is Beautiful lineup unforgettable.</p>
                     </div>
                   </div>
                   <div className='row filter-wrapper'>
-                    <div className='large-7 small-14 small-up-2'>
+                    <div className='small-14 small-up-2'>
                       {/* {
                         _renderFilter({
                           list       : this.props.lineup_cats,

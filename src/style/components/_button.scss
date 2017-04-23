@@ -11,11 +11,15 @@
   font-family: "AN-Round";
   margin: 1.25rem 0;
   box-shadow: 0px 0px 10px #19BFD5;
-  text-shadow: 0px 0px 5px #FDDC00;
+  text-shadow: 0px 0px 5px #FDDC00 !important;
+  &:focus {
+    color: #FDDC00;
+  }
   &:hover {
     opacity: 1;
+    color: #FDDC00;
     box-shadow: 0px 0px 20px #19BFD5;
-    text-shadow: 0px 0px 10px #FDDC00;
+    text-shadow: 0px 0px 10px #FDDC00 !important;
   }
 }
 
