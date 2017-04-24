@@ -156,12 +156,16 @@ const _renderTwoColumns = is_last_row => list => {
 const _renderForm = () => (
   <div className='row'>
     <div className='section-content'>
+      <div className='row'>
         <div className='large-6 column large-push-1 left-col six-row'>
-          <p>IMAGE</p>
+          <img 
+            className='image'
+            src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/06071353/lineup.jpg' />
         </div>
-        <div className='large-6 column'>
+        <div className='large-6 column six-row'>
           <Form />
         </div>
+      </div>
     </div>
   </div>
 )
