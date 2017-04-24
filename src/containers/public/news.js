@@ -46,9 +46,9 @@ class NewsPage extends React.Component {
   render() {
     return (
       <div className='content'>
-        <div className='row align-center'> 
+        <div className='row align-center'>
           <div className='large-2 column column-height' />
-          <div className='small-10 column align-center'>
+          <div className='small-14 large-10 column align-center'>
             <div className='row page-title' style={{paddingBottom: 0}}>
               <div className='large-14 column'>
                 <h1>NEWS</h1>
