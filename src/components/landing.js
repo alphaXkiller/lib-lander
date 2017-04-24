@@ -89,7 +89,7 @@ const _renderLeftPost = item => {
           </button>
         </div>
         <div className='image'>
-          <img 
+          <img
             style={item.title === 'IDEAS' ? {height: '400px'}: null}
             src={item.image} />
         </div>
@@ -158,7 +158,7 @@ const _renderForm = () => (
     <div className='section-content'>
       <div className='row'>
         <div className='large-6 column large-push-1 left-col six-row'>
-          <img 
+          <img
             className='image'
             src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/06071353/lineup.jpg' />
         </div>
@@ -173,7 +173,7 @@ const _renderForm = () => (
 
 const HomeContainer = (props) => {
   const data = props.data
-  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24053034/LIB_Poster_FInal.jpg'
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24082729/lib_poster_final_web.jpg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
