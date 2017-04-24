@@ -3,6 +3,25 @@ form {
     position : relative;
     z-index  : 2;
   }
+
+  &.form-content {
+    input {
+      border: none;
+      border-radius: 0;
+      background-color: rgba(0,0,0,.35);
+      margin: 5px 0 0;
+      text-align: left;
+      padding-left: 10px;
+
+      &:hover {
+        background-color: rgba(0,0,0,.35);
+      }
+    }
+
+    span {
+      padding-left: 10px;
+    }
+  }
 }
 
 
