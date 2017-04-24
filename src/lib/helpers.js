@@ -1,5 +1,6 @@
 import R  from 'ramda'
 import Qs from 'qs'
+import React from 'react'
 
 const notEmpty = R.complement(R.isEmpty)
 
@@ -97,6 +98,12 @@ const createMarkup = (content) => {
 
 const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
 
+const loadingLogo = (
+  <div className='pulse animated loading-logo'>
+    <img src='../img/lib_loader.png' />
+  </div>
+)
+
 export {
   notEmpty,
   notNil,
@@ -114,5 +121,6 @@ export {
   sortByOption,
 
   createMarkup,
-  isSafari
+  isSafari,
+  loadingLogo
 }

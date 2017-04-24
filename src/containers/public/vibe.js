@@ -18,7 +18,8 @@ import {
   getCompleteList,
   inSelectedCat,
   sortByOption,
-  createMarkup
+  createMarkup,
+  loadingLogo
 } from '../../lib/helpers'
 
 const VIBE_PATH    = '/vibe'
@@ -336,78 +337,80 @@ class Lineup extends React.Component {
     return (
       <div id='vibe-page' className='content'>
         <div className='large-1 columns column-height relative'></div>
-        {data ?
-          <div className='large-12 columns'>
-            {
-              R.map(
-                _renderPopover({
-                  onClickNext      : this.next,
-                  onClickPrev      : this.prev,
-                  onClickCancel    : this.cancel,
-                  selected_vibe  : this.state.selected_vibe
-                })
-              )(data)
-            }
-            <div
-              className={R.join(' ', [
-                'twelve-row row',
-                this.state.selected_vibe.ID ? 'blur-10' : ''
-              ])}
-            >
-              <div className='row page-title'>
-                <div className='small-14 column'>
-                  <h1>VIBE</h1>
-                  <p>Learn more about who is making Life Is Beautiful Festival 2017 an experience not to be missed.</p>
+        {
+          R.isEmpty(data) ?
+            loadingLogo
+          :  <div className='large-12 columns'>
+              {
+                R.map(
+                  _renderPopover({
+                    onClickNext      : this.next,
+                    onClickPrev      : this.prev,
+                    onClickCancel    : this.cancel,
+                    selected_vibe  : this.state.selected_vibe
+                  })
+                )(data)
+              }
+              <div
+                className={R.join(' ', [
+                  'twelve-row row',
+                  this.state.selected_vibe.ID ? 'blur-10' : ''
+                ])}
+              >
+                <div className='row page-title'>
+                  <div className='small-14 column'>
+                    <h1>VIBE</h1>
+                    <p>Learn more about who is making Life Is Beautiful Festival 2017 an experience not to be missed.</p>
+                  </div>
                 </div>
-              </div>
-              <div className='row filter-wrapper'>
-                <div className='small-14 small-up-3'>
-                  {
-                    _renderFilter({
-                      list       : this.props.vibe_cats,
-                      onSelect   : this.onSelect,
-                      selected   : this.state.selected_cat,
-                      class_name : 'select-filter-cat'
-                    })
-                  }
-                  {
-                    _renderFilter({
-                      list       : this.props.vibe_tags,
-                      onSelect   : this.onSelectTag,
-                      selected   : this.state.selected_tag,
-                      class_name : 'select-filter-tag'
-                    })
-                  }
-                  {
-                    _renderFilter({
-                      list       : FilterOption.Order,
-                      onSelect   : this.onSelectSort,
-                      selected   : this.state.selected_order,
-                      class_name : 'select-filter-order'
-                    })
-                  }
+                <div className='row filter-wrapper'>
+                  <div className='small-14 small-up-3'>
+                    {
+                      _renderFilter({
+                        list       : this.props.vibe_cats,
+                        onSelect   : this.onSelect,
+                        selected   : this.state.selected_cat,
+                        class_name : 'select-filter-cat'
+                      })
+                    }
+                    {
+                      _renderFilter({
+                        list       : this.props.vibe_tags,
+                        onSelect   : this.onSelectTag,
+                        selected   : this.state.selected_tag,
+                        class_name : 'select-filter-tag'
+                      })
+                    }
+                    {
+                      _renderFilter({
+                        list       : FilterOption.Order,
+                        onSelect   : this.onSelectSort,
+                        selected   : this.state.selected_order,
+                        class_name : 'select-filter-order'
+                      })
+                    }
+                  </div>
                 </div>
+                <Packery
+                  className={'vibe-list'} // default ''
+                  elementType={'div'} // default 'div'
+                  options={packeryOptions} // default {}
+                  disableImagesLoaded={false} // default false
+                  >
+                    {
+                      _mapData({
+                        selected_cat : R.ifElse(
+                          R.equals(FILTER_NAME.cat),
+                          R.always(CAT_ALL),
+                          R.identity
+                        )(this.state.selected_cat),
+                        onClick      : this.showDetails
+                      })(data)
+                    }
+                </Packery>
               </div>
-              <Packery
-                className={'vibe-list'} // default ''
-                elementType={'div'} // default 'div'
-                options={packeryOptions} // default {}
-                disableImagesLoaded={false} // default false
-                >
-                  {
-                    _mapData({
-                      selected_cat : R.ifElse(
-                        R.equals(FILTER_NAME.cat),
-                        R.always(CAT_ALL),
-                        R.identity
-                      )(this.state.selected_cat),
-                      onClick      : this.showDetails
-                    })(data)
-                  }
-              </Packery>
             </div>
-          </div>
-        :null}
+        }
         <div className='large-1 columns column-height'></div>
       </div>
     )
