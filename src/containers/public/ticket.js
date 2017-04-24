@@ -48,12 +48,11 @@ const _renderTicketLg = ticket => (
 
 
 const _renderTicketSm = ticket => (
-  <div className='small-full large-7 column pl-2 pr-2'>
+  <div className='small-full large-6 column'>
     <div className='row ten-row'>
       <div className='small-full large-14 column title-col'>
         <div className='vertical-centered-title align-self-bottom'>
           <div>
-            <span className='ticket-price'>${ticket.price}</span>
             <h1 className='ticket-name'>{ticket.name}</h1>
             {
               // <div className='_button-wrapper'>
@@ -78,6 +77,23 @@ const _renderTicketSm = ticket => (
 )
 
 
+const _renderPaymentPlan = plan => (
+  <section className='row'>
+    <div className='large-14 column'>
+      <div className='hide-for-small-only large-2 column column-height'/>
+      <div className='large-10 column'>
+        <div className='row ten-row'>
+          <h5>Payment Plan</h5>
+          <div 
+            className='column-two'
+            dangerouslySetInnerHTML={createMarkup(plan.description)}
+          />
+        </div>
+      </div>
+      <div className='large-2 column column-height' />
+    </div>
+  </section>
+)
 
 
 class TicketPage extends React.Component {
@@ -242,6 +258,7 @@ class TicketPage extends React.Component {
 
   render() {
     const tickets = this.props.tickets
+    const hotel   = this.props.hotel
 
     return (
       <div className='content'>
@@ -250,10 +267,11 @@ class TicketPage extends React.Component {
           <h1 className='large-12 columns'>Ticket Packages</h1>
           <div className='large-2 columns column-height' />
         </div>
-        { tickets[0] ? _renderTicketLg(tickets[0]) : null }
         { tickets[1] ? _renderTicketLg(tickets[1]) : null }
+        { tickets[0] ? _renderPaymentPlan(tickets[0]) : null }
         { tickets[2] ? _renderTicketLg(tickets[2]) : null }
         { tickets[3] ? _renderTicketLg(tickets[3]) : null }
+        { tickets[4] ? _renderTicketLg(tickets[4]) : null }
 
         <section>
           <div className='row'>
@@ -267,39 +285,72 @@ class TicketPage extends React.Component {
           </div>
         </section>
 
-        <section>
+        <section className='large-14 column'>
           <div className='row'>
             <div className='large-2 columns column-height' />
-            <h1 className='large-12 columns'>TICKETS + HOTEL PACKAGES</h1>
+            <h1 className='large-10 columns'>TICKETS + HOTEL PACKAGES</h1>
             <div className='large-2 columns column-height' />
           </div>
-          <div className='row'>
+          <div className='row' style={{paddingBottom: '30px'}}>
             <div className='large-2 columns column-height' />
-            <div className='large-12 columns'>
+            <div className='large-10 columns'>
               <div
                 className='column-two'
                 style={{color: 'white'}}
                 dangerouslySetInnerHTML={
-                  createMarkup(R.path(['description'])(this.props.hotel[0]))
+                  createMarkup(R.path(['description'])(hotel[0]))
                 }
               />
             </div>
             <div className='large-2 columns column-height' />
           </div>
-        {
-          // <div className='row'>
-          //   <section className='large-14 column ticket-sm'>
-          //     <div className='small-14 large-14 column'>
-          //       <div className='hide-for-small-only large-2 column column-height'/>
-          //       <div className='small-14 large-10 column'>
-          //           { tickets[2] ? _renderTicketSm(tickets[2]) : null }
-          //           { tickets[3] ? _renderTicketSm(tickets[3]) : null }
-          //       </div>
-          //       <div className='hide-for-small-only large-2 column column-height'/>
-          //     </div>
-          //   </section>
-          // </div>
-        }
+          {
+            <div className='row'>
+              <section className='large-14 column ticket-sm'>
+                <div className='small-14 large-14 column'>
+                  <div className='hide-for-small-only large-2 column column-height'/>
+                  <div className='small-14 large-10 column'>
+                      { hotel[1] ? _renderTicketSm(hotel[1]) : null }
+                      { hotel[2] ? _renderTicketSm(hotel[2]) : null }
+                  </div>
+                  <div className='hide-for-small-only large-2 column column-height'/>
+                </div>
+              </section>
+            </div>
+          }
+          {
+            <div className='row'>
+              <section className='large-14 column ticket-sm'>
+                <div className='small-14 large-14 column'>
+                  <div className='hide-for-small-only large-2 column column-height'/>
+                  <div className='small-14 large-10 column'>
+                      { hotel[3] ? _renderTicketSm(hotel[3]) : null }
+                      { hotel[4] ? _renderTicketSm(hotel[4]) : null }
+                  </div>
+                  <div className='hide-for-small-only large-2 column column-height'/>
+                </div>
+              </section>
+            </div>
+          }
+          <div className='row'>
+            <div className='large-2 columns column-height' />
+            <h1 className='large-10 columns'>Hotels Only</h1>
+            <div className='large-2 columns column-height' />
+          </div>
+          <div className='row' style={{paddingBottom: '30px'}}>
+            <div className='large-2 columns column-height' />
+            <div className='large-10 columns'>
+              <div
+                className='column-two'
+                style={{color: 'white'}}
+                dangerouslySetInnerHTML={
+                  createMarkup(R.path(['description'])(hotel[5]))
+                }
+              />
+            </div>
+            <div className='large-2 columns column-height' />
+          </div>
+
         </section>
       </div>
     )
