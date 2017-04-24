@@ -4,6 +4,7 @@ import { Link }                 from 'react-router-dom'
 import { mapIndexed, notEmpty } from '../lib/helpers'
 
 import Logo from '../containers/public/logo'
+import Form from '../components/form.js'
 
 
 const _renderFirstRow = item => (
@@ -155,12 +156,21 @@ const _renderTwoColumns = is_last_row => list => {
   }
 }
 
+
+const _renderForm = () => (
+  <div className='row'>
+    <Form />
+  </div>
+)
+
+
 const HomeContainer = (props) => {
   const data = props.data
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
       {_renderFirstRow(data[0])}
+      {_renderForm()}
       {_renderTwoColumns()([data[2], data[3]])}
       {_renderTwoColumns(true)([data[4], data[5]])}
     </div>
