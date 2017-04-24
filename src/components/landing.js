@@ -155,11 +155,13 @@ const _renderTwoColumns = is_last_row => list => {
 
 const _renderForm = () => (
   <div className='row'>
-    <div className='large-6 column large-push-1 left-col'>
-      <p>IMAGE</p>
-    </div>
-    <div className='large-6 column'>
-      <Form />
+    <div className='section-content'>
+        <div className='large-6 column large-push-1 left-col six-row'>
+          <p>IMAGE</p>
+        </div>
+        <div className='large-6 column'>
+          <Form />
+        </div>
     </div>
   </div>
 )
