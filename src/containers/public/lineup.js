@@ -32,7 +32,7 @@ const DEFAULT_SORT = FilterOption.Order[0]
 
 const FILTER_NAME = {
   cat: 'category',
-  tag: 'tag'
+  tag: 'Genre'
 }
 
 const packeryOptions = {

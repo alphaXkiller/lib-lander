@@ -160,13 +160,16 @@ const _renderForm = () => (
 
 const HomeContainer = (props) => {
   const data = props.data
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24053034/LIB_Poster_FInal.jpg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
       {_renderFirstRow(data[0])}
-      <div className='row'>
+      <div className='row homepage-lineup'>
         <div className='large-12 column large-push-1'>
-          <img style={{border: '10px solid rgba(255,255,255,0.75)'}} src="https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24053034/LIB_Poster_FInal.jpg" />
+          <a href={imgUrl} target='_blank'>
+            <img style={{border: '10px solid rgba(255,255,255,0.75)'}} src={imgUrl} />
+          </a>
         </div>
       </div>
       {_renderForm()}
