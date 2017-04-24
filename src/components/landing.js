@@ -1,7 +1,7 @@
 import R                        from 'ramda'
 import React, { Component }     from 'react'
 import { Link }                 from 'react-router-dom'
-import { mapIndexed, notEmpty } from '../lib/helpers'
+import { mapIndexed, notEmpty, createMarkup } from '../lib/helpers'
 
 import Logo from '../containers/public/logo'
 import Form from '../components/form.js'
@@ -10,7 +10,7 @@ import Form from '../components/form.js'
 const _renderFirstRow = item => (
   <div key={item.ID} className='row'>
     <section className='section-content section-header'>
-      <div className="columns large-6 medium-14 small-14">
+      <div className="columns large-5 medium-14 small-14">
         <div className="logo" id="logo">
           <div
             className="logobox animated fadeIn"
@@ -24,16 +24,10 @@ const _renderFirstRow = item => (
       </div>
 
       {/* <!-- CTA/FORM BLOCK --> */}
-      <div className="columns large-8 medium-14 small-14">
+      <div className="columns large-9 medium-14 small-14">
         <div className="copy-hero">
-          <div className='row'>
-            <div className='large-9 column'>
-              <h1 className="pink_on yne-activated">{item.title}</h1>
-            </div>
-          </div>
           <div className="copy">
-            {/*<p className="date bc-activated">September 22&ndash;24, 2017</p>*/}
-            <p className="text bc-activated">{item.description}</p>
+            <div dangerouslySetInnerHTML={createMarkup(item.description)} />
             <div>
               <button className='btn-underline default'>
                 <Link to='/ticket' >{item.link_text}</Link>
@@ -173,10 +167,18 @@ const _renderForm = () => (
 
 const HomeContainer = (props) => {
   const data = props.data
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24053034/LIB_Poster_FInal.jpg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
       {_renderFirstRow(data[0])}
+      <div className='row homepage-lineup'>
+        <div className='large-12 column large-push-1'>
+          <a href={imgUrl} target='_blank'>
+            <img style={{border: '10px solid rgba(255,255,255,0.75)'}} src={imgUrl} />
+          </a>
+        </div>
+      </div>
       {_renderForm()}
       {_renderTwoColumns()([data[2], data[3]])}
       {_renderTwoColumns(true)([data[4], data[5]])}

@@ -6,10 +6,16 @@ import Accordion        from '../../components/accordion.js'
 import { Ticket }       from '../../actions/index.js'
 import { createMarkup } from '../../lib/helpers'
 
+require('smoothscroll-polyfill').polyfill()
+
+const goTo = itemId => {
+  let item = document.querySelector('.' + itemId)
+  item.scrollIntoView({ behavior: 'smooth' })
+}
 
 const _renderTicketLg = ticket => (
   <div className='row'>
-    <section className='large-14 column ticket-lg'>
+    <section className={`large-14 column ticket-lg ${ticket.slug}`}>
       <div className='small-14 large-14 column'>
         <div className='hide-for-small-only large-2 column column-height'/>
         <div className='small-14 large-10 column'>
@@ -19,11 +25,9 @@ const _renderTicketLg = ticket => (
                 <div>
                   <h2 className='ticket-price yellow_on'>${ticket.price}</h2>
                   <h1 className='ticket-name'>{ticket.name}</h1>
-                  {
-                    // <div className='_button-wrapper'>
-                    //   <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
-                    // </div>
-                  }
+                  {/* <div className='_button-wrapper'>
+                    <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -99,6 +103,18 @@ const _renderPaymentPlan = plan => (
 class TicketPage extends React.Component {
   componentDidMount() {
     this.props.getTickets()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.tickets !== this.props.tickets) {
+      const strClass = this.props.location.hash.split('#')[1]
+      const is_ready = R.allPass(
+          [R.path(['location', 'hash'])],
+          [R.not(R.empty(R.path(['tickets'])))]
+        )(this.props)
+
+      is_ready ? (goTo(strClass)) : null
+    }
   }
 
   tableComparison = (
@@ -266,6 +282,22 @@ class TicketPage extends React.Component {
           <div className='large-2 columns column-height' />
           <h1 className='large-12 columns'>Ticket Packages</h1>
           <div className='large-2 columns column-height' />
+        </div>
+        <div className='row twelve-row'>
+          <div className='large-12 column large-push'>
+            <div className='large-4 column text-center'>
+              <h1>GA</h1>
+              <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}><p>Go to Ticket</p></a>
+            </div>
+            <div className='large-4 column text-center'>
+              <h1>GA</h1>
+              <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}><p>Go to Ticket</p></a>
+            </div>
+            <div className='large-4 column text-center end'>
+              <h1>GA</h1>
+              <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}><p>Go to Ticket</p></a>
+            </div>
+          </div>
         </div>
         { tickets[1] ? _renderTicketLg(tickets[1]) : null }
         { tickets[0] ? _renderPaymentPlan(tickets[0]) : null }
