@@ -1,9 +1,22 @@
-import R     from 'ramda'
-import React from 'react'
-import Axios from 'axios'
-import Qs    from 'qs'
+import R         from 'ramda'
+import React     from 'react'
+import Axios     from 'axios'
+import Qs        from 'qs'
+import Validator from 'validator'
 
 const SUBMIT_PATH = 'https://lifeisbeautiful.activehosted.com/proc.php'
+
+
+const _checkInputs = values => {
+  const err = {}
+
+  Validator.isAlpha(values.firstname) ? true : err.firstname = 'invalid firstname'
+  Validator.isAlpha(values.lastname) ? true : err.lastname = 'invalid lastname'
+  Validator.isEmail(values.email) ? true : err.email = 'invalid email'
+
+  return err
+}
+
 
 class Form extends React.Component {
   constructor() {
@@ -17,18 +30,31 @@ class Form extends React.Component {
         act: 'sub',
         v: '2',
         s: '',
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
         jsonp:true
-      }
+      },
+      form_error: {},
+      submitted: false
     }
   }
 
   onSubmit = e => {
     e.preventDefault()
+    const validate_err = _checkInputs(this.state.form_value)
     const query = Qs.stringify(this.state.form_value)
 
-    Axios.get(
-      [SUBMIT_PATH, query].join('?'), { withCredentials: true }
-    )
+    if (R.isEmpty(validate_err)) {
+      Axios.get([SUBMIT_PATH, query].join('?'))
+      this.setState({
+        form_error: {},
+        submitted: true
+      })
+    }
+    else
+      this.setState({form_error: validate_err})
   }
 
 
@@ -41,34 +67,42 @@ class Form extends React.Component {
   }
 
   render() {
-    return (
-      <form onSubmit={this.onSubmit} noValidate className='form-content'>
-        <input type="text" name="firstname" placeholder="First Name*"
-          onChange={this.onChange}
-        />  
-        <input type="text" name="lastname" placeholder="Last Name*"
-          onChange={this.onChange}
-        />
-        <input type="text" name="email" placeholder="your@email.com*"
-          onChange={this.onChange}
-        />
-        <input type="text" name="phone" placeholder="Mobile Phone (Get Pre-Sale SMS!)"
-          onChange={this.onChange}
-        />
-        <span>
-          <a 
-            href="https://lifeisbeautiful.com/policy.html#sms" 
-            target="_blank"
-          >
-            (Read our phone policy.)
-          </a>
-        </span>
-        <br />
-        <div className="_button-wrapper">
-          <button type="submit" className="submit_btn">JOIN THE PARTY</button>
-        </div>
-      </form>
-    )
+    const err = this.state.form_error
+
+    if (this.state.submitted)
+      return <p>Congratulations, you're on the list!'</p>
+    else
+      return (
+        <form onSubmit={this.onSubmit} noValidate className='form-content'>
+          <input type="text" name="firstname" placeholder="First Name*"
+            onChange={this.onChange}
+          />  
+          { err.firstname ? <p>{err.firstname}</p> : null}
+          <input type="text" name="lastname" placeholder="Last Name*"
+            onChange={this.onChange}
+          />
+          { err.lastname ? <p>{err.lastname}</p> : null }
+          <input type="text" name="email" placeholder="your@email.com*"
+            onChange={this.onChange}
+          />
+          { err.email ? <p>{err.email}</p> : null }
+          <input type="text" name="phone" placeholder="Mobile Phone (Get Pre-Sale SMS!)"
+            onChange={this.onChange}
+          />
+          <span>
+            <a 
+              href="https://lifeisbeautiful.com/policy.html#sms" 
+              target="_blank"
+            >
+              (Read our phone policy.)
+            </a>
+          </span>
+          <br />
+          <div className="_button-wrapper">
+            <button type="submit" className="submit_btn">JOIN THE PARTY</button>
+          </div>
+        </form>
+      )
   }
 }
 

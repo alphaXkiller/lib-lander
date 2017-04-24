@@ -3,6 +3,13 @@ form {
     position : relative;
     z-index  : 2;
   }
+
+  &.form-content {
+    input {
+      border: none;
+      background-color: rgba(0,0,0,.35);
+    }
+  }
 }
 
 
