@@ -4,6 +4,7 @@ import { Link }                 from 'react-router-dom'
 import { mapIndexed, notEmpty, createMarkup } from '../lib/helpers'
 
 import Logo from '../containers/public/logo'
+import Form from '../components/form.js'
 
 
 const _renderFirstRow = item => (
@@ -149,6 +150,14 @@ const _renderTwoColumns = is_last_row => list => {
   }
 }
 
+
+const _renderForm = () => (
+  <div className='row'>
+    <Form />
+  </div>
+)
+
+
 const HomeContainer = (props) => {
   const data = props.data
   return notEmpty(data) ?
@@ -160,6 +169,7 @@ const HomeContainer = (props) => {
           <img style={{border: '10px solid rgba(255,255,255,0.75)'}} src="https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24053034/LIB_Poster_FInal.jpg" />
         </div>
       </div>
+      {_renderForm()}
       {_renderTwoColumns()([data[2], data[3]])}
       {_renderTwoColumns(true)([data[4], data[5]])}
     </div>
