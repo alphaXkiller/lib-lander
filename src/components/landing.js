@@ -1,81 +1,29 @@
 import R                        from 'ramda'
 import React, { Component }     from 'react'
-import { connect }              from 'react-redux'
 import { Link }                 from 'react-router-dom'
-import {
-  mapIndexed,
-  notEmpty,
-  isSafari,
-  getRandomIntInclusive
-} from '../lib/helpers'
-var Packery = require('react-packery-component')(React)
+import { mapIndexed, notEmpty } from '../lib/helpers'
 
 import Logo from '../containers/public/logo'
-import cssColors from '../constants/cssColors'
 
-import { Lineup } from '../actions/index'
-
-const packeryOptions = {
-  transitionDuration: '0.8s'
-}
 
 const _renderFirstRow = item => (
-  <div key={item.ID} className=''>
-    <section className=''>
-      <div className='row'>
-        <div className="columns section-header large-6 large-push-4 medium-14 small-14">
-          <div className="logo" id="logo">
-            <div
-              className="logobox animated fadeIn"
-              id="logobox"
-              data-tilt data-tilt-reset="false"
-              data-tilt-perspective="2000"
-              >
-              <Logo />
-            </div>
+  <div key={item.ID} className='row'>
+    <section className='section-content section-header'>
+      <div className="columns large-6 medium-14 small-14">
+        <div className="logo" id="logo">
+          <div
+            className="logobox animated fadeIn"
+            id="logobox"
+            data-tilt data-tilt-reset="false"
+            data-tilt-perspective="2000"
+            >
+            <Logo />
           </div>
         </div>
       </div>
 
-      <div className='row'>
-        <div className="section-main columns small-14 large-12 large-push-1">
-          <Packery
-            className={'lineup-list'} // default ''
-            elementType={'div'} // default 'div'
-            options={packeryOptions} // default {}
-            disableImagesLoaded={false} // default false
-            >
-              {
-                R.map( lineupItem => {
-                  return(
-                    <div key={lineupItem.ID} className={'artist-name '}>
-                      <span className={
-                        R.join( ' ', [
-                          'name',
-                          isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
-                        )
-                      }>{lineupItem.name}</span>
-                      {
-                        lineupItem.link.post_name ?
-                          <Link className='bio-link animated fadeIn' to={'/vibe?artist=' + lineupItem.link.post_name}>
-                            <span><i className='fa fa-drivers-license-o fa-md' /> BIO</span>
-                          </Link>
-                        : null
-                      }
-                      <span className='separator'>/</span>
-                    </div>
-                  )
-                })(item)
-              }
-            </Packery>
-        </div>
-      </div>
-      {/* <div className='row parallax show-for-large'>
-        <div className='music-icon large-push-8' />
-      </div> */}
-
       {/* <!-- CTA/FORM BLOCK --> */}
-      {/* <div className="columns large-5 medium-14 small-14">
+      <div className="columns large-8 medium-14 small-14">
         <div className="copy-hero">
           <div className='row'>
             <div className='large-9 column'>
@@ -83,6 +31,7 @@ const _renderFirstRow = item => (
             </div>
           </div>
           <div className="copy">
+            {/*<p className="date bc-activated">September 22&ndash;24, 2017</p>*/}
             <p className="text bc-activated">{item.description}</p>
             <div>
               <button className='btn-underline default'>
@@ -92,12 +41,13 @@ const _renderFirstRow = item => (
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </section>
-
+    <div className='row parallax show-for-large'>
+      <div className='music-icon large-push-8' />
+    </div>
   </div>
 )
-
 const _renderSecondRow = item => {
   if (item) {
     return(
@@ -150,7 +100,6 @@ const _renderLeftPost = item => {
     )
   }
 }
-
 const _renderRightPost = item => {
   if (item) {
     return(
@@ -160,12 +109,7 @@ const _renderRightPost = item => {
             <h1>{item.title}</h1>
             <p>{item.description}</p>
             <button className='btn-underline default'>
-              <a
-                href={item.link}
-                target={item.title === 'MERCH' ? '_blank' : ''}
-              >
-                {item.link_text}
-              </a>
+              <a href={item.link}>{item.link_text}</a>
               <hr className='pink'/>
             </button>
           </div>
@@ -211,39 +155,19 @@ const _renderTwoColumns = is_last_row => list => {
   }
 }
 
-// const HomeSections = (props) => {
-class HomeContainer extends Component {
+const HomeContainer = (props) => {
+  const data = props.data
+  return notEmpty(data) ?
+  (
+    <div style={{color: 'white'}}>
+      {_renderFirstRow(data[0])}
+      {_renderTwoColumns()([data[2], data[3]])}
+      {_renderTwoColumns(true)([data[4], data[5]])}
+    </div>
+  )
 
-  componentDidMount() {
-    if (R.isEmpty(this.props.lineup)) {
-      this.props.fetchLineup()
-    }
-  }
-
-  render(){
-    const data    = this.props.data
-    const lineup  = this.props.lineup
-    return notEmpty(data) ?
-    (
-      <div style={{color: 'white'}}>
-        {_renderFirstRow(lineup)}
-        {_renderTwoColumns()([data[2], data[3]])}
-        {_renderTwoColumns(true)([data[4], data[5]])}
-      </div>
-    )
-
-    : null
-
-  }
+  : null
 }
 
-const mapStateToProps = (state, props) => ({
-  lineup: state.lineup
-})
 
-const mapDispatchToProps = (dispatch, getState) => ({
-  fetchLineup: () => dispatch(Lineup.fetchLineup())
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+export default HomeContainer
