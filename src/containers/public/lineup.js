@@ -22,7 +22,8 @@ import {
   sortByOption,
   createMarkup,
   isSafari,
-  getRandomIntInclusive
+  getRandomIntInclusive,
+  loadingLogo
 } from '../../lib/helpers'
 
 const LINEUP_PATH    = '/lineup'
@@ -191,8 +192,9 @@ class LineupPage extends React.Component {
        <div className='content'>
         <div className='row align-center'>
           {
-            data ?
-              <div className='small-14 large-10 large-push-2 column align-center'>
+            R.isEmpty(data) ?
+              loadingLogo
+            : <div className='small-14 large-10 large-push-2 column align-center'>
                 <div className='twelve-row row'>
                   <div className='row page-title' style={{paddingBottom: 0}}>
                     <div className='large-14 column lineup-title'>
@@ -247,7 +249,6 @@ class LineupPage extends React.Component {
                   </Packery>
                 </div>
               </div>
-            : null
           }
         </div>
       </div>

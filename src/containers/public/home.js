@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { Landing } from '../../actions/index'
 import HomeContainer from '../../components/landing'
 
+import { loadingLogo } from '../../lib/helpers'
+
 class Home extends React.Component {
   componentDidMount(){
     if (R.isEmpty(this.props.landing)) {
@@ -15,9 +17,12 @@ class Home extends React.Component {
   render() {
     return (
       <div className='content'>
-				{/* <!-- CONTENT --> */}
-        <HomeContainer data={this.props.landing} />
-        {/* <!-- CONTENT --> */}
+        {
+          R.isEmpty(this.props.landing) ?
+            loadingLogo
+          : <HomeContainer data={this.props.landing} />
+
+        }
 	    </div>
 
     )
