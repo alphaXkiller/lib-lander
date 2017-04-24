@@ -74,14 +74,24 @@ class Form extends React.Component {
     else
       return (
         <form onSubmit={this.onSubmit} noValidate className='form-content'>
-          <input type="text" name="firstname" placeholder="First Name*"
-            onChange={this.onChange}
-          />  
-          { err.firstname ? <p>{err.firstname}</p> : null}
-          <input type="text" name="lastname" placeholder="Last Name*"
-            onChange={this.onChange}
-          />
-          { err.lastname ? <p>{err.lastname}</p> : null }
+          <div className='row'>
+            <input 
+              className='small-7 column'
+              type="text" 
+              name="firstname" 
+              placeholder="First Name*"
+              onChange={this.onChange}
+            />  
+            { err.firstname ? <p>{err.firstname}</p> : null}
+            <input 
+              className='small-7 column'
+              type="text" 
+              name="lastname" 
+              placeholder="Last Name*"
+              onChange={this.onChange}
+            />
+            { err.lastname ? <p>{err.lastname}</p> : null }
+          </div>
           <input type="text" name="email" placeholder="your@email.com*"
             onChange={this.onChange}
           />

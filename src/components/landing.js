@@ -95,7 +95,9 @@ const _renderLeftPost = item => {
           </button>
         </div>
         <div className='image'>
-          <img src={item.image} />
+          <img 
+            style={item.title === 'IDEAS' ? {height: '400px'}: null}
+            src={item.image} />
         </div>
       </div>
     )
@@ -159,7 +161,12 @@ const _renderTwoColumns = is_last_row => list => {
 
 const _renderForm = () => (
   <div className='row'>
-    <Form />
+    <div className='large-6 column large-push-1 left-col'>
+      <p>IMAGE</p>
+    </div>
+    <div className='large-6 column'>
+      <Form />
+    </div>
   </div>
 )
 
@@ -173,6 +180,7 @@ const HomeContainer = (props) => {
       {_renderForm()}
       {_renderTwoColumns()([data[2], data[3]])}
       {_renderTwoColumns(true)([data[4], data[5]])}
+      {_renderTwoColumns()([data[6]])}
     </div>
   )
 
