@@ -79,13 +79,13 @@ const _renderTicketSm = ticket => (
 
 const _renderPaymentPlan = plan => (
   <section className='row'>
-    <div className='large-14 column'>
+    <div className='large-14 column ticket-lg'>
       <div className='hide-for-small-only large-2 column column-height'/>
-      <div className='large-10 column'>
+      <div className='large-10 small-14 column'>
         <div className='row ten-row'>
-          <h5>Payment Plan</h5>
-          <div 
-            className='column-two'
+          <h1>PAYMENT PLAN</h1>
+          <div
+            className='column-two ticket-description'
             dangerouslySetInnerHTML={createMarkup(plan.description)}
           />
         </div>
@@ -276,7 +276,7 @@ class TicketPage extends React.Component {
         <section>
           <div className='row'>
             <div className='large-2 columns column-height' />
-            <div className='small-14 column'>
+            <div className='small-14 large-10 column'>
               <div className='ten-row row'>
                 <Accordion title='TICKETS COMPARISON' content={this.tableComparison} />
               </div>
