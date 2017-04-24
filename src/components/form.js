@@ -10,9 +10,9 @@ const SUBMIT_PATH = 'https://lifeisbeautiful.activehosted.com/proc.php'
 const _checkInputs = values => {
   const err = {}
 
-  Validator.isAlpha(values.firstname) ? true : err.firstname = 'invalid firstname'
-  Validator.isAlpha(values.lastname) ? true : err.lastname = 'invalid lastname'
-  Validator.isEmail(values.email) ? true : err.email = 'invalid email'
+  Validator.isAlpha(values.firstname) ? true : err.firstname = 'Invalid First Name'
+  Validator.isAlpha(values.lastname) ? true : err.lastname = 'Invalid Last Name'
+  Validator.isEmail(values.email) ? true : err.email = 'Invalid Email'
 
   return err
 }
@@ -75,27 +75,33 @@ class Form extends React.Component {
       return (
         <form onSubmit={this.onSubmit} noValidate className='form-content'>
           <div className='row'>
-            <input 
+            <div
               className='small-7 column'
-              type="text" 
-              name="firstname" 
-              placeholder="First Name*"
-              onChange={this.onChange}
-            />  
-            { err.firstname ? <p>{err.firstname}</p> : null}
-            <input 
+            >
+              <input 
+                type="text" 
+                name="firstname" 
+                placeholder="First Name*"
+                onChange={this.onChange}
+              />  
+            { err.firstname ? <p className='err-msg'>{err.firstname}</p> : null}
+            </div>
+            <div
               className='small-7 column'
-              type="text" 
-              name="lastname" 
-              placeholder="Last Name*"
-              onChange={this.onChange}
-            />
-            { err.lastname ? <p>{err.lastname}</p> : null }
+            >
+              <input 
+                type="text" 
+                name="lastname" 
+                placeholder="Last Name*"
+                onChange={this.onChange}
+              />
+              { err.lastname ? <p className='err-msg'>{err.lastname}</p> : null }
+            </div>
           </div>
           <input type="text" name="email" placeholder="your@email.com*"
             onChange={this.onChange}
           />
-          { err.email ? <p>{err.email}</p> : null }
+          { err.email ? <p className='err-msg'>{err.email}</p> : null }
           <input type="text" name="phone" placeholder="Mobile Phone (Get Pre-Sale SMS!)"
             onChange={this.onChange}
           />
