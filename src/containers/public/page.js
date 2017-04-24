@@ -20,10 +20,10 @@ class Page extends Component {
   render() {
     const data = this.props.page
     return(
-      <div className='content'>
+      <div className='content content-pages'>
         <div className='row align-center'>
           <div className='large-2 column column-height' />
-          <div className='small-10 column align-center'>
+          <div className='small-14 large-10 column align-center'>
             <div className='row page-title'>
               <div className='large-7 column'>
                 <h1>{data.title}</h1>
@@ -33,7 +33,7 @@ class Page extends Component {
               <div className='featured-image' style={{background: `url(${data.feature_image}) center no-repeat` }} />
             </div>
             <div className='row'>
-              <div className='page-content' dangerouslySetInnerHTML={createMarkup(data.content)}></div>
+              <div className='column-two' dangerouslySetInnerHTML={createMarkup(data.content)}></div>
             </div>
           </div>
           <div className='large-2 column column-height' />

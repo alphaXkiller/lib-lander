@@ -38,7 +38,7 @@ const _renderFirstRow = item => (
       </div>
 
       <div className='row'>
-        <div className="section-main columns small-12 large-push-1">
+        <div className="section-main columns small-14 large-12 large-push-1">
           <Packery
             className={'lineup-list'} // default ''
             elementType={'div'} // default 'div'
