@@ -158,7 +158,10 @@ const _renderForm = () => (
     <div className='section-content'>
       <div className='row'>
         <div className='large-6 column large-push-1 left-col six-row'>
-          <img
+          <div className='small-full large-4 column title-left-col'>
+            <h1>SIGNUP</h1>
+          </div>
+          <img 
             className='image'
             src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/06071353/lineup.jpg' />
         </div>
