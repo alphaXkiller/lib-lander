@@ -210,17 +210,6 @@ const HomeContainer = (props) => {
       {_renderForm(data[2])}
       {_renderTwoColumns()([data[4], data[3]])}
       {_renderTwoColumns()([data[6], data[5]])}
-      <div className='row'>
-        <div className='large-10 large-push-2 column left-col'>
-          <div className='image'>
-            <Link to='/sponsors'>
-              <p className='sponsors'>OUR SPONSORS</p>
-              <img src={'/assets/' + SponsorImg} />
-              <p className='sponsors'>SEE ALL SPONSORS</p>
-            </Link>
-          </div>
-        </div>
-      </div>
     </div>
   )
 
