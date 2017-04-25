@@ -12,7 +12,7 @@ const sub = {
   left: [
     { text: 'ABOUT', path: '/about' },
     { text: 'HISTORY', path: '/history' },
-    { text: 'CONTACT', path: '/' },
+    { text: 'CONTACT', mail: 'mailto:info@lifeisbeautiful.com' },
     { text: 'MEDIA', mail: 'mailto:LIBPress@rrpartners.com?subject=Life%20Is%20Beautiful%20Press%20Inquiry'},
     // { text: 'FAQ', path: '/' }
   ]
@@ -20,7 +20,7 @@ const sub = {
   right: [
     { text: 'IMPACT', path: '/impact' },
     { text: 'SPONSORS', path: '/sponsors' },
-    { text: 'VOLUNTEERS', path: '/' },
+    // { text: 'VOLUNTEERS', path: '/planning#volunteer' },
     // { text: 'JOBS', path: '/' },
     // { text: 'INTERNSHIP', path: '/' },
     // { text: 'CHARITY', path: '/' },
