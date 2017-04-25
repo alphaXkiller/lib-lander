@@ -1,7 +1,7 @@
 import R                        from 'ramda'
 import React, { Component }     from 'react'
 import { connect }              from 'react-redux'
-import { BrowserRouter, Switch} from 'react-router-dom'
+import { BrowserRouter, Link, Switch} from 'react-router-dom'
 
 import {
   RouteFunctor,
@@ -72,8 +72,6 @@ class App extends Component {
     if (scrollingPerc >= 90) {
       dj.style.backgroundPosition = 'center ' + (docHeight - (scrollY + innerHeight)) + 'px';
 
-    } else if (scrollingPerc >= 50) {
-      crowd.style.opacity = 1
     } else {
       dj.style.backgroundPosition = 'center 300px';
     }
@@ -129,8 +127,8 @@ class App extends Component {
           {/* <!-- SOCIAL SIDEBAR --> */}
     			<div className="sidebar sbdesktop">
     				{/* <!-- SNAPS! --> */}
-            <a 
-              href="http://www.snapchat.com/add/LIBeautifulFest/" 
+            <a
+              href="http://www.snapchat.com/add/LIBeautifulFest/"
               target='_blank'
               className='social_icon'
             >
@@ -138,8 +136,8 @@ class App extends Component {
             </a>
 
     				{/* <!-- TWEETS! --> */}
-            <a 
-              href="https://twitter.com/lifeisbeautiful/" 
+            <a
+              href="https://twitter.com/lifeisbeautiful/"
               target='_blank'
               className='social_icon'
             >
@@ -147,8 +145,8 @@ class App extends Component {
             </a>
 
     				{/* <!-- FB --> */}
-            <a 
-              href="https://www.facebook.com/LifeIsBeautifulFest/" 
+            <a
+              href="https://www.facebook.com/LifeIsBeautifulFest/"
               target='_blank'
               className='social_icon'
             >
@@ -156,8 +154,8 @@ class App extends Component {
             </a>
 
     				{/* <!-- INSTA! --> */}
-            <a 
-              href="https://www.instagram.com/lifeisbeautiful/" 
+            <a
+              href="https://www.instagram.com/lifeisbeautiful/"
               target='_blank'
               className='social_icon'
             >
@@ -165,8 +163,8 @@ class App extends Component {
             </a>
 
     				{/* <!-- YOUTUBE --> */}
-            <a 
-              href="https://www.youtube.com/user/LifeIsBeauitful" 
+            <a
+              href="https://www.youtube.com/user/LifeIsBeauitful"
               target='_blank'
               className='social_icon'
             >
@@ -197,7 +195,26 @@ class App extends Component {
             <div className="large-7 small-10 column footer-content">
               <h1>Life is beautiful</h1>
             </div>
-            <div className="dj" />
+            <div className="dj">
+              <div className='row'>
+                <div className='small-14 column'>
+                  <p className='date'>SEPT 22 - 24, 2017</p>
+                  <div className="_button-wrapper">
+                    <Link to='/ticket' className='btn cta2-activated'>BUY TICKETS</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="libfooter desktop">
+        			<ul>
+        				<li><a href="mailto:LIBPress@rrpartners.com?subject=Life%20Is%20Beautiful%20Press%20Inquiry">Press</a></li>
+        				<li>|</li>
+        				<li><a href="mailto:sponsorships@lifeisbeautiful.com?subject=Life%20Is%20Beautiful%202017%20Sponsorship%20Inquiry">Sponsors</a></li>
+        				<li>|</li>
+        				<li><a href="/policy.html" rel="nofollow" target="_blank">Policy</a></li>
+        			</ul>
+        			<span className="copyright">© 2017 Life Is Beautiful. All Rights Reserved.</span>
+        		</div>
           </footer>
         </div>
       </BrowserRouter>

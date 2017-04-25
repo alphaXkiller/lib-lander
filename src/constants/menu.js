@@ -1,5 +1,6 @@
 const main = [
   { text: 'HOME', path: '/' },
+  { text: 'TICKETS', path: '/ticket' },
   { text: 'LINEUP', path: '/lineup' },
   { text: 'VIBE', path: '/vibe' },
   { text: 'NEWS', path: '/news' },
