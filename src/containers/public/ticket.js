@@ -9,6 +9,17 @@ import { createMarkup, loadingLogo } from '../../lib/helpers'
 
 require('smoothscroll-polyfill').polyfill()
 
+import allInRegular      from '../../img/all-in_regular.png'
+import gaAdvanceSoldout  from '../../img/ga_advance_soldout.png'
+import gaAdvance         from '../../img/ga_advance.png'
+import gaEarlySoldout    from '../../img/ga_early_soldout.png'
+import gaRegular         from '../../img/ga_regular.png'
+import vipAdvanceSoldout from '../../img/vip_advance_soldout.png'
+import vipAdvance        from '../../img/vip_advance.png'
+import vipEarlySoldout   from '../../img/vip_early_soldout.png'
+import vipRegular        from '../../img/vip_regular.png'
+import vvipRegular        from '../../img/vvip_regular.png'
+
 const goTo = itemId => {
   let item = document.querySelector('.' + itemId)
   item.scrollIntoView({ behavior: 'smooth' })
@@ -293,16 +304,16 @@ class TicketPage extends React.Component {
                 <div className='large-12 column large-push-2'>
                   <div className='large-4 column text-center'>
                     <h1>3 DAY GA</h1>
-                      <img src='../../img/ga_early_soldout.png' />
+                      <img src={gaEarlySoldout} />
                   </div>
                   <div className='large-4 column text-center'>
                     <h1>VIP</h1>
-                      <img src='../../img/vip_early_soldout.png' />
+                      <img src={vipEarlySoldout} />
                   </div>
                   <div className='large-4 column text-center end'>
                     <h1>V+VIP</h1>
                     <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
-                      <img src='../../img/vvip_regular.png' />
+                      <img src={vvipRegular} />
                     </a>
                   </div>
                 </div>
@@ -312,19 +323,19 @@ class TicketPage extends React.Component {
                   <div className='large-4 column text-center'>
                     <h1>&nbsp;</h1>
                     <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
-                      <img src='../../img/ga_advance.png' />
+                      <img src={gaAdvance} />
                     </a>
                   </div>
                   <div className='large-4 column text-center'>
                     <h1>&nbsp;</h1>
                     <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
-                      <img src='../../img/vip_advance.png' />
+                      <img src={vipAdvance} />
                     </a>
                   </div>
                   <div className='large-4 column text-center end'>
                     <h1>ALL-IN</h1>
                     <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
-                      <img src='../../img/all-in_regular.png' />
+                      <img src={allInRegular} />
                     </a>
                   </div>
                 </div>
@@ -333,12 +344,12 @@ class TicketPage extends React.Component {
                 <div className='large-12 column large-push-2'>
                   <div className='large-4 column text-center'>
                     <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
-                      <img src='../../img/ga_regular.png' />
+                      <img src={gaRegular} />
                     </a>
                   </div>
                   <div className='large-4 column text-center end'>
                     <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
-                      <img src='../../img/vip_regular.png' />
+                      <img src={vipRegular} />
                     </a>
                   </div>
 
