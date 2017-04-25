@@ -164,7 +164,7 @@ class App extends Component {
 
     				{/* <!-- YOUTUBE --> */}
             <a
-              href="https://www.youtube.com/user/LifeIsBeauitful"
+              href="https://www.youtube.com/lifeisbeautifulfest"
               target='_blank'
               className='social_icon'
             >
