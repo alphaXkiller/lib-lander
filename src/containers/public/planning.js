@@ -74,7 +74,7 @@ class PlanPage extends React.Component {
             <div className='row page-title' style={{paddingBottom: 0}}>
               <div className='large-14 column'>
                 <h1>PLANNING</h1>
-                <p>The ultimate guide to the Life is Beautiful experience: What you need to know before, during and when you are out and about. General information, dos and don'ts, hotels, ticketing parking – all the beautiful resources.</p>
+                <p>The ultimate guide to the Life is Beautiful experience: What you need to know before, during and when you are out and about. General information, dos and don'ts, hotels, ticketing, parking<strong>—</strong>all the beautiful resources.</p>
               </div>
             </div>
               { R.map( _renderPlanRow )(this.props.plans)}
