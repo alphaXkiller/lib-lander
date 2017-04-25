@@ -5,6 +5,7 @@ import { mapIndexed, notEmpty, createMarkup, isSafari } from '../lib/helpers'
 
 import Logo from '../containers/public/logo'
 import Form from '../components/form.js'
+import SponsorImg from '../img/sponsor-logos.png'
 
 
 const _renderFirstRow = item => (
@@ -209,6 +210,12 @@ const HomeContainer = (props) => {
       {_renderForm(data[2])}
       {_renderTwoColumns()([data[4], data[3]])}
       {_renderTwoColumns()([data[6], data[5]])}
+      <div className='large-14 column left-col six-row'>
+        <div className='image'>
+          <p className='sponsors'>OUR SPONSORS</p>
+          <img src={'/assets/' + SponsorImg} />
+        </div>
+      </div>
     </div>
   )
 
