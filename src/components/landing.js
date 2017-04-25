@@ -27,8 +27,14 @@ const _renderFirstRow = item => (
       <div className="columns large-9 medium-12 small-14">
         <div className="copy-hero">
           <div className="copy">
-            <h1 className='pink_on title'>{item.title}</h1>
+            <h1 
+              className='pink_on title'
+              style={{fontSize: '2.5vw'}}
+            >
+              {item.title}
+            </h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />
+            <Form />
             {/* <div>
               <button className='btn-underline default'>
                 <Link to='/ticket' >{item.link_text}</Link>
@@ -76,6 +82,28 @@ const _renderSecondRow = item => {
     )
   } else { return null }
 }
+
+
+const _renderCenter = item => {
+  if (item) {
+    return (
+      <div className='large-12 column left-col six-row large-push-1'>
+        <div className='small-full large-4 column title-left-col'>
+          <h1>{item.title}</h1>
+          <p>{item.description}</p>
+          <button className='btn-underline default'>
+            <a href={item.link}>{item.link_text}</a>
+            <hr/>
+          </button>
+        </div>
+        <div className='image'>
+          <img src={item.image} />
+        </div>
+      </div>
+    )
+  }
+}
+
 
 const _renderLeftPost = item => {
   if (item) {
@@ -158,13 +186,8 @@ const _renderForm = ticket => (
   <div className='row'>
     <div className='section-content'>
       <div className='row ' style={{width: '100%'}}>
-        <div className='large-12 small-14 large-push-1 column'>
-          <div className='large-6 column six-row large-push-8'>
-            <Form />
-          </div>
-          <div className='large-pull-7'>
-            {_renderLeftPost(ticket)}
-          </div>
+        <div className='large-14 small-14 column'> 
+            {_renderCenter(ticket)}
         </div>
       </div>
     </div>
