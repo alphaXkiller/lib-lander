@@ -86,19 +86,35 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
 
   return (
     <div key={index} className={'artist-name animated zoomIn ' + hide_class}>
-      <span className={
-        R.join( ' ', [
-          'name',
-          isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
-        )
-      }>{item.name}</span>
       {
+        item.link.post_name ?
+          <Link className='animated fadeIn' to={'/vibe?artist=' + item.link.post_name}>
+            <span className={
+              R.join( ' ', [
+                'name',
+                'link-to-vibe',
+                isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
+              )
+            }>
+              {item.name}
+            </span>
+          </Link>
+        :
+          <span className={
+            R.join( ' ', [
+              'name',
+              isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
+            )
+          }>{item.name}</span>
+
+        }
+      {/* {
         item.link.post_name ?
           <Link className='bio-link animated fadeIn' to={'/vibe?artist=' + item.link.post_name}>
             <span><i className='fa fa-drivers-license-o fa-md' /> BIO</span>
           </Link>
         : null
-      }
+      } */}
       <span className='separator'>/</span>
     </div>
   )
