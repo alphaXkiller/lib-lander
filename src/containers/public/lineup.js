@@ -37,7 +37,8 @@ const FILTER_NAME = {
 }
 
 const packeryOptions = {
-  transitionDuration: '0.8s'
+  transitionDuration: '0.8s',
+  horizontal: true
 }
 
 const _renderCat = cat => (
@@ -84,7 +85,7 @@ const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
     hide_class = ' hide'
 
   return (
-    <div key={index} className={'artist-name ' + hide_class}>
+    <div key={index} className={'artist-name animated zoomIn ' + hide_class}>
       <span className={
         R.join( ' ', [
           'name',
@@ -199,7 +200,7 @@ class LineupPage extends React.Component {
                   <div className='row page-title' style={{paddingBottom: 0}}>
                     <div className='large-14 column lineup-title'>
                       <h1 className='large-3 column'>LINEUP</h1>
-                      <p className='large-11 column end'>MORE THAN JUST A LINEUP, IT'S A THREE-DAY, MULTISENSORY EXPERIENCE. <br /> Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life Is Beautiful lineup unforgettable.</p>
+                      <p className='large-11 column end'>MORE THAN JUST A LINEUP, IT'S A THREE-DAY, MULTISENSORY EXPERIENCE. <br /> Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life is Beautiful lineup unforgettable.</p>
                     </div>
                   </div>
                   <div className='row filter-wrapper'>
@@ -230,23 +231,25 @@ class LineupPage extends React.Component {
                       }
                     </div>
                   </div>
-                  <Packery
+                  {/* <Packery
                     className={'lineup-list'} // default ''
                     elementType={'div'} // default 'div'
                     options={packeryOptions} // default {}
                     disableImagesLoaded={false} // default false
-                    >
-                    {
-                      _mapData({
-                        selected_cat : R.ifElse(
-                          R.equals(FILTER_NAME.cat),
-                          R.always(CAT_ALL),
-                          R.identity
-                        )(this.state.selected_cat),
-                        onClick      : this.showDetails
-                      })(data)
-                    }
-                  </Packery>
+                    > */}
+                    <div className='lineup-list animated fadeIn'>
+                      {
+                        _mapData({
+                          selected_cat : R.ifElse(
+                            R.equals(FILTER_NAME.cat),
+                            R.always(CAT_ALL),
+                            R.identity
+                          )(this.state.selected_cat),
+                          onClick      : this.showDetails
+                        })(data)
+                      }
+                    </div>
+                  {/* </Packery> */}
                 </div>
               </div>
           }

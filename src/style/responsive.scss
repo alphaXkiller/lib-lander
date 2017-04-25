@@ -30,6 +30,16 @@
   }
 }
 
+@media screen and (max-width: 647px) {
+  .neon-btns .large-4 {
+    width: 100%;
+    margin: 25px auto;
+    ._button-wrapper .btn {
+      font-size: 5vw;
+    }
+  }
+}
+
 /* LANDSCAPE TABLET DOWN */
 @media only screen and (max-width: 64.000rem) {
   .row.row-wrapper {

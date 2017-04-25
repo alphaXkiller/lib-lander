@@ -27,6 +27,7 @@ const _renderFirstRow = item => (
       <div className="columns large-9 medium-12 small-14">
         <div className="copy-hero">
           <div className="copy">
+            <h1 className='pink_on'>{item.title}</h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />
             {/* <div>
               <button className='btn-underline default'>
@@ -157,11 +158,11 @@ const _renderForm = ticket => (
   <div className='row'>
     <div className='section-content'>
       <div className='row ' style={{width: '100%'}}>
-        <div className='large-12 small-14 column'> 
-          <div className='large-6 column six-row large-push-10'>
+        <div className='large-12 small-14 large-push-1 column'>
+          <div className='large-6 column six-row large-push-8'>
             <Form />
           </div>
-          <div className='large-pull-5'>
+          <div className='large-pull-7'>
             {_renderLeftPost(ticket)}
           </div>
         </div>

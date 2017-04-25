@@ -2,6 +2,8 @@ import R  from 'ramda'
 import Qs from 'qs'
 import React from 'react'
 
+import loadingLogoPath from '../img/lib_loader.png'
+
 const notEmpty = R.complement(R.isEmpty)
 
 const notNil = R.complement(R.isNil)
@@ -100,7 +102,7 @@ const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
 
 const loadingLogo = (
   <div className='pulse animated loading-logo'>
-    <img src='../img/lib_loader.png' />
+    <img src={`/assets/${loadingLogoPath}`} />
   </div>
 )
 

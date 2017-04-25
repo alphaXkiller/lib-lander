@@ -305,32 +305,32 @@ class TicketPage extends React.Component {
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
                       <h1>3 DAY GA</h1>
-                      <img src={'/assets/' + gaEarlySoldout} />
+                      <img src={`/assets/${gaEarlySoldout}`} />
                     </div>
                     <div className='row'>
                       <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
-                        <img src={'/assets/' + gaAdvance} />
+                        <img src={`/assets/${gaAdvance}`} />
                       </a>
                     </div>
                     <div className='row'>
                       <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
-                        <img src={'/assets/' + gaRegular} />
+                        <img src={`/assets/${gaRegular}`} />
                       </a>
                     </div>
                   </div>
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
                       <h1>VIP</h1>
-                      <img src={'/assets/' + vipEarlySoldout} />
+                      <img src={`/assets/${vipEarlySoldout}`} />
                     </div>
                     <div className='row'>
                       <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
-                        <img src={'/assets/' + vipAdvance} />
+                        <img src={`/assets/${vipAdvance}`} />
                       </a>
                     </div>
                     <div className='row'>
                       <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
-                        <img src={'/assets/' + vipRegular} />
+                        <img src={`/assets/${vipRegular}`} />
                       </a>
                     </div>
                   </div>
@@ -339,13 +339,13 @@ class TicketPage extends React.Component {
                       <div className='small-7 large-14 column'>
                         <h1>V+VIP</h1>
                         <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
-                          <img src={'/assets/' + vvipRegular} />
+                          <img src={`/assets/${vvipRegular}`} />
                         </a>
                       </div>
                       <div className='small-7 large-14 column'>
                         <h1>ALL-IN</h1>
                         <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
-                          <img src={'/assets/' + allInRegular} />
+                          <img src={`/assets/${allInRegular}`} />
                         </a>
                       </div>
                     </div>
@@ -381,17 +381,17 @@ class TicketPage extends React.Component {
               <div className='row neon-btns'>
                 <div className='large-12 small-14 column large-push-1'>
                   <div className='row twelve-row'>
-                    <div className='large-4 column small-12 flex-center'>
+                    <div className='large-4 column flex-center'>
                       <div className="_button-wrapper">
                         <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
                       </div>
                     </div>
-                    <div className='large-4 column small-12 flex-center'>
+                    <div className='large-4 column flex-center'>
                       <div className="_button-wrapper">
                         <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
                       </div>
                     </div>
-                    <div className='large-4 column small-12 flex-center end'>
+                    <div className='large-4 column flex-center end'>
                       <div className="_button-wrapper">
                         <a href='#' className='btn cta2-activated' onClick={() => goTo('')}>PARK + RIDE</a>
                       </div>

@@ -49,7 +49,7 @@ const APP_BAR_STYLE = {
 
 const _buyTicketIcon = onClickFn => (
   <div className="_button-wrapper" onClick={onClickFn}>
-    <Link to='/ticket' className='btn cta2-activated'>SEE TICKETS</Link>
+    <Link to='/ticket' className='btn cta2-activated'>TICKETS</Link>
   </div>
 )
 

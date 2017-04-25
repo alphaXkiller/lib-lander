@@ -263,6 +263,9 @@ p.off {
   font-size: 3vw;
   line-height: 4vw;
   margin: 0;
+  &.subhead {
+    padding-top: 35px;
+  }
 }
 .copy-hero .copy {color: #fff; line-height: 1.66rem; width: 82%;}
 .copy-hero .copy .date {text-transform: uppercase; letter-spacing: 5px; margin: 1rem 0;}
