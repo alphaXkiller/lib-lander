@@ -1,7 +1,9 @@
 import R from 'ramda'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { PageActions } from '../../actions/index'
+
+import NotFound                      from './404.js'
+import { PageActions }               from '../../actions/index'
 import { createMarkup, loadingLogo } from '../../lib/helpers'
 
 class Page extends Component {
@@ -19,32 +21,37 @@ class Page extends Component {
 
   render() {
     const data = this.props.page
-    return(
-      <div className='content content-pages'>
-        {
-          R.isEmpty(data) ?
-            loadingLogo
-          :
-            <div className='row align-center'>
-              <div className='large-2 column column-height' />
-              <div className='small-14 large-10 column align-center'>
-                <div className='row page-title'>
-                  <div className='large-7 column'>
-                    <h1>{data.title}</h1>
+    const err_status = R.path(['error', 'status'])(this.props.page)
+
+    if (err_status === 404)
+      return <NotFound />
+    else
+      return(
+        <div className='content content-pages'>
+          {
+            R.isEmpty(data) ?
+              loadingLogo
+            :
+              <div className='row align-center'>
+                <div className='large-2 column column-height' />
+                <div className='small-14 large-10 column align-center'>
+                  <div className='row page-title'>
+                    <div className='large-7 column'>
+                      <h1>{data.title}</h1>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='featured-image' style={{background: `url(${data.feature_image}) center no-repeat` }} />
+                  </div>
+                  <div className='row'>
+                    <div className='column-two' dangerouslySetInnerHTML={createMarkup(data.content)}></div>
                   </div>
                 </div>
-                <div className='row'>
-                  <div className='featured-image' style={{background: `url(${data.feature_image}) center no-repeat` }} />
-                </div>
-                <div className='row'>
-                  <div className='column-two' dangerouslySetInnerHTML={createMarkup(data.content)}></div>
-                </div>
+                <div className='large-2 column column-height' />
               </div>
-              <div className='large-2 column column-height' />
-            </div>
-        }
-      </div>
-    )
+          }
+        </div>
+      )
   }
 }
 

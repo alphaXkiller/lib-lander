@@ -13,6 +13,14 @@ import Grid from './components/shared-components/grid.js'
 import './style/main.scss'
 require('smoothscroll-polyfill').polyfill()
 
+const REDIRECT_PATH = [
+  'amazonexclusive',
+  'redbullexclusive',
+  'partner'
+]
+
+const REDIRECT_LINK = 'https://www.ticketfly.com/purchase/event/1477134'
+
 const _openDrawer = () => document.getElementById('drawer')
   .getElementsByTagName('div')[2]
   .style
@@ -39,6 +47,18 @@ class App extends Component {
       open_drawer: false,
       marginT: ''
     }
+  }
+
+  componentWillMount() {
+    const pathname = R.slice(1, Infinity, window.location.pathname)
+    R.compose(
+      R.when(
+        R.contains(R.__, REDIRECT_PATH),
+        () => window.location.replace(REDIRECT_LINK)
+      ),
+      R.toLower,
+      R.slice(1, Infinity)
+    )(window.location.pathname)
   }
 
   componentDidMount() {
