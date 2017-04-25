@@ -16,6 +16,12 @@ form {
       &:hover {
         background-color: rgba(0,0,0,.35);
       }
+      &:-moz-placeholder { /* Firefox 18- */
+         color: #fff;
+      }
+      &::-moz-placeholder {  /* Firefox 19+ */
+         color: #fff;
+      }
     }
 
     span {
@@ -36,5 +42,3 @@ form {
     }
   }
 }
-
-

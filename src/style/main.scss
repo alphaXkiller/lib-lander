@@ -229,6 +229,11 @@ body {
 	opacity: 0;
 }
 
+li {
+  padding-left: 10px;
+  margin-left: 15px;
+  color: #fff;
+}
 
 .off {
 	color: rgba(220,220,220,0.1);
@@ -264,7 +269,7 @@ p.off {
   line-height: 4vw;
   margin: 0;
   &.title {
-    font-size: 3.5vw; 
+    font-size: 3.5vw;
   }
   &.subhead {
     padding-top: 25px;
