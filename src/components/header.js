@@ -49,7 +49,7 @@ const APP_BAR_STYLE = {
 
 const _buyTicketIcon = onClickFn => (
   <div className="_button-wrapper" onClick={onClickFn}>
-    <Link to='/ticket' className='btn cta2-activated'>BUY TICKETS</Link>
+    <Link to='/ticket' className='btn cta2-activated'>SEE TICKETS</Link>
   </div>
 )
 
@@ -112,9 +112,9 @@ const _renderGeneralInfoMenu = onClickFn => item => item.path ? (
   </Link>
   )
 : (
-  <a 
-    key={item.text} 
-    href={item.url ? item.url : item.mail} 
+  <a
+    key={item.text}
+    href={item.url ? item.url : item.mail}
     target={item.url ? '_blank' : null}
   >
       <MenuItem
@@ -130,14 +130,14 @@ const _renderGeneralInfo = onClickCloseDrawer => (
     <div className='small-5 columns'>
       {
         R.map(
-          _renderGeneralInfoMenu(onClickCloseDrawer) 
+          _renderGeneralInfoMenu(onClickCloseDrawer)
         )(ConstantMenu.sub.left)
       }
     </div>
     <div className='small-9 columns'>
       {
         R.map(
-          _renderGeneralInfoMenu(onClickCloseDrawer) 
+          _renderGeneralInfoMenu(onClickCloseDrawer)
         )(ConstantMenu.sub.right)
       }
     </div>
