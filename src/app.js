@@ -198,7 +198,7 @@ class App extends Component {
             <div className="dj">
               <div className='row'>
                 <div className='small-14 column'>
-                  <p className='date'>SEPT 22 - 24, 2017</p>
+                  <p className='date'>SEPT 22 <strong>—</strong> 24, 2017</p>
                   <div className="_button-wrapper">
                     <Link to='/ticket' className='btn cta2-activated'>SEE TICKETS</Link>
                   </div>

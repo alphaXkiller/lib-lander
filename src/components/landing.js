@@ -153,20 +153,17 @@ const _renderTwoColumns = is_last_row => list => {
 }
 
 
-const _renderForm = () => (
+const _renderForm = ticket => (
   <div className='row'>
     <div className='section-content'>
-      <div className='row' style={{width: '100%'}}>
-        <div className='large-6 column large-push-1 left-col six-row'>
-          <div className='small-full large-4 column title-left-col'>
-            <h1>SIGNUP</h1>
+      <div className='row ' style={{width: '100%'}}>
+        <div className='large-12 small-14 column'> 
+          <div className='large-6 column six-row large-push-10'>
+            <Form />
           </div>
-          <img 
-            className='image'
-            src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/06071353/lineup.jpg' />
-        </div>
-        <div className='large-6 column six-row'>
-          <Form />
+          <div className='large-pull-5'>
+            {_renderLeftPost(ticket)}
+          </div>
         </div>
       </div>
     </div>
@@ -188,10 +185,9 @@ const HomeContainer = (props) => {
           </a>
         </div>
       </div>
-      {_renderForm()}
-      {_renderTwoColumns()([data[2], data[3]])}
-      {_renderTwoColumns(true)([data[4], data[5]])}
-      {_renderTwoColumns()([data[6]])}
+      {_renderForm(data[2])}
+      {_renderTwoColumns()([data[4], data[3]])}
+      {_renderTwoColumns()([data[6], data[5]])}
     </div>
   )
 
