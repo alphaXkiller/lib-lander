@@ -62,7 +62,7 @@ class NewsPage extends React.Component {
             <div className='row page-title' style={{paddingBottom: 0}}>
               <div className='large-14 column'>
                 <h1>NEWS</h1>
-                <p>Find out what’s new with Life Is Beautiful and what's happening in Downtown Las Vegas.</p>
+                <p>Find out what’s new with Life is Beautiful and what's happening in Downtown Las Vegas.</p>
               </div>
             </div>
             { R.map(_renderNewRow)(this.props.news) }
