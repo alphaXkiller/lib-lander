@@ -102,7 +102,7 @@ class Form extends React.Component {
             onChange={this.onChange}
           />
           { err.email ? <p className='err-msg'>{err.email}</p> : null }
-          <input type="text" name="phone" placeholder="Mobile Phone (Get Pre-Sale SMS!)"
+          <input type="text" name="phone" placeholder="Mobile Phone (Get General Sale SMS!)"
             onChange={this.onChange}
           />
           <span>
