@@ -156,7 +156,7 @@ const _renderTwoColumns = is_last_row => list => {
 const _renderForm = () => (
   <div className='row'>
     <div className='section-content'>
-      <div className='row'>
+      <div className='row' style={{width: '100%'}}>
         <div className='large-6 column large-push-1 left-col six-row'>
           <div className='small-full large-4 column title-left-col'>
             <h1>SIGNUP</h1>
