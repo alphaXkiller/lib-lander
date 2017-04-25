@@ -10,9 +10,9 @@ import FlatButton from 'material-ui/FlatButton'
 
 import ConstantMenu from '../constants/menu.js'
 import Grid         from './shared-components/grid.js'
-import MapImg       from '../img/lib-map.jpg'
 import TitleImg     from '../img/lib_menu.png'
 
+const MAP_IMG = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24110247/libmap_v1.jpg'
 
 const DRAWER_CONTAINER_STYLE = {
   width: '100%',
@@ -93,7 +93,7 @@ const _renderMenuSection = onClickCloseDrawer => (
 const _renderMapSection = () => (
   <img
     className='hide-for-medium'
-    src={'/assets/' + MapImg}
+    src={MAP_IMG}
   />
 )
 
