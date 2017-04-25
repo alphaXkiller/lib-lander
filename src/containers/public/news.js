@@ -15,20 +15,30 @@ const _renderNewRow = news_list => {
       <div className='large-7 column'>
         <h2 className='planning-title'>{news_left.title}</h2>
         <div className='planning-img'><img src={news_left.image} /></div>
-        <div
-          className='large-12 column end'
-          dangerouslySetInnerHTML={createMarkup(news_left.description)}
-        />
+        <div className='large-12 column end'>
+          <div
+            dangerouslySetInnerHTML={createMarkup(news_left.description)}
+          />
+          <button className='btn-underline default'>
+            <a href={news_left.link} target='_blank'>{news_left.link_text}</a>
+            <hr/>
+          </button>
+        </div>
       </div>
       {
         news_right ?
           <div key={news_right.ID} className='large-7 column'>
             <h2 className='planning-title'>{news_right.title}</h2>
             <div className='planning-img'><img src={news_right.image} /></div>
-            <div
-              className='large-12 column end'
-              dangerouslySetInnerHTML={createMarkup(news_right.description)}
-            />
+            <div className='large-12 column end'>
+              <div
+                dangerouslySetInnerHTML={createMarkup(news_right.description)}
+              />
+              <button className='btn-underline default'>
+                <a href={news_right.link} target='_blank'>{news_right.link_text}</a>
+                <hr className='pink'/>
+              </button>
+            </div>
           </div>
         : null
       }
