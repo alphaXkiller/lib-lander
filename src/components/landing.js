@@ -182,7 +182,7 @@ const HomeContainer = (props) => {
     <div style={{color: 'white'}}>
       {_renderFirstRow(data[0])}
       <div className='row homepage-lineup'>
-        <div className='small-14 large-12 column large-push-2'>
+        <div className='small-14 large-12 column large-push-1'>
           <a href={imgUrl} target='_blank'>
             <img style={{border: '10px solid rgba(255,255,255,0.75)', marginTop: '3rem'}} src={imgUrl} />
           </a>
