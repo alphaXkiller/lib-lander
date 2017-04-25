@@ -27,7 +27,7 @@ const _renderFirstRow = item => (
       <div className="columns large-9 medium-12 small-14">
         <div className="copy-hero">
           <div className="copy">
-            <h1 className='pink_on'>{item.title}</h1>
+            <h1 className='pink_on title'>{item.title}</h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />
             {/* <div>
               <button className='btn-underline default'>

@@ -13,6 +13,9 @@
       position: relative;
       .bio-link { display: flex; }
     }
+    .link-to-vibe {
+      cursor: pointer;
+    }
     .separator {
       color: white;
       font-size: 3rem;
@@ -21,7 +24,6 @@
       // color: red;
     }
     .name {
-      cursor: default;
       font-family: 'AN-Round', sans-serif;
       font-size: 3rem;
       letter-spacing: 1px;
