@@ -35,7 +35,7 @@ const _renderTicketLg = ticket => (
             <div className='small-full large-14 column title-col'>
               <div className='vertical-centered-title'>
                 <div>
-                  <h2 className='ticket-price yellow_on'>${ticket.price}</h2>
+                  {/* <h2 className='ticket-price yellow_on'>${ticket.price}</h2> */}
                   <h1 className='ticket-name'>{ticket.name}</h1>
                   {/* <div className='_button-wrapper'>
                     <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
@@ -302,57 +302,54 @@ class TicketPage extends React.Component {
               </div>
               <div className='row'>
                 <div className='large-12 column large-push-2'>
-                  <div className='large-4 column text-center'>
-                    <h1>3 DAY GA</h1>
-                      <img src={gaEarlySoldout} />
+                  <div className='large-4 small-7 column text-center'>
+                    <div className='row'>
+                      <h1>3 DAY GA</h1>
+                      <img src={'/assets/' + gaEarlySoldout} />
+                    </div>
+                    <div className='row'>
+                      <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
+                        <img src={'/assets/' + gaAdvance} />
+                      </a>
+                    </div>
+                    <div className='row'>
+                      <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
+                        <img src={'/assets/' + gaRegular} />
+                      </a>
+                    </div>
                   </div>
-                  <div className='large-4 column text-center'>
-                    <h1>VIP</h1>
-                      <img src={vipEarlySoldout} />
+                  <div className='large-4 small-7 column text-center'>
+                    <div className='row'>
+                      <h1>VIP</h1>
+                      <img src={'/assets/' + vipEarlySoldout} />
+                    </div>
+                    <div className='row'>
+                      <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
+                        <img src={'/assets/' + vipAdvance} />
+                      </a>
+                    </div>
+                    <div className='row'>
+                      <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
+                        <img src={'/assets/' + vipRegular} />
+                      </a>
+                    </div>
                   </div>
-                  <div className='large-4 column text-center end'>
-                    <h1>V+VIP</h1>
-                    <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
-                      <img src={vvipRegular} />
-                    </a>
+                  <div className='large-4 small-14 column text-center end'>
+                    <div className='row'>
+                      <div className='small-7 large-14 column'>
+                        <h1>V+VIP</h1>
+                        <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
+                          <img src={'/assets/' + vvipRegular} />
+                        </a>
+                      </div>
+                      <div className='small-7 large-14 column'>
+                        <h1>ALL-IN</h1>
+                        <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
+                          <img src={'/assets/' + allInRegular} />
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='large-12 column large-push-2'>
-                  <div className='large-4 column text-center'>
-                    <h1>&nbsp;</h1>
-                    <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
-                      <img src={gaAdvance} />
-                    </a>
-                  </div>
-                  <div className='large-4 column text-center'>
-                    <h1>&nbsp;</h1>
-                    <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
-                      <img src={vipAdvance} />
-                    </a>
-                  </div>
-                  <div className='large-4 column text-center end'>
-                    <h1>ALL-IN</h1>
-                    <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
-                      <img src={allInRegular} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='large-12 column large-push-2'>
-                  <div className='large-4 column text-center'>
-                    <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
-                      <img src={gaRegular} />
-                    </a>
-                  </div>
-                  <div className='large-4 column text-center end'>
-                    <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
-                      <img src={vipRegular} />
-                    </a>
-                  </div>
-
                 </div>
               </div>
 
