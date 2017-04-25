@@ -1,7 +1,7 @@
 import R                        from 'ramda'
 import React, { Component }     from 'react'
 import { Link }                 from 'react-router-dom'
-import { mapIndexed, notEmpty, createMarkup } from '../lib/helpers'
+import { mapIndexed, notEmpty, createMarkup, isSafari } from '../lib/helpers'
 
 import Logo from '../containers/public/logo'
 import Form from '../components/form.js'
@@ -24,13 +24,10 @@ const _renderFirstRow = item => (
       </div>
 
       {/* <!-- CTA/FORM BLOCK --> */}
-      <div className="columns large-9 medium-12 small-14">
+      <div className="columns large-9 medium-14 small-14">
         <div className="copy-hero">
           <div className="copy">
-            <h1 
-              className='pink_on title'
-              style={{fontSize: '2.5vw'}}
-            >
+            <h1 className='pink_on title'>
               {item.title}
             </h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />

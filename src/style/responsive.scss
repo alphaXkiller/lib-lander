@@ -125,15 +125,29 @@
       h1 {
         font-size: 10.5vw;
         line-height: 11vw;
-        padding-bottom: 20px;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .section-content {
+    .copy-hero {
+      .title {
+        font-size: 4.5vw;
       }
     }
   }
 
   .copy-hero h1 {
     &.subhead {
-      padding-top: 0;
+      font-size: 4.5vw !important;
+      line-height: 9vw !important;
+      padding: 0 !important;
     }
+  }
+
+  .subhead-2 {
+    font-size: 3vw;
   }
 
   .small-full { width: 100% !important; }
