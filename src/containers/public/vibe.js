@@ -360,7 +360,7 @@ class Lineup extends React.Component {
                 <div className='row page-title'>
                   <div className='small-14 column'>
                     <h1>VIBE</h1>
-                    <p>Learn more about who is making Life Is Beautiful Festival 2017 an experience not to be missed.</p>
+                    <p>Learn more about who is making Life is Beautiful Festival 2017 an experience not to be missed.</p>
                   </div>
                 </div>
                 <div className='row filter-wrapper'>
