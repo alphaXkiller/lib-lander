@@ -267,7 +267,10 @@ p.off {
     font-size: 3.5vw; 
   }
   &.subhead {
-    padding-top: 35px;
+    padding-top: 25px;
+    font-size: 2vw;
+    line-height: 3vw;
+    padding-bottom: 15px;
   }
 }
 .copy-hero .copy {color: #fff; line-height: 1.66rem; width: 82%;}

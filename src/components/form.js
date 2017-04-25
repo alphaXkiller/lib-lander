@@ -73,8 +73,12 @@ class Form extends React.Component {
       return <p>Congratulations, you're on the list!'</p>
     else
       return (
-        <form onSubmit={this.onSubmit} noValidate className='form-content'>
-          <h1 className='pink_on' style={{fontSize: '1.5rem'}}>GET TICKET ON SALE REMINDERS</h1>
+        <form 
+          onSubmit={this.onSubmit} 
+          noValidate 
+          className='form-content'
+          style={{marginTop: '20px'}}
+        >
           <div className='row'>
             <div
               className='small-7 column'
@@ -110,13 +114,19 @@ class Form extends React.Component {
             <a 
               href="https://lifeisbeautiful.com/policy.html#sms" 
               target="_blank"
+              style={{
+                float: 'right',
+                fontSize: '0.75rem',
+                color: 'white',
+                letterSpacing: '0px'
+              }}
             >
               (Read our phone policy.)
             </a>
           </span>
           <br />
           <div className="_button-wrapper">
-            <button type="submit" className="submit_btn">GET REMINDERS</button>
+            <button type="submit" className="submit_btn">REMIND ME</button>
           </div>
         </form>
       )

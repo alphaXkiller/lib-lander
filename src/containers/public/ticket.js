@@ -302,7 +302,7 @@ class TicketPage extends React.Component {
                 <div className='large-12 column large-push-2'>
                   <div className='row'>
                     <div className='large-12 small-14 column'>
-                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURSDAY @ 10 A.M.</h1>
+                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURSDAY 10 A.M.</h1>
                     </div>
                   </div>
                   <div className='large-4 small-7 column text-center'>
@@ -396,7 +396,10 @@ class TicketPage extends React.Component {
                     </div>
                     <div className='large-4 column flex-center end'>
                       <div className="_button-wrapper">
-                        <a href='#' className='btn cta2-activated' onClick={() => goTo('')}>PARK + RIDE</a>
+                        <Link to='/planning#p&r' className='btn cta2-actiaved'>
+
+                          PARK + RIDE
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -470,7 +473,7 @@ class TicketPage extends React.Component {
                 }
                 <div className='row ticket-lg hotels-only'>
                   <div className='large-2 columns column-height' />
-                  <h1 className='large-10 columns'>Hotels Only</h1>
+                  <h1 className='large-10 columns'>HAVE A TICKET BUT NEED A HOTEL?</h1>
                   <div className='large-2 columns column-height' />
                 </div>
                 <div className='row' style={{paddingBottom: '30px'}}>

@@ -25,7 +25,11 @@ const _renderPlanRow = plan_list => {
       </div>
       {
         plan_right ?
-          <div key={plan_right.ID} className='large-7 small-14 column'>
+          <div 
+            id={plan_right.title=='Park and Ride' ? 'p&r' : null}
+            key={plan_right.ID} 
+            className='large-7 small-14 column'
+          >
             <h2 className='planning-title'>{plan_right.title}</h2>
             <div className='planning-img'><img src={plan_right.image} /></div>
             <div
@@ -48,6 +52,13 @@ class PlanPage extends React.Component {
 
     }
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.plans.length > 0 && prevProps.plans.length === 0) {
+      document.getElementById('p&r').scrollIntoView()
+    }
+  }
+
 
   componentDidMount() {
     this.props.fetchPlans()
