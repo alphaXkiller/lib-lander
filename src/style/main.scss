@@ -103,6 +103,11 @@ body {
   align-items: center;
 }
 
+.flex-end {
+  display: flex;
+  align-items: flex-end;
+}
+
 .gridSet {
   position: fixed;
   width: calc(100% - 160px);
