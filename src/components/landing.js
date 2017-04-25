@@ -213,9 +213,10 @@ const HomeContainer = (props) => {
       <div className='row'>
         <div className='large-10 large-push-2 column left-col'>
           <div className='image'>
-            <p className='sponsors'>OUR SPONSORS</p>
             <Link to='/sponsors'>
+              <p className='sponsors'>OUR SPONSORS</p>
               <img src={'/assets/' + SponsorImg} />
+              <p className='sponsors'>SEE ALL SPONSORS</p>
             </Link>
           </div>
         </div>
