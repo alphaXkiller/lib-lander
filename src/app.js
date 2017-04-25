@@ -198,14 +198,14 @@ class App extends Component {
             <div className="dj">
               <div className='row'>
                 <div className='small-14 column'>
-                  <p className='date'>SEPT 22 - 24, 2017</p>
+                  <p className='date'>SEPT<strong>.</strong> 22 <strong>—</strong> 24, 2017</p>
                   <div className="_button-wrapper">
                     <Link to='/ticket' className='btn cta2-activated'>SEE TICKETS</Link>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="libfooter desktop">
+            <div className="libfooter desktop hide-for-small-only">
         			<ul>
         				<li><a href="mailto:LIBPress@rrpartners.com?subject=Life%20Is%20Beautiful%20Press%20Inquiry">Press</a></li>
         				<li>|</li>

@@ -63,6 +63,13 @@
       }
     .dj {
       height: 170px;
+
+      p {
+        &.date {
+          letter-spacing: 0.5rem;
+          font-size: 4vw;
+        }
+      }
     }
   }
 
