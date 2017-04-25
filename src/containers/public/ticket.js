@@ -295,13 +295,16 @@ class TicketPage extends React.Component {
             loadingLogo
           :
             <div className='content'>
-              <div className='row page-title'>
-                <div className='large-2 columns column-height' />
-                <h1 className='large-12 columns'>Tickets</h1>
-                <div className='large-2 columns column-height' />
+              <div className='row page-title' style={{paddingBottom: '2vw'}}>
+                <h1 className='large-10 large-push-2 columns'>Tickets</h1>
               </div>
               <div className='row'>
                 <div className='large-12 column large-push-2'>
+                  <div className='row'>
+                    <div className='large-12 small-14 column'>
+                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURSDAY @ 10 A.M.</h1>
+                    </div>
+                  </div>
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
                       <h1>3 DAY GA</h1>
