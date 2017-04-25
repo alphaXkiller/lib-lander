@@ -302,7 +302,7 @@ class TicketPage extends React.Component {
                 <div className='large-12 column large-push-2'>
                   <div className='row'>
                     <div className='large-12 small-14 column'>
-                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURSDAY 10 A.M.</h1>
+                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURSDAY 10 A.M. PDT</h1>
                     </div>
                   </div>
                   <div className='large-4 small-7 column text-center'>
@@ -323,7 +323,7 @@ class TicketPage extends React.Component {
                   </div>
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
-                      <h1>VIP</h1>
+                      <h1>3-DAY VIP</h1>
                       <img src={`/assets/${vipEarlySoldout}`} />
                     </div>
                     <div className='row'>
@@ -436,9 +436,9 @@ class TicketPage extends React.Component {
                   <div className='large-2 columns column-height' />
                   <div className='small-14 large-10 column'>
                     <div className='ten-row row'>
-                      <Accordion 
-                        title='TICKET COMPARISON' 
-                        content={this.tableComparison} 
+                      <Accordion
+                        title='TICKET COMPARISON'
+                        content={this.tableComparison}
                         disabled
                       />
                     </div>
