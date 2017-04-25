@@ -130,6 +130,12 @@
     }
   }
 
+  .copy-hero h1 {
+    &.subhead {
+      padding-top: 0;
+    }
+  }
+
   .small-full { width: 100% !important; }
 
   .title-right-col h1,
