@@ -364,7 +364,7 @@ class Lineup extends React.Component {
                   </div>
                 </div>
                 <div className='row filter-wrapper'>
-                  <div className='small-14 small-up-3'>
+                  <div className='small-14 small-up-2'>
                     {
                       _renderFilter({
                         list       : this.props.vibe_cats,
@@ -374,12 +374,12 @@ class Lineup extends React.Component {
                       })
                     }
                     {
-                      _renderFilter({
-                        list       : this.props.vibe_tags,
-                        onSelect   : this.onSelectTag,
-                        selected   : this.state.selected_tag,
-                        class_name : 'select-filter-tag'
-                      })
+                      // _renderFilter({
+                      //   list       : this.props.vibe_tags,
+                      //   onSelect   : this.onSelectTag,
+                      //   selected   : this.state.selected_tag,
+                      //   class_name : 'select-filter-tag'
+                      // })
                     }
                     {
                       _renderFilter({
