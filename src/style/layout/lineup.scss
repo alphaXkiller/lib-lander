@@ -7,9 +7,10 @@
 .lineup-list {
   // &:last-child
   .artist-name {
-    display:flex;
+    display: inline-flex;
     align-items: center;
     &:hover {
+      position: relative;
       .bio-link { display: flex; }
     }
     .separator {
