@@ -184,7 +184,7 @@ const _renderForm = ticket => (
   <div className='row'>
     <div className='section-content'>
       <div className='row ' style={{width: '100%'}}>
-        <div className='large-14 small-14 column'> 
+        <div className='large-14 small-14 column'>
             {_renderCenter(ticket)}
         </div>
       </div>
@@ -210,10 +210,14 @@ const HomeContainer = (props) => {
       {_renderForm(data[2])}
       {_renderTwoColumns()([data[4], data[3]])}
       {_renderTwoColumns()([data[6], data[5]])}
-      <div className='large-14 column left-col six-row'>
-        <div className='image'>
-          <p className='sponsors'>OUR SPONSORS</p>
-          <img src={'/assets/' + SponsorImg} />
+      <div className='row'>
+        <div className='large-10 large-push-2 column left-col'>
+          <div className='image'>
+            <p className='sponsors'>OUR SPONSORS</p>
+            <Link to='/sponsors'>
+              <img src={'/assets/' + SponsorImg} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
