@@ -1,10 +1,11 @@
 import R           from 'ramda'
 import React       from 'react'
 import { connect } from 'react-redux'
+import { Link }    from 'react-router-dom'
 
 import Accordion        from '../../components/accordion.js'
 import { Ticket }       from '../../actions/index.js'
-import { createMarkup } from '../../lib/helpers'
+import { createMarkup, loadingLogo } from '../../lib/helpers'
 
 require('smoothscroll-polyfill').polyfill()
 
@@ -83,7 +84,7 @@ const _renderTicketSm = ticket => (
 
 const _renderPaymentPlan = plan => (
   <section className='row'>
-    <div className='large-14 column ticket-lg'>
+    <div className={`large-14 column ticket-lg ${plan.slug}`}>
       <div className='hide-for-small-only large-2 column column-height'/>
       <div className='large-10 small-14 column'>
         <div className='row ten-row'>
@@ -118,7 +119,7 @@ class TicketPage extends React.Component {
   }
 
   tableComparison = (
-    <div className='tix-comparasion-table animated fadeIn'>
+    <div className='tix-comparsion-table animated fadeIn'>
       <table>
         <tbody>
           <tr>
@@ -277,113 +278,207 @@ class TicketPage extends React.Component {
     const hotel   = this.props.hotel
 
     return (
-      <div className='content'>
-        <div className='row page-title'>
-          <div className='large-2 columns column-height' />
-          <h1 className='large-12 columns'>Ticket Packages</h1>
-          <div className='large-2 columns column-height' />
-        </div>
-        <div className='row twelve-row'>
-          <div className='large-12 column large-push'>
-            <div className='large-4 column text-center'>
-              <h1>GA</h1>
-              <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}><p>Go to Ticket</p></a>
-            </div>
-            <div className='large-4 column text-center'>
-              <h1>GA</h1>
-              <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}><p>Go to Ticket</p></a>
-            </div>
-            <div className='large-4 column text-center end'>
-              <h1>GA</h1>
-              <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}><p>Go to Ticket</p></a>
-            </div>
-          </div>
-        </div>
-        { tickets[1] ? _renderTicketLg(tickets[1]) : null }
-        { tickets[0] ? _renderPaymentPlan(tickets[0]) : null }
-        { tickets[2] ? _renderTicketLg(tickets[2]) : null }
-        { tickets[3] ? _renderTicketLg(tickets[3]) : null }
-        { tickets[4] ? _renderTicketLg(tickets[4]) : null }
-
-        <section>
-          <div className='row'>
-            <div className='large-2 columns column-height' />
-            <div className='small-14 large-10 column'>
-              <div className='ten-row row'>
-                <Accordion title='TICKETS COMPARISON' content={this.tableComparison} />
+      <div>
+        {
+          R.isEmpty(tickets && hotel) ?
+            loadingLogo
+          :
+            <div className='content'>
+              <div className='row page-title'>
+                <div className='large-2 columns column-height' />
+                <h1 className='large-12 columns'>Tickets</h1>
+                <div className='large-2 columns column-height' />
               </div>
-            </div>
-            <div className='large-2 columns column-height' />
-          </div>
-        </section>
-
-        <section className='large-14 column'>
-          <div className='row'>
-            <div className='large-2 columns column-height' />
-            <h1 className='large-10 columns'>TICKETS + HOTEL PACKAGES</h1>
-            <div className='large-2 columns column-height' />
-          </div>
-          <div className='row' style={{paddingBottom: '30px'}}>
-            <div className='large-2 columns column-height' />
-            <div className='large-10 columns'>
-              <div
-                className='column-two'
-                style={{color: 'white'}}
-                dangerouslySetInnerHTML={
-                  createMarkup(R.path(['description'])(hotel[0]))
-                }
-              />
-            </div>
-            <div className='large-2 columns column-height' />
-          </div>
-          {
-            <div className='row'>
-              <section className='large-14 column ticket-sm'>
-                <div className='small-14 large-14 column'>
-                  <div className='hide-for-small-only large-2 column column-height'/>
-                  <div className='small-14 large-10 column'>
-                      { hotel[1] ? _renderTicketSm(hotel[1]) : null }
-                      { hotel[2] ? _renderTicketSm(hotel[2]) : null }
+              <div className='row'>
+                <div className='large-12 column large-push-2'>
+                  <div className='large-4 column text-center'>
+                    <h1>3 DAY GA</h1>
+                      <img src='../../img/ga_early_soldout.png' />
                   </div>
-                  <div className='hide-for-small-only large-2 column column-height'/>
+                  <div className='large-4 column text-center'>
+                    <h1>VIP</h1>
+                      <img src='../../img/vip_early_soldout.png' />
+                  </div>
+                  <div className='large-4 column text-center end'>
+                    <h1>V+VIP</h1>
+                    <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
+                      <img src='../../img/vvip_regular.png' />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className='row'>
+                <div className='large-12 column large-push-2'>
+                  <div className='large-4 column text-center'>
+                    <h1>&nbsp;</h1>
+                    <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
+                      <img src='../../img/ga_advance.png' />
+                    </a>
+                  </div>
+                  <div className='large-4 column text-center'>
+                    <h1>&nbsp;</h1>
+                    <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
+                      <img src='../../img/vip_advance.png' />
+                    </a>
+                  </div>
+                  <div className='large-4 column text-center end'>
+                    <h1>ALL-IN</h1>
+                    <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
+                      <img src='../../img/all-in_regular.png' />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className='row'>
+                <div className='large-12 column large-push-2'>
+                  <div className='large-4 column text-center'>
+                    <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
+                      <img src='../../img/ga_regular.png' />
+                    </a>
+                  </div>
+                  <div className='large-4 column text-center end'>
+                    <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
+                      <img src='../../img/vip_regular.png' />
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+
+              <div className='row'>
+                <div className='large-10 small-14 column large-push-2'>
+                  <div className='row medium-up-2 small-up-1 tix-links-w-arrow'>
+                    <div className='column flex-center'>
+                      <button className='btn-underline default'>
+                        <a href='#payment-plan' onClick={() => goTo('payment-plan')}>
+                          PAYMENT PLANS
+                          <i className='fa fa-long-arrow-right fa-md' />
+                        </a>
+                        <hr className='green' />
+                      </button>
+                    </div>
+                    <div className='column flex-center'>
+                      <button className='btn-underline default'>
+                        <a href='#tix-comparsion' onClick={() => goTo('tix-comparsion')}>
+                          VIP COMPARISON
+                          <i className='fa fa-long-arrow-right fa-md' />
+                        </a>
+                        <hr className='blue' />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='row neon-btns'>
+                <div className='large-12 small-14 column large-push-1'>
+                  <div className='row twelve-row'>
+                    <div className='large-4 column small-12 flex-center'>
+                      <div className="_button-wrapper">
+                        <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
+                      </div>
+                    </div>
+                    <div className='large-4 column small-12 flex-center'>
+                      <div className="_button-wrapper">
+                        <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
+                      </div>
+                    </div>
+                    <div className='large-4 column small-12 flex-center end'>
+                      <div className="_button-wrapper">
+                        <a href='#' className='btn cta2-activated' onClick={() => goTo('')}>PARK + RIDE</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              { tickets[1] ? _renderTicketLg(tickets[1]) : null }
+              { tickets[0] ? _renderPaymentPlan(tickets[0]) : null }
+              { tickets[2] ? _renderTicketLg(tickets[2]) : null }
+              { tickets[3] ? _renderTicketLg(tickets[3]) : null }
+              { tickets[4] ? _renderTicketLg(tickets[4]) : null }
+
+              <section className="tix-comparsion" style={{paddingTop: 65}}>
+                <div className='row'>
+                  <div className='large-2 columns column-height' />
+                  <div className='small-14 large-10 column'>
+                    <div className='ten-row row'>
+                      <Accordion title='TICKETS COMPARISON' content={this.tableComparison} />
+                    </div>
+                  </div>
+                  <div className='large-2 columns column-height' />
                 </div>
               </section>
-            </div>
-          }
-          {
-            <div className='row'>
-              <section className='large-14 column ticket-sm'>
-                <div className='small-14 large-14 column'>
-                  <div className='hide-for-small-only large-2 column column-height'/>
-                  <div className='small-14 large-10 column'>
-                      { hotel[3] ? _renderTicketSm(hotel[3]) : null }
-                      { hotel[4] ? _renderTicketSm(hotel[4]) : null }
-                  </div>
-                  <div className='hide-for-small-only large-2 column column-height'/>
+
+              <section className='large-14 column'>
+                <div className='row tix-packages ticket-lg'>
+                  <div className='large-2 columns column-height' />
+                  <h1 className='large-10 columns'>TICKETS + HOTEL PACKAGES</h1>
+                  <div className='large-2 columns column-height' />
                 </div>
+                <div className='row' style={{paddingBottom: '30px'}}>
+                  <div className='large-2 columns column-height' />
+                  <div className='large-10 columns'>
+                    <div
+                      className='column-two'
+                      style={{color: 'white'}}
+                      dangerouslySetInnerHTML={
+                        createMarkup(R.path(['description'])(hotel[0]))
+                      }
+                    />
+                  </div>
+                  <div className='large-2 columns column-height' />
+                </div>
+                {
+                  <div className='row'>
+                    <section className='large-14 column ticket-sm'>
+                      <div className='small-14 large-14 column'>
+                        <div className='hide-for-small-only large-2 column column-height'/>
+                        <div className='small-14 large-10 column'>
+                            { hotel[1] ? _renderTicketSm(hotel[1]) : null }
+                            { hotel[2] ? _renderTicketSm(hotel[2]) : null }
+                        </div>
+                        <div className='hide-for-small-only large-2 column column-height'/>
+                      </div>
+                    </section>
+                  </div>
+                }
+                {
+                  <div className='row'>
+                    <section className='large-14 column ticket-sm'>
+                      <div className='small-14 large-14 column'>
+                        <div className='hide-for-small-only large-2 column column-height'/>
+                        <div className='small-14 large-10 column'>
+                            { hotel[3] ? _renderTicketSm(hotel[3]) : null }
+                            { hotel[4] ? _renderTicketSm(hotel[4]) : null }
+                        </div>
+                        <div className='hide-for-small-only large-2 column column-height'/>
+                      </div>
+                    </section>
+                  </div>
+                }
+                <div className='row ticket-lg hotels-only'>
+                  <div className='large-2 columns column-height' />
+                  <h1 className='large-10 columns'>Hotels Only</h1>
+                  <div className='large-2 columns column-height' />
+                </div>
+                <div className='row' style={{paddingBottom: '30px'}}>
+                  <div className='large-2 columns column-height' />
+                  <div className='large-10 columns'>
+                    <div
+                      className='column-two'
+                      style={{color: 'white'}}
+                      dangerouslySetInnerHTML={
+                        createMarkup(R.path(['description'])(hotel[5]))
+                      }
+                    />
+                  </div>
+                  <div className='large-2 columns column-height' />
+                </div>
+
               </section>
             </div>
-          }
-          <div className='row'>
-            <div className='large-2 columns column-height' />
-            <h1 className='large-10 columns'>Hotels Only</h1>
-            <div className='large-2 columns column-height' />
-          </div>
-          <div className='row' style={{paddingBottom: '30px'}}>
-            <div className='large-2 columns column-height' />
-            <div className='large-10 columns'>
-              <div
-                className='column-two'
-                style={{color: 'white'}}
-                dangerouslySetInnerHTML={
-                  createMarkup(R.path(['description'])(hotel[5]))
-                }
-              />
-            </div>
-            <div className='large-2 columns column-height' />
-          </div>
-
-        </section>
+        }
       </div>
     )
   }

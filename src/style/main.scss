@@ -97,6 +97,12 @@ body {
   text-align: center;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gridSet {
   position: fixed;
   width: calc(100% - 160px);

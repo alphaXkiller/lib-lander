@@ -1,6 +1,7 @@
 .ticket-lg {
   font-family: 'AN-Round';
   text-shadow: 1px 1px 1px #040508;
+  padding-top: 65px;
   .ticket-price {
     font-family: 'AN-Round', sans-serif;
     font-size: 5rem;
@@ -29,12 +30,30 @@
   }
 }
 
-.tix-comparasion-table {
+.tix-comparsion-table {
   display: none;
 }
 
 .accordion-lib-content.show {
-  .tix-comparasion-table {
+  .tix-comparsion-table {
     display: block;
   }
 }
+
+.tix-links-w-arrow {
+  margin: 5rem 0;
+  .btn-underline a {
+    font-family: 'AN-Reg', sans-serif;
+    letter-spacing: 10px;
+  }
+  i {
+    margin-left: 20px
+  }
+}
+
+.neon-btns
+  ._button-wrapper
+    .btn {
+      font-size: 1.8vw;
+      padding: 10px 60px;
+    }

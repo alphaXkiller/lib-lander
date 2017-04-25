@@ -176,7 +176,7 @@ const _renderForm = () => (
 
 const HomeContainer = (props) => {
   const data = props.data
-  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24082729/lib_poster_final_web.jpg'
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24100424/lib_poster_final_web.jpg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
