@@ -26,7 +26,7 @@ const _renderPlanRow = plan_list => {
       {
         plan_right ?
           <div 
-            id={plan_right.title=='Park and Ride' ? 'p&r' : null}
+            id={plan_right.title}
             key={plan_right.ID} 
             className='large-7 small-14 column'
           >
