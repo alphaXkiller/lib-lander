@@ -74,6 +74,7 @@ class Form extends React.Component {
     else
       return (
         <form onSubmit={this.onSubmit} noValidate className='form-content'>
+          <h1 className='pink_on' style={{fontSize: '1.5rem'}}>GET TICKET ON SALE REMINDERS</h1>
           <div className='row'>
             <div
               className='small-7 column'
@@ -102,7 +103,7 @@ class Form extends React.Component {
             onChange={this.onChange}
           />
           { err.email ? <p className='err-msg'>{err.email}</p> : null }
-          <input type="text" name="phone" placeholder="Mobile Phone (Get General Sale SMS!)"
+          <input type="text" name="phone" placeholder="Mobile Phone (Get On Sale SMS!)"
             onChange={this.onChange}
           />
           <span>
@@ -115,7 +116,7 @@ class Form extends React.Component {
           </span>
           <br />
           <div className="_button-wrapper">
-            <button type="submit" className="submit_btn">JOIN THE PARTY</button>
+            <button type="submit" className="submit_btn">GET REMINDERS</button>
           </div>
         </form>
       )
