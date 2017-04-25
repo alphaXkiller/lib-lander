@@ -146,7 +146,7 @@ class TicketPage extends React.Component {
             <th><i className='fa fa-times fa-lg' /></th>
           </tr>
           <tr>
-            <td>Festival Re-entry</td>
+            <td>Festival Reentry</td>
             <th><i className='fa fa-times fa-lg' /></th>
             <th><i className='fa fa-times fa-lg' /></th>
             <th><i className='fa fa-times fa-lg' /></th>
@@ -220,7 +220,7 @@ class TicketPage extends React.Component {
             <th><i className='fa fa-times fa-lg' /></th>
           </tr>
           <tr>
-            <td>Private Bars w/ Specialty VIP only Cocktails</td>
+            <td>Private Bars w/ Specialty VIP-only Cocktails</td>
             <th><i className='fa fa-times fa-lg' /></th>
             <th><i className='fa fa-times fa-lg' /></th>
             <th><i className='fa fa-times fa-lg' /></th>
@@ -307,7 +307,7 @@ class TicketPage extends React.Component {
                   </div>
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
-                      <h1>3 DAY GA</h1>
+                      <h1>3-DAY GA</h1>
                       <img src={`/assets/${gaEarlySoldout}`} />
                     </div>
                     <div className='row'>
@@ -371,7 +371,7 @@ class TicketPage extends React.Component {
                     <div className='column flex-center'>
                       <button className='btn-underline default'>
                         <a href='#tix-comparsion' onClick={() => goTo('tix-comparsion')}>
-                          VIP COMPARISON
+                          TICKET COMPARISON
                           <i className='fa fa-long-arrow-right fa-md' />
                         </a>
                         <hr className='blue' />
@@ -382,29 +382,48 @@ class TicketPage extends React.Component {
               </div>
 
               <div className='row neon-btns'>
-                <div className='large-12 small-14 column large-push-1'>
-                  <div className='row twelve-row'>
-                    <div className='large-4 column flex-center'>
+                <div className='large-10 small-14 column large-push-2'>
+                  <div className='row medium-up-2 small-up-1'>
+                    <div className='column flex-center'>
                       <div className="_button-wrapper">
                         <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
                       </div>
                     </div>
-                    <div className='large-4 column flex-center'>
+                    <div className='column flex-center'>
                       <div className="_button-wrapper">
                         <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
-                      </div>
-                    </div>
-                    <div className='large-4 column flex-center end'>
-                      <div className="_button-wrapper">
-                        <Link to='/planning#p&r' className='btn cta2-actiaved'>
-
-                          PARK + RIDE
-                        </Link>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {
+              // <div className='row neon-btns'>
+              //   <div className='large-12 small-14 column large-push-1'>
+              //     <div className='row twelve-row'>
+              //       <div className='large-4 column flex-center'>
+              //         <div className="_button-wrapper">
+              //           <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
+              //         </div>
+              //       </div>
+              //       <div className='large-4 column flex-center'>
+              //         <div className="_button-wrapper">
+              //           <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
+              //         </div>
+              //       </div>
+              //       <div className='large-4 column flex-center end'>
+              //         <div className="_button-wrapper">
+              //           <Link to='/planning#p&r' className='btn cta2-actiaved'>
+
+              //             PARK + RIDE
+              //           </Link>
+              //         </div>
+              //       </div>
+              //     </div>
+              //   </div>
+              // </div>
+              }
 
               { tickets[1] ? _renderTicketLg(tickets[1]) : null }
               { tickets[0] ? _renderPaymentPlan(tickets[0]) : null }
@@ -417,7 +436,11 @@ class TicketPage extends React.Component {
                   <div className='large-2 columns column-height' />
                   <div className='small-14 large-10 column'>
                     <div className='ten-row row'>
-                      <Accordion title='TICKETS COMPARISON' content={this.tableComparison} />
+                      <Accordion 
+                        title='TICKET COMPARISON' 
+                        content={this.tableComparison} 
+                        disabled
+                      />
                     </div>
                   </div>
                   <div className='large-2 columns column-height' />

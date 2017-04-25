@@ -2,10 +2,10 @@ import R     from 'ramda'
 import React from 'react'
 
 class Accordion extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      expand: false
+      expand: props.disabled ? true : false
     }
   }
 
@@ -16,7 +16,7 @@ class Accordion extends React.Component {
   render() {
     return (
       <div className='accordion-lib'>
-        <div onClick={this.toggleExpand}>
+        <div onClick={this.props.disbaled ? null : this.toggleExpand}>
           <div className='large-8 column accordion-toggle'>
             <h2>{this.props.title}</h2>
           </div>
@@ -25,7 +25,7 @@ class Accordion extends React.Component {
                 'fa' ,
                 'fa-2x',
                 'animated',
-                this.state.expand ? 'jello fa-angle-down pink-arrow' : 'bounceIn fa-angle-right blue-arrow'
+                // this.state.expand ? 'jello fa-angle-down pink-arrow' : 'bounceIn fa-angle-right blue-arrow'
               ])}
             />
           </div>
