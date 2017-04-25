@@ -19,7 +19,7 @@ const sub = {
   ,
   right: [
     { text: 'IMPACT', path: '/impact' },
-    { text: 'PARTNERS', path: '/' },
+    { text: 'SPONSORS', path: '/sponsors' },
     { text: 'VOLUNTEERS', path: '/' },
     // { text: 'JOBS', path: '/' },
     // { text: 'INTERNSHIP', path: '/' },
