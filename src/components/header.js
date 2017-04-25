@@ -195,7 +195,6 @@ const Header = props => {
               { _renderMenuSection(props.onClickCloseDrawer) }
               { _renderMapSection() }
               { _renderGeneralInfo(props.onClickCloseDrawer) }
-              { _renderJoinParty(props.submit) }
               <p style={{color: 'white', fontSize: '0.5em'}}>
                 <i className='fa fa-copyright' />
                 2017 LIFE IS BEAUTIFUL. ALL RIGHTS RESERVED.
