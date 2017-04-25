@@ -209,7 +209,7 @@ class App extends Component {
         			<ul>
         				<li><a href="mailto:LIBPress@rrpartners.com?subject=Life%20Is%20Beautiful%20Press%20Inquiry">Press</a></li>
         				<li>|</li>
-        				<li><a href="mailto:sponsorships@lifeisbeautiful.com?subject=Life%20Is%20Beautiful%202017%20Sponsorship%20Inquiry">Sponsors</a></li>
+        				<li><Link to='/sponsors'>Sponsors</Link></li>
         				<li>|</li>
         				<li><a href="/policy.html" rel="nofollow" target="_blank">Policy</a></li>
         			</ul>
