@@ -7,7 +7,11 @@ import Path_map from './restful-map.js'
 
 const PARAMS_REGEX      = /:[a-zA-Z]*/
 const INDEX_AFTER_COLON = 1
-const baseURL        = 'https://live.libnet.io/wp-json'
+const baseURL           = R.ifElse(
+  R.equals('lifeisbeautiful.com'),
+  R.always('https://live.libnet.io/wp-json'),
+  R.always('https://staging.libnet.io/wp-json')
+)(window.location.hostname)
 
 
 const _key_list = R.match(PARAMS_REGEX)
