@@ -302,7 +302,7 @@ class TicketPage extends React.Component {
                 <div className='large-12 column large-push-2'>
                   <div className='row'>
                     <div className='large-12 small-14 column'>
-                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURSDAY 10 A.M. PDT</h1>
+                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURS. @ 10 A.M. PDT</h1>
                     </div>
                   </div>
                   <div className='large-4 small-7 column text-center'>
@@ -347,7 +347,7 @@ class TicketPage extends React.Component {
                       </div>
                       <div className='small-7 large-14 column'>
                         <h1>ALL-IN</h1>
-                        <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
+                        <a href={`#${tickets[4] ? tickets[4].slug : null}`} onClick={() => goTo(tickets[4].slug)}>
                           <img src={`/assets/${allInRegular}`} />
                         </a>
                       </div>
