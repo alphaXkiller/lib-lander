@@ -26,12 +26,36 @@ const goTo = itemId => {
   item.scrollIntoView({ behavior: 'smooth' })
 }
 
+
+const _renderSoldOut = () => (
+  <div 
+    style={{
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      zIndex: '2',
+      backgroundColor: 'rgba(0,0,0,0.4)',
+      color: '#fff',
+      fontSize: '4rem',
+      textAlign: 'center',
+      fontFamily: "'AN-Bold'",
+      paddingTop: '200px'
+    }}
+  >
+    SOLD OUT
+  </div>
+)
+
+
 const _renderTicketLg = ticket => (
   <div className='row'>
     <section className={`large-14 column ticket-lg ${ticket.slug}`}>
       <div className='small-14 large-14 column'>
         <div className='hide-for-small-only large-2 column column-height'/>
-        <div className='small-14 large-10 column'>
+        <div className='small-14 large-10 column' style={{position: 'relative'}}>
+          {
+            R.equals(ticket.ID, 136) ? _renderSoldOut() : null
+          }
           <div className='row ten-row'>
             <div className='small-full large-14 column title-col'>
               <div className='vertical-centered-title'>
@@ -98,7 +122,8 @@ const _renderTicketSm = ticket => (
 
 const _renderPaymentPlan = plan => (
   <section className='row'>
-    <div className={`large-14 column ticket-lg ${plan.slug}`}>
+    <div className={`large-14 column ticket-lg ${plan.slug}`} style={{position: 'relative'}}>
+      {_renderSoldOut()}
       <div className='hide-for-small-only large-2 column column-height'/>
       <div className='large-10 small-14 column'>
         <div className='row ten-row'>
