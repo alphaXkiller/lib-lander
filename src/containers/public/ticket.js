@@ -101,6 +101,36 @@ const _renderPaymentPlan = plan => (
           <div className='_button-wrapper'>
             <a className='btn' href={plan.ticket_link} target='_blank'>BUY TICKETS</a>
           </div>
+          <div className='row twelve-row'>
+            <h2>$335 +Taxes & Fees</h2>
+            <div className='large-3 small-6 columm payment-plans'>
+              <div className='payment-content'>
+                <p><strong>Payment 1</strong></p>
+                <p>$128.79</p>
+              </div>
+            </div>
+            <div className='large-3 small-6 columm payment-plans'>
+              <div className='payment-content'>
+                <p><strong>Payment 2</strong></p>
+                <p>$91.29</p>
+              </div>
+
+            </div>
+            <div className='large-3 small-6 columm payment-plans'>
+              <div className='payment-content'>
+                <p><strong>Payment 3</strong></p>
+                <p>$91.29</p>
+              </div>
+
+            </div>
+            <div className='large-3 small-6 columm payment-plans'>
+              <div className='payment-content'>
+                <p><strong>Payment 4</strong></p>
+                <p>$91.29</p>
+              </div>
+
+            </div>
+          </div>
           <div
             className='column-two ticket-description'
             dangerouslySetInnerHTML={createMarkup(plan.description)}
@@ -314,7 +344,7 @@ class TicketPage extends React.Component {
                     </div>
                     <div className='row'>
                       <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <img src={`/assets/${gaAdvance}`} />
+                        <img src={`/assets/${gaAdvanceSoldout}`} />
                       </a>
                     </div>
                     <div className='row'>
@@ -330,7 +360,7 @@ class TicketPage extends React.Component {
                     </div>
                     <div className='row'>
                       <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <img src={`/assets/${vipAdvance}`} />
+                        <img src={`/assets/${vipAdvanceSoldout}`} />
                       </a>
                     </div>
                     <div className='row'>

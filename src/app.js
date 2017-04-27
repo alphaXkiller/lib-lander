@@ -226,7 +226,7 @@ class App extends Component {
                 <div className='small-14 column'>
                   <p className='date'>SEPT<strong>.</strong> 22 <strong>—</strong> 24, 2017</p>
                   <div className="_button-wrapper">
-                    <Link to='/ticket' className='btn cta2-activated'>TICKETS</Link>
+                    <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank' className='btn cta2-activated'>TICKETS</a>
                   </div>
                 </div>
               </div>

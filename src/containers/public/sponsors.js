@@ -42,6 +42,13 @@ class SponsorsContainer extends Component {
                     }
                   </div>
                 </div>
+                <div className='row'>
+                  <div className='small-14 column text-center'>
+                    <p>
+                      Sponsorship inquiries: <a href='mailto:sponsorships@lifeisbeautiful.com'>sponsorships@lifeisbeautiful.com</a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
         }
