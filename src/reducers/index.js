@@ -8,6 +8,7 @@ import page     from './page'
 import faq      from './faq'
 import news     from './news'
 import lineup     from './lineup'
+import sponsors     from './sponsors'
 
 export default combineReducers({
   news,
@@ -17,5 +18,6 @@ export default combineReducers({
   planning,
   ticket,
   page,
-  lineup
+  lineup,
+  sponsors
 })

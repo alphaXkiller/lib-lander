@@ -7,5 +7,6 @@ export default {
   'ticket'   : '/lib/ticket',
   'page'     : '/lib/page/:slug',
   'faq'      : '/lib/faq',
-  'lineup'   : '/lib/lineup'
+  'lineup'   : '/lib/lineup',
+  'sponsor' : '/lib/sponsor'
 }

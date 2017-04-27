@@ -1,11 +1,12 @@
 import Vibe        from './vibe'
 import Landing     from './home'
-import Planning    from './planning.js'
-import News        from './news.js'
-import Ticket      from './ticket.js'
-import PageActions from './page.js'
-import Faq         from './faq.js'
-import Lineup      from './lineup.js'
+import Planning    from './planning'
+import News        from './news'
+import Ticket      from './ticket'
+import PageActions from './page'
+import Faq         from './faq'
+import Lineup      from './lineup'
+import Sponsors    from './sponsors'
 
 export {
   Lineup,
@@ -15,5 +16,6 @@ export {
   Planning,
   News,
   Ticket,
-  PageActions
+  PageActions,
+  Sponsors
 }

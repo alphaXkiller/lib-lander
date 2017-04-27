@@ -37,9 +37,9 @@ const _renderTicketLg = ticket => (
                 <div>
                   {/* <h2 className='ticket-price yellow_on'>${ticket.price}</h2> */}
                   <h1 className='ticket-name'>{ticket.name}</h1>
-                  {/* <div className='_button-wrapper'>
-                    <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
-                  </div> */}
+                  <div className='_button-wrapper'>
+                    <a className='btn' href={ticket.ticket_link} target='_blank'>BUY TICKETS</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,11 +70,9 @@ const _renderTicketSm = ticket => (
         <div className='vertical-centered-title align-self-bottom'>
           <div>
             <h1 className='ticket-name'>{ticket.name}</h1>
-            {
-              // <div className='_button-wrapper'>
-              //   <a className='btn' href={ticket.ticket_link}>BUY TICKETS</a>
-              // </div>
-            }
+            <div className='_button-wrapper'>
+              <a className='btn' href={ticket.ticket_link} target='_blank'>BUY TICKETS</a>
+            </div>
           </div>
         </div>
       </div>
@@ -100,6 +98,9 @@ const _renderPaymentPlan = plan => (
       <div className='large-10 small-14 column'>
         <div className='row ten-row'>
           <h1>PAYMENT PLAN</h1>
+          <div className='_button-wrapper'>
+            <a className='btn' href={plan.ticket_link} target='_blank'>BUY TICKETS</a>
+          </div>
           <div
             className='column-two ticket-description'
             dangerouslySetInnerHTML={createMarkup(plan.description)}
@@ -301,23 +302,23 @@ class TicketPage extends React.Component {
               </div>
               <div className='row'>
                 <div className='large-12 column large-push-2'>
-                  <div className='row'>
+                  {/* <div className='row'>
                     <div className='large-12 small-14 column'>
                       <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURS. @ 10 A.M. PDT</h1>
                     </div>
-                  </div>
+                  </div> */}
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
                       <h1>3-DAY GA</h1>
                       <img src={`/assets/${gaEarlySoldout}`} />
                     </div>
                     <div className='row'>
-                      <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
                         <img src={`/assets/${gaAdvance}`} />
                       </a>
                     </div>
                     <div className='row'>
-                      <a href={`#${tickets[1] ? tickets[1].slug : null}`} onClick={() => goTo(tickets[1].slug)}>
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
                         <img src={`/assets/${gaRegular}`} />
                       </a>
                     </div>
@@ -328,12 +329,12 @@ class TicketPage extends React.Component {
                       <img src={`/assets/${vipEarlySoldout}`} />
                     </div>
                     <div className='row'>
-                      <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
                         <img src={`/assets/${vipAdvance}`} />
                       </a>
                     </div>
                     <div className='row'>
-                      <a href={`#${tickets[2] ? tickets[2].slug : null}`} onClick={() => goTo(tickets[2].slug)}>
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
                         <img src={`/assets/${vipRegular}`} />
                       </a>
                     </div>
@@ -342,13 +343,13 @@ class TicketPage extends React.Component {
                     <div className='row'>
                       <div className='small-7 large-14 column'>
                         <h1>V+VIP</h1>
-                        <a href={`#${tickets[3] ? tickets[3].slug : null}`} onClick={() => goTo(tickets[3].slug)}>
+                        <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
                           <img src={`/assets/${vvipRegular}`} />
                         </a>
                       </div>
                       <div className='small-7 large-14 column'>
                         <h1>ALL-IN</h1>
-                        <a href={`#${tickets[4] ? tickets[4].slug : null}`} onClick={() => goTo(tickets[4].slug)}>
+                        <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
                           <img src={`/assets/${allInRegular}`} />
                         </a>
                       </div>
@@ -362,7 +363,7 @@ class TicketPage extends React.Component {
                   <div className='row medium-up-2 small-up-1 tix-links-w-arrow'>
                     <div className='column flex-center'>
                       <button className='btn-underline default'>
-                        <a href='#payment-plan' onClick={() => goTo('payment-plan')}>
+                        <a href='https://www.ticketfly.com/purchase/event/1467620' target='_blank'>
                           PAYMENT PLANS
                           <i className='fa fa-long-arrow-right fa-md' />
                         </a>
@@ -406,7 +407,7 @@ class TicketPage extends React.Component {
                   <div className='row twelve-row'>
                     <div className='large-4 column flex-center'>
                       <div className="_button-wrapper">
-                        <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
+                        <a href='http://events.hotelsforhope.com/group-event?id=21938' className='btn cta2-activated' target='_blank'>HOTELS</a>
                       </div>
                     </div>
                     <div className='large-4 column flex-center'>

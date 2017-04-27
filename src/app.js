@@ -11,6 +11,9 @@ import Header from './components/header.js'
 import Grid from './components/shared-components/grid.js'
 
 import './style/main.scss'
+import apeLogo from './img/ape-logo_32.png'
+import wendohLogo from './img/wendoh_32.png'
+
 require('smoothscroll-polyfill').polyfill()
 
 const REDIRECT_PATH = [
@@ -207,14 +210,13 @@ class App extends Component {
               }
             </Switch>
 
-            <div className="green-radial" />
-      			<div className="blue-radial" />
+            {/* <div className="green-radial" />
+      			<div className="blue-radial" /> */}
           </div>
           {/* <!-- FOOTER --> */}
           <footer className='crowd'>
             <div className="large-12 column producers">
-              <p>PRODUCED BY</p>
-              <img src='assets/img/ape-logo_32.png' /> <img src='assets/img/wendoh_32.png' />
+              <img src={`/assets/${apeLogo}`} /> <img src={`/assets/${wendohLogo}`} />
             </div>
             <div className="large-7 small-10 column footer-content">
               <h1>Life is beautiful</h1>
