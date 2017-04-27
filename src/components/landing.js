@@ -33,15 +33,15 @@ const _renderFirstRow = item => (
             </h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />
             <div className='row' style={{margin: '50px auto'}}>
-              <div className='small-up-2 neon-btns'>
+              <div className='small-up-1 large-up-2 neon-btns'>
                 <div className='column'>
                   <div className='_button-wrapper'>
-                    <a className='btn' href='https://www.ticketfly.com/purchase/event/1318649?_ga=1.118752910.628319008.1490227557' target='_blank'>HOTEL + TIX</a>
+                    <Link className='btn' to='/ticket/'>HOTEL + TIX</Link>
                   </div>
                 </div>
                 <div className='column'>
                   <div className='_button-wrapper'>
-                    <Link className='btn' to='/ticket/'>VIP</Link>
+                    <a className='btn' href='https://www.ticketfly.com/purchase/event/1318649?_ga=1.118752910.628319008.1490227557' target='_blank'>VIP</a>
                   </div>
                 </div>
               </div>
