@@ -6,12 +6,12 @@ import { mapIndexed, notEmpty, createMarkup, isSafari } from '../lib/helpers'
 import Logo from '../containers/public/logo'
 import Form from '../components/form.js'
 import SponsorImg from '../img/sponsor-logos.png'
-
+import buyTixGif from '../img/buytickets.gif'
 
 const _renderFirstRow = item => (
   <div key={item.ID} className='row'>
     <section className='section-content section-header'>
-      <div className="columns large-5 medium-14 small-14">
+      <div className="columns large-6 medium-14 small-14">
         <div className="logo" id="logo">
           <div
             className="logobox animated fadeIn"
@@ -25,20 +25,19 @@ const _renderFirstRow = item => (
       </div>
 
       {/* <!-- CTA/FORM BLOCK --> */}
-      <div className="columns large-9 medium-14 small-14">
+      <div className="columns large-8 medium-14 small-14">
         <div className="copy-hero">
           <div className="copy">
             <h1 className='pink_on title'>
               {item.title}
             </h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />
-            <Form />
-            {/* <div>
-              <button className='btn-underline default'>
-                <Link to='/ticket' >{item.link_text}</Link>
-                <hr/>
-              </button>
-            </div> */}
+            {/* <Form /> */}
+            <div>
+              <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank' >
+                <img src={`/assets/${buyTixGif}`} />
+              </a>
+            </div>
           </div>
         </div>
       </div>

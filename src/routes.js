@@ -11,6 +11,7 @@ import Planning from './containers/public/planning.js'
 import News     from './containers/public/news.js'
 import Ticket   from './containers/public/ticket.js'
 import Page   from './containers/public/page.js'
+import Sponsors   from './containers/public/sponsors.js'
 
 const INDEX_AFTER_QUESTION_MARK = 1
 
@@ -28,6 +29,7 @@ const RouteFunctor = [
   { path: '/planning', component: Planning },
   { path: '/news', component: News },
   { path: '/ticket', component: Ticket },
+  { path: '/sponsors', component: Sponsors },
   { path: '/:slug', component: Page },
   { component: NotFound }
 ]

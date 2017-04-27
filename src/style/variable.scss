@@ -55,6 +55,9 @@ $content-height-full: calc(100vh - 64px);
     .large-2 {
       @include grid-column(4, 0);
     }
+    .large-3 {
+      @include grid-column(6, 0);
+    }
     .large-4 {
       @include grid-column(8, 0);
     }
