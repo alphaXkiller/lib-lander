@@ -32,12 +32,14 @@ const _renderFirstRow = item => (
               {item.title}
             </h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />
-            {/* <Form /> */}
-            <div>
-              <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank' >
-                <img src={`/assets/${buyTixGif}`} />
-              </a>
-            </div>
+            {<Form />}
+            {
+            // <div>
+            //   <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank' >
+            //     <img src={`/assets/${buyTixGif}`} />
+            //   </a>
+            // </div>
+            }
           </div>
         </div>
       </div>
