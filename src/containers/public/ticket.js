@@ -14,6 +14,7 @@ import gaAdvanceSoldout  from '../../img/ga_advance_soldout.png'
 import gaAdvance         from '../../img/ga_advance.png'
 import gaEarlySoldout    from '../../img/ga_early_soldout.png'
 import gaRegular         from '../../img/ga_regular.png'
+import gaRegularSoldout   from '../../img/ga_regular_soldout.png'
 import vipAdvanceSoldout from '../../img/vip_advance_soldout.png'
 import vipAdvance        from '../../img/vip_advance.png'
 import vipEarlySoldout   from '../../img/vip_early_soldout.png'
@@ -352,9 +353,7 @@ class TicketPage extends React.Component {
                       </a>
                     </div>
                     <div className='row'>
-                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <img src={`/assets/${gaRegular}`} />
-                      </a>
+                      <img src={`/assets/${gaRegularSoldout}`} />
                     </div>
                   </div>
                   <div className='large-4 small-7 column text-center'>
