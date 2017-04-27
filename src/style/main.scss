@@ -77,11 +77,11 @@ body {
   overflow-x: hidden;
 	font-family: 'AN-Thin', sans-serif;
   font-size: 1rem !important;
-  background: #040508 url('../img/bg.png') center top no-repeat;
+  background: #0e0e19 url('../img/bg.png') center top no-repeat;
   background-size: 100%;
   -webkit-font-smoothing: initial;
   -moz-osx-font-smoothing: initial;
-  h1 {
+  h1, h2, h3, h4, h5 {
     font-family: 'AN-Bold', sans-serif;
   }
 }

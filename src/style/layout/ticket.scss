@@ -57,3 +57,13 @@
       font-size: 1.8vw;
       padding: 10px 60px;
     }
+
+.payment-plans {
+  text-align: center;
+  .payment-content {
+    font-family: 'AN-Thin', sans-serif;
+    margin: 10px;
+    border: 1px solid white;
+    padding-top: 10px;
+  }
+}
