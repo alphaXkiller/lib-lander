@@ -214,7 +214,7 @@ class App extends Component {
           <footer className='crowd'>
             <div className="large-12 column producers">
               <p>PRODUCED BY</p>
-              <img src='/img/ape-logo_32.png' /> <img src='/img/wendoh_32.png' />
+              <img src='assets/img/ape-logo_32.png' /> <img src='assets/img/wendoh_32.png' />
             </div>
             <div className="large-7 small-10 column footer-content">
               <h1>Life is beautiful</h1>

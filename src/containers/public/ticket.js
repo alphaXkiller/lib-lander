@@ -382,49 +382,46 @@ class TicketPage extends React.Component {
                 </div>
               </div>
 
-              <div className='row neon-btns'>
-                <div className='large-10 small-14 column large-push-2'>
-                  <div className='row medium-up-2 small-up-1'>
-                    <div className='column flex-center'>
-                      <div className="_button-wrapper">
-                        <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
-                      </div>
-                    </div>
-                    <div className='column flex-center'>
-                      <div className="_button-wrapper">
-                        <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {
               // <div className='row neon-btns'>
-              //   <div className='large-12 small-14 column large-push-1'>
-              //     <div className='row twelve-row'>
-              //       <div className='large-4 column flex-center'>
+              //   <div className='large-10 small-14 column large-push-2'>
+              //     <div className='row medium-up-2 small-up-1'>
+              //       <div className='column flex-center'>
               //         <div className="_button-wrapper">
               //           <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
               //         </div>
               //       </div>
-              //       <div className='large-4 column flex-center'>
+              //       <div className='column flex-center'>
               //         <div className="_button-wrapper">
               //           <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
-              //         </div>
-              //       </div>
-              //       <div className='large-4 column flex-center end'>
-              //         <div className="_button-wrapper">
-              //           <Link to='/planning#p&r' className='btn cta2-actiaved'>
-
-              //             PARK + RIDE
-              //           </Link>
               //         </div>
               //       </div>
               //     </div>
               //   </div>
               // </div>
               }
+
+              <div className='row neon-btns'>
+                <div className='large-12 small-14 column large-push-1'>
+                  <div className='row twelve-row'>
+                    <div className='large-4 column flex-center'>
+                      <div className="_button-wrapper">
+                        <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
+                      </div>
+                    </div>
+                    <div className='large-4 column flex-center'>
+                      <div className="_button-wrapper">
+                        <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
+                      </div>
+                    </div>
+                    <div className='large-4 column flex-center end'>
+                      <div className="_button-wrapper">
+                        <a href='https://www.ticketfly.com/purchase/event/1467533' target='_blank' className='btn cta2-actiaved'>PARK + RIDE</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               { tickets[1] ? _renderTicketLg(tickets[1]) : null }
               { tickets[0] ? _renderPaymentPlan(tickets[0]) : null }
