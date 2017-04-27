@@ -295,6 +295,7 @@ class TicketPage extends React.Component {
             loadingLogo
           :
             <div className='content'>
+              <img src='https://lifeisbeautiful.com/img/lifeisbeautiful_lineup2017.jpg' style={{display: 'none'}} />
               <div className='row page-title' style={{paddingBottom: '2vw'}}>
                 <h1 className='large-10 large-push-2 columns'>Tickets</h1>
               </div>

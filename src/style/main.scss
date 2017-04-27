@@ -338,3 +338,26 @@ p.off {
 .blue-radial.off, .green-radial.off {opacity: 0}
 .libfooter.desktop {display: block;}
 .libfooter.mobile {display: none;}
+
+.producers {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  p {
+    margin-bottom: 5px;
+    letter-spacing: 10px;
+    font-size: 0.75rem;
+    @media screen and (max-width: 30rem) {
+      margin-bottom: 0;
+      letter-spacing: 5px;
+      font-size: 0.5rem;
+    }
+  }
+  img {
+    padding: 5px;
+    height: 32px;
+    @media screen and (max-width: 30rem) {
+      height: 24px;
+    }
+  }
+}
