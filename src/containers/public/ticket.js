@@ -37,9 +37,13 @@ const _renderTicketLg = ticket => (
                 <div>
                   {/* <h2 className='ticket-price yellow_on'>${ticket.price}</h2> */}
                   <h1 className='ticket-name'>{ticket.name}</h1>
-                  <div className='_button-wrapper'>
-                    <a className='btn' href={ticket.ticket_link} target='_blank'>BUY TICKETS</a>
-                  </div>
+                  {
+                    ticket.ticket_link != 'null' ?
+                      <div className='_button-wrapper'>
+                        <a className='btn' href={ticket.ticket_link} target='_blank'>BUY TICKETS</a>
+                      </div>
+                    : null
+                  }
                 </div>
               </div>
             </div>
@@ -98,9 +102,9 @@ const _renderPaymentPlan = plan => (
       <div className='large-10 small-14 column'>
         <div className='row ten-row'>
           <h1>PAYMENT PLAN</h1>
-          <div className='_button-wrapper'>
+          {/* <div className='_button-wrapper'>
             <a className='btn' href={plan.ticket_link} target='_blank'>BUY TICKETS</a>
-          </div>
+          </div> */}
           <div className='row twelve-row'>
             <h2>$335 +Taxes & Fees</h2>
             <div className='large-3 small-6 columm payment-plans'>
@@ -393,7 +397,7 @@ class TicketPage extends React.Component {
                   <div className='row medium-up-2 small-up-1 tix-links-w-arrow'>
                     <div className='column flex-center'>
                       <button className='btn-underline default'>
-                        <a href='https://www.ticketfly.com/purchase/event/1467620' target='_blank'>
+                        <a  href='#payment-plan' onClick={() => goTo('payment-plan')}>
                           PAYMENT PLANS
                           <i className='fa fa-long-arrow-right fa-md' />
                         </a>
