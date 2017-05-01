@@ -15,7 +15,7 @@ const _renderFirstRow = item => (
       <div className={
         R.join(' ', [
           'columns',
-          item.show_form ? 'large-7' : 'large-10',
+          item.show_form ? 'large-7 hide' : 'large-10',
           item.show_form ? 'large-push-1' : 'large-push-2',
           'medium-14 small-14'
         ])
@@ -47,7 +47,7 @@ const _renderFirstRow = item => (
       {/* <!-- CTA/FORM BLOCK --> */}
       {
         item.show_form ?
-          <div className="columns large-6 large-push-1 medium-14 small-14">
+          <div className="columns large-12 large-push-1 medium-14 small-14">
             <div className="copy-hero">
               <div className="copy">
                 <h1 className='pink_on title'>DAILY LINEUP COMING TUESDAY 5/2 10 AM PST!</h1>
