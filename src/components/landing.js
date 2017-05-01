@@ -48,7 +48,13 @@ const _renderFirstRow = item => (
       {
         item.show_form ?
           <div className="columns large-6 large-push-1 medium-14 small-14">
-            {<Form />}
+            <div className="copy-hero">
+              <div className="copy">
+                <h1 className='pink_on title'>DAILY LINEUP COMING TUESDAY 5/2 10 AM PST!</h1>
+                <p className='subhead-2'>Don’t miss out! Sign up for updates to receive the lineup email, hotel options, and single-day ticket sale information when the news drops</p>
+                {<Form />}
+              </div>
+            </div>
           </div>
         : null
       }
