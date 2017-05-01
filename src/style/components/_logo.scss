@@ -1,4 +1,11 @@
 /* LOGO */
+.header-logo {
+	left: 48%;
+	position: fixed;
+	text-align: center;
+  width: 80px;
+  z-index: 9999;
+}
 .logo {
 	position: relative;
   z-index: 3;
@@ -14,5 +21,5 @@
 }
 
 svg#paralogo {
-  height: 45vh;
+  height: 80px;
 }

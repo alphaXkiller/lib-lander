@@ -28,7 +28,7 @@ const goTo = itemId => {
 
 
 const _renderSoldOut = () => (
-  <div 
+  <div
     style={{
       position: 'absolute',
       width: '100%',
@@ -566,6 +566,9 @@ class TicketPage extends React.Component {
                         createMarkup(R.path(['description'])(hotel[5]))
                       }
                     />
+                    <div className='row'>
+                      <div className='large-10 column' style={{background: `url(${hotel[5].image}) center no-repeat`, height: 450, width: '100%'}} />
+                    </div>
                   </div>
                   <div className='large-2 columns column-height' />
                 </div>
