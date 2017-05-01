@@ -157,6 +157,9 @@ body {
   position: relative;
   z-index: 4;
   margin-top: 64px;
+  @media screen and (max-width: 30rem) {
+    margin-top: 5rem;
+  }
 }
 
 .sidebar {

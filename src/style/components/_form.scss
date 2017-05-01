@@ -13,6 +13,10 @@ form {
       text-align: left;
       height: 3.5rem;
 
+      @media screen and (max-width: 30rem) {
+        font-size: small !important;
+      }
+
       &:hover {
         background-color: rgba(0,0,0,.35);
       }
