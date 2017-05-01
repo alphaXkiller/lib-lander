@@ -2,7 +2,7 @@
 @media only screen and (min-width: 90.063rem) {
   ._button-wrapper {
     .btn {
-      font-size: 1vw;
+      font-size: 1.25rem;
     }
   }
 }
@@ -15,7 +15,8 @@
     padding-top: 0;
     margin-top: 0;
     & > div {
-      padding-left: 80px;
+      padding-left: 0px;
+      margin-top: 5rem;
     }
   }
   .neon-btns .btn {
@@ -60,7 +61,7 @@
 
   ._button-wrapper {
     .btn {
-      font-size: 1vw;
+      font-size: 1.25rem;
     }
   }
 

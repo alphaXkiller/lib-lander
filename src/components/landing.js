@@ -15,9 +15,9 @@ const _renderFirstRow = item => (
       <div className={
         R.join(' ', [
           'columns',
-          item.show_form ? 'large-7 hide' : 'large-10',
-          item.show_form ? 'large-push-1' : 'large-push-2',
-          'medium-14 small-14'
+          item.show_form ? 'large-7 hide' : 'large-10 hide',
+          item.show_form ? 'large-push-1 hide' : 'large-push-2 hide',
+          'medium-14 hide small-14 hide'
         ])
       }>
         <div className="copy-hero">
