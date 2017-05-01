@@ -123,6 +123,14 @@
 
   .copy-hero {
     font-size: 2rem !important;
+    ._button-wrapper {
+      text-align: center;
+      margin: 20px auto;
+      .btn {
+        margin: 0 auto;
+        font-size: 7vw !important;
+      }
+    }
     .copy {
       width: 100% !important;
       h1 {
