@@ -12,6 +12,8 @@ import ConstantMenu from '../constants/menu.js'
 import Grid         from './shared-components/grid.js'
 import TitleImg     from '../img/lib_menu.png'
 
+import Logo         from '../containers/public/logo'
+
 const MAP_IMG = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24110247/libmap_v1.jpg'
 
 const DRAWER_CONTAINER_STYLE = {
@@ -180,6 +182,9 @@ const Header = props => {
         iconElementRight={_buyTicketIcon(props.onClickCloseDrawer)}
         className='header-wrapper'
       />
+      <div className='header-logo flex-center hide-for-small-only'>
+        <Logo />
+      </div>
       <div id='drawer'>
         <Drawer
           docked={false}

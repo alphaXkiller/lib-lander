@@ -8,24 +8,18 @@ import Form from '../components/form.js'
 import SponsorImg from '../img/sponsor-logos.png'
 import buyTixGif from '../img/buytickets.gif'
 
+
 const _renderFirstRow = item => (
   <div key={item.ID} className='row'>
     <section className='section-content section-header'>
-      <div className="columns large-6 medium-14 small-14">
-        <div className="logo" id="logo">
-          <div
-            className="logobox animated fadeIn"
-            id="logobox"
-            data-tilt data-tilt-reset="false"
-            data-tilt-perspective="2000"
-            >
-            <Logo />
-          </div>
-        </div>
-      </div>
-
-      {/* <!-- CTA/FORM BLOCK --> */}
-      <div className="columns large-8 medium-14 small-14">
+      <div className={
+        R.join(' ', [
+          'columns',
+          item.show_form ? 'large-7' : 'large-10',
+          item.show_form ? 'large-push-1' : 'large-push-2',
+          'medium-14 small-14'
+        ])
+      }>
         <div className="copy-hero">
           <div className="copy">
             <h1 className='pink_on title'>
@@ -46,17 +40,20 @@ const _renderFirstRow = item => (
                 </div>
               </div>
             </div>
-            {/* {<Form />} */}
-            {
-            // <div>
-            //   <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank' >
-            //     <img src={`/assets/${buyTixGif}`} />
-            //   </a>
-            // </div>
-            }
           </div>
         </div>
       </div>
+
+      {/* <!-- CTA/FORM BLOCK --> */}
+      {
+        item.show_form ?
+          <div className="columns large-6 large-push-1 medium-14 small-14">
+            {<Form />}
+          </div>
+        : null
+      }
+      {/* <!-- CTA/FORM BLOCK --> */}
+
     </section>
     <div className='row parallax show-for-large'>
       <div className='music-icon large-push-8' />
