@@ -70,7 +70,7 @@ class Form extends React.Component {
     const err = this.state.form_error
 
     if (this.state.submitted)
-      return <p>Congratulations, you're on the list!'</p>
+      return <p>Congratulations, you&apos;re on the list!</p>
     else
       return (
         <form
@@ -128,7 +128,7 @@ class Form extends React.Component {
           </span>
           <br />
           <div className="_button-wrapper">
-            <button type="submit" className="submit_btn">REMIND ME</button>
+            <button type="submit" className="submit_btn">SEND ME UPDATES</button>
           </div>
         </form>
       )

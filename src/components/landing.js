@@ -26,20 +26,6 @@ const _renderFirstRow = item => (
               {item.title}
             </h1>
             <div dangerouslySetInnerHTML={createMarkup(item.description)} />
-            <div className='row' style={{margin: '50px auto'}}>
-              <div className='small-up-1 large-up-2 neon-btns'>
-                <div className='column'>
-                  <div className='_button-wrapper'>
-                    <Link className='btn' to='/ticket/'>HOTEL + TIX</Link>
-                  </div>
-                </div>
-                <div className='column'>
-                  <div className='_button-wrapper'>
-                    <a className='btn' href='https://www.ticketfly.com/purchase/event/1318649?_ga=1.118752910.628319008.1490227557' target='_blank'>VIP</a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -47,11 +33,11 @@ const _renderFirstRow = item => (
       {/* <!-- CTA/FORM BLOCK --> */}
       {
         item.show_form ?
-          <div className="columns large-12 large-push-1 medium-14 small-14">
+          <div className="columns large-10 large-push-2 medium-14 small-14">
             <div className="copy-hero">
               <div className="copy">
-                <h1 className='pink_on title'>DAILY LINEUP COMING TUESDAY 5/2 10 AM PST!</h1>
-                <p className='subhead-2'>Don’t miss out! Sign up for updates to receive the lineup email, hotel options, and single-day ticket sale information when the news drops</p>
+                <h1 className='pink_on title'>SINGLE DAY TICKETS ON SALE THURSDAY 5/4 10 AM PST!</h1>
+                <p className='subhead-2'>Limited single-day tickets available Thursday, 10 AM PST. Single-day tickets will sell out fast. Sign up for alerts and additional info below.</p>
                 {<Form />}
               </div>
             </div>
@@ -213,7 +199,7 @@ const _renderForm = ticket => (
 
 const HomeContainer = (props) => {
   const data = props.data
-  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24100424/lib_poster_final_web.jpg'
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/05/02015712/LIB_Poster_DailyLineup_1200.jpg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
@@ -221,7 +207,7 @@ const HomeContainer = (props) => {
       <div className='row homepage-lineup'>
         <div className='small-14 large-12 column large-push-1'>
           <a href={imgUrl} target='_blank'>
-            <img style={{border: '10px solid rgba(255,255,255,0.75)', marginTop: '3rem'}} src={imgUrl} />
+            <img style={{border: '10px solid rgba(255,255,255,0.75)', marginTop: '3rem', width: '100%'}} src={imgUrl} />
           </a>
         </div>
       </div>
