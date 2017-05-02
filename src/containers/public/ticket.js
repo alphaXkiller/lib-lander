@@ -21,6 +21,14 @@ import vipEarlySoldout   from '../../img/vip_early_soldout.png'
 import vipRegular        from '../../img/vip_regular.png'
 import vvipRegular        from '../../img/vvip_regular.png'
 
+import friGA  from '../../img/ga_pink_friday.png'
+import satGA  from '../../img/ga_pink_saturday.png'
+import sunGA  from '../../img/ga_pink_sunday.png'
+
+import friVIP  from '../../img/vip_blue_friday.png'
+import satVIP  from '../../img/vip_blue_saturday.png'
+import sunVIP  from '../../img/vip_blue_sunday.png'
+
 const goTo = itemId => {
   let item = document.querySelector('.' + itemId)
   item.scrollIntoView({ behavior: 'smooth' })
@@ -369,36 +377,36 @@ class TicketPage extends React.Component {
                   </div> */}
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
-                      <h1>3-DAY GA</h1>
-                      <img src={`/assets/${gaEarlySoldout}`} />
+                      <h1>1-DAY GA</h1>
+                      <img src={`/assets/${friGA}`} />
                     </div>
                     <div className='row'>
-                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <img src={`/assets/${gaAdvanceSoldout}`} />
-                      </a>
+                      <img src={`/assets/${satGA}`} />
                     </div>
                     <div className='row'>
-                      <img src={`/assets/${gaRegularSoldout}`} />
+                      <img src={`/assets/${sunGA}`} />
                     </div>
                   </div>
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
-                      <h1>3-DAY VIP</h1>
-                      <img src={`/assets/${vipEarlySoldout}`} />
+                      <h1>1-DAY VIP</h1>
+                      <img src={`/assets/${friVIP}`} />
                     </div>
                     <div className='row'>
-                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <img src={`/assets/${vipAdvanceSoldout}`} />
-                      </a>
+                      <img src={`/assets/${satVIP}`} />
                     </div>
                     <div className='row'>
-                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <img src={`/assets/${vipRegular}`} />
-                      </a>
+                      <img src={`/assets/${sunVIP}`} />
                     </div>
                   </div>
                   <div className='large-4 small-14 column text-center end'>
                     <div className='row'>
+                      <div className='small-7 large-14 column'>
+                        <h1>3-DAY VIP</h1>
+                        <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+                          <img src={`/assets/${vipRegular}`} />
+                        </a>
+                      </div>
                       <div className='small-7 large-14 column'>
                         <h1>V+VIP</h1>
                         <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>

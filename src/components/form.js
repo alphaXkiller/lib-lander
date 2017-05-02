@@ -70,12 +70,12 @@ class Form extends React.Component {
     const err = this.state.form_error
 
     if (this.state.submitted)
-      return <p>Congratulations, you're on the list!'</p>
+      return <p>Congratulations, you&apos;re on the list!</p>
     else
       return (
-        <form 
-          onSubmit={this.onSubmit} 
-          noValidate 
+        <form
+          onSubmit={this.onSubmit}
+          noValidate
           className='form-content'
           style={{marginTop: '20px'}}
         >
@@ -83,20 +83,22 @@ class Form extends React.Component {
             <div
               className='small-7 column'
             >
-              <input 
-                type="text" 
-                name="firstname" 
+              <input
+                type="text"
+                name="firstname"
+                className="form_fname"
                 placeholder="First Name*"
                 onChange={this.onChange}
-              />  
+              />
             { err.firstname ? <p className='err-msg'>{err.firstname}</p> : null}
             </div>
             <div
               className='small-7 column'
             >
-              <input 
-                type="text" 
-                name="lastname" 
+              <input
+                type="text"
+                name="lastname"
+                className="form_lname"
                 placeholder="Last Name*"
                 onChange={this.onChange}
               />
@@ -107,12 +109,12 @@ class Form extends React.Component {
             onChange={this.onChange}
           />
           { err.email ? <p className='err-msg'>{err.email}</p> : null }
-          <input type="text" name="phone" placeholder="Mobile Phone (Get Single Day Sale SMS!)"
+          <input type="text" name="phone" placeholder="Mobile Phone (Get SMS Announcements!)"
             onChange={this.onChange}
           />
           <span>
-            <a 
-              href="https://lifeisbeautiful.com/policy.html#sms" 
+            <a
+              href="https://lifeisbeautiful.com/policy.html#sms"
               target="_blank"
               style={{
                 float: 'right',
@@ -126,7 +128,7 @@ class Form extends React.Component {
           </span>
           <br />
           <div className="_button-wrapper">
-            <button type="submit" className="submit_btn">REMIND ME</button>
+            <button type="submit" className="submit_btn">SEND ME UPDATES</button>
           </div>
         </form>
       )
