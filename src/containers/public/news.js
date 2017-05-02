@@ -1,6 +1,7 @@
 import R           from 'ramda'
 import React       from 'react'
 import { connect } from 'react-redux'
+import { Link }    from 'react-router-dom'
 
 import { News }         from '../../actions/index.js'
 import { createMarkup } from '../../lib/helpers.js'
@@ -16,11 +17,16 @@ const _renderNewRow = news_list => {
         <h2 className='planning-title'>{news_left.title}</h2>
         <div className='planning-img'><img src={news_left.image} /></div>
         <div className='large-12 column end'>
-          <div
-            dangerouslySetInnerHTML={createMarkup(news_left.description)}
+          <p
+            dangerouslySetInnerHTML={createMarkup(news_left.excerpt)}
           />
           <button className='btn-underline default'>
-            <a href={news_left.link} target='_blank'>{news_left.link_text}</a>
+            {
+              news_left.is_external_link ?
+                <a href={news_left.external_link} target='_blank'>{news_left.link_text}</a>
+              :
+                <Link to={`/news/${news_left.slug}`}>{news_left.link_text}</Link>
+            }
             <hr/>
           </button>
         </div>
@@ -31,11 +37,16 @@ const _renderNewRow = news_list => {
             <h2 className='planning-title'>{news_right.title}</h2>
             <div className='planning-img'><img src={news_right.image} /></div>
             <div className='large-12 column end'>
-              <div
-                dangerouslySetInnerHTML={createMarkup(news_right.description)}
+              <p
+                dangerouslySetInnerHTML={createMarkup(news_right.excerpt)}
               />
               <button className='btn-underline default'>
-                <a href={news_right.link} target='_blank'>{news_right.link_text}</a>
+                {
+                  news_right.is_external_link ?
+                    <a href={news_right.external_link} target='_blank'>{news_right.link_text}</a>
+                  :
+                    <Link to={`/news/${news_right.slug}`}>{news_right.link_text}</Link>
+                }
                 <hr className='pink'/>
               </button>
             </div>
