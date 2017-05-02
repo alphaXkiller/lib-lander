@@ -9,6 +9,7 @@ import Vibe     from './containers/public/vibe.js'
 import NotFound from './containers/public/404.js'
 import Planning from './containers/public/planning.js'
 import News     from './containers/public/news.js'
+import Post     from './containers/public/newsPost.js'
 import Ticket   from './containers/public/ticket.js'
 import Page   from './containers/public/page.js'
 import Sponsors   from './containers/public/sponsors.js'
@@ -27,6 +28,7 @@ const RouteFunctor = [
   { path: '/lineup', component: Lineup },
   { path: '/vibe', component: Vibe },
   { path: '/planning', component: Planning },
+  { path: '/news/:slug', component: Post },
   { path: '/news', component: News },
   { path: '/ticket', component: Ticket },
   { path: '/sponsors', component: Sponsors },

@@ -2,6 +2,7 @@ import Vibe        from './vibe'
 import Landing     from './home'
 import Planning    from './planning'
 import News        from './news'
+import Post        from './newsPost'
 import Ticket      from './ticket'
 import PageActions from './page'
 import Faq         from './faq'
@@ -15,6 +16,7 @@ export {
   Landing,
   Planning,
   News,
+  Post,
   Ticket,
   PageActions,
   Sponsors
