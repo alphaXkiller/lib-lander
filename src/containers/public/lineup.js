@@ -28,12 +28,14 @@ import {
 
 const LINEUP_PATH    = '/lineup'
 const CAT_ALL      = 'all'
+const DEFAULT_DAY  = 'all'
 const DEFAULT_TAG  = 'all'
 const DEFAULT_SORT = FilterOption.Order[0]
 
 const FILTER_NAME = {
-  cat: 'category',
-  tag: 'Genre'
+  cat: 'Category',
+  tag: 'Genre',
+  day: 'Day'
 }
 
 const packeryOptions = {
@@ -125,21 +127,31 @@ class LineupPage extends React.Component {
     super(props)
 
     this.state = {
-      selected_cat      : props.query.cat ? props.query.cat : FILTER_NAME.cat,
+      init_loading        : true,
+      selected_cat        : props.query.cat ? props.query.cat : FILTER_NAME.cat,
       selected_lineup     : {},
-      selected_order    : props.query.sort ? props.query.sort : DEFAULT_SORT,
-      selected_tag      : props.query.tag ? props.query.tag : FILTER_NAME.tag,
+      selected_order      : props.query.sort ? props.query.sort : DEFAULT_SORT,
+      selected_tag        : props.query.tag ? props.query.tag : FILTER_NAME.tag,
+      selected_day        : props.query.day ? props.query.day : FILTER_NAME.day,
       current_lineup_list : props.lineup
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.lineup !== this.props.lineup) {
+    // First time loading
+    if (prevProps.lineup !== this.props.lineup && this.state.init_loading) {
+      this.setState({
+        current_lineup_list: getCompleteList(this.props.query, this.props.lineup),
+        init_loading: false
+      })
+    }
+
+    // When url query change, recalculate the lineup
+    if (!(R.equals(prevProps.query, this.props.query))) {
       this.setState({
         current_lineup_list: getCompleteList(this.props.query, this.props.lineup)
       })
     }
-
   }
 
   componentDidMount() {
@@ -148,9 +160,29 @@ class LineupPage extends React.Component {
     }
   }
 
+
+  _onSelectFilter = (type, selected_value) => {
+    const _all = {
+      cat: CAT_ALL,
+      tag: DEFAULT_TAG,
+      day: DEFAULT_DAY
+    }
+
+    this.setState({['selected_' + type]: selected_value}, () => R.ifElse(
+      R.equals(_all[type]),
+      () => this.props.history.push(
+        getQueryUrl(LINEUP_PATH, R.dissoc(type, this.props.query))
+      ),
+      () => this.props.history.push(
+        getQueryUrl(LINEUP_PATH, R.merge(this.props.query, { [type]: selected_value }))
+      )
+    )(selected_value))
+  }
+
+
   onSelect = (e, index, value) => {
     const selected_cat = value
-    const current_linueup_list = getCompleteList({cat: selected_cat}, this.props.lineup)
+    const current_lineup_list = getCompleteList({cat: selected_cat}, this.props.lineup)
 
     this.setState({selected_cat, current_lineup_list}, () =>
       R.ifElse(
@@ -166,27 +198,15 @@ class LineupPage extends React.Component {
   }
 
 
-  onSelectTag = (e, index, value) => {
-    const selected_tag = value
-    const current_lineup_list = getCompleteList({tag: selected_tag}, this.props.lineup)
+  onSelectTag = (e, index, value) => this._onSelectFilter('tag', value)
 
-    this.setState({selected_tag, current_lineup_list}, () =>
-      R.ifElse(
-        R.equals(DEFAULT_TAG),
-        () => this.props.history.push(getQueryUrl(LINEUP_PATH, R.dissoc(
-          'tag', this.props.query
-        ))),
-        tag => this.props.history.push(getQueryUrl(LINEUP_PATH, R.merge(
-          this.props.query, { tag }
-        )))
-      )(this.state.selected_tag)
-    )
-  }
+
+  onSelectDay = (e, index, value) => this._onSelectFilter('day', value)
 
 
   onSelectSort = (e, index, value) => {
     const default_order = FilterOption.Order[1]
-    const current_lineup_list = sortByOption(this.props.lineup)(value)
+    const current_lineup_list = sortByOption(this.state.current_lineup_list)(value)
 
     this.setState({current_lineup_list, selected_order: value}, () =>
       R.ifElse(
@@ -209,7 +229,7 @@ class LineupPage extends React.Component {
        <div className='content'>
         <div className='row align-center'>
           {
-            R.isEmpty(data) ?
+            R.and(R.isEmpty(data), this.state.init_loading) ?
               loadingLogo
             : <div className='small-14 large-10 large-push-2 column align-center'>
                 <div className='twelve-row row'>
@@ -220,15 +240,15 @@ class LineupPage extends React.Component {
                     </div>
                   </div>
                   <div className='row filter-wrapper'>
-                    <div className='small-14 small-up-2'>
-                      {/* {
+                    <div className='small-14 small-up-1 medium-up-3'>
+                      {
                         _renderFilter({
-                          list       : this.props.lineup_cats,
-                          onSelect   : this.onSelect,
-                          selected   : this.state.selected_cat,
+                          list       : this.props.lineup_days,
+                          onSelect   : this.onSelectDay,
+                          selected   : this.state.selected_day,
                           class_name : 'select-filter-cat'
                         })
-                      } */}
+                      }
                       {
                         _renderFilter({
                           list       : this.props.lineup_tags,
@@ -255,14 +275,16 @@ class LineupPage extends React.Component {
                     > */}
                     <div className='lineup-list animated fadeIn'>
                       {
-                        _mapData({
-                          selected_cat : R.ifElse(
-                            R.equals(FILTER_NAME.cat),
-                            R.always(CAT_ALL),
-                            R.identity
-                          )(this.state.selected_cat),
-                          onClick      : this.showDetails
-                        })(data)
+                        R.isEmpty(data) ?
+                          <p className='no-result'>NO RESULT FOR THE CURRENT SELECTIONS</p>
+                        : _mapData({
+                            selected_cat : R.ifElse(
+                              R.equals(FILTER_NAME.cat),
+                              R.always(CAT_ALL),
+                              R.identity
+                            )(this.state.selected_cat),
+                            onClick      : this.showDetails
+                          })(data)
                       }
                     </div>
                   {/* </Packery> */}
@@ -282,20 +304,24 @@ const _getAllByProp = name => R.compose(
   R.pluck(name)
 )
 
+
 const _getCats = R.compose(
   R.concat([FILTER_NAME.cat, CAT_ALL]),
   _getAllByProp('categories')
 )
+
 
 const _getTags = R.compose(
   R.concat([FILTER_NAME.tag, DEFAULT_TAG]),
   _getAllByProp('tags')
 )
 
+
 const mapStateToProps = (state, props) => ({
   lineup: state.lineup,
   lineup_cats: _getCats(state.lineup),
-  lineup_tags: _getTags(state.lineup)
+  lineup_tags: _getTags(state.lineup),
+  lineup_days: [ 'Day', 'all', 'friday', 'saturday', 'sunday' ]
 })
 
 
