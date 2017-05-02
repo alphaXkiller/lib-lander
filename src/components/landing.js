@@ -36,7 +36,7 @@ const _renderFirstRow = item => (
           <div className="columns large-10 large-push-2 medium-14 small-14">
             <div className="copy-hero">
               <div className="copy">
-                <h1 className='pink_on title'>SINGLE DAY TICKETS ON SALE THURSDAY 5/4 10 AM PST!</h1>
+                <h1 className='pink_on title'>SINGLE-DAY TICKETS ON SALE THURSDAY 5/4 10 AM PST!</h1>
                 <p className='subhead-2'>Limited single-day tickets available Thursday, 10 AM PST. Single-day tickets will sell out fast. Sign up for alerts and additional info below.</p>
                 {<Form />}
               </div>
@@ -199,7 +199,7 @@ const _renderForm = ticket => (
 
 const HomeContainer = (props) => {
   const data = props.data
-  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/05/02015712/LIB_Poster_DailyLineup_1200.jpg'
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/05/02053000/LIB_Poster_DailyLineup_rd3.jpg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
