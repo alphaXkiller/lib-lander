@@ -71,6 +71,13 @@ const inSelectedTag = selected_tag => R.ifElse(
 )
 
 
+const inSelectedDay = selected_day => R.ifElse(
+  () => selected_day === 'all',
+  R.T,
+  R.propEq('day', selected_day)
+)
+
+
 const sortByOption = list => R.ifElse(
   R.complement(R.equals('name')),
   R.always(list),
@@ -89,6 +96,7 @@ const getCompleteList = (query, list) => R.ifElse(
     R.filter(R.allPass([
       obj => query.cat ? inSelectedCat(query.cat)(obj) : R.T,
       obj => query.tag ? inSelectedTag(query.tag)(obj) : R.T,
+      obj => query.day ? inSelectedDay(query.day)(obj) : R.T
     ]))
   )(list)
 )(query)

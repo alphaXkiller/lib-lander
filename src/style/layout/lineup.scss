@@ -5,6 +5,12 @@
 }
 
 .lineup-list {
+  min-height: 40vmax;
+
+  .no-result {
+    text-align: center;
+    font-weight: bold;
+  }
   // &:last-child
   .artist-name {
     display: inline-flex;
