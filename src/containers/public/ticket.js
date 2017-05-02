@@ -366,7 +366,10 @@ class TicketPage extends React.Component {
             <div className='content'>
               <img src='https://lifeisbeautiful.com/img/lifeisbeautiful_lineup2017.jpg' style={{display: 'none'}} />
               <div className='row page-title' style={{paddingBottom: '2vw'}}>
-                <h1 className='large-10 large-push-2 columns'>Tickets</h1>
+                <div className='large-10 large-push-2 columns'>
+                  <h1>Tickets</h1>
+                  <p>Thanks to all the beautiful people out there, 3-Day GA and VIP passes sold out in record time!  Take advantage of single-day GA and VIP now before they are gone in a flash.</p>
+                </div>
               </div>
               <div className='row'>
                 <div className='large-12 column large-push-2'>
@@ -429,7 +432,7 @@ class TicketPage extends React.Component {
                   <div className='row medium-up-2 small-up-1 tix-links-w-arrow'>
                     <div className='column flex-center'>
                       <button className='btn-underline default'>
-                        <a  href='#payment-plan' onClick={() => goTo('payment-plan')}>
+                        <a href='#payment-plan' onClick={() => goTo('payment-plan')}>
                           PAYMENT PLANS
                           <i className='fa fa-long-arrow-right fa-md' />
                         </a>
