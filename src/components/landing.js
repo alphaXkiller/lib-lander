@@ -199,7 +199,7 @@ const _renderForm = ticket => (
 
 const HomeContainer = (props) => {
   const data = props.data
-  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/05/02053000/LIB_Poster_DailyLineup_rd3.jpg'
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/05/03042744/LIB_Poster_DailyLineup_R5.jpeg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>
