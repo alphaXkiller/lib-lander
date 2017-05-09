@@ -29,6 +29,14 @@ import friVIP  from '../../img/vip_blue_friday.png'
 import satVIP  from '../../img/vip_blue_saturday.png'
 import sunVIP  from '../../img/vip_blue_sunday.png'
 
+import friGA_SO  from '../../img/ga_pink_friday_soldout.png'
+import satGA_SO  from '../../img/ga_pink_saturday_soldout.png'
+import sunGA_SO  from '../../img/ga_pink_sunday_soldout.png'
+
+import friVIP_SO  from '../../img/vip_blue_friday_soldout.png'
+import satVIP_SO  from '../../img/vip_blue_saturday_soldout.png'
+import sunVIP_SO  from '../../img/vip_blue_sunday_soldout.png'
+
 const goTo = itemId => {
   let item = document.querySelector('.' + itemId)
   item.scrollIntoView({ behavior: 'smooth' })
@@ -368,7 +376,9 @@ class TicketPage extends React.Component {
               <div className='row page-title' style={{paddingBottom: '2vw'}}>
                 <div className='large-10 large-push-2 columns'>
                   <h1>Tickets</h1>
-                  <p>Thanks to all the beautiful people out there, 3-Day GA and VIP passes sold out in record time!  Take advantage of single-day GA and VIP now before they are gone in a flash.</p>
+                  <p>Thanks to all the beautiful people out there, <b>3-Day GA passes sold out</b> in record time!  Take advantage of single-day GA and VIP now before they are gone in a flash.</p>
+                  <br/>
+                  <h3>REMINDER: ALL 3-DAY GA TICKETS ARE <span>SOLD OUT</span></h3>
                 </div>
               </div>
               <div className='row'>
@@ -381,25 +391,37 @@ class TicketPage extends React.Component {
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
                       <h1>1-DAY GA</h1>
-                      <img src={`/assets/${friGA}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
+                        <img src={`/assets/${friGA_SO}`} />
+                      </a>
                     </div>
                     <div className='row'>
-                      <img src={`/assets/${satGA}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
+                        <img src={`/assets/${satGA_SO}`} />
+                      </a>
                     </div>
                     <div className='row'>
-                      <img src={`/assets/${sunGA}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
+                        <img src={`/assets/${sunGA}`} />
+                      </a>
                     </div>
                   </div>
                   <div className='large-4 small-7 column text-center'>
                     <div className='row'>
                       <h1>1-DAY VIP</h1>
-                      <img src={`/assets/${friVIP}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
+                        <img src={`/assets/${friVIP}`} />
+                      </a>
                     </div>
                     <div className='row'>
-                      <img src={`/assets/${satVIP}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
+                        <img src={`/assets/${satVIP}`} />
+                      </a>
                     </div>
                     <div className='row'>
-                      <img src={`/assets/${sunVIP}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
+                        <img src={`/assets/${sunVIP}`} />
+                      </a>
                     </div>
                   </div>
                   <div className='large-4 small-14 column text-center end'>
