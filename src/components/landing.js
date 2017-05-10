@@ -7,6 +7,7 @@ import Logo from '../containers/public/logo'
 import Form from '../components/form.js'
 import SponsorImg from '../img/sponsor-logos.png'
 import buyTixGif from '../img/buytickets.gif'
+import buyTixPng from '../img/buy_tix.png'
 import buySingleDay from '../img/SingleDay_Tickets_5-4.png'
 
 
@@ -38,8 +39,9 @@ const _renderFirstRow = item => (
             <div className="copy-hero">
               <div className="copy centered">
                 <Link to="/ticket">
-                  <h1 className='pink_on title'>SINGLE-DAY TICKETS, VIP TICKETS, HOTEL+TICKET PACKAGES NOW AVAILABLE!</h1>
-                  <img src={`/assets/${buySingleDay}`} />
+                  <h1 className='pink_on title'>DOWNTOWN LAS VEGAS<br />SEPTEMBER 22-24, 2017</h1>
+                  <br />
+                  <img src={`/assets/${buyTixPng}`} />
                 </Link>
                 {/*<Form />*/}
               </div>
@@ -51,7 +53,7 @@ const _renderFirstRow = item => (
 
     </section>
     <div className='row parallax show-for-large'>
-      <div className='music-icon large-push-8' />
+      <div className='music-icon large-push-3' />
     </div>
   </div>
 )
@@ -202,7 +204,7 @@ const _renderForm = ticket => (
 
 const HomeContainer = (props) => {
   const data = props.data
-  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/05/03042744/LIB_Poster_DailyLineup_R5.jpeg'
+  const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24100424/lib_poster_final_web.jpg'
   return notEmpty(data) ?
   (
     <div style={{color: 'white'}}>

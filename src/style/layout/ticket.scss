@@ -51,12 +51,25 @@
   }
 }
 
-.neon-btns
-  ._button-wrapper
+.neon-btns{
+  margin: 3rem 0;
+  @media only screen and (max-width: 48.000rem) {
+    margin: 1rem 0;
+  }
+  ._button-wrapper {
     .btn {
       font-size: 1.8vw;
       padding: 10px 60px;
+      @media only screen and (max-width: 48.000rem) {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
     }
+    @media only screen and (max-width: 48.000rem) {
+      margin: 1rem 0;
+    }
+  }
+}
 
 .payment-plans {
   text-align: center;
