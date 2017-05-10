@@ -231,12 +231,12 @@ class LineupPage extends React.Component {
           {
             R.and(R.isEmpty(data), this.state.init_loading) ?
               loadingLogo
-            : <div className='small-14 large-10 large-push-2 column align-center'>
+            : <div className='small-14 large-12 large-push-1 column align-center'>
                 <div className='twelve-row row'>
                   <div className='row page-title' style={{paddingBottom: 0}}>
                     <div className='large-14 column lineup-title'>
                       <h1 className='large-3 column'>LINEUP</h1>
-                      <p className='large-11 column end'>MORE THAN JUST A LINEUP, IT'S A THREE-DAY, MULTISENSORY EXPERIENCE. <br /> Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life is Beautiful lineup unforgettable.</p>
+                      <p className='large-11 column end'>MORE THAN JUST A LINEUP, IT&apos;S A THREE-DAY, MULTISENSORY EXPERIENCE. <br /> Explore the amazing artists, performers, influencers and culinary offerings that make the 2017 Life is Beautiful lineup unforgettable.</p>
                     </div>
                   </div>
                   <div className='row filter-wrapper'>
