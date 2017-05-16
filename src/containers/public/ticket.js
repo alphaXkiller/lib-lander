@@ -543,7 +543,7 @@ class TicketPage extends React.Component {
               <section className='large-14 column'>
                 <div className='row tix-packages ticket-lg'>
                   <div className='large-2 columns column-height' />
-                  <h1 className='large-10 columns'>TICKETS + HOTEL PACKAGES</h1>
+                  <h1 className='large-10 columns'>HOTEL + TICKETS PACKAGES</h1>
                   <div className='large-2 columns column-height' />
                 </div>
                 <div className='row' style={{paddingBottom: '30px'}}>
