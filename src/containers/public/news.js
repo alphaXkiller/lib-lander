@@ -13,7 +13,7 @@ const _renderNewRow = news_list => {
 
   return (
     <div key={news_left.ID} className='row planning-row'>
-      <div className='large-7 column'>
+      <div className='large-6 large-pull-1 column'>
         <h2 className='planning-title'>{news_left.title}</h2>
         <div className='planning-img'><img src={news_left.image} /></div>
         <div className='large-12 column end'>
@@ -33,7 +33,7 @@ const _renderNewRow = news_list => {
       </div>
       {
         news_right ?
-          <div key={news_right.ID} className='large-7 column'>
+          <div key={news_right.ID} className='large-6 column'>
             <h2 className='planning-title'>{news_right.title}</h2>
             <div className='planning-img'><img src={news_right.image} /></div>
             <div className='large-12 column end'>
@@ -69,11 +69,11 @@ class NewsPage extends React.Component {
       <div className='content'>
         <div className='row align-center'>
           <div className='large-2 column column-height' />
-          <div className='small-14 large-10 column align-center'>
+          <div className='small-14 large-12 large-pull-1 column align-center'>
             <div className='row page-title' style={{paddingBottom: 0}}>
               <div className='large-14 column'>
                 <h1>NEWS</h1>
-                <p>Find out what’s new with Life is Beautiful and what's happening in Downtown Las Vegas.</p>
+                <p>Find out what’s new with Life is Beautiful and what&apos;s happening in Downtown Las Vegas.</p>
               </div>
             </div>
             { R.map(_renderNewRow)(this.props.news) }
