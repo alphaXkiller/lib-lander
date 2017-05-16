@@ -603,7 +603,9 @@ class TicketPage extends React.Component {
                       }
                     />
                     <div className='row'>
-                      <div className='large-10 column' style={{background: `url(${hotel[5].image}) center no-repeat`, height: 450, width: '100%'}} />
+                      <div className='large-14 small-14 column' style={{textAlign: 'center'}}>
+                        <img src={hotel[5].image} />
+                      </div>
                     </div>
                   </div>
                   <div className='large-2 columns column-height' />
