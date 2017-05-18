@@ -1,15 +1,23 @@
-.planning-row {
+.planning-row, .news-row {
   margin: 3rem auto;
   display: flex;
   justify-content: center;
-  align-items: center;
   .planning-title {
     font-family: 'AN-Bold';
     text-transform: uppercase;
     font-size: 2.25rem;
+    a {
+      color: #fff;
+    }
+  }
+  .left-title {
+    margin-right: 1rem;
   }
   .planning-img {
-    max-width: 80%;
-    margin: 20px;
+    max-width: 83.5%;
+    margin: 20px 20px 20px 0;
   }
+}
+.planning-row {
+  align-items: center;
 }

@@ -23,9 +23,9 @@ class Page extends Component {
     const data = this.props.page
     const err_status = R.path(['error', 'status'])(this.props.page)
 
-    // if (err_status === 404)
-    //   return <NotFound />
-    // else
+    if (err_status === 404)
+      return <NotFound />
+    else
       return(
         <div className='content content-pages'>
           {
