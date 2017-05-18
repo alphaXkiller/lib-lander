@@ -12,9 +12,16 @@ const _renderNewRow = news_list => {
   const news_right = news_list[1]
 
   return (
-    <div key={news_left.ID} className='row planning-row'>
-      <div className='large-6 large-pull-1 column'>
-        <h2 className='planning-title'>{news_left.title}</h2>
+    <div key={news_left.ID} className='row news-row'>
+      <div className='large-7 column'>
+        <h2 className='planning-title left-title'>
+          {
+            news_left.is_external_link ?
+              <a href={news_left.external_link} target='_blank'>{news_left.title}</a>
+            :
+              <Link to={`/news/${news_left.slug}`}>{news_left.title}</Link>
+          }
+        </h2>
         <div className='planning-img'><img src={news_left.image} /></div>
         <div className='large-12 column end'>
           <p
@@ -33,8 +40,15 @@ const _renderNewRow = news_list => {
       </div>
       {
         news_right ?
-          <div key={news_right.ID} className='large-6 column'>
-            <h2 className='planning-title'>{news_right.title}</h2>
+          <div key={news_right.ID} className='large-7 column'>
+            <h2 className='planning-title'>
+            {
+              news_right.is_external_link ?
+                <a href={news_right.external_link} target='_blank'>{news_right.title}</a>
+              :
+                <Link to={`/news/${news_right.slug}`}>{news_right.title}</Link>
+            }
+            </h2>
             <div className='planning-img'><img src={news_right.image} /></div>
             <div className='large-12 column end'>
               <p

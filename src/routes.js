@@ -11,8 +11,8 @@ import Planning from './containers/public/planning.js'
 import News     from './containers/public/news.js'
 import Post     from './containers/public/newsPost.js'
 import Ticket   from './containers/public/ticket.js'
-import Page   from './containers/public/page.js'
-import Sponsors   from './containers/public/sponsors.js'
+import Page     from './containers/public/page.js'
+import Sponsors from './containers/public/sponsors.js'
 
 const INDEX_AFTER_QUESTION_MARK = 1
 
@@ -21,7 +21,6 @@ const _getQueryFromSearch = R.compose(
   Qs.parse,
   R.slice(INDEX_AFTER_QUESTION_MARK, Infinity)
 )
-
 
 const RouteFunctor = [
   { path: '/', component: Home, exact: true},
@@ -35,7 +34,6 @@ const RouteFunctor = [
   { path: '/:slug', component: Page },
   { component: NotFound }
 ]
-
 
 const RouteActor = route => {
   return (
