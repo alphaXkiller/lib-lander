@@ -35,15 +35,19 @@ const _renderFirstRow = item => (
       {/* <!-- CTA/FORM BLOCK --> */}
       {
         item.show_form ?
-          <div className="columns large-10 large-push-2 medium-14 small-14">
-            <div className="copy-hero">
-              <div className="copy centered">
-                <Link to="/ticket">
-                  <h1 className='pink_on title'>DOWNTOWN LAS VEGAS<br />SEPTEMBER 22-24, 2017</h1>
-                  <br />
-                  <img src={`/assets/${buyTixPng}`} />
-                </Link>
-                {/*<Form />*/}
+          <div className="columns large-12 large-push-1 medium-14 small-14">
+            <div className="row flexy">
+              <div className="columns large-7 medium-14 small-14 centered-logo">
+                <Logo />
+              </div>
+              <div className="columns large-7 medium-14 small-14">
+                  <div className="copy-hero">
+                      <h1 className='pink_on title'>DOWNTOWN LAS VEGAS<br />SEPTEMBER 22-24, 2017</h1>
+                      <br />
+                      <div className="_button-wrapper">
+                        <Link to='/ticket/' className='btn'>BUY TICKETS</Link>
+                      </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -53,7 +57,7 @@ const _renderFirstRow = item => (
 
     </section>
     <div className='row parallax show-for-large'>
-      <div className='music-icon large-push-3' />
+      <div className='music-icon large-push-7' />
     </div>
   </div>
 )

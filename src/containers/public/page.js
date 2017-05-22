@@ -40,9 +40,13 @@ class Page extends Component {
                       <h1>{data.title}</h1>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='featured-image' style={{background: `url(${data.feature_image}) center no-repeat` }} />
-                  </div>
+                  {
+                    data.feature_image ?
+                      <div className='row'>
+                        <div className='featured-image' style={{background: `url(${data.feature_image}) center no-repeat` }} />
+                      </div>
+                    : null
+                  }
                   <div className='row'>
                     <div className='column-two' dangerouslySetInnerHTML={createMarkup(data.content)}></div>
                   </div>

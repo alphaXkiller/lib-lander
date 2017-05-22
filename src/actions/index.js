@@ -8,6 +8,7 @@ import PageActions from './page'
 import Faq         from './faq'
 import Lineup      from './lineup'
 import Sponsors    from './sponsors'
+import Neighborhood from './neighborhood'
 
 export {
   Lineup,
@@ -19,5 +20,6 @@ export {
   Post,
   Ticket,
   PageActions,
-  Sponsors
+  Sponsors,
+  Neighborhood
 }
