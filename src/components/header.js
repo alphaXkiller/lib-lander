@@ -182,9 +182,11 @@ const Header = props => {
         iconElementRight={_buyTicketIcon(props.onClickCloseDrawer)}
         className='header-wrapper'
       />
+      {/*
       <div className='header-logo flex-center hide-for-small-only'>
         <Logo />
       </div>
+      */}
       <div id='drawer'>
         <Drawer
           docked={false}

@@ -13,6 +13,7 @@ import Post     from './containers/public/newsPost.js'
 import Ticket   from './containers/public/ticket.js'
 import Page     from './containers/public/page.js'
 import Sponsors from './containers/public/sponsors.js'
+import Neighborhood from './containers/public/neighborhood.js'
 
 const INDEX_AFTER_QUESTION_MARK = 1
 
@@ -27,6 +28,7 @@ const RouteFunctor = [
   { path: '/lineup', component: Lineup },
   { path: '/vibe', component: Vibe },
   { path: '/planning', component: Planning },
+  { path: '/neighborhood', component: Neighborhood },
   { path: '/news/:slug', component: Post },
   { path: '/news', component: News },
   { path: '/ticket', component: Ticket },
