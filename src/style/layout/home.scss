@@ -7,13 +7,16 @@
 
 .section-main,
 .section-header {
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 
 .section-content {
   .copy-hero {
     .title {
-      font-size: 3vw;
+      font-size: 2.5vw;
+      @media screen and (max-width: 48rem){
+        line-height: 2rem;
+      }
     }
 
     .subhead {
@@ -121,3 +124,5 @@
 .ideas-icon {
   background: url('../img/ideas-icon.png');
 }
+
+.centered {text-align: center;}

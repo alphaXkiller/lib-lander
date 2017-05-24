@@ -29,6 +29,14 @@ import friVIP  from '../../img/vip_blue_friday.png'
 import satVIP  from '../../img/vip_blue_saturday.png'
 import sunVIP  from '../../img/vip_blue_sunday.png'
 
+import friGA_SO  from '../../img/ga_pink_friday_soldout.png'
+import satGA_SO  from '../../img/ga_pink_saturday_soldout.png'
+import sunGA_SO  from '../../img/ga_pink_sunday_soldout.png'
+
+import friVIP_SO  from '../../img/vip_blue_friday_soldout.png'
+import satVIP_SO  from '../../img/vip_blue_saturday_soldout.png'
+import sunVIP_SO  from '../../img/vip_blue_sunday_soldout.png'
+
 const goTo = itemId => {
   let item = document.querySelector('.' + itemId)
   item.scrollIntoView({ behavior: 'smooth' })
@@ -364,69 +372,111 @@ class TicketPage extends React.Component {
             loadingLogo
           :
             <div className='content'>
+              {/* HIDDEN CONTENT */}
               <img src='https://lifeisbeautiful.com/img/lifeisbeautiful_lineup2017.jpg' style={{display: 'none'}} />
+
+              {/* TITLE AND COPY BLOCK */}
               <div className='row page-title' style={{paddingBottom: '2vw'}}>
                 <div className='large-10 large-push-2 columns'>
                   <h1>Tickets</h1>
-                  <p>Thanks to all the beautiful people out there, 3-Day GA and VIP passes sold out in record time!  Take advantage of single-day GA and VIP now before they are gone in a flash.</p>
+                  <p>This is your access to beautiful music, art, food and culture. Whether you want to mix and mingle and discover new artists and friends as you stroll the 18 blocks in Downtown Las Vegas, or if you crave exclusivity and want to take in your favorite artist from a private lounge, you&apos;ll find the perfect Life Is Beautiful tickets for you.</p>
                 </div>
               </div>
+
+              {/* MULTI-DAY TICKET BLOCK */}
               <div className='row'>
-                <div className='large-12 column large-push-2'>
-                  {/* <div className='row'>
-                    <div className='large-12 small-14 column'>
-                      <h1 className='pink_on' style={{fontFamily: 'AN-Round'}}>TICKETS ON SALE THURS. @ 10 A.M. PDT</h1>
+                <div className='large-10 column large-push-2'>
+
+                  <div className='row'>
+
+                    <div className='large-7 small-7 column text-center'>
+                      <h3>3-DAY GA</h3>
+                      <img src={`/assets/${gaRegularSoldout}`} />
+
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+                        <h3>V+VIP</h3>
+                        <img src={`/assets/${vvipRegular}`} />
+                      </a>
                     </div>
-                  </div> */}
-                  <div className='large-4 small-7 column text-center'>
-                    <div className='row'>
-                      <h1>1-DAY GA</h1>
-                      <img src={`/assets/${friGA}`} />
+
+                    <div className='large-7 small-7 column text-center'>
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+                        <h3>3-DAY VIP</h3>
+                        <img src={`/assets/${vipRegular}`} />
+                      </a>
+
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+                        <h3>ALL-IN</h3>
+                        <img src={`/assets/${allInRegular}`} />
+                      </a>
                     </div>
-                    <div className='row'>
-                      <img src={`/assets/${satGA}`} />
+
+                    <div className='large-14 small-14 column text-center neon-btns'>
+                      <div className="_button-wrapper">
+                        <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>HOTEL + TICKET PACKAGES</a>
+                      </div>
                     </div>
-                    <div className='row'>
-                      <img src={`/assets/${sunGA}`} />
-                    </div>
+
                   </div>
-                  <div className='large-4 small-7 column text-center'>
-                    <div className='row'>
-                      <h1>1-DAY VIP</h1>
-                      <img src={`/assets/${friVIP}`} />
+
+                </div>
+              </div>
+              {/* END MULTI-DAY TICKET BLOCK */}
+
+              {/* SINGLE-DAY TICKET BLOCK */}
+              <div className='row'>
+                <div className='large-10 large-push-2 small-7 column text-center'>
+                  <h3>1-DAY GA</h3>
+                  <div className='row'>
+
+                    <div className='large-4 small-14 column large-push-1 text-center'>
+                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
+                        <img src={`/assets/${friGA_SO}`} />
+                      </a>
                     </div>
-                    <div className='row'>
-                      <img src={`/assets/${satVIP}`} />
+
+                    <div className='large-4 small-14 column large-push-1 text-center'>
+                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
+                        <img src={`/assets/${satGA_SO}`} />
+                      </a>
                     </div>
-                    <div className='row'>
-                      <img src={`/assets/${sunVIP}`} />
+
+                    <div className='large-4 small-14 column large-push-1 text-center end'>
+                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
+                        <img src={`/assets/${sunGA}`} />
+                      </a>
                     </div>
+
                   </div>
-                  <div className='large-4 small-14 column text-center end'>
-                    <div className='row'>
-                      <div className='small-7 large-14 column'>
-                        <h1>3-DAY VIP</h1>
-                        <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                          <img src={`/assets/${vipRegular}`} />
-                        </a>
-                      </div>
-                      <div className='small-7 large-14 column'>
-                        <h1>V+VIP</h1>
-                        <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                          <img src={`/assets/${vvipRegular}`} />
-                        </a>
-                      </div>
-                      <div className='small-7 large-14 column'>
-                        <h1>ALL-IN</h1>
-                        <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                          <img src={`/assets/${allInRegular}`} />
-                        </a>
-                      </div>
+                </div>
+
+                <div className='large-10 large-push-2 small-7 column end text-center'>
+                  <h3>1-DAY VIP</h3>
+                  <div className='row'>
+
+                    <div className='large-4 small-14 large-push-1 column text-center'>
+                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
+                        <img src={`/assets/${friVIP}`} />
+                      </a>
                     </div>
+
+                    <div className='large-4 small-14 large-push-1 column text-center'>
+                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
+                        <img src={`/assets/${satVIP}`} />
+                      </a>
+                    </div>
+
+                    <div className='large-4 small-14 large-push-1 column text-center end'>
+                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
+                        <img src={`/assets/${sunVIP}`} />
+                      </a>
+                    </div>
+
                   </div>
                 </div>
               </div>
 
+              {/*
               <div className='row'>
                 <div className='large-10 small-14 column large-push-2'>
                   <div className='row medium-up-2 small-up-1 tix-links-w-arrow'>
@@ -451,43 +501,18 @@ class TicketPage extends React.Component {
                   </div>
                 </div>
               </div>
-
-              {
-              // <div className='row neon-btns'>
-              //   <div className='large-10 small-14 column large-push-2'>
-              //     <div className='row medium-up-2 small-up-1'>
-              //       <div className='column flex-center'>
-              //         <div className="_button-wrapper">
-              //           <a href='#hotels-only' className='btn cta2-activated' onClick={() => goTo('hotels-only')}>HOTELS</a>
-              //         </div>
-              //       </div>
-              //       <div className='column flex-center'>
-              //         <div className="_button-wrapper">
-              //           <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
-              //         </div>
-              //       </div>
-              //     </div>
-              //   </div>
-              // </div>
-              }
+              */}
 
               <div className='row neon-btns'>
-                <div className='large-12 small-14 column large-push-1'>
-                  <div className='row twelve-row'>
-                    <div className='large-4 column flex-center'>
-                      <div className="_button-wrapper">
-                        <a href='http://events.hotelsforhope.com/group-event?id=21938' className='btn cta2-activated' target='_blank'>HOTELS</a>
-                      </div>
+                <div className='large-10 small-14 column large-push-2'>
+                  <div className='large-7 column flex-center'>
+                    <div className="_button-wrapper">
+                      <a href='http://events.hotelsforhope.com/group-event?id=21938' className='btn cta2-activated' target='_blank'>HOTELS</a>
                     </div>
-                    <div className='large-4 column flex-center'>
-                      <div className="_button-wrapper">
-                        <a href='#tix-packages' className='btn cta2-activated' onClick={() => goTo('tix-packages')}>PACKAGES</a>
-                      </div>
-                    </div>
-                    <div className='large-4 column flex-center end'>
-                      <div className="_button-wrapper">
-                        <a href='https://www.ticketfly.com/purchase/event/1467533' target='_blank' className='btn cta2-actiaved'>PARK + RIDE</a>
-                      </div>
+                  </div>
+                  <div className='large-7 column flex-center end'>
+                    <div className="_button-wrapper">
+                      <a href='https://www.ticketfly.com/purchase/event/1467533' target='_blank' className='btn cta2-actiaved'>PARK + RIDE</a>
                     </div>
                   </div>
                 </div>
@@ -518,7 +543,7 @@ class TicketPage extends React.Component {
               <section className='large-14 column'>
                 <div className='row tix-packages ticket-lg'>
                   <div className='large-2 columns column-height' />
-                  <h1 className='large-10 columns'>TICKETS + HOTEL PACKAGES</h1>
+                  <h1 className='large-10 columns'>HOTEL + TICKETS PACKAGES</h1>
                   <div className='large-2 columns column-height' />
                 </div>
                 <div className='row' style={{paddingBottom: '30px'}}>
@@ -578,7 +603,9 @@ class TicketPage extends React.Component {
                       }
                     />
                     <div className='row'>
-                      <div className='large-10 column' style={{background: `url(${hotel[5].image}) center no-repeat`, height: 450, width: '100%'}} />
+                      <div className='large-14 small-14 column' style={{textAlign: 'center'}}>
+                        <img src={hotel[5].image} />
+                      </div>
                     </div>
                   </div>
                   <div className='large-2 columns column-height' />

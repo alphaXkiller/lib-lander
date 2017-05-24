@@ -8,5 +8,10 @@
   }
   p {
     font-family: 'AN-Reg', sans-serif;
+    b {font-family: 'AN-Bold'}
+  }
+  h3 {
+    text-align: center;
+    span {text-decoration: underline;}
   }
 }
