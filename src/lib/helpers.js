@@ -114,6 +114,25 @@ const loadingLogo = (
   </div>
 )
 
+const unlockScreen = () => {
+  document.querySelector('body')
+    .classList.remove('overflow-hidden')
+
+  document
+    .querySelector('#content-wrapper')
+    .classList.add('gridSet')
+}
+
+
+const lockScreen = () => {
+  document.querySelector('body')
+    .classList.add('overflow-hidden')
+
+  document
+    .querySelector('#content-wrapper')
+    .classList.remove('gridSet')
+}
+
 export {
   notEmpty,
   notNil,
@@ -132,5 +151,7 @@ export {
 
   createMarkup,
   isSafari,
-  loadingLogo
+  loadingLogo,
+  unlockScreen ,
+  lockScreen
 }

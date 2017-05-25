@@ -23,7 +23,12 @@ import {
   createMarkup,
   isSafari,
   getRandomIntInclusive,
-  loadingLogo
+  loadingLogo,
+  notNilOrEmpty ,
+  getNextVibe,
+  getPrevVibe,
+  unlockScreen,
+  lockScreen
 } from '../../lib/helpers'
 
 const LINEUP_PATH    = '/lineup'
@@ -79,48 +84,108 @@ const _renderFilter = ({list, onSelect, selected, class_name}) => (
   </div>
 )
 
-const _mapData = ({selected_cat, onClick}) => mapIndexed( (item, index) => {
+
+const _socialIcons = (value, key, obj) => {
+  return(
+    <a href={value} key={key} className='column social-icons pink_on' target='_blank'>
+      <i className={`fa fa-${key} fa-2x`} />
+    </a>
+  )
+}
+
+
+const _mapData = ({selected_cat, query}) => mapIndexed( (item, index) => {
   let hide_class = ''
+  const artist=item.slug
 
   // if selected is not 'all' or not in selected cat, hide lineup
   if (selected_cat !== CAT_ALL && !inSelectedCat(selected_cat)(item))
     hide_class = ' hide'
-
   return (
     <div key={index} className={'artist-name animated zoomIn ' + hide_class}>
-      {
-        item.link.post_name ?
-          <Link className='animated fadeIn' to={'/vibe?artist=' + item.link.post_name}>
-            <span className={
-              R.join( ' ', [
-                'name',
-                'link-to-vibe',
-                isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
-              )
-            }>
-              {item.name}
-            </span>
-          </Link>
-        :
-          <span className={
-            R.join( ' ', [
-              'name',
-              isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
-            )
-          }>{item.name}</span>
-
-        }
-      {/* {
-        item.link.post_name ?
-          <Link className='bio-link animated fadeIn' to={'/vibe?artist=' + item.link.post_name}>
-            <span><i className='fa fa-drivers-license-o fa-md' /> BIO</span>
-          </Link>
-        : null
-      } */}
+      <Link 
+        className='animated fadeIn' 
+        to={getQueryUrl(LINEUP_PATH, R.merge(query, { artist }))}
+      >
+        <span className={
+          R.join( ' ', [
+            'name',
+            'link-to-vibe',
+            isSafari ? cssColors.colors[getRandomIntInclusive()] + '_safari' : cssColors.colors[getRandomIntInclusive()]]
+          )
+        }>
+          {item.name}
+        </span>
+      </Link>
       <span className='separator'>/</span>
     </div>
   )
 })
+
+
+const _renderPopover = props => (
+  <div
+    className={R.join(' ', [
+      'row overflow-scroll popover animated show fadeIn',
+    ])}
+  >
+    <div className='large-10 large-push-2 column'>
+      <div className='row top-row'>
+        <div className='small-14 large-7 column img-container pl-2 pr-2'>
+          <div className='title-container' style={{
+            background: `url(${props.selected_lineup.profile_image}) center no-repeat`}}
+          >
+            <h1>{props.selected_lineup.name}</h1>
+          </div>
+        </div>
+        <div className='small-14 large-7 column large-up-3 small-up-3 align-left navigation-btns'>
+          <button className='column btn-underline' onClick={props.onClickCancel}>
+            <div>
+              <i className='fa fa-times fa-lg' /> CLOSE
+              <hr className='pink'/>
+            </div>
+          </button>
+          <button className='column btn-underline' onClick={props.onClickPrev}>
+            <div>
+              <i className='fa fa-arrow-left fa-lg' /> PREV
+              <hr/>
+            </div>
+          </button>
+          <button className='column btn-underline' onClick={props.onClickNext}>
+            <div>
+              NEXT <i className='fa fa-arrow-right fa-lg' />
+              <hr/>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div className='row'>
+        <div className='large-2 column large-up-4 small-up-4' style={{marginTop: 40}}>
+          {
+            props.selected_lineup.social_media ?
+              R.compose(
+                R.values,
+                R.mapObjIndexed(_socialIcons),
+                R.filter(R.complement(R.isEmpty))
+              )(props.selected_lineup.social_media)
+            : null
+          }
+        </div>
+      </div>
+      <div className='row'>
+        <div className='small-14 large-14 column'>
+          <div 
+            className='popover-content' 
+            dangerouslySetInnerHTML={
+              createMarkup(props.selected_lineup.description)
+            } 
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
 
 class LineupPage extends React.Component {
   constructor(props) {
@@ -138,6 +203,8 @@ class LineupPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const { query } = this.props
+    const { selected_lineup } = this.state
     // First time loading
     if (prevProps.lineup !== this.props.lineup && this.state.init_loading) {
       this.setState({
@@ -152,12 +219,29 @@ class LineupPage extends React.Component {
         current_lineup_list: getCompleteList(this.props.query, this.props.lineup)
       })
     }
+
+
+    // 
+    if (query.artist !== selected_lineup.slug) {
+      this.setState({selected_lineup: R.find(
+        R.propEq('slug', this.props.query.artist), this.props.lineup
+      )}, () => lockScreen())
+    }
+
+    if (!query.artist && prevProps.query.artist) {
+      this.setState({selected_lineup: {}}, () => unlockScreen())
+    }
   }
 
   componentDidMount() {
     if (R.isEmpty(this.props.lineup)) {
       this.props.fetchLineup()
     }
+  }
+
+
+  componentWillUnmount () {
+    unlockScreen()
   }
 
 
@@ -222,6 +306,27 @@ class LineupPage extends React.Component {
   }
 
 
+  onCancelPopover = () => this.props.history.push(getQueryUrl(
+    LINEUP_PATH, R.dissoc('artist', this.props.query)
+  ))
+
+
+  onNext = () => R.compose(
+    this.props.history.push,
+    artist => getQueryUrl(LINEUP_PATH, R.merge(this.props.query, {artist})),
+    R.prop('slug'),
+    () => getNextVibe(this.state.current_lineup_list, this.state.selected_lineup)
+  )()
+
+
+  onPrev = () => R.compose(
+    this.props.history.push,
+    artist => getQueryUrl(LINEUP_PATH, R.merge(this.props.query, {artist})),
+    R.prop('slug'),
+    () => getPrevVibe(this.state.current_lineup_list, this.state.selected_lineup)
+  )()
+
+
   render() {
     const data = this.state.current_lineup_list
 
@@ -232,7 +337,12 @@ class LineupPage extends React.Component {
             R.and(R.isEmpty(data), this.state.init_loading) ?
               loadingLogo
             : <div className='small-14 large-12 large-push-1 column align-center'>
-                <div className='twelve-row row'>
+                <div 
+                  className={R.join(' ', [
+                    'twelve-row row',
+                    notEmpty(this.state.selected_lineup) ? 'blur-10' : ''
+                  ])}
+                >
                   <div className='row page-title' style={{paddingBottom: 0}}>
                     <div className='large-14 column lineup-title'>
                       <h1 className='large-3 column'>LINEUP</h1>
@@ -267,31 +377,34 @@ class LineupPage extends React.Component {
                       }
                     </div>
                   </div>
-                  {/* <Packery
-                    className={'lineup-list'} // default ''
-                    elementType={'div'} // default 'div'
-                    options={packeryOptions} // default {}
-                    disableImagesLoaded={false} // default false
-                    > */}
-                    <div className='lineup-list animated fadeIn'>
-                      {
-                        R.isEmpty(data) ?
-                          <p className='no-result'>NO RESULT FOR THE CURRENT SELECTIONS</p>
-                        : _mapData({
-                            selected_cat : R.ifElse(
-                              R.equals(FILTER_NAME.cat),
-                              R.always(CAT_ALL),
-                              R.identity
-                            )(this.state.selected_cat),
-                            onClick      : this.showDetails
-                          })(data)
-                      }
-                    </div>
-                  {/* </Packery> */}
+                  <div className='lineup-list animated fadeIn'>
+                    {
+                      R.isEmpty(data) ?
+                        <p className='no-result'>NO RESULT FOR THE CURRENT SELECTIONS</p>
+                      : _mapData({
+                          selected_cat : R.ifElse(
+                            R.equals(FILTER_NAME.cat),
+                            R.always(CAT_ALL),
+                            R.identity
+                          )(this.state.selected_cat)
+                          ,
+                          query: this.props.query
+                        })(data)
+                    }
+                  </div>
                 </div>
               </div>
           }
         </div>
+        { 
+          notNilOrEmpty(this.state.selected_lineup) ?
+            _renderPopover({
+              selected_lineup: this.state.selected_lineup,
+              onClickNext: this.onNext,
+              onClickPrev: this.onPrev,
+              onClickCancel: this.onCancelPopover
+            }) : null
+        }
       </div>
     )
   }

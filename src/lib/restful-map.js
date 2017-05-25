@@ -9,6 +9,7 @@ export default {
   'page'     : '/lib/page/:slug',
   'faq'      : '/lib/faq',
   'lineup'   : '/lib/lineup',
+  'lineup_by_slug' : '/lib/lineup/:slug',
   'sponsor'  : '/lib/sponsor',
   'neighborhood' : '/lib/neighborhood'
 }
