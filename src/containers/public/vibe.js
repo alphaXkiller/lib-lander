@@ -19,7 +19,9 @@ import {
   inSelectedCat,
   sortByOption,
   createMarkup,
-  loadingLogo
+  loadingLogo,
+  unlockScreen,
+  lockScreen
 } from '../../lib/helpers'
 
 const VIBE_PATH    = '/vibe'
@@ -191,12 +193,7 @@ class Lineup extends React.Component {
 
   componentDidMount() {
     if (this.props.query.artist) {
-      document.querySelector('body')
-        .classList.add('overflow-hidden')
-
-      document
-        .querySelector('#content-wrapper')
-        .classList.remove('gridSet')
+      lockScreen()
 
       if (this.props.vibe.length > 0)
         this.setState({
@@ -215,12 +212,7 @@ class Lineup extends React.Component {
 
 
   componentWillUnmount () {
-    document.querySelector('body')
-      .classList.remove('overflow-hidden')
-
-    document
-      .querySelector('#content-wrapper')
-      .classList.add('gridSet')
+    unlockScreen()
   }
 
 
