@@ -13,56 +13,60 @@ const _renderNewRow = news_list => {
 
   return (
     <div key={news_left.ID} className='row news-row'>
-      <div className='large-7 column'>
-        <h2 className='planning-title left-title'>
-          {
-            news_left.is_external_link ?
-              <a href={news_left.external_link} target='_blank'>{news_left.title}</a>
-            :
-              <Link to={`/news/${news_left.slug}`}>{news_left.title}</Link>
-          }
-        </h2>
-        <div className='planning-img'><img src={news_left.image} /></div>
-        <div className='large-12 column end'>
-          <p
-            dangerouslySetInnerHTML={createMarkup(news_left.excerpt)}
-          />
-          <button className='btn-underline default'>
+      <div className='large-7 medium-14 small-14 column'>
+        <div className='article'>
+          <h2 className='planning-title left-title'>
             {
               news_left.is_external_link ?
-                <a href={news_left.external_link} target='_blank'>{news_left.link_text}</a>
+                <a href={news_left.external_link} target='_blank'>{news_left.title}</a>
               :
-                <Link to={`/news/${news_left.slug}`}>{news_left.link_text}</Link>
+                <Link to={`/news/${news_left.slug}`}>{news_left.title}</Link>
             }
-            <hr/>
-          </button>
+          </h2>
+          <div className='planning-img'><img src={news_left.image} /></div>
+          <div className='large-12 column end'>
+            <p
+              dangerouslySetInnerHTML={createMarkup(news_left.excerpt)}
+            />
+            <button className='btn-underline default'>
+              {
+                news_left.is_external_link ?
+                  <a href={news_left.external_link} target='_blank'>{news_left.link_text}</a>
+                :
+                  <Link to={`/news/${news_left.slug}`}>{news_left.link_text}</Link>
+              }
+              <hr/>
+            </button>
+          </div>
         </div>
       </div>
       {
         news_right ?
-          <div key={news_right.ID} className='large-7 column'>
-            <h2 className='planning-title'>
-            {
-              news_right.is_external_link ?
-                <a href={news_right.external_link} target='_blank'>{news_right.title}</a>
-              :
-                <Link to={`/news/${news_right.slug}`}>{news_right.title}</Link>
-            }
-            </h2>
-            <div className='planning-img'><img src={news_right.image} /></div>
-            <div className='large-12 column end'>
-              <p
-                dangerouslySetInnerHTML={createMarkup(news_right.excerpt)}
-              />
-              <button className='btn-underline default'>
-                {
-                  news_right.is_external_link ?
-                    <a href={news_right.external_link} target='_blank'>{news_right.link_text}</a>
-                  :
-                    <Link to={`/news/${news_right.slug}`}>{news_right.link_text}</Link>
-                }
-                <hr className='pink'/>
-              </button>
+          <div key={news_right.ID} className='large-7 medium-14 small-14 column'>
+            <div className='article'>
+              <h2 className='planning-title'>
+              {
+                news_right.is_external_link ?
+                  <a href={news_right.external_link} target='_blank'>{news_right.title}</a>
+                :
+                  <Link to={`/news/${news_right.slug}`}>{news_right.title}</Link>
+              }
+              </h2>
+              <div className='planning-img'><img src={news_right.image} /></div>
+              <div className='large-12 column end'>
+                <p
+                  dangerouslySetInnerHTML={createMarkup(news_right.excerpt)}
+                />
+                <button className='btn-underline default'>
+                  {
+                    news_right.is_external_link ?
+                      <a href={news_right.external_link} target='_blank'>{news_right.link_text}</a>
+                    :
+                      <Link to={`/news/${news_right.slug}`}>{news_right.link_text}</Link>
+                  }
+                  <hr className='pink'/>
+                </button>
+              </div>
             </div>
           </div>
         : null
