@@ -16,19 +16,6 @@ import wendohLogo from './img/wendoh_32.png'
 
 require('smoothscroll-polyfill').polyfill()
 
-const REDIRECT_PATH = [
-  'amazonexclusive',
-  'redbullexclusive',
-  'partner',
-  'titos'
-]
-const REDIRECT_LINK = [
-  'https://www.ticketfly.com/purchase/event/1477134',
-  'https://www.ticketfly.com/purchase/event/1477134',
-  'https://www.ticketfly.com/purchase/event/1477134',
-  'https://contests.lifeisbeautiful.com/?profile=titos'
-]
-
 const _openDrawer = () => document.getElementById('drawer')
   .getElementsByTagName('div')[2]
   .style
@@ -60,10 +47,6 @@ class App extends Component {
   componentWillMount() {
     const pathname = R.slice(1, Infinity, window.location.pathname)
     R.compose(
-      R.when(
-        R.contains(R.__, REDIRECT_PATH),
-        () => window.location.replace( REDIRECT_LINK[R.indexOf(pathname, REDIRECT_PATH)] )
-      ),
       R.toLower,
       R.slice(1, Infinity)
     )(window.location.pathname)
