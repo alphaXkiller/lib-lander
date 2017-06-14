@@ -22,12 +22,10 @@ const REDIRECT_LINK = [
 ]
 const pathname = R.toLower(R.slice(1, Infinity, window.location.pathname))
 
+
 class NotFound extends React.Component {
   render() {
-
-    console.log(R.indexOf(pathname, REDIRECT_PATH))
-
-    if ( R.indexOf(pathname, REDIRECT_PATH) > -1 ){
+    if ( REDIRECT_LINK[R.indexOf(pathname, REDIRECT_PATH)] !== -1 ){
       window.location.replace( REDIRECT_LINK[R.indexOf(pathname, REDIRECT_PATH)] )
       return (
         <div className='content content-page 404'>
