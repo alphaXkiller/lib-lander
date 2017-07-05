@@ -37,17 +37,23 @@ const _renderFirstRow = item => (
         item.show_form ?
           <div className="columns large-12 large-push-1 medium-14 small-14">
             <div className="row flexy">
-              <div className="columns large-7 medium-14 small-14 centered-logo">
+              <div className="columns large-5 medium-14 small-14 centered-logo">
                 <Logo />
               </div>
-              <div className="columns large-7 medium-14 small-14">
-                  <div className="copy-hero">
-                      <h1 className='pink_on title'>DOWNTOWN LAS VEGAS<br />SEPTEMBER 22-24, 2017</h1>
-                      <br />
-                      <div className="_button-wrapper">
-                        <Link to='/ticket/' className='btn'>BUY TICKETS</Link>
-                      </div>
-                  </div>
+              <div className="columns large-9 medium-14 small-14">
+                {
+                  // <div className="copy-hero">
+                  //     <h1 className='pink_on title'>DOWNTOWN LAS VEGAS<br />SEPTEMBER 22-24, 2017</h1>
+                  //     <br />
+                  //     <div className="_button-wrapper">
+                  //       <Link to='/ticket/' className='btn'>BUY TICKETS</Link>
+                  //     </div>
+                  // </div>
+                }
+                <div
+                  className='copy-hero'
+                  dangerouslySetInnerHTML={createMarkup(item.description)}
+                />
               </div>
             </div>
           </div>
@@ -206,6 +212,23 @@ const _renderForm = ticket => (
 )
 
 
+const _renderVideo = data => (
+  <div className='row homepage-lineup'>
+    <div className='section-content'>
+      <div className='small-14 large-10 column large-push-2'>
+        <iframe
+          width='100%'
+          style={{height: '80vh'}}
+          src={"https://www.youtube.com/embed/"+data.video}
+          frameBorder="0"
+          allowFullScreen
+        />
+      </div>
+    </div>
+  </div>
+)
+
+
 const HomeContainer = (props) => {
   const data = props.data
   const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24100424/lib_poster_final_web.jpg'
@@ -213,14 +236,19 @@ const HomeContainer = (props) => {
   (
     <div style={{color: 'white'}}>
       {_renderFirstRow(data[0])}
-      <div className='row homepage-lineup'>
-        <div className='small-14 large-12 column large-push-1'>
-          <a href={imgUrl} target='_blank'>
-            <img style={{border: '10px solid rgba(255,255,255,0.75)', marginTop: '3rem', width: '100%'}} src={imgUrl} />
-          </a>
-        </div>
-      </div>
-      {_renderForm(data[2])}
+      {_renderVideo(data[1])}
+      {
+      // <div className='row homepage-lineup'>
+      //   <div className='small-14 large-12 column large-push-1'>
+      //     <a href={imgUrl} target='_blank'>
+      //       <img style={{border: '10px solid rgba(255,255,255,0.75)', marginTop: '3rem', width: '100%'}} src={imgUrl} />
+      //     </a>
+      //   </div>
+      // </div>
+      }
+      {
+        // _renderForm(data[2])
+      }
       {_renderTwoColumns()([data[4], data[3]])}
       {_renderTwoColumns()([data[6], data[5]])}
     </div>
