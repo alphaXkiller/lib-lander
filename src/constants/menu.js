@@ -4,6 +4,7 @@ const main = [
   { text: 'LINEUP', path: '/lineup' },
   { text: 'VIBE', path: '/vibe' },
   { text: 'NEWS', path: '/news' },
+  { text: 'NEIGHBORHOOD', path: '/neighborhood' },
   { text: 'PLANNING', path: '/planning' },
   { text: 'MERCH', url: 'https://shop.lifeisbeautiful.com/' }
 ]
