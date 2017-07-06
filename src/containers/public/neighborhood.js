@@ -1,5 +1,5 @@
 import R           from 'ramda'
-import React       from 'react'
+import React, { Component }       from 'react'
 import { connect } from 'react-redux'
 import { Link }    from 'react-router-dom'
 
@@ -8,19 +8,14 @@ import { createMarkup } from '../../lib/helpers.js'
 
 
 const _renderNewRow = neighbors_list => {
-  const _left = neighbors_list[0]
+  const neighbors_left = neighbors_list[0]
   const neighbors_right = neighbors_list[1]
 
   return (
-    <div key={neighbors_left.ID} className='row neighbors-row'>
+    <div key={neighbors_left.ID} className='row news-row neighbors-row'>
       <div className='large-7 column'>
         <h2 className='planning-title left-title'>
-          {
-            neighbors_left.is_external_link ?
-              <a href={neighbors_left.external_link} target='_blank'>{neighbors_left.title}</a>
-            :
-              <Link to={`/neighbors/${neighbors_left.slug}`}>{neighbors_left.title}</Link>
-          }
+          <a href={neighbors_left.external_link} target='_blank'>{neighbors_left.title}</a>
         </h2>
         <div className='planning-img'><img src={neighbors_left.image} /></div>
         <div className='large-12 column end'>
@@ -28,12 +23,9 @@ const _renderNewRow = neighbors_list => {
             dangerouslySetInnerHTML={createMarkup(neighbors_left.excerpt)}
           />
           <button className='btn-underline default'>
-            {
-              neighbors_left.is_external_link ?
-                <a href={neighbors_left.external_link} target='_blank'>{neighbors_left.link_text}</a>
-              :
-                <Link to={`/neighbors/${neighbors_left.slug}`}>{neighbors_left.link_text}</Link>
-            }
+            <a href={neighbors_left.external_link} target='_blank'>
+              {neighbors_left.link_text}
+            </a>
             <hr/>
           </button>
         </div>
@@ -42,12 +34,7 @@ const _renderNewRow = neighbors_list => {
         neighbors_right ?
           <div key={neighbors_right.ID} className='large-7 column'>
             <h2 className='planning-title'>
-            {
-              neighbors_right.is_external_link ?
-                <a href={neighbors_right.external_link} target='_blank'>{neighbors_right.title}</a>
-              :
-                <Link to={`/neighbors/${neighbors_right.slug}`}>{neighbors_right.title}</Link>
-            }
+              <a href={neighbors_right.external_link} target='_blank'>{neighbors_right.title}</a>
             </h2>
             <div className='planning-img'><img src={neighbors_right.image} /></div>
             <div className='large-12 column end'>
@@ -55,12 +42,9 @@ const _renderNewRow = neighbors_list => {
                 dangerouslySetInnerHTML={createMarkup(neighbors_right.excerpt)}
               />
               <button className='btn-underline default'>
-                {
-                  neighbors_right.is_external_link ?
-                    <a href={neighbors_right.external_link} target='_blank'>{neighbors_right.link_text}</a>
-                  :
-                    <Link to={`/neighbors/${neighbors_right.slug}`}>{neighbors_right.link_text}</Link>
-                }
+                <a href={neighbors_right.external_link} target='_blank'>
+                  {neighbors_right.link_text}
+                </a>
                 <hr className='pink'/>
               </button>
             </div>
@@ -72,7 +56,7 @@ const _renderNewRow = neighbors_list => {
   )
 }
 
-class neighborsPage extends React.Component {
+class neighborsPage extends Component {
   componentDidMount() {
     this.props.fetchneighbors()
   }
@@ -101,12 +85,12 @@ class neighborsPage extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-  neighbors: R.splitEvery(2, state.neighbors)
+  neighbors: R.splitEvery(2, state.neighborhood)
 })
 
 
 const mapDispatchToProps = (dispatch, getState) => ({
-  fetchneighbors: () => dispatch(neighbors.fetchneighbors())
+  fetchneighbors: () => dispatch(Neighborhood.fetchNeighbors())
 })
 
 
