@@ -32,6 +32,7 @@ const RouteFunctor = [
   { path: '/news/:slug', component: Post },
   { path: '/news', component: News },
   { path: '/ticket', component: Ticket },
+  { path: '/tickets', component: Ticket },
   { path: '/sponsors', component: Sponsors },
   { path: '/:slug', component: Page },
   { component: NotFound }
