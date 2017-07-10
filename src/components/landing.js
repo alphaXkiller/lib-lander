@@ -40,7 +40,7 @@ const _renderFirstRow = item => (
               <div className="columns large-5 medium-14 small-14 centered-logo">
                 <Logo />
               </div>
-              <div className="columns large-9 medium-14 small-14">
+              <div className="columns large-8  large-push-1 medium-14 small-14">
                 {
                   // <div className="copy-hero">
                   //     <h1 className='pink_on title'>DOWNTOWN LAS VEGAS<br />SEPTEMBER 22-24, 2017</h1>
@@ -236,7 +236,7 @@ const HomeContainer = (props) => {
   (
     <div style={{color: 'white'}}>
       {_renderFirstRow(data[0])}
-      {_renderVideo(data[1])}
+      { data[1].video !== '' ? _renderVideo(data[1]) : null}
       {
       // <div className='row homepage-lineup'>
       //   <div className='small-14 large-12 column large-push-1'>
