@@ -249,8 +249,8 @@ const HomeContainer = (props) => {
       {
         // _renderForm(data[2])
       }
-      {_renderTwoColumns()([data[4], data[3]])}
-      {_renderTwoColumns()([data[6], data[5]])}
+      {_renderTwoColumns()([data[3], data[2]])}
+      {_renderTwoColumns()([data[5], data[4]])}
     </div>
   )
 
