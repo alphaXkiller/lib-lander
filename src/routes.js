@@ -25,7 +25,7 @@ const _getQueryFromSearch = R.compose(
 
 const RouteFunctor = [
   { path: '/', component: Home, exact: true},
-  { path: '/lineup', component: Lineup },
+  // { path: '/lineup', component: Lineup },
   { path: '/vibe', component: Vibe },
   { path: '/planning', component: Planning },
   { path: '/neighborhood', component: Neighborhood },

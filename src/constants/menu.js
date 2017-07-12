@@ -1,7 +1,7 @@
 const main = [
   { text: 'HOME', path: '/' },
   { text: 'TICKETS', path: '/ticket' },
-  { text: 'LINEUP', path: '/lineup' },
+  { text: 'LINEUP', url: 'http://lineup.lifeisbeautiful.com/', newTab: false },
   { text: 'VIBE', path: '/vibe' },
   { text: 'NEWS', path: '/news' },
   { text: 'NEIGHBORHOOD', path: '/neighborhood' },
