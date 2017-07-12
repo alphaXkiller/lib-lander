@@ -76,7 +76,7 @@ const _renderMenuSection = onClickCloseDrawer => (
               </Link>
             )
           : (
-              <a key={item.text} href={item.url} target='_blank'>
+              <a key={item.text} href={item.url} target={item.newTab === false ? '' : '_blank'}>
                 <MenuItem
                   innerDivStyle={{padding: '0'}}
                   style={MENU_STYLE}
