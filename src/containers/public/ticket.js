@@ -443,7 +443,7 @@ class TicketPage extends React.Component {
 
                     <div className='large-4 small-14 column large-push-1 text-center end'>
                       <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
-                        <img src={`/assets/${sunGA}`} />
+                        <img src={`/assets/${sunGA_SO}`} />
                       </a>
                     </div>
 
