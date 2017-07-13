@@ -229,28 +229,15 @@ const _renderVideo = data => (
 )
 
 
-const HomeContainer = (props) => {
-  const data = props.data
+const HomeContainer = props => {
+  const welcomeMessage = props.data[0]
+  const elements = R.splitEvery(2, R.slice(1, Infinity, props.data))
   const imgUrl = 'https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24100424/lib_poster_final_web.jpg'
-  return notEmpty(data) ?
+  return notEmpty(props.data) ?
   (
     <div style={{color: 'white'}}>
-      {_renderFirstRow(data[0])}
-      { data[1].video !== '' ? _renderVideo(data[1]) : null}
-      {
-      // <div className='row homepage-lineup'>
-      //   <div className='small-14 large-12 column large-push-1'>
-      //     <a href={imgUrl} target='_blank'>
-      //       <img style={{border: '10px solid rgba(255,255,255,0.75)', marginTop: '3rem', width: '100%'}} src={imgUrl} />
-      //     </a>
-      //   </div>
-      // </div>
-      }
-      {
-        // _renderForm(data[2])
-      }
-      {_renderTwoColumns()([data[3], data[2]])}
-      {_renderTwoColumns()([data[5], data[4]])}
+      { _renderFirstRow(welcomeMessage) }
+      { R.map( _renderTwoColumns() )(elements) }
     </div>
   )
 
