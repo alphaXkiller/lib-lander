@@ -1,7 +1,8 @@
-node_modules 
-yarn.lock 
-npm-debug.log 
+node_modules
+package-lock.json
+yarn.lock
+npm-debug.log
 public/assets/*
-*bundle.js 
+*bundle.js
 *bundle*
 .DS_Store
