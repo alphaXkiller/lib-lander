@@ -28,15 +28,22 @@ const _renderNewRow = news_list => {
             <p
               dangerouslySetInnerHTML={createMarkup(news_left.excerpt)}
             />
-            <button className='btn-underline default'>
               {
                 news_left.is_external_link ?
-                  <a href={news_left.external_link}>{news_left.link_text}</a>
+                  <a href={news_left.external_link}>
+                    <button className='btn-underline default'>
+                      {news_left.link_text}
+                      <hr/>
+                    </button>
+                  </a>
                 :
-                  <a href={`/news/${news_left.slug}`}>{news_left.link_text}</a>
+                  <a href={`/news/${news_left.slug}`}>
+                    <button className='btn-underline default'>
+                      {news_left.link_text}
+                      <hr/>
+                    </button>
+                  </a>
               }
-              <hr/>
-            </button>
           </div>
         </div>
       </div>
@@ -57,15 +64,21 @@ const _renderNewRow = news_list => {
                 <p
                   dangerouslySetInnerHTML={createMarkup(news_right.excerpt)}
                 />
-                <button className='btn-underline default'>
-                  {
-                    news_right.is_external_link ?
-                      <a href={news_right.external_link}>{news_right.link_text}</a>
-                    :
-                      <a href={`/news/${news_right.slug}`}>{news_right.link_text}</a>
-                  }
-                  <hr className='pink'/>
-                </button>
+                {
+                  news_right.is_external_link ?
+                    <a href={news_right.external_link}>
+                      <button className='btn-underline default'>
+                        {news_right.link_text}
+                        <hr className='pink'/>
+                      </button>
+                    </a> :
+                    <a href={`/news/${news_right.slug}`}>
+                      <button className='btn-underline default'>
+                        {news_right.link_text}
+                        <hr className='pink'/>
+                      </button>
+                    </a>
+                }
               </div>
             </div>
           </div>

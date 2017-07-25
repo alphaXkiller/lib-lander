@@ -33,11 +33,15 @@ const RouteFunctor = [
   { path: '/ticket', component: Ticket },
   { path: '/tickets', component: Ticket },
   { path: '/sponsors', component: Sponsors },
+  { path: '/lineup', externalLink: 'http://lineup.lifeisbeautiful.com/' },
   { path: '/:slug', component: Page },
   { component: NotFound }
 ]
 
 const RouteActor = route => {
+  if (route.externalLink)
+    return window.location.href = route.externalLink
+
   return (
     <Route
       path={route.path}

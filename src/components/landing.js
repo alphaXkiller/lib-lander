@@ -129,10 +129,12 @@ const _renderLeftPost = item => {
         <div className='small-full large-4 column title-left-col'>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
-          <button className='btn-underline default'>
-            <a href={item.link}>{item.link_text}</a>
-            <hr/>
-          </button>
+          <a href={item.link}>
+            <button className='btn-underline default'>
+              {item.link_text}
+              <hr/>
+            </button>
+        </a>
         </div>
         <div className='image'>
           <img
@@ -151,10 +153,12 @@ const _renderRightPost = item => {
           <div className='small-full large-4 column title-right-col'>
             <h1>{item.title}</h1>
             <p>{item.description}</p>
-            <button className='btn-underline default'>
-              <a href={item.link}>{item.link_text}</a>
-              <hr className='pink'/>
-            </button>
+            <a href={item.link}>
+              <button className='btn-underline default'>
+                {item.link_text}
+                <hr className='pink'/>
+              </button>
+            </a>
           </div>
           <div className='small-full large-4 column image-right-col'>
             <img src={item.image} />
