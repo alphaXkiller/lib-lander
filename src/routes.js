@@ -34,6 +34,7 @@ const RouteFunctor = [
   { path: '/tickets', component: Ticket },
   { path: '/sponsors', component: Sponsors },
   { path: '/lineup', externalLink: 'http://lineup.lifeisbeautiful.com/' },
+  { path: '/flynyon', externalLink: 'https://contests.lifeisbeautiful.com/?profile=flynyon' },
   { path: '/:slug', component: Page },
   { component: NotFound }
 ]
