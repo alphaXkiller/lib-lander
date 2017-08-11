@@ -48,7 +48,8 @@ module.exports = {
     port: 3000,
     hot: true,
     historyApiFallback: true,
-    compress: true
+    compress: true,
+    host: '192.168.1.210'
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),

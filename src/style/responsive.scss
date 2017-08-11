@@ -7,6 +7,20 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .section-header {
+    .copy-hero {
+      display: flex;
+      align-items: center;
+      padding-bottom: 75px;
+    }
+
+    .btn {
+      font-size: 0.8vw !important;
+    }
+  }
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
   svg#paralogo {
     width: 100%;
@@ -16,7 +30,22 @@
     margin-top: 0;
     & > div {
       padding-left: 0px;
-      margin-top: 5rem;
+    }
+    .copy-hero {
+      display: flex;
+      align-items: center;
+      padding-bottom: 75px;
+    }
+
+    .pink_on {
+      &.title {
+        font-size: 2.1vw;
+      }
+    }
+
+    .btn {
+      font-size: 0.8vw !important;
+      padding: 8px 10px !important;
     }
   }
   .neon-btns .btn {
@@ -32,6 +61,7 @@
       margin-top: 2rem !important;
     }
   }
+
 }
 
 @media screen and (max-width: 647px) {
@@ -57,12 +87,6 @@
   }
   .map-container .map-bg {
     width: calc(100% + 25px)
-  }
-
-  ._button-wrapper {
-    .btn {
-      font-size: 1.25rem;
-    }
   }
 
   .crowd {
@@ -129,7 +153,7 @@
       /*margin: 20px auto;*/
       .btn {
         margin: 0 auto;
-        font-size: 6vw !important;
+        font-size: 3vw !important;
       }
     }
     .copy {

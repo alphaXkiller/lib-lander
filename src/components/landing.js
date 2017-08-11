@@ -3,70 +3,75 @@ import React, { Component }     from 'react'
 import { Link }                 from 'react-router-dom'
 import { mapIndexed, notEmpty, createMarkup, isSafari } from '../lib/helpers'
 
-import Logo from '../containers/public/logo'
-import Form from '../components/form.js'
-import SponsorImg from '../img/sponsor-logos.png'
-import buyTixGif from '../img/buytickets.gif'
-import buyTixPng from '../img/buy_tix.png'
+import Form         from '../components/form.js'
+import SponsorImg   from '../img/sponsor-logos.png'
+import buyTixGif    from '../img/buytickets.gif'
+import buyTixPng    from '../img/buy_tix.png'
 import buySingleDay from '../img/SingleDay_Tickets_5-4.png'
+import cssColors    from '../constants/cssColors'
 
+const _replaceClassIfSafari = R.ifElse(
+  () => isSafari,
+  R.replace('pink_on', 'pink_on_safari'),
+  R.identity
+)
 
 const _renderFirstRow = item => (
   <div key={item.ID} className='row'>
-    <section className='section-content section-header'>
-      <div className={
-        R.join(' ', [
-          'columns',
-          item.show_form ? 'large-7 hide' : 'large-10 hide',
-          item.show_form ? 'large-push-1 hide' : 'large-push-2 hide',
-          'medium-14 hide small-14 hide'
-        ])
-      }>
-        <div className="copy-hero">
-          <div className="copy">
-            <h1 className='pink_on title'>
-              {item.title}
-            </h1>
-            <div dangerouslySetInnerHTML={createMarkup(item.description)} />
-          </div>
+    <section className='section-header'>
+      <a href='http://lineup.lifeisbeautiful.com/'>
+        <div className='row'>
+          <img
+            className='columns large-push-1 large-12 show-for-large'
+            src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09075312/lineup_full.png'
+          />
+          <img
+            className='columns large-6 large-push-1 small-14 hide-for-large'
+            src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09064805/lineup1.png' />
+          <img
+            className='columns large-6 large-pull-1 small-14 hide-for-large'
+            src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09064807/lineup2.png' />
+        </div>
+      </a>
+      <div className='row'>
+        <div className="columns large-12 large-push-1 medium-14 small-14">
+          <div
+            dangerouslySetInnerHTML={
+              createMarkup(_replaceClassIfSafari(item.description))
+            }
+          />
         </div>
       </div>
-
-      {/* <!-- CTA/FORM BLOCK --> */}
-      {
-        item.show_form ?
-          <div className="columns large-12 large-push-1 medium-14 small-14">
-            <div className="row flexy">
-              <div className="columns large-5 medium-14 small-14 centered-logo">
-                <Logo />
-              </div>
-              <div className="columns large-8  large-push-1 medium-14 small-14">
-                {
-                  // <div className="copy-hero">
-                  //     <h1 className='pink_on title'>DOWNTOWN LAS VEGAS<br />SEPTEMBER 22-24, 2017</h1>
-                  //     <br />
-                  //     <div className="_button-wrapper">
-                  //       <Link to='/ticket/' className='btn'>BUY TICKETS</Link>
-                  //     </div>
-                  // </div>
-                }
-                <div
-                  className='copy-hero'
-                  dangerouslySetInnerHTML={createMarkup(item.description)}
-                />
-              </div>
-            </div>
-          </div>
-        : null
-      }
-      {/* <!-- CTA/FORM BLOCK --> */}
-
+      <div className='row'>
+        <div className='columns large-push-2 large-10' >
+          <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+            <img
+              className='columns large-6 small-14'
+              src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09072715/soldout.png'
+            />
+          </a>
+          <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+            <img
+              className='columns large-4 medium-7 small-7'
+              src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09072720/vip3day.png'
+            />
+          </a>
+          <a href='http://www.ticketfly.com/venue/17289-life-is-beautiful/' target='_blank'>
+            <img
+              className='columns large-4 end medium-7 small-7'
+              src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09072718/vip1day.png'
+            />
+          </a>
+        </div>
+      </div>
     </section>
     <div className='row parallax show-for-large'>
       <div className='music-icon large-push-7' />
     </div>
   </div>
 )
+
+
 const _renderSecondRow = item => {
   if (item) {
     return(

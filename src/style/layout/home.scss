@@ -10,6 +10,20 @@
   margin-top: 1rem;
 }
 
+.section-header {
+  .pink_on {
+    font-family: 'AN-Round', sans-serif;
+  }
+
+  .btn {
+    font-size: 3vw;
+    @media screen and (min-width: 1024px) {
+      font-size: 0.8vw;
+    }
+    padding: 8px 10px !important;
+  }
+}
+
 .section-content {
   .copy-hero {
     .title {
