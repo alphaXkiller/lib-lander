@@ -65,7 +65,7 @@ const _renderFirstRow = item => (
         </div>
       </div>
     </section>
-    <div className='row parallax show-for-large'>
+    <div className='row parallax show-for-large hide'>
       <div className='music-icon large-push-7' />
     </div>
   </div>
@@ -179,7 +179,7 @@ const _renderTwoColumns = is_last_row => list => {
     return(
       <div className='row'>
         <div className='section-main'>
-          <div className='row parallax show-for-large'>
+          <div className='row parallax show-for-large hide'>
             <div className='art-icon large-push-12 column' />
           </div>
           <div className='row'>
@@ -194,7 +194,7 @@ const _renderTwoColumns = is_last_row => list => {
       <div className='row'>
         <div className='section-content'>
           <div className='row last-row'>
-            <div className='row parallax show-for-large'>
+            <div className='row parallax show-for-large hide'>
               <div className='ideas-icon large-push-9 column' />
             </div>
             {_renderLeftPost(list[0])}

@@ -20,7 +20,8 @@ const sub = {
   right: [
     { text: 'IMPACT', path: '/impact' },
     { text: 'SPONSORS', path: '/sponsors' },
-    { text: 'LEGAL', url: 'https://lifeisbeautiful.com/policy.html' }
+    { text: 'LEGAL', url: 'https://lifeisbeautiful.com/policy.html' },
+    { text: 'VOLUNTEER', path: '/volunteer' }
   ]
 
 }
