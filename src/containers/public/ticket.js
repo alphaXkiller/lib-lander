@@ -9,17 +9,20 @@ import { createMarkup, loadingLogo } from '../../lib/helpers'
 
 require('smoothscroll-polyfill').polyfill()
 
-import allInRegular      from '../../img/all-in_regular.png'
-import gaAdvanceSoldout  from '../../img/ga_advance_soldout.png'
-import gaAdvance         from '../../img/ga_advance.png'
-import gaEarlySoldout    from '../../img/ga_early_soldout.png'
-import gaRegular         from '../../img/ga_regular.png'
-import gaRegularSoldout   from '../../img/ga_regular_soldout.png'
-import vipAdvanceSoldout from '../../img/vip_advance_soldout.png'
-import vipAdvance        from '../../img/vip_advance.png'
-import vipEarlySoldout   from '../../img/vip_early_soldout.png'
-import vipRegular        from '../../img/vip_regular.png'
-import vvipRegular        from '../../img/vvip_regular.png'
+import allInRegular        from '../../img/all-in_regular.png'
+import allInRegularSoldout from '../../img/all-in_regular_soldout.png'
+import gaAdvanceSoldout    from '../../img/ga_advance_soldout.png'
+import gaAdvance           from '../../img/ga_advance.png'
+import gaEarlySoldout      from '../../img/ga_early_soldout.png'
+import gaRegular           from '../../img/ga_regular.png'
+import gaRegularSoldout    from '../../img/ga_regular_soldout.png'
+import vipAdvanceSoldout   from '../../img/vip_advance_soldout.png'
+import vipAdvance          from '../../img/vip_advance.png'
+import vipEarlySoldout     from '../../img/vip_early_soldout.png'
+import vipRegular          from '../../img/vip_regular.png'
+import vipRegularSoldout   from '../../img/vip_regular_soldout.png'
+import vvipRegular         from '../../img/vvip_regular.png'
+import vvipRegularSoldout  from '../../img/vvip_regular_soldout.png'
 
 import friGA  from '../../img/ga_pink_friday.png'
 import satGA  from '../../img/ga_pink_saturday.png'
@@ -69,9 +72,7 @@ const _renderTicketLg = ticket => (
       <div className='small-14 large-14 column'>
         <div className='hide-for-small-only large-2 column column-height'/>
         <div className='small-14 large-10 column' style={{position: 'relative'}}>
-          {
-            R.equals(ticket.ID, 136) ? _renderSoldOut() : null
-          }
+          { _renderSoldOut() }
           <div className='row ten-row'>
             <div className='small-full large-14 column title-col'>
               <div className='vertical-centered-title'>
@@ -109,7 +110,11 @@ const _renderTicketLg = ticket => (
 
 
 const _renderTicketSm = ticket => (
-  <div className='small-full large-6 column'>
+  <div className='small-full large-6 column' style={{position: 'relative'}}>
+    {
+      ticket.sold_out ?
+        <div className='sold-out' style={ticket.style}>SOLD OUT</div> : null
+    }
     <div className='row ten-row'>
       <div className='small-full large-14 column title-col'>
         <div className='vertical-centered-title align-self-bottom'>
@@ -130,8 +135,6 @@ const _renderTicketSm = ticket => (
         style={{color: 'white'}}
         dangerouslySetInnerHTML={createMarkup(ticket.description)} />
     </div>
-  }
-
   </div>
 )
 
@@ -393,22 +396,16 @@ class TicketPage extends React.Component {
                       <h3>3-DAY GA</h3>
                       <img src={`/assets/${gaRegularSoldout}`} />
 
-                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <h3>V+VIP</h3>
-                        <img src={`/assets/${vvipRegular}`} />
-                      </a>
+                      <h3>V+VIP</h3>
+                      <img src={`/assets/${vvipRegularSoldout}`} />
                     </div>
 
                     <div className='large-7 small-7 column text-center'>
-                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <h3>3-DAY VIP</h3>
-                        <img src={`/assets/${vipRegular}`} />
-                      </a>
+                      <h3>3-DAY VIP</h3>
+                      <img src={`/assets/${vipRegularSoldout}`} />
 
-                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-                        <h3>ALL-IN</h3>
-                        <img src={`/assets/${allInRegular}`} />
-                      </a>
+                      <h3>ALL-IN</h3>
+                      <img src={`/assets/${allInRegularSoldout}`} />
                     </div>
 
                     <div className='large-14 small-14 column text-center neon-btns'>
@@ -430,21 +427,15 @@ class TicketPage extends React.Component {
                   <div className='row'>
 
                     <div className='large-4 small-14 column large-push-1 text-center'>
-                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
-                        <img src={`/assets/${friGA_SO}`} />
-                      </a>
+                      <img src={`/assets/${friGA_SO}`} />
                     </div>
 
                     <div className='large-4 small-14 column large-push-1 text-center'>
-                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
-                        <img src={`/assets/${satGA_SO}`} />
-                      </a>
+                      <img src={`/assets/${satGA_SO}`} />
                     </div>
 
                     <div className='large-4 small-14 column large-push-1 text-center end'>
-                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
-                        <img src={`/assets/${sunGA_SO}`} />
-                      </a>
+                      <img src={`/assets/${sunGA_SO}`} />
                     </div>
 
                   </div>
@@ -455,21 +446,15 @@ class TicketPage extends React.Component {
                   <div className='row'>
 
                     <div className='large-4 small-14 large-push-1 column text-center'>
-                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
-                        <img src={`/assets/${friVIP}`} />
-                      </a>
+                      <img src={`/assets/${friVIP_SO}`} />
                     </div>
 
                     <div className='large-4 small-14 large-push-1 column text-center'>
-                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
-                        <img src={`/assets/${satVIP}`} />
-                      </a>
+                      <img src={`/assets/${satVIP_SO}`} />
                     </div>
 
                     <div className='large-4 small-14 large-push-1 column text-center end'>
-                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
-                        <img src={`/assets/${sunVIP}`} />
-                      </a>
+                      <img src={`/assets/${sunVIP_SO}`} />
                     </div>
 
                   </div>
@@ -565,8 +550,17 @@ class TicketPage extends React.Component {
                       <div className='small-14 large-14 column'>
                         <div className='hide-for-small-only large-2 column column-height'/>
                         <div className='small-14 large-10 column'>
-                            { hotel[1] ? _renderTicketSm(hotel[1]) : null }
-                            { hotel[2] ? _renderTicketSm(hotel[2]) : null }
+                          { hotel[1] ? _renderTicketSm(
+                            R.merge(hotel[1], {
+                              sold_out: true, style: {paddingTop: '450px'}
+                            })) : null
+                          }
+                          {
+                            hotel[2] ?
+                              _renderTicketSm(
+                                R.merge(hotel[2], {sold_out: true})
+                              ) : null
+                          }
                         </div>
                         <div className='hide-for-small-only large-2 column column-height'/>
                       </div>
@@ -579,8 +573,8 @@ class TicketPage extends React.Component {
                       <div className='small-14 large-14 column'>
                         <div className='hide-for-small-only large-2 column column-height'/>
                         <div className='small-14 large-10 column'>
-                            { hotel[3] ? _renderTicketSm(hotel[3]) : null }
-                            { hotel[4] ? _renderTicketSm(hotel[4]) : null }
+                            { hotel[3] ? _renderTicketSm(R.merge(hotel[3], { sold_out: true })) : null }
+                            { hotel[4] ? _renderTicketSm(R.merge(hotel[4], { sold_out: true })) : null }
                         </div>
                         <div className='hide-for-small-only large-2 column column-height'/>
                       </div>

@@ -7,14 +7,14 @@
     .map-bg {
       width: calc(100% + 80px);
       height: 100%;
-      background: url('https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24110247/libmap_v1.jpg') no-repeat center center;
-      background-size: cover;
+      background: url('https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/09/18100523/LIB2017-FestivalGuide_map_noSponsors-1.jpg') no-repeat center center;
+      background-size: contain;
     }
   }
 
   .map-bg {
     width: 100%;
-    background: url('https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/04/24110247/libmap_v1.jpg') no-repeat center center;
+    background: url('https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/09/18100523/LIB2017-FestivalGuide_map_noSponsors-1.jpg') no-repeat center center;
     background-size: contain;
   }
 }

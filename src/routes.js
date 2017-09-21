@@ -33,20 +33,16 @@ const RouteFunctor = [
   { path: '/ticket', component: Ticket },
   { path: '/tickets', component: Ticket },
   { path: '/sponsors', component: Sponsors },
-  { path: '/lineup', externalLink: 'http://lineup.lifeisbeautiful.com/' },
-  { path: '/flynyon', externalLink: 'https://contests.lifeisbeautiful.com/?profile=flynyon' },
-  { path: '/downtowngrand', externalLink: 'https://contests.lifeisbeautiful.com/?profile=downtown-grand' },
-  { path: '/plaza', externalLink: 'https://contests.lifeisbeautiful.com/?profile=plaza-mgmt' },
-  { path: '/wildfangexclusive', externalLink: 'https://contests.lifeisbeautiful.com/?profile=wildfang-exclusive' },
-  { path: '/wildfang', externalLink: 'https://contests.lifeisbeautiful.com/?profile=wildfang' },
-  { path: '/cbs', externalLink: 'https://contests.lifeisbeautiful.com/?profile=cbs-radio' },
   { path: '/:slug', component: Page },
   { component: NotFound }
 ]
 
+
 const RouteActor = route => {
-  if (route.externalLink)
-    return window.location.href = route.externalLink
+  if (route.external_link) {
+    window.location.href = route.external_link
+    return <Route path={route.path}/>
+  }
 
   return (
     <Route

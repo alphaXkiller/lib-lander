@@ -9,6 +9,7 @@ import {
 } from './routes.js'
 import Header from './components/header.js'
 import Grid from './components/shared-components/grid.js'
+import { ExternalLink } from './actions'
 
 import './style/main.scss'
 import apeLogo from './img/ape-logo_32.png'

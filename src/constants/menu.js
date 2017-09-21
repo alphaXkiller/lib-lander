@@ -1,5 +1,5 @@
 const main = [
-  { text: 'HOME', path: '/' },
+  { text: 'HOME', url: '/', newTab: false },
   { text: 'TICKETS', path: '/ticket' },
   { text: 'LINEUP', url: 'http://lineup.lifeisbeautiful.com/', newTab: false },
   { text: 'VIBE', path: '/vibe' },
