@@ -72,7 +72,7 @@ const _renderTicketLg = ticket => (
       <div className='small-14 large-14 column'>
         <div className='hide-for-small-only large-2 column column-height'/>
         <div className='small-14 large-10 column' style={{position: 'relative'}}>
-          { _renderSoldOut() }
+          { ticket.ID !== 147 ? _renderSoldOut() : null }
           <div className='row ten-row'>
             <div className='small-full large-14 column title-col'>
               <div className='vertical-centered-title'>
@@ -396,16 +396,23 @@ class TicketPage extends React.Component {
                       <h3>3-DAY GA</h3>
                       <img src={`/assets/${gaRegularSoldout}`} />
 
-                      <h3>V+VIP</h3>
-                      <img src={`/assets/${vvipRegularSoldout}`} />
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+                        <h3>V+VIP</h3>
+                        <img src={`/assets/${vvipRegular}`} />
+                      </a>
                     </div>
 
                     <div className='large-7 small-7 column text-center'>
-                      <h3>3-DAY VIP</h3>
-                      <img src={`/assets/${vipRegularSoldout}`} />
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+                        <h3>3-DAY VIP</h3>
+                        <img src={`/assets/${vipRegularSoldout}`} />
+                      </a>
 
-                      <h3>ALL-IN</h3>
-                      <img src={`/assets/${allInRegularSoldout}`} />
+                      <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
+                        <h3>ALL-IN</h3>
+                        <img src={`/assets/${allInRegularSoldout}`} />
+                      </a>
+
                     </div>
 
                     <div className='large-14 small-14 column text-center neon-btns'>
@@ -427,15 +434,21 @@ class TicketPage extends React.Component {
                   <div className='row'>
 
                     <div className='large-4 small-14 column large-push-1 text-center'>
-                      <img src={`/assets/${friGA_SO}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
+                        <img src={`/assets/${friGA_SO}`} />
+                      </a>
                     </div>
 
                     <div className='large-4 small-14 column large-push-1 text-center'>
-                      <img src={`/assets/${satGA_SO}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
+                        <img src={`/assets/${satGA_SO}`} />
+                      </a>
                     </div>
 
                     <div className='large-4 small-14 column large-push-1 text-center end'>
-                      <img src={`/assets/${sunGA_SO}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
+                        <img src={`/assets/${sunGA_SO}`} />
+                      </a>
                     </div>
 
                   </div>
@@ -446,15 +459,21 @@ class TicketPage extends React.Component {
                   <div className='row'>
 
                     <div className='large-4 small-14 large-push-1 column text-center'>
-                      <img src={`/assets/${friVIP_SO}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480725" target="_blank">
+                        <img src={`/assets/${friVIP_SO}`} />
+                      </a>
                     </div>
 
                     <div className='large-4 small-14 large-push-1 column text-center'>
-                      <img src={`/assets/${satVIP_SO}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480737" target="_blank">
+                        <img src={`/assets/${satVIP_SO}`} />
+                      </a>
                     </div>
 
                     <div className='large-4 small-14 large-push-1 column text-center end'>
-                      <img src={`/assets/${sunVIP_SO}`} />
+                      <a href="https://www.ticketfly.com/purchase/event/1480738" target="_blank">
+                        <img src={`/assets/${sunVIP_SO}`} />
+                      </a>
                     </div>
 
                   </div>

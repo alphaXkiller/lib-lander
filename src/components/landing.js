@@ -8,6 +8,8 @@ import SponsorImg   from '../img/sponsor-logos.png'
 import buyTixGif    from '../img/buytickets.gif'
 import buyTixPng    from '../img/buy_tix.png'
 import buySingleDay from '../img/SingleDay_Tickets_5-4.png'
+import soldOutImg   from '../img/soldout_stamp_optimized.png'
+import pinkBarImg   from '../img/sm_divider.png'
 import cssColors    from '../constants/cssColors'
 
 const _replaceClassIfSafari = R.ifElse(
@@ -20,7 +22,7 @@ const _renderFirstRow = item => (
   <div key={item.ID} className='row'>
     <section className='section-header'>
       <a href='http://lineup.lifeisbeautiful.com/'>
-        <div className='row'>
+        <div className='row' style={{marginBottom: '30px'}}>
           <img
             className='columns large-push-1 large-12 show-for-large'
             src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09075312/lineup_full.png'
@@ -43,25 +45,22 @@ const _renderFirstRow = item => (
         </div>
       </div>
       <div className='row'>
-        <div className='columns large-push-2 large-10' >
-          <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-            <img
-              className='columns large-6 small-14'
-              src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09072715/soldout.png'
-            />
-          </a>
-          <a href='https://www.ticketfly.com/purchase/event/1318649' target='_blank'>
-            <img
-              className='columns large-4 medium-7 small-7'
-              src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09072720/vip3day.png'
-            />
-          </a>
-          <a href='http://www.ticketfly.com/venue/17289-life-is-beautiful/' target='_blank'>
-            <img
-              className='columns large-4 end medium-7 small-7'
-              src='https://s3.amazonaws.com/lib-wp-library-assets/wp-content/uploads/2017/08/09072718/vip1day.png'
-            />
-          </a>
+        <div className='columns large-push-2 large-10 soldout-headline' >
+          <img className='columns large-4 small-5' src={`/assets/${soldOutImg}`}/>
+          <div className='columns large-11'>
+            <h3>CAN'T MAKE IT THIS YEAR?</h3>
+            <div className='context'>
+              <div>
+                <p>CATCH THE DAILY LIVE STREAM FROM 5PM (PST) ON YAHOO!<br/>& ENTER TO WIN 4 VIP TICKETS + TRAVEL $ FOR NEXT YEAR!</p>
+                {
+                  <div className='_button-wrapper'>
+                    <a href='https://contests.lifeisbeautiful.com/?profile=live-stream' className='btn'>GET ACCESS</a>
+                  </div>
+                }
+              </div>
+              <img src={`/assets/${pinkBarImg}`}/>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -70,40 +69,6 @@ const _renderFirstRow = item => (
     </div>
   </div>
 )
-
-
-const _renderSecondRow = item => {
-  if (item) {
-    return(
-      <div key={item.ID} className='row featured'>
-        <section className='section-content section-main large-14 column'>
-          <div className='small-14 large-14 column'>
-            <div className='hide-for-small-only large-2 column column-height' />
-            <div className='small-14 large-10 column'>
-              <div className='row ten-row'>
-                <div className='small-full large-4 column title-col'>
-                  <div className='vertical-centered-title'>
-                    <h1 className='section-title'> {item.title} </h1>
-                  </div>
-                  <button className='btn-underline default'>
-                    <Link to='/lineup' >{item.link_text}</Link>
-                    <hr/>
-                  </button>
-                </div>
-                <div className='small-full large-8 column'>
-                  <div>
-                    <img src={item.image} />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className='large-2 column column-height' />
-          </div>
-        </section>
-      </div>
-    )
-  } else { return null }
-}
 
 
 const _renderCenter = item => {

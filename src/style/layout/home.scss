@@ -193,11 +193,11 @@
         margin-top: 15px;
         @media (min-width: 1024px) {
           align-self: flex-start;
-          margin-top: -4px;
+          margin-top: 0px;
           width: 7vw;
         }
         @media (min-width: 1440px) {
-          margin-top: -7px;
+          margin-top: 7px;
         }
       }
 
