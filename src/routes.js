@@ -44,6 +44,11 @@ const RouteActor = route => {
     return <Route path={route.path}/>
   }
 
+  if (route.path === '/') {
+    window.location.href = '/home.html'
+    return <Route path={route.path}/>
+  }
+
   return (
     <Route
       path={route.path}
