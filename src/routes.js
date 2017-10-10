@@ -24,14 +24,14 @@ const _getQueryFromSearch = R.compose(
 )
 
 const RouteFunctor = [
-  { path: '/', component: Home, exact: true},
-  { path: '/vibe', component: Vibe },
-  { path: '/planning', component: Planning },
+  { path: '/', component: Home, exact: true, redirectTo: '/home.html'},
+  { path: '/vibe', component: Vibe, redirectTo: '/'},
+  { path: '/planning', component: Planning, redirectTo: '/' },
   { path: '/neighborhood', component: Neighborhood },
   { path: '/news/:slug', component: Post },
   { path: '/news', component: News },
-  { path: '/ticket', component: Ticket },
-  { path: '/tickets', component: Ticket },
+  { path: '/ticket', component: Ticket, redirectTo: '/' },
+  { path: '/tickets', component: Ticket, redirectTo: '/' },
   { path: '/sponsors', component: Sponsors },
   { path: '/:slug', component: Page },
   { component: NotFound }
@@ -44,9 +44,8 @@ const RouteActor = route => {
     return <Route path={route.path}/>
   }
 
-  if (route.path === '/') {
+  if (route.redirectTo) {
     window.location.href = '/home.html'
-    return <Route path={route.path}/>
   }
 
   return (

@@ -1,11 +1,11 @@
 const main = [
   { text: 'HOME', url: '/home.html', newTab: false },
-  { text: 'TICKETS', path: '/ticket' },
-  { text: 'LINEUP', url: 'http://lineup.lifeisbeautiful.com/', newTab: false },
-  { text: 'VIBE', path: '/vibe' },
+  // { text: 'TICKETS', path: '/ticket' },
+  // { text: 'LINEUP', url: 'http://lineup.lifeisbeautiful.com/', newTab: false },
+  // { text: 'VIBE', path: '/vibe' },
   { text: 'NEWS', path: '/news' },
   { text: 'NEIGHBORHOOD', path: '/neighborhood' },
-  { text: 'PLANNING', path: '/planning' },
+  // { text: 'PLANNING', path: '/planning' },
   { text: 'MERCH', url: 'https://shop.lifeisbeautiful.com/' }
 ]
 
